@@ -1,0 +1,219 @@
+{
+  "checkedAt": "2026-10-15T18:47:53.998Z",
+  "scope": "Local Robinhood fork lab; reconstructed math plus our protocol implementation, not original full-source recovery or a production audit",
+  "tests": {
+    "demoIntegration": 16,
+    "protocol": 12,
+    "archiveIntegrity": 8
+  },
+  "health": {
+    "checkedAt": "2026-10-15T18:47:53.998Z",
+    "passed": true,
+    "checks": [
+      {
+        "name": "UI backend responds",
+        "pass": true
+      },
+      {
+        "name": "Local chain ID isolates signatures",
+        "pass": true
+      },
+      {
+        "name": "No regression checkpoint active",
+        "pass": true
+      },
+      {
+        "name": "Source is Robinhood mainnet",
+        "pass": true
+      },
+      {
+        "name": "Ten distinct funded wallets",
+        "pass": true
+      },
+      {
+        "name": "Pinned source block hash retained",
+        "pass": true
+      },
+      {
+        "name": "Runtime hash: collateral",
+        "pass": true
+      },
+      {
+        "name": "Runtime hash: token",
+        "pass": true
+      },
+      {
+        "name": "Runtime hash: staking",
+        "pass": true
+      },
+      {
+        "name": "Runtime hash: oracle",
+        "pass": true
+      },
+      {
+        "name": "Runtime hash: exchange",
+        "pass": true
+      },
+      {
+        "name": "Runtime hash: governance",
+        "pass": true
+      },
+      {
+        "name": "Known dev accounts are plain local EOAs",
+        "pass": true
+      },
+      {
+        "name": "Exchange owner is timelock",
+        "pass": true
+      },
+      {
+        "name": "Cash invariant",
+        "pass": true
+      },
+      {
+        "name": "Actual custody covers accounted assets",
+        "pass": true
+      },
+      {
+        "name": "Hard daily cap remains 5m collateral",
+        "pass": true
+      },
+      {
+        "name": "Daily budget within bounds",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/Economics.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/Exchange.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/Governance.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/Interfaces.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/ProtocolStaking.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/ProtocolToken.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/StreamOracle.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: demo/contracts/LabContracts.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: reverse-engineered/settlement/SettlementMath.reconstructed.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: reverse-engineered/token/MintCurve.reconstructed.sol",
+        "pass": true
+      },
+      {
+        "name": "Recovered helper identity exposed",
+        "pass": true
+      },
+      {
+        "name": "UI document loads",
+        "pass": true
+      }
+    ],
+    "sourceFork": {
+      "chainId": 4663,
+      "block": 89432040,
+      "hash": "0xdcc60897c067f07a0b5fe7e61f2f2d9e02c3439d9f05559089c9a7b1ffae67a7"
+    },
+    "local": {
+      "chainId": 31337,
+      "block": 89432514,
+      "positions": 2,
+      "actors": 10,
+      "houseCash": "8000098000000",
+      "queued": "0",
+      "oraclePaused": false,
+      "heartbeat": true
+    }
+  },
+  "deployment": {
+    "chainId": 31337,
+    "contracts": {
+      "collateral": "0x7F6f314D460C7751bF1F9784D34Bba2C2AE82CeB",
+      "token": "0xB10982193B39Eda3428d6AaeBbd7986f2A2Baa1a",
+      "staking": "0x74156A1F9736307b7AD34e3691f3A5B54A0B3Eb8",
+      "oracle": "0x0Db32f0b116773fDD78C2e1b5E6609CC502e6784",
+      "exchange": "0x770ace66dd84B035F71FfC977448032EE688604d",
+      "governance": "0x980ea9f1a0C36e1E5f3B6BD451bEf8a7Fe661f97"
+    },
+    "runtimeHashes": {
+      "collateral": "0x798634519181606eeb3be58c34da0157230eb99c413856f734e56c0e3b3743c3",
+      "token": "0xaccec46f6485bad7866d34658560fe03b8db1ecf0f42e5db3c1e3a4eaf3eafbc",
+      "staking": "0x99b942e00e3fd44e9b81647e6858bfd42d41f98ddcf85d1972422ac7b0798341",
+      "oracle": "0xff0a9ff2c12c4aeb678d207733a1d4bfb2bcc8c00cc90352b4372fef45710573",
+      "exchange": "0x9ca9e19c69678c4059f59daea2e945ae0262e29f3ebf665736cd7c769a4aa5ea",
+      "governance": "0x383ac7d3449aaab1bdc06077c807dabd0ce5df74263fb4720dd3c96047bc4cf4"
+    }
+  },
+  "browserTransactionProof": [
+    {
+      "hash": "0x5211891794294aa3bae89e4e495306d722dd4363daebe6ea6897b677a98cc316",
+      "block": 89432398,
+      "actor": 6,
+      "contract": "exchange",
+      "method": "withdraw",
+      "status": 1
+    },
+    {
+      "hash": "0x8c72304361c24fb7cdd15af990a74c1502d38cf3e8c987838392556b12becc17",
+      "block": 89432389,
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "status": 1
+    },
+    {
+      "hash": "0xd1684e59a49cefdd94b5eb963432d312d52533db940ecba84db91986b1a05dcd",
+      "block": 89432386,
+      "actor": 6,
+      "contract": "exchange",
+      "method": "request",
+      "status": 1
+    },
+    {
+      "hash": "0xf5bbb0d1f56d94985af62d2f841235c3d38d889f73619ccc6d4178a007af11b9",
+      "block": 89432378,
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "status": 1
+    },
+    {
+      "hash": "0x72605cdb2c697aaab8b348a7dd44f5714fb9b5498c5f9dd9b33b4db353b6af74",
+      "block": 89432375,
+      "actor": 6,
+      "contract": "exchange",
+      "method": "request",
+      "status": 1
+    },
+    {
+      "hash": "0x6996234ae0bfcc0b3d8ff484c674fdf1ec6e204e3ffbf7e633a152e313537880",
+      "block": 89432368,
+      "actor": 6,
+      "contract": "exchange",
+      "method": "deposit",
+      "status": 1
+    }
+  ]
+}

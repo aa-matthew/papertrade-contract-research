@@ -267,12 +267,18 @@ contract Exchange is Ownable, ReentrancyGuard, EIP712 {
             emit Queued(id, user, amount);
         }
     }
+    function _positionPnl(Position memory p, uint256 value) internal pure virtual returns (int256) {
+        return Economics.pnl(p.entry, value, p.margin, p.leverage, p.isLong, p.impact);
+    }
+    function _lossMintQuote(uint256 basis) internal view virtual returns (uint256, uint256) {
+        return Economics.mintQuote(trackedLpWad, tailProgressWad, basis * TO_WAD, int256(flatThresholdWad), 100e18, decayScaleWad);
+    }
     function _settle(uint256 id, uint256 value, bool liquidation) private {
         Position memory p = positions[id]; require(p.user != address(0), "position"); delete positions[id];
         uint256 notional = uint256(p.margin) * p.leverage;
         if (p.isLong) longNotional[p.market] -= notional; else shortNotional[p.market] -= notional;
         lockedMargin -= p.margin; openCount--;
-        int256 result = liquidation ? -int256(uint256(p.margin)) : Economics.pnl(p.entry, value, p.margin, p.leverage, p.isLong, p.impact);
+        int256 result = liquidation ? -int256(uint256(p.margin)) : _positionPnl(p, value);
         if (result <= 0) {
             uint256 loss = uint256(-result);
             _credit(p.user, uint256(p.margin) - loss);
@@ -280,7 +286,7 @@ contract Exchange is Ownable, ReentrancyGuard, EIP712 {
             houseCash += loss - fee; _accrueFee(fee);
             uint256 basis = liquidation ? loss : loss - fee;
             if (basis != 0) {
-                (uint256 minted, uint256 tail) = Economics.mintQuote(trackedLpWad, tailProgressWad, basis * TO_WAD, int256(flatThresholdWad), 100e18, decayScaleWad);
+                (uint256 minted, uint256 tail) = _lossMintQuote(basis);
                 tailProgressWad += tail; participation.mint(p.user, minted);
                 emit ParticipationMinted(p.user, basis, minted);
             }

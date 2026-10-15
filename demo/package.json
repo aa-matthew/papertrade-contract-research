@@ -1,0 +1,15 @@
+{
+  "name": "papertrade-robinhood-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/start.mjs",
+    "compile": "node scripts/compile.mjs",
+    "test": "node --test test/api.test.mjs",
+    "up": "node scripts/daemon.mjs start",
+    "down": "node scripts/daemon.mjs stop",
+    "status": "node scripts/daemon.mjs status",
+    "check": "node scripts/check.mjs",
+    "seed:chart": "node scripts/seed-chart.mjs"
+  }
+}

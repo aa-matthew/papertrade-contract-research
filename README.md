@@ -6,6 +6,8 @@ Local research copy of the deployed Papertrade protocol on HyperEVM (chain 999),
 
 **Our Robinhood implementation:** [standalone protocol folder](protocol/README.md) contains original Solidity contracts, local integration tests, Robinhood deployment configurations, and deployment/operations guides. It is separate from the archived Papertrade contracts and partial reconstructions.
 
+**Interactive lab:** [Robinpaper demo](demo/README.md) runs a pinned Robinhood fork, the recovered math helpers inside a functional local exchange, ten actor wallets, and a Papertrade-inspired trading UI. Start with `npm run up --prefix demo`, then open http://127.0.0.1:4173.
+
 ## Reading order
 
 1. [Contract inventory and implementation addresses](inspection/CONTRACTS.md).

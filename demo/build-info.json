@@ -1,0 +1,21 @@
+{
+  "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+  "evmVersion": "cancun",
+  "sources": {
+    "protocol/src/Economics.sol": "3fb614cb74e2fbb697fd958abf55af39fae9e54c1cb31a080bcec6e0b88e6b70",
+    "protocol/src/Exchange.sol": "3239e60e6185f67428c66f1a24cf1abb51e651f63ef5377b7586bf23716a505d",
+    "protocol/src/Governance.sol": "437c58fb5dab2798d8cc3d18b4466903ac54565638b5b2c0b83ac020d6fdc7f1",
+    "protocol/src/Interfaces.sol": "0b55032e73e2638c43e74a545c192285f2d5ca1b7e8733b4ef7de868102f25f7",
+    "protocol/src/ProtocolStaking.sol": "844ab4ef4ac57fd4aa454305192810ca928b2355bfee25e399bc322aa7b9ac02",
+    "protocol/src/ProtocolToken.sol": "4237e4f47cfac9e0ca85d9156dfa2392cf3ec1e504d49d86eeb70c03bbe687be",
+    "protocol/src/StreamOracle.sol": "d34c3886bc67fb16ce81be79b1e99fc500229b67e0edf0e963093dcc395dffe9",
+    "demo/contracts/LabContracts.sol": "2d117622807e6dd996c64499c9d0d110a4788bfa7c5a771c4895b41e3f8a5b36",
+    "reverse-engineered/settlement/SettlementMath.reconstructed.sol": "7c79e168b2708f9dc9aa96905cdd18c3e1a60e4a8ccb5480ac946f0004152b3b",
+    "reverse-engineered/token/MintCurve.reconstructed.sol": "cbac5385855f4d5ce0b07cc307cb2b2a5f8d265a9bce60c67a6d2345f6aa81c4"
+  },
+  "runtimeBytes": {
+    "ReconstructedLabExchange": 23532,
+    "LabOracle": 1752,
+    "LabCollateral": 2044
+  }
+}
