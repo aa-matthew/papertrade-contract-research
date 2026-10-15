@@ -1,0 +1,44 @@
+{
+  "chainId": 46630,
+  "rpcUrl": "https://rpc.testnet.chain.robinhood.com",
+  "governor": "",
+  "guardian": "",
+  "developer": "",
+  "timelockDelay": 86400,
+  "unpauseLocal": false,
+  "markets": [
+    {
+      "id": 1,
+      "symbol": "BTC/USD",
+      "risk": {
+        "enabled": false,
+        "maxLeverage": 20,
+        "delay": 2,
+        "executionWindow": 20,
+        "bustBufferBps": 10,
+        "minMargin": "1000000",
+        "maxMargin": "1000000000",
+        "sideCap": "10000000000",
+        "impact": {
+          "base": "10000000000000000",
+          "rate": "100000000000000000000",
+          "position": "1000000000000000000",
+          "referenceUsd": "1000000000000000000"
+        }
+      },
+      "feed": {
+        "id": "",
+        "decimals": 18,
+        "maxAge": 10,
+        "maxSpreadBps": 100,
+        "minPrice": "1000000000000000000000",
+        "maxPrice": "1000000000000000000000000"
+      }
+    }
+  ],
+  "collateral": "",
+  "verifier": "",
+  "sequencer": "",
+  "sequencerRiskAcknowledged": false,
+  "recoveryGrace": 3600
+}

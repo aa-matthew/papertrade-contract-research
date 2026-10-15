@@ -4,6 +4,8 @@ Local research copy of the deployed Papertrade protocol on HyperEVM (chain 999),
 
 **REA reverse engineering:** [reconstruction report](reverse-engineered/REPORT.md) contains REA evidence for 19 bytecode carriers, reconstructed Solidity, corrected batch ABI, exact mint/PnL rounding, recovered storage, and differential tests. The report separates tested reconstructions from incomplete paths.
 
+**Our Robinhood implementation:** [standalone protocol folder](protocol/README.md) contains original Solidity contracts, local integration tests, Robinhood deployment configurations, and deployment/operations guides. It is separate from the archived Papertrade contracts and partial reconstructions.
+
 ## Reading order
 
 1. [Contract inventory and implementation addresses](inspection/CONTRACTS.md).

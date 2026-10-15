@@ -1,0 +1,21 @@
+{
+  "name": "robinhood-synthetic-protocol",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compile": "node scripts/compile.mjs",
+    "test": "node --test --test-concurrency=1 test/protocol.test.mjs",
+    "deploy:local": "node scripts/deploy.mjs --config config/local.json --broadcast",
+    "deploy:plan": "node scripts/deploy.mjs --config config/robinhood-testnet.json",
+    "status": "node scripts/operate.mjs status",
+    "pretest": "npm run compile"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.6.1",
+    "ethers": "6.16.0"
+  },
+  "devDependencies": {
+    "solc": "0.8.30"
+  }
+}

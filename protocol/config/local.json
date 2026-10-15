@@ -1,0 +1,31 @@
+{
+  "chainId": 31337,
+  "rpcUrl": "http://127.0.0.1:8546",
+  "governor": "",
+  "guardian": "",
+  "developer": "",
+  "timelockDelay": 86400,
+  "unpauseLocal": true,
+  "markets": [
+    {
+      "id": 1,
+      "symbol": "BTC/USD",
+      "risk": {
+        "enabled": true,
+        "maxLeverage": 20,
+        "delay": 2,
+        "executionWindow": 20,
+        "bustBufferBps": 10,
+        "minMargin": "1000000",
+        "maxMargin": "1000000000",
+        "sideCap": "10000000000",
+        "impact": {
+          "base": "10000000000000000",
+          "rate": "100000000000000000000",
+          "position": "1000000000000000000",
+          "referenceUsd": "1000000000000000000"
+        }
+      }
+    }
+  ]
+}

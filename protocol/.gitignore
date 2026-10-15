@@ -1,0 +1,7 @@
+node_modules/
+artifacts/
+cache/
+out/
+.env
+deployments/*.local.json
+test/results.json
