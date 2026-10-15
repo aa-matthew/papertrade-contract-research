@@ -12,6 +12,7 @@
     "check": "node scripts/check.mjs",
     "seed:chart": "node scripts/seed-chart.mjs",
     "simulate:binance": "node scripts/binance-sim.mjs",
-    "test:feed": "node --test test/binance.test.mjs"
+    "test:feed": "node --test test/binance.test.mjs",
+    "test:showcase": "node --test --test-concurrency=1 test/showcase.test.mjs"
   }
 }

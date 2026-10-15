@@ -24,7 +24,7 @@ const sourceProxy=await forkClient.serve(fork);
 const args=['--host','127.0.0.1','--port','9545','--chain-id','31337','--fork-url','http://127.0.0.1:9546','--fork-chain-id','4663','--fork-header','User-Agent: Mozilla/5.0','--fork-block-number',String(fork.blockNumber),'--hardfork','cancun','--accounts','10','--balance','10000','--state',runtime+'/anvil-state.local.json','--state-interval','15','--no-cors','--silent'];
 const anvil=spawn(process.env.ANVIL_BIN||'anvil',args,{stdio:['ignore','inherit','inherit'],env:{...process.env,RUST_LOG:'error'}});
 let server;let stopping=false;
-function stop(){if(stopping)return;stopping=true;server?.kill('SIGTERM');anvil.kill('SIGTERM');sourceProxy.close();}
+async function stop(){if(stopping)return;stopping=true;if(server&&server.exitCode===null){server.kill('SIGTERM');await new Promise(resolve=>{const timer=setTimeout(resolve,6000);server.once('exit',()=>{clearTimeout(timer);resolve();});});}anvil.kill('SIGTERM');sourceProxy.close();}
 process.on('SIGINT',stop);process.on('SIGTERM',stop);anvil.on('exit',code=>{if(!stopping){server?.kill();process.exit(code||1);}});
 let ready=false;for(let i=0;i<100;i++){try{const r=await fetch('http://127.0.0.1:9545',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method:'eth_chainId',params:[]})});if((await r.json()).result==='0x7a69'){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}
 if(!ready){stop();throw Error('Fork did not start');}

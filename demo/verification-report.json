@@ -1,14 +1,15 @@
 {
-  "checkedAt": "2026-10-15T18:50:31.967Z",
+  "checkedAt": "2026-10-15T18:59:20.292Z",
   "scope": "Local Robinhood fork lab; reconstructed math plus our protocol implementation, not original full-source recovery or a production audit",
   "tests": {
     "demoIntegration": 16,
     "protocol": 12,
     "archiveIntegrity": 8,
-    "binanceValidation": 3
+    "binanceValidation": 3,
+    "showcaseIntegration": 3
   },
   "health": {
-    "checkedAt": "2026-10-15T18:50:31.967Z",
+    "checkedAt": "2026-10-15T18:59:20.292Z",
     "passed": true,
     "checks": [
       {
@@ -163,7 +164,7 @@
     },
     "local": {
       "chainId": 31337,
-      "block": 89432542,
+      "block": 89432614,
       "positions": 2,
       "actors": 10,
       "houseCash": "8000098000000",
@@ -249,5 +250,20 @@
     "roundTrips": 2,
     "reverted": true,
     "restored": true
+  },
+  "showcase": {
+    "report": "showcase-rehearsal-report.json",
+    "phases": 10,
+    "successfulReceipts": 84,
+    "actors": 10,
+    "outcome": "completed",
+    "restored": true,
+    "gracefulShutdownAndRestart": {
+      "passed": true,
+      "outcome": "stopped",
+      "restored": true,
+      "checkedAt": "2026-10-15T18:59:12.452Z",
+      "restartPreservedBalancesAndPositions": true
+    }
   }
 }

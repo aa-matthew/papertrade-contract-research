@@ -2,6 +2,10 @@
 
 Open **http://127.0.0.1:4173** on this computer. The lab runs a pinned Robinhood mainnet fork with a separate local chain ID **31337**, reconstructed Solidity math, functional protocol contracts and ten funded actor wallets. All collateral is **LABUSD with no real value**.
 
+## Present tomorrow
+
+Open **http://127.0.0.1:4173/#showcase** for a one-click, repeatable presentation. The full tour automates ten protocol phases; continuous mode runs an oracle/trading desk using scenario or live Binance prices. Stop/completion restores original state. See the Vietnamese [presenter script, product insights and recovery guide](docs/SHOWCASE.md). macOS launcher: `demo/start-showcase.command`.
+
 ## First five minutes
 
 1. Start as **06 Alice**. Trade shows a seeded BTC long and $9,500 available margin. Open another long or switch market to ETH. Auto-execution commits an order, advances the local clock and executes through the keeper against a later scenario observation.

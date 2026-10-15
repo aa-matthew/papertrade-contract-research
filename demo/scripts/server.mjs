@@ -1,4 +1,5 @@
 import http from 'node:http';
+import {createShowcase} from './showcase.mjs';
 import {readFile,writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {randomBytes} from 'node:crypto';
@@ -45,6 +46,7 @@ async function request(actor,a,positionId=0n){
 async function action(a){
  const actor=index(a.actor),id=String(a.id||'0'),amount=()=>units(a.amount||'0');
  switch(a.action){
+ case 'presentationHistory':for(const m of deployment.markets){history[m.id]=history[m.id]?.slice(-1)||[];}await save('prices.local.json',history);return {cleared:true};
  case 'snapshot':{
  const id=await provider.send('evm_snapshot',[]);checkpoints.set(id,{journal:structuredClone(journal),history:structuredClone(history),operations:structuredClone(operations),prices:{...prices},heartbeat});return {id};}
  case 'restore':{
@@ -101,8 +103,10 @@ async function state(actor=6){
  const claims=await Promise.all(Array.from({length:Math.min(50,Number(BigInt(metrics.queueTail)-BigInt(metrics.queueHead)))},async(_,i)=>{const id=BigInt(metrics.queueHead)+BigInt(i),q=await c.exchange.claims(id,opts);return {id,user:q.user,amount:q.amount};}));
  const markets=await Promise.all(deployment.markets.map(async m=>{const q=await c.oracle.quotes(m.id,opts),risk=await c.exchange.markets(m.id,opts);return{...m,price:q.value,at:q[1],history:history[m.id],longNotional:await c.exchange.longNotional(m.id,opts),shortNotional:await c.exchange.shortNotional(m.id,opts),retiredPrice:await c.exchange.retiredPrice(m.id,opts),enabled:risk.enabled,bustBufferBps:Number(risk.bustBufferBps),maxLeverage:Number(risk.maxLeverage),delay:Number(risk.delay),executionWindow:Number(risk.executionWindow),minMargin:risk.minMargin,maxMargin:risk.maxMargin,sideCap:risk.sideCap,impact:risk.impact};}));
  const session=await c.exchange.sessions(wallets[6].address,wallets[9].address,opts),governanceOps=await Promise.all(operations.map(async op=>({...op,ready:await c.governance.isOperationReady(op.id,opts),done:await c.governance.isOperationDone(op.id,opts),pending:await c.governance.isOperationPending(op.id,opts)})));
- return {chainId:31337,rpcUrl:'http://127.0.0.1:9545',block:blockTag,timestamp:Number(BigInt(b.timestamp)),fork,contracts:deployment.contracts,actors:publicActors,accounts,metrics,markets,positions,orders,claims,journal:journal.slice(0,100),operations:governanceOps,heartbeat,testing:checkpoints.size>0,oraclePaused:await c.oracle.paused(opts),session:{owner:wallets[6].address,key:wallets[9].address,expiry:session.expiry,marginBudget:session.marginBudget},totalSupply:await c.token.totalSupply(opts),actor:index(actor)};
+ return {showcase:showcase.status(),chainId:31337,rpcUrl:'http://127.0.0.1:9545',block:blockTag,timestamp:Number(BigInt(b.timestamp)),fork,contracts:deployment.contracts,actors:publicActors,accounts,metrics,markets,positions,orders,claims,journal:journal.slice(0,100),operations:governanceOps,heartbeat,testing:checkpoints.size>0,oraclePaused:await c.oracle.paused(opts),session:{owner:wallets[6].address,key:wallets[9].address,expiry:session.expiry,marginBudget:session.marginBudget},totalSupply:await c.token.totalSupply(opts),actor:index(actor)};
 }
+let previousShowcase;try{previousShowcase=await read('showcase.local.json');}catch{}
+const showcase=createShowcase({state:async()=>JSON.parse(json(await state())),action,serial,previous:previousShowcase});
 const mime={'.html':'text/html','.js':'application/javascript','.css':'text/css','.svg':'image/svg+xml','.json':'application/json','.md':'text/plain'};
 function respond(res,status,data,type='application/json'){res.writeHead(status,{'Content-Type':type,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'"});res.end(type==='application/json'?json(data):data);}
 const server=http.createServer(async(req,res)=>{
@@ -114,10 +118,14 @@ const server=http.createServer(async(req,res)=>{
  if(req.method==='GET'&&url.pathname==='/api/abi')return respond(res,200,Object.fromEntries(Object.entries(names).map(([k,n])=>[k,build.contracts[n].abi])));
  if(req.method==='GET'&&url.pathname==='/api/wallets'){res.setHeader('Content-Disposition','attachment; filename="LOCAL-TEST-wallets.json"');return respond(res,200,wallets);}
  if(req.method==='GET'&&url.pathname.startsWith('/api/receipt/')){const hash=url.pathname.split('/').at(-1);if(!/^0x[0-9a-fA-F]{64}$/.test(hash))throw Error('Invalid hash');return respond(res,200,await provider.getTransactionReceipt(hash));}
- if(req.method==='POST'&&url.pathname==='/api/action'){
+ if(req.method==='GET'&&url.pathname==='/api/showcase')return respond(res,200,showcase.status());
+ if(req.method==='POST'&&['/api/action','/api/showcase'].includes(url.pathname)){
  if(req.headers['x-lab-request']!=='1')return respond(res,403,{error:'Local UI request header required'});
  let raw='';for await(const chunk of req){raw+=chunk;if(raw.length>100000)throw Error('Request too large');}
- return respond(res,200,{ok:true,result:await serial(()=>action(JSON.parse(raw)))});
+ const args=JSON.parse(raw);
+ if(url.pathname==='/api/showcase'){if(!['start','stop'].includes(args.command))throw Error('Choose start or stop');return respond(res,200,{ok:true,result:args.command==='start'?await showcase.start(args):await showcase.stop()});}
+ if(showcase.status().running)return respond(res,409,{error:'Showcase owns a temporary checkpoint. Stop it before manual transactions.'});
+ return respond(res,200,{ok:true,result:await serial(()=>action(args))});
  }
  if(req.method!=='GET')return respond(res,405,{error:'Method not allowed'});
  const file=url.pathname==='/'||!path.extname(url.pathname)?'index.html':decodeURIComponent(url.pathname).slice(1);const full=path.resolve(dir,'public',file);if(!full.startsWith(path.join(dir,'public')+path.sep))return respond(res,403,{error:'Forbidden'});
@@ -125,5 +133,5 @@ const server=http.createServer(async(req,res)=>{
  }catch(e){respond(res,400,{error:e.shortMessage||e.reason||e.message,detail:e.info?.error?.message||e.revert?.args?.[0]||null});}
 });
 server.listen(4173,'127.0.0.1',()=>console.log('Lab ready: http://127.0.0.1:4173 — local test funds only'));
-setInterval(()=>{if(!heartbeat)return;serial(async()=>{for(const m of deployment.markets)await refresh(m.id);}).catch(e=>console.error('Heartbeat:',e.shortMessage||e.message));},10000).unref();
-process.on('SIGTERM',async()=>{await chain;server.close();provider.destroy();process.exit(0);});
+setInterval(()=>{if(!heartbeat||showcase.status().running)return;serial(async()=>{for(const m of deployment.markets)await refresh(m.id);}).catch(e=>console.error('Heartbeat:',e.shortMessage||e.message));},10000).unref();
+process.on('SIGTERM',async()=>{await showcase.stop();await chain;server.close();provider.destroy();process.exit(0);});

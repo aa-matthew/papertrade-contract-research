@@ -139,3 +139,5 @@ npm test
 Collection fetches official pages, explorer publication data, Sourcify records and read-only RPC data. It does not connect a wallet. The current frontend entry is captured in `upstream/web/exchange-app.js`; if the site changes it, set `PAPERTRADE_FRONTEND_ENTRY` to a newly observed asset filename before collection. A collection refresh replaces observations and samples; use Git snapshots if you need to retain an earlier capture.
 
 The original protocol reuse license could not be established from unpublished sources. This workspace does not assign a new license to upstream artifacts or treat source publication as permission to relicense them.
+
+Presentation desk: [demo/docs/SHOWCASE.md](demo/docs/SHOWCASE.md) — one-click fork tour, live Binance desk, ten actors, product Q&A and restart guide.

@@ -1,0 +1,2104 @@
+{
+  "running": false,
+  "phase": "Ready · original state restored",
+  "insight": "Surplus is distributable only after positions, pending opens and queued claims are cleared. The treasury supplies test capital; the house retains its configured cap.",
+  "route": "staking",
+  "feed": "OFF",
+  "events": [
+    {
+      "at": "2026-10-15T18:58:20.990Z",
+      "text": "All showcase phases passed"
+    },
+    {
+      "at": "2026-10-15T18:58:17.665Z",
+      "text": "Surplus paid to staking; house retains its cap",
+      "hash": "0xd102332775f25c81e86a4bdb00c1cb842af1880c07e6837abf57f493473dc6f9"
+    },
+    {
+      "at": "2026-10-15T18:58:17.038Z",
+      "text": "Settled position #3",
+      "hash": "0x789851c291d2a4d8352684be2370ad86e99863d4343f0cb22054e2dd3a626191"
+    },
+    {
+      "at": "2026-10-15T18:58:16.051Z",
+      "text": "Settled position #2",
+      "hash": "0x18bf022ed0c00aafd5e67a71ee78ed1f840a4ac68b8e0e1f8ea27937ea919ec9"
+    },
+    {
+      "at": "2026-10-15T18:58:14.180Z",
+      "text": "10 · Surplus & funded distributions"
+    },
+    {
+      "at": "2026-10-15T18:58:11.179Z",
+      "text": "Market retired; frozen-price exit confirmed"
+    },
+    {
+      "at": "2026-10-15T18:58:11.179Z",
+      "text": "Settled position #12",
+      "hash": "0x1806ec0879de3f4fcfff942408ec837fb3633b6e59b6dc7b683a6144297dbcec"
+    },
+    {
+      "at": "2026-10-15T18:58:10.050Z",
+      "text": "Alice long ETH #12",
+      "hash": "0xef2aea0d06501d79ba0499de2c8418aa5fbcc3e479a9dd6beab0358e8ace73ec"
+    },
+    {
+      "at": "2026-10-15T18:58:09.109Z",
+      "text": "09 · Terminal market retirement"
+    },
+    {
+      "at": "2026-10-15T18:58:06.107Z",
+      "text": "Early execution rejected; delayed execution confirmed"
+    },
+    {
+      "at": "2026-10-15T18:58:05.526Z",
+      "text": "08 · Guardian & delayed governance"
+    },
+    {
+      "at": "2026-10-15T18:58:02.525Z",
+      "text": "Next-day budget + funded house → FIFO paid"
+    },
+    {
+      "at": "2026-10-15T18:58:02.002Z",
+      "text": "07 · FIFO settlement after reset"
+    },
+    {
+      "at": "2026-10-15T18:57:59.002Z",
+      "text": "Daily budget exhausted; excess profit remains queued"
+    },
+    {
+      "at": "2026-10-15T18:57:58.722Z",
+      "text": "Settled position #11",
+      "hash": "0x200606a8fb29027fa9e3415766f5366b43649ce179f1833ab9eb942b630e0889"
+    },
+    {
+      "at": "2026-10-15T18:57:58.064Z",
+      "text": "Alice long BTC #11",
+      "hash": "0x33d5ff59ebd0ae046e9204e7831205fd3873de2ad1e78c9e840802a72275eca4"
+    },
+    {
+      "at": "2026-10-15T18:57:57.079Z",
+      "text": "06 · Daily payout limit & FIFO"
+    },
+    {
+      "at": "2026-10-15T18:57:54.078Z",
+      "text": "Bob staked, earned, claimed and unstaked",
+      "hash": "0x68277a596f32d0a25e2e7ba2ddc2b709c0fa3bd18fb99784f4d035f05b8fc3cb"
+    },
+    {
+      "at": "2026-10-15T18:57:53.203Z",
+      "text": "05 · Stake → fees → claim"
+    },
+    {
+      "at": "2026-10-15T18:57:50.202Z",
+      "text": "Liquidation and PART mint confirmed",
+      "hash": "0xc89e3ca22cd121b1c60d6b965432f25bdda2fadf36b48a289f4ddb563017d1fd"
+    },
+    {
+      "at": "2026-10-15T18:57:49.995Z",
+      "text": "Bob short ETH #10",
+      "hash": "0xc9384549f928a72255224ac06b4e9d8e981870fabe956f1dd319a10d2d1b3db5"
+    },
+    {
+      "at": "2026-10-15T18:57:48.902Z",
+      "text": "04 · Liquidation → PART"
+    },
+    {
+      "at": "2026-10-15T18:57:45.901Z",
+      "text": "Revoked session fill correctly rejected"
+    },
+    {
+      "at": "2026-10-15T18:57:45.522Z",
+      "text": "Settled position #9",
+      "hash": "0x1b4ad35d63d29fdc6f2d94bdabd40136e53d0ee897a0aedd198aa1e7c8d9a089"
+    },
+    {
+      "at": "2026-10-15T18:57:44.944Z",
+      "text": "Session relayer long BTC #9",
+      "hash": "0x62b745f27dd4b92df469ef9a69ef2568a12826107e54090b8e2c7ff414407a34"
+    },
+    {
+      "at": "2026-10-15T18:57:44.076Z",
+      "text": "03 · Scoped session key"
+    },
+    {
+      "at": "2026-10-15T18:57:41.074Z",
+      "text": "Settled position #8",
+      "hash": "0xafbb36ac0c4bf7f67ab150799119ae93c27183acc65c6fec5b7130c792dee73b"
+    },
+    {
+      "at": "2026-10-15T18:57:40.474Z",
+      "text": "Settled position #7",
+      "hash": "0x748cd03a21df666fe7ac5edf2507e364f5c7a4076fe1a93c7efd5113408915c9"
+    },
+    {
+      "at": "2026-10-15T18:57:37.875Z",
+      "text": "Bob short ETH #8",
+      "hash": "0x2da9473b7dbe5b41cc0877c2f7d41bdd8555bac3f5e75beb4ea62e7b1cdd0738"
+    },
+    {
+      "at": "2026-10-15T18:57:37.077Z",
+      "text": "Alice long BTC #7",
+      "hash": "0xb22b46c00be99d91df2c0877657fe88addfb4e125b76e3031055b2f2392f549e"
+    },
+    {
+      "at": "2026-10-15T18:57:36.278Z",
+      "text": "Settled position #6",
+      "hash": "0x00cde69f32d31bfa6ea981a6a67e9822570e162d44f7ed7c45d700c6c620b03c"
+    },
+    {
+      "at": "2026-10-15T18:57:35.708Z",
+      "text": "Settled position #5",
+      "hash": "0xa01f32d00613a13cb5d677d9fce8d78725dd4adce70ef2ea2fb74d70f22ab681"
+    },
+    {
+      "at": "2026-10-15T18:57:29.984Z",
+      "text": "Bob short ETH #6",
+      "hash": "0x6811e47fa7047c7288b34acc3fed6f183baba2df4673dc097d937d83dab72861"
+    },
+    {
+      "at": "2026-10-15T18:57:29.194Z",
+      "text": "Alice long BTC #5",
+      "hash": "0x225ddbea35c350c7e36cd812a0d6fc7bfe4a95986830dfdf66672330be12fa4b"
+    },
+    {
+      "at": "2026-10-15T18:57:28.316Z",
+      "text": "02 · Automated trading desk"
+    },
+    {
+      "at": "2026-10-15T18:57:25.315Z",
+      "text": "ERC-20 approval → deposit → withdrawal confirmed"
+    },
+    {
+      "at": "2026-10-15T18:57:24.979Z",
+      "text": "01 · Fork & custody"
+    }
+  ],
+  "completed": [
+    "01 · Fork & custody",
+    "02 · Automated trading desk",
+    "03 · Scoped session key",
+    "04 · Liquidation → PART",
+    "05 · Stake → fees → claim",
+    "06 · Daily payout limit & FIFO",
+    "07 · FIFO settlement after reset",
+    "08 · Guardian & delayed governance",
+    "09 · Terminal market retirement",
+    "10 · Surplus & funded distributions"
+  ],
+  "quotes": 20,
+  "trades": 17,
+  "cycles": 8,
+  "restored": true,
+  "startedAt": "2026-10-15T18:57:24.707Z",
+  "options": {
+    "kind": "tour",
+    "source": "scenario",
+    "duration": 300,
+    "paceMs": 3000
+  },
+  "lastPriceAt": "2026-10-15T18:57:58.136Z",
+  "queueProof": {
+    "queued": "3801560951722",
+    "remaining": "0"
+  },
+  "receipts": [
+    {
+      "hash": "0x8acf9279e07370b09a78027f56093a6958160112497beee79dbac25c1792dd91",
+      "actor": 8,
+      "contract": "staking",
+      "method": "claim",
+      "block": 89432741,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x74156A1F9736307b7AD34e3691f3A5B54A0B3Eb8",
+            "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+            "6197814115489"
+          ]
+        },
+        {
+          "contract": "staking",
+          "name": "Claimed",
+          "args": [
+            "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+            "6197814115489"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xd102332775f25c81e86a4bdb00c1cb842af1880c07e6837abf57f493473dc6f9",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "sweepSurplus",
+      "block": 89432740,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "0x74156A1F9736307b7AD34e3691f3A5B54A0B3Eb8",
+            "6197814115489"
+          ]
+        },
+        {
+          "contract": "staking",
+          "name": "RewardAdded",
+          "args": [
+            "6197814115489"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "FeesPushed",
+          "args": [
+            "6197814115489",
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xc0da8f609ec3291332cb61084717376326b26ac2179246d68fede27915ee818f",
+      "actor": 5,
+      "contract": "exchange",
+      "method": "seedLiquidity",
+      "block": 89432739,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "10000000000000"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "LiquiditySeeded",
+          "args": [
+            "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "10000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x1279e69cae0f2c7db93d66cdca543af7d1c6854856900e92effac3a224ce8101",
+      "actor": 5,
+      "contract": "collateral",
+      "method": "approve",
+      "block": 89432738,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Approval",
+          "args": [
+            "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "10000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x64ed918a99f0ab0ce3e84c7d4d5dbcbeeb6c76777b7bc96758a2dc98e53cee84",
+      "actor": 5,
+      "contract": "collateral",
+      "method": "mint",
+      "block": 89432737,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x0000000000000000000000000000000000000000",
+            "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "10000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xe1e243a0ac51d8b7ca38c7bbb70b31bd840387ac1750ba7595c161bdf3041d12",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432736,
+      "status": 1,
+      "events": [
+        {
+          "contract": "token",
+          "name": "Transfer",
+          "args": [
+            "0x0000000000000000000000000000000000000000",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "7239540300000000000000"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "ParticipationMinted",
+          "args": [
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "72395403",
+            "7239540300000000000000"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "Closed",
+          "args": [
+            "3",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "-73872860",
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x789851c291d2a4d8352684be2370ad86e99863d4343f0cb22054e2dd3a626191",
+      "actor": 7,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432733,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "23",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "1792261244"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x7f1b1216e04ad03a057569d59fd9328d8d972e9cbf683fbbc808dba9d05fd3c6",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432731,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "ProfitPaid",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "876728909",
+            "20743"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "Closed",
+          "args": [
+            "2",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "894621335",
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x18bf022ed0c00aafd5e67a71ee78ed1f840a4ac68b8e0e1f8ea27937ea919ec9",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432728,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "22",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1792261237"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x39b28f0abf3c76eb7e5ed6a41f61789ee2931bcb5a3532920befeb35c52bd234",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432726,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "Closed",
+          "args": [
+            "12",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "0",
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x1806ec0879de3f4fcfff942408ec837fb3633b6e59b6dc7b683a6144297dbcec",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432723,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "21",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1792261226"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xea38bb1284251f9e9467cf2054a6aefed5e46af7f03216f5a998a469d5917f18",
+      "actor": 1,
+      "contract": "exchange",
+      "method": "retireMarket",
+      "block": 89432721,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "MarketRetired",
+          "args": [
+            "2",
+            "3063319594350000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x854402fd635417482d635936890b4a0f3cd3acd345cacb7e7735d1b3a98a1fc8",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432719,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "Opened",
+          "args": [
+            "12",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "2",
+            "3063319594350000000000",
+            "10000000",
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xef2aea0d06501d79ba0499de2c8418aa5fbcc3e479a9dd6beab0358e8ace73ec",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432716,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "20",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1792261219"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x95c6508e672061b6cc8071cd3e79c5047851bf543833398a7b06852703454f67",
+      "actor": 0,
+      "contract": "governance",
+      "method": "execute",
+      "block": 89432715,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OpensPauseChanged",
+          "args": [
+            false
+          ]
+        },
+        {
+          "contract": "governance",
+          "name": "CallExecuted",
+          "args": [
+            "0x29c5a1fcb8156879eafd582c89c537c53ef6c107db1dac5b9ee80e64ad34776d",
+            "0",
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "0",
+            "0x0d1554ea0000000000000000000000000000000000000000000000000000000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x25e2b9f883f774f06e2036b1a2c097c322d1f57f6fe32c6401076b7c7f7c95e2",
+      "actor": 0,
+      "contract": "governance",
+      "method": "schedule",
+      "block": 89432713,
+      "status": 1,
+      "events": [
+        {
+          "contract": "governance",
+          "name": "CallScheduled",
+          "args": [
+            "0x29c5a1fcb8156879eafd582c89c537c53ef6c107db1dac5b9ee80e64ad34776d",
+            "0",
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "0",
+            "0x0d1554ea0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "86400"
+          ]
+        },
+        {
+          "contract": "governance",
+          "name": "CallSalt",
+          "args": [
+            "0x29c5a1fcb8156879eafd582c89c537c53ef6c107db1dac5b9ee80e64ad34776d",
+            "0x4e9c0748a61156c6a970f427e536b75f67e3e48bf50f804840a71cb58929fc3c"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x857cb54e818e566daa79f96b736a3b3772ccde8526e3aa388a46ba5e8e120f4f",
+      "actor": 1,
+      "contract": "exchange",
+      "method": "setOpensPaused",
+      "block": 89432712,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OpensPauseChanged",
+          "args": [
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x24775a810be2c9f26082e4e2f264afbe9f0fcccee129d28864ef9e91ea05e13d",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "harvest",
+      "block": 89432711,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "ProfitPaid",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "3801560951722",
+            "20742"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "Harvested",
+          "args": [
+            "1",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "3801560951722"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x99fc44f9ec8415d0e8b56fb17258ff34e8e0abd3de72f1040f51caea1d0458b9",
+      "actor": 5,
+      "contract": "exchange",
+      "method": "seedLiquidity",
+      "block": 89432709,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "2000000000000"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "LiquiditySeeded",
+          "args": [
+            "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "2000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xe14c7f43b271d0501713e068c9a5fa78b348766dc095971f16cbbe7b4ecc94b5",
+      "actor": 5,
+      "contract": "collateral",
+      "method": "approve",
+      "block": 89432708,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Approval",
+          "args": [
+            "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "2000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xaa1e2112703d5814b9dcadadfd483f8a4a164c6bdbc52bafdec15060743925ed",
+      "actor": 5,
+      "contract": "collateral",
+      "method": "mint",
+      "block": 89432707,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x0000000000000000000000000000000000000000",
+            "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "2000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x13c35b2bcfc9f723d85fb72fe7ebc5e4903ffc90ce977a57f45c0143322e70e2",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432706,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "ProfitPaid",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "4999999216524",
+            "20741"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "Queued",
+          "args": [
+            "1",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "3801560951722"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "Closed",
+          "args": [
+            "11",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "8981183845148",
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x200606a8fb29027fa9e3415766f5366b43649ce179f1833ab9eb942b630e0889",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432703,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "19",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1792088403"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x8442cb7d6f2be3c318394ff22f472e9511289ffd4ef97292cf0f7f64ec96d0d0",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432701,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "1",
+            "90402739983620000000000",
+            "1792088398"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xd4b21245318957514ccca2d9d9e3c90531dcb46a8f964411377356ceb3fdac9a",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432700,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "Opened",
+          "args": [
+            "11",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1",
+            "82184309076020000000000",
+            "1000000000000",
+            "100"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x33d5ff59ebd0ae046e9204e7831205fd3873de2ad1e78c9e840802a72275eca4",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432697,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "18",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1792088396"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x2a12a96c8b55fed08af1bcbf32466b14f16aa1d801a1d8c027e0bfb57ba806a4",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "deposit",
+      "block": 89432696,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "1000000000000"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "Deposited",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xec1f1dd5070b4d8edb44a3eb7ebb59c426af5457b48555215caca19263dd6509",
+      "actor": 6,
+      "contract": "collateral",
+      "method": "approve",
+      "block": 89432695,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Approval",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "1000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x3c8b5628e06d7fb59fdbd440141775ed043339d6d1fae055be84cd19467bb7fc",
+      "actor": 5,
+      "contract": "collateral",
+      "method": "mint",
+      "block": 89432694,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x0000000000000000000000000000000000000000",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xb0b0a4c88c76444c05dca03c2ba578ef093a447269fa8fd0ec27f584e7e5a8ad",
+      "actor": 8,
+      "contract": "staking",
+      "method": "claim",
+      "block": 89432693,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x74156A1F9736307b7AD34e3691f3A5B54A0B3Eb8",
+            "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+            "1928501"
+          ]
+        },
+        {
+          "contract": "staking",
+          "name": "Claimed",
+          "args": [
+            "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+            "1928501"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xe1a3b8acbdd23fb6d3f398340513374f27e503ba0abf8c2a5c336d0585fc1e7e",
+      "actor": 7,
+      "contract": "staking",
+      "method": "unstake",
+      "block": 89432692,
+      "status": 1,
+      "events": [
+        {
+          "contract": "token",
+          "name": "Transfer",
+          "args": [
+            "0x74156A1F9736307b7AD34e3691f3A5B54A0B3Eb8",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "1000000000000000000000"
+          ]
+        },
+        {
+          "contract": "staking",
+          "name": "Unstaked",
+          "args": [
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "1000000000000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x68277a596f32d0a25e2e7ba2ddc2b709c0fa3bd18fb99784f4d035f05b8fc3cb",
+      "actor": 7,
+      "contract": "staking",
+      "method": "claim",
+      "block": 89432691,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x74156A1F9736307b7AD34e3691f3A5B54A0B3Eb8",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "92850"
+          ]
+        },
+        {
+          "contract": "staking",
+          "name": "Claimed",
+          "args": [
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "92850"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xde52ed50ab8d9e93840e5d19a9bf3c91d688f910f923d8e2b0b47c4ea6121194",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "pushFees",
+      "block": 89432690,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "0x74156A1F9736307b7AD34e3691f3A5B54A0B3Eb8",
+            "1021352"
+          ]
+        },
+        {
+          "contract": "staking",
+          "name": "RewardAdded",
+          "args": [
+            "1021352"
+          ]
+        },
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "1021353"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "FeesPushed",
+          "args": [
+            "1021352",
+            "1021353"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x6fb45b32aff98daaac36a1031ef16a2673660116d7ba984690bb0e6dbed4bac2",
+      "actor": 7,
+      "contract": "staking",
+      "method": "stake",
+      "block": 89432689,
+      "status": 1,
+      "events": [
+        {
+          "contract": "token",
+          "name": "Transfer",
+          "args": [
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "0x74156A1F9736307b7AD34e3691f3A5B54A0B3Eb8",
+            "1000000000000000000000"
+          ]
+        },
+        {
+          "contract": "staking",
+          "name": "Staked",
+          "args": [
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "1000000000000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x93c5d0020aeea7ff2a88eac9daeae2ab6be41aeedf905468836a3085761f3d80",
+      "actor": 7,
+      "contract": "token",
+      "method": "approve",
+      "block": 89432688,
+      "status": 1,
+      "events": [
+        {
+          "contract": "token",
+          "name": "Approval",
+          "args": [
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "0x74156A1F9736307b7AD34e3691f3A5B54A0B3Eb8",
+            "1000000000000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xc89e3ca22cd121b1c60d6b965432f25bdda2fadf36b48a289f4ddb563017d1fd",
+      "actor": 4,
+      "contract": "exchange",
+      "method": "liquidate",
+      "block": 89432687,
+      "status": 1,
+      "events": [
+        {
+          "contract": "token",
+          "name": "Transfer",
+          "args": [
+            "0x0000000000000000000000000000000000000000",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "10000000000000000000000"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "ParticipationMinted",
+          "args": [
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "100000000",
+            "10000000000000000000000"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "Closed",
+          "args": [
+            "10",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "-100000000",
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x224f3aba067b651142e659cab37d2e4b91112c8bd0d1814650e3857ef778f7db",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432685,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "2",
+            "3063319594350000000000",
+            "1792088387"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x249d10cfa5db17e78244026fac005f5576a64e34a271c15253ff7b9c2ec0f9e2",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432684,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "Opened",
+          "args": [
+            "10",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "2",
+            "3003254504260000000000",
+            "100000000",
+            "100"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xc9384549f928a72255224ac06b4e9d8e981870fabe956f1dd319a10d2d1b3db5",
+      "actor": 7,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432681,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "17",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "1792088385"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x7b7e071d5e4e4c9922604cdac48331ac9e6c5a498db3ace22cb528d640245fe6",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "cancel",
+      "block": 89432680,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderCancelled",
+          "args": [
+            "16"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x9ad8ce8740b2f55346eb78cc5072b5a0472997fbf8b56d6a18a0e95ccd3b4f09",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "revokeSession",
+      "block": 89432677,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "SessionSet",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "0",
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x3fd9cd96da216bca110957cead3ef125370f88cfc5213bce57e6e3ad44c2bc69",
+      "actor": 9,
+      "contract": "exchange",
+      "method": "requestBySig",
+      "block": 89432676,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "16",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1792088379"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x0f9a97214432d8c4003dd35c5206765bc9a2aae312cb04d047944c3d85f0c3ca",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432675,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "Closed",
+          "args": [
+            "9",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "0",
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x1b4ad35d63d29fdc6f2d94bdabd40136e53d0ee897a0aedd198aa1e7c8d9a089",
+      "actor": 9,
+      "contract": "exchange",
+      "method": "requestBySig",
+      "block": 89432672,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "15",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1792088376"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xc22479783d3387211b4bb2fbe604e6d55985ad813bd18eb1862e53d6f10a945c",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432670,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "Opened",
+          "args": [
+            "9",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1",
+            "82184309076020000000000",
+            "10000000",
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x62b745f27dd4b92df469ef9a69ef2568a12826107e54090b8e2c7ff414407a34",
+      "actor": 9,
+      "contract": "exchange",
+      "method": "requestBySig",
+      "block": 89432667,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "14",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1792088369"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x4cae9ddf484dc671675009de3876f8d3ce9e6a6fef881d84ce21b873fd63a75e",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "setSession",
+      "block": 89432666,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "SessionSet",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+            "1792174763",
+            "100000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x36dc5a7d168c10e9850aba04bcf3c4f0ab38ee00b8cea76de8a5ea32312e81c4",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432665,
+      "status": 1,
+      "events": [
+        {
+          "contract": "token",
+          "name": "Transfer",
+          "args": [
+            "0x0000000000000000000000000000000000000000",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "56705900000000000000"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "ParticipationMinted",
+          "args": [
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "567059",
+            "56705900000000000000"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "Closed",
+          "args": [
+            "8",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "-578631",
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xafbb36ac0c4bf7f67ab150799119ae93c27183acc65c6fec5b7130c792dee73b",
+      "actor": 7,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432662,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "13",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "1792088362"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x3870f928c7885589a7c3b9840e7b9877c7a457b97d0c5c364d05feca76ba9c9e",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432660,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "ProfitPaid",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "271857",
+            "20741"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "Closed",
+          "args": [
+            "7",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "277405",
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x748cd03a21df666fe7ac5edf2507e364f5c7a4076fe1a93c7efd5113408915c9",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432657,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "12",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1792088355"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xf516cf5fb3748e992a11a9065f52430fe9a13880d7b36d26b7fc3f09bab4ed98",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432655,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "2",
+            "3003254504260000000000",
+            "1792088349"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xf810daf8d08bda9575015dabe5cb5feb3ba096de89bd82fe189c9ef1206329ed",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432654,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "1",
+            "82184309076020000000000",
+            "1792088349"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xa88ee41462a7351f76afccc59286b9bb8fc3c2b3486ac9c66540d4ca19c8dfaf",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432653,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "2",
+            "2998884333150000000000",
+            "1792088348"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xfba4cf818ef678636f1ea1cb2a7f8d846127e2eb19b09b1eb0ed445e50dddb5e",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432652,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "1",
+            "82084074700670000000000",
+            "1792088348"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x9e7e5ef3ca3ce6c7af7b2078e17646164050d29615483b9d106285b6e3443199",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432651,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "Opened",
+          "args": [
+            "8",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "2",
+            "2996319450500000000000",
+            "25000000",
+            "10"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x2da9473b7dbe5b41cc0877c2f7d41bdd8555bac3f5e75beb4ea62e7b1cdd0738",
+      "actor": 7,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432648,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "11",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "1792088347"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x2a664325997c9ee6293ae7851ab6be2892afc0ce76b7b00ea9f304c27b270907",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432647,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "Opened",
+          "args": [
+            "7",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1",
+            "82067792383530000000000",
+            "25000000",
+            "10"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xb22b46c00be99d91df2c0877657fe88addfb4e125b76e3031055b2f2392f549e",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432644,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "10",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1792088343"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xa168415626e05572cee655e13448fc9a7f62b5309ef8b94e84fa49733d8de3ed",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432643,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "ProfitPaid",
+          "args": [
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "511619",
+            "20741"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "Closed",
+          "args": [
+            "6",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "522060",
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x00cde69f32d31bfa6ea981a6a67e9822570e162d44f7ed7c45d700c6c620b03c",
+      "actor": 7,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432640,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "9",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "1792088339"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x28b5a383b437286621a217e531a6326f3b1cf81fc6b301456ac4865cbef17c1a",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432638,
+      "status": 1,
+      "events": [
+        {
+          "contract": "token",
+          "name": "Transfer",
+          "args": [
+            "0x0000000000000000000000000000000000000000",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "74207300000000000000"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "ParticipationMinted",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "742073",
+            "74207300000000000000"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "Closed",
+          "args": [
+            "5",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "-757217",
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xa01f32d00613a13cb5d677d9fce8d78725dd4adce70ef2ea2fb74d70f22ab681",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432635,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "8",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1792088333"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xfd73693276d76cca18c7b8f5620ea6bcf67c42744fd7c4ddfa51287413448af0",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432633,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "2",
+            "2996319450500000000000",
+            "1792088328"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x1e92d05707df59ebb8126e317c3ce3f4e5142f203f0eaa05edf4f67ce912ed7c",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432632,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "1",
+            "82067792383530000000000",
+            "1792088328"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xf0b06e09b80333cf2b60f365d6473bed0dcdf9cc350e0717826966d2cec8ab27",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432631,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "2",
+            "2996643025300000000000",
+            "1792088327"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x315fa91e14866eef8e07d23f2f8e67dbd3d2740144e25e5ceff44dca671b474e",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432630,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "1",
+            "82146279617540000000000",
+            "1792088327"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x435b7c9c01594a9c77bdb9c5a0d44a699b673c1eedb2e418324a6f100b483b2b",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432629,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "2",
+            "2996310726690000000000",
+            "1792088326"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x957c9e27d222da56ef3ade499e634c7116720588dc36472070c8b71603a8006f",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432628,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "1",
+            "82198085750460000000000",
+            "1792088326"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x3a42ecc904694c8a9e879fb9982d1ce49a5930392c0d0cdf8963647f44681395",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432627,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "2",
+            "2996135661870000000000",
+            "1792088325"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x3c1377117cebc9591ae80a3ef52a17745da2dfdfd020f463673eb52a8dedde8f",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432626,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "1",
+            "82224215016450000000000",
+            "1792088325"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x61fda7434adeb12adf322f549be818090be72dc974181815d25ac345e589bfaa",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432625,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "2",
+            "2999430667030000000000",
+            "1792088324"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x79965f807bf2c0c5e3147badcd08640cb700ac610ab9e7988aead291e2cd9526",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432624,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "1",
+            "82304650240710000000000",
+            "1792088324"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xeb309979a933ec0a4a9081b56192b9aad46c52e5ea0c557ced274480c29cc75e",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432623,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "2",
+            "3003509753950000000000",
+            "1792088323"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x2a3d1e6f6cbeae7302ea7f72527c4b12d83500d826b55ef4a465b33f8a59cc10",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432622,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "1",
+            "82369228676170000000000",
+            "1792088323"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x2d2acba2ffe30f6048b09225272db825828ced6a973b03c3babfc89e7d2d5275",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432621,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "Opened",
+          "args": [
+            "6",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "2",
+            "3004091838420000000000",
+            "25000000",
+            "10"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x6811e47fa7047c7288b34acc3fed6f183baba2df4673dc097d937d83dab72861",
+      "actor": 7,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432618,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "7",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+            "1792088321"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xdf593ebd04b764a3b23aa562858ce4fe6fc36f9095dfdd17d9ad9eee2eb82fe2",
+      "actor": 3,
+      "contract": "exchange",
+      "method": "execute",
+      "block": 89432617,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "Opened",
+          "args": [
+            "5",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1",
+            "82317120222880000000000",
+            "25000000",
+            "10"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x225ddbea35c350c7e36cd812a0d6fc7bfe4a95986830dfdf66672330be12fa4b",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "request",
+      "block": 89432614,
+      "status": 1,
+      "events": [
+        {
+          "contract": "exchange",
+          "name": "OrderRequested",
+          "args": [
+            "6",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "1792088317"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x1522b97ec816e3e04266f1e851bc8552d6506068e94b9010a4e7c15d65137da3",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "withdraw",
+      "block": 89432613,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "100000000"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "Withdrawn",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "100000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x2b603695e0535f4742f33694c0bec2a3f571b16f8a1cfc4688eefc5797b03ca3",
+      "actor": 6,
+      "contract": "exchange",
+      "method": "deposit",
+      "block": 89432612,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "100000000"
+          ]
+        },
+        {
+          "contract": "exchange",
+          "name": "Deposited",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "100000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xfde6cac236f7bdfb6b62ce8110c1260a275b60f1b1596bb36eeebf6fe850bc9f",
+      "actor": 6,
+      "contract": "collateral",
+      "method": "approve",
+      "block": 89432611,
+      "status": 1,
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Approval",
+          "args": [
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "0x770ace66dd84B035F71FfC977448032EE688604d",
+            "100000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xca44969bf955632eabc8415b59f2aba6a206ba48325153606fe6e0a690cc226c",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432610,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "2",
+            "3004091838420000000000",
+            "1792088312"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x1aac3f041b000f282cfc79543ad67906701876573e0ac22c28dfa01b298e2cc4",
+      "actor": 2,
+      "contract": "oracle",
+      "method": "publish",
+      "block": 89432609,
+      "status": 1,
+      "events": [
+        {
+          "contract": "oracle",
+          "name": "QuotePublished",
+          "args": [
+            "1",
+            "82317120222880000000000",
+            "1792088312"
+          ]
+        }
+      ]
+    }
+  ],
+  "outcome": "completed",
+  "stoppedAt": "2026-10-15T18:58:21.294Z",
+  "elapsedSeconds": 56,
+  "receiptScope": "Captured successful local transactions before checkpoint revert; not queryable on the restored chain."
+}
