@@ -1,13 +1,14 @@
 {
-  "checkedAt": "2026-10-15T18:47:53.998Z",
+  "checkedAt": "2026-10-15T18:50:31.967Z",
   "scope": "Local Robinhood fork lab; reconstructed math plus our protocol implementation, not original full-source recovery or a production audit",
   "tests": {
     "demoIntegration": 16,
     "protocol": 12,
-    "archiveIntegrity": 8
+    "archiveIntegrity": 8,
+    "binanceValidation": 3
   },
   "health": {
-    "checkedAt": "2026-10-15T18:47:53.998Z",
+    "checkedAt": "2026-10-15T18:50:31.967Z",
     "passed": true,
     "checks": [
       {
@@ -83,6 +84,30 @@
         "pass": true
       },
       {
+        "name": "PART exchange/staking wiring",
+        "pass": true
+      },
+      {
+        "name": "Staking exchange wiring",
+        "pass": true
+      },
+      {
+        "name": "Staked PART custody equals stake ledger",
+        "pass": true
+      },
+      {
+        "name": "PART supply covers staked supply",
+        "pass": true
+      },
+      {
+        "name": "Staking reward reserve is cash funded",
+        "pass": true
+      },
+      {
+        "name": "Actor claimable rewards covered by reserve",
+        "pass": true
+      },
+      {
         "name": "Compiled source matches: protocol/src/Economics.sol",
         "pass": true
       },
@@ -138,7 +163,7 @@
     },
     "local": {
       "chainId": 31337,
-      "block": 89432514,
+      "block": 89432542,
       "positions": 2,
       "actors": 10,
       "houseCash": "8000098000000",
@@ -215,5 +240,14 @@
       "method": "deposit",
       "status": 1
     }
-  ]
+  ],
+  "binanceSimulation": {
+    "report": "binance-simulation-report.json",
+    "passed": true,
+    "feedRunning": false,
+    "quotes": 16,
+    "roundTrips": 2,
+    "reverted": true,
+    "restored": true
+  }
 }

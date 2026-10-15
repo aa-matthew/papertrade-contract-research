@@ -10,6 +10,8 @@
     "down": "node scripts/daemon.mjs stop",
     "status": "node scripts/daemon.mjs status",
     "check": "node scripts/check.mjs",
-    "seed:chart": "node scripts/seed-chart.mjs"
+    "seed:chart": "node scripts/seed-chart.mjs",
+    "simulate:binance": "node scripts/binance-sim.mjs",
+    "test:feed": "node --test test/binance.test.mjs"
   }
 }

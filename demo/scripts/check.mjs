@@ -12,6 +12,14 @@ try{
  check('Exchange owner is timelock',s.metrics.owner.toLowerCase()===d.contracts.governance.toLowerCase());check('Cash invariant',s.metrics.cashInvariant===true);
  const build=await read('compiled.local.json'),x=new E.Contract(d.contracts.exchange,build.contracts.ReconstructedLabExchange.abi,p),cash=new E.Contract(d.contracts.collateral,build.contracts.LabCollateral.abi,p);
  check('Actual custody covers accounted assets',(await cash.balanceOf(x.target))>=(await x.accountedAssets()));check('Hard daily cap remains 5m collateral',await x.DAILY_PAYOUT_LIMIT()===5_000_000_000_000n);check('Daily budget within bounds',BigInt(s.metrics.dailyPayoutRemaining)>=0n&&BigInt(s.metrics.dailyPayoutRemaining)<=5_000_000_000_000n);
+ const token=new E.Contract(d.contracts.token,build.contracts.ProtocolToken.abi,p),staking=new E.Contract(d.contracts.staking,build.contracts.ProtocolStaking.abi,p);
+ check('PART exchange/staking wiring',(await token.exchange()).toLowerCase()===x.target.toLowerCase()&&(await token.staking()).toLowerCase()===staking.target.toLowerCase());
+ check('Staking exchange wiring',(await staking.exchange()).toLowerCase()===x.target.toLowerCase());
+ const totalStaked=await staking.totalStaked(),reserve=await staking.rewardReserve();
+ check('Staked PART custody equals stake ledger',await token.balanceOf(staking.target)===totalStaked);
+ check('PART supply covers staked supply',await token.totalSupply()>=totalStaked);
+ check('Staking reward reserve is cash funded',await cash.balanceOf(staking.target)>=reserve);
+ check('Actor claimable rewards covered by reserve',s.accounts.reduce((sum,a)=>sum+BigInt(a.rewards),0n)<=reserve);
  const info=JSON.parse(await readFile(path.join(dir,'build-info.json'),'utf8'));for(const [name,expected]of Object.entries(info.sources)){const actual=createHash('sha256').update(await readFile(path.join(dir,'..',name))).digest('hex');check('Compiled source matches: '+name,actual===expected);}
  check('Recovered helper identity exposed',(await x.reconstruction()).includes('Recovered SettlementMath'));
  const html=await(await fetch('http://127.0.0.1:4173/')).text();check('UI document loads',html.includes('robinpaper')&&html.includes('Active wallet'));

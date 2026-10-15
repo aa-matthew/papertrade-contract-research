@@ -56,6 +56,19 @@ Private-key exports and chain state are local-only, gitignored, and written with
 
 There is no remote transaction signer. The upstream Robinhood endpoint is used only for fork reads. Operator-specific source RPC can be provided via `ROBINHOOD_FORK_URL`; source chain must be 4663. The default is the Robinhood-documented Pinax endpoint. Startup verifies chain ID, pinned block hash and a historical storage read; the official public RPC pruned the pinned state during testing, so it is unsuitable for durable replay here. A read-only local source cache on port 9546 persists verified fork reads. For contracts successfully CREATEd after the source block, cold source-baseline storage is zero; the cache explicitly preserves that fact after Anvil dump/load. It never zero-fills arbitrary source contracts or falls back to latest state. Uncached unrelated Robinhood state still requires archive-provider availability and network access. No provider credential is bundled.
 
+## Live Binance oracle experiment
+
+```sh
+npm run simulate:binance --prefix demo -- 8
+npm run test:feed --prefix demo
+```
+
+Runs a bounded live experiment (5–60 seconds, default 8), targeting one poll per second. It reads BTCUSDT/ETHUSDT spot last prices from Binance's [public market-data API](https://github.com/binance/binance-spot-api-docs/blob/master/faqs/market_data_only.md), checks both symbols, positive exact prices and source timestamps (maximum age 10 seconds), then publishes actual local oracle transactions as actor 02. It rejects bad/stale/network responses rather than inventing prices. This is spot data, not futures mark/index data; USDT is treated as LABUSD only for the experiment.
+
+The script checkpoints the existing chain/metadata, disables the fixed-price heartbeat temporarily, opens and closes Alice BTC long and Bob ETH short through the normal delayed keeper flow, and exercises Carol's funded reward claim/unstake/restake. It stops polling, restores the original state and heartbeat, and exits. Duration covers the observation loop; setup/settlement/cleanup take additional time. It respects intentional pauses/retirements and refuses an active QA checkpoint. Avoid manual transactions during this test. Results are stored in ignored `.runtime/binance-simulation.local.json`; the verified sample is published in [binance-simulation-report.json](binance-simulation-report.json). Receipt hashes from this reverted experiment cannot be queried on the restored chain.
+
+This adapter is a single offchain publisher for local tests; it is not a decentralized or authenticated production oracle. The usual local fixed-price heartbeat resumes afterwards; the Binance feed stays off until explicitly run again.
+
 ## Tests and tools
 
 ```sh

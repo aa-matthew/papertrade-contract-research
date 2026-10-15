@@ -1,0 +1,301 @@
+{
+  "startedAt": "2026-10-15T18:49:42.197Z",
+  "source": "https://data-api.binance.vision/api/v3/ticker/24hr?symbols=%5B%22BTCUSDT%22,%22ETHUSDT%22%5D",
+  "priceKind": "Binance spot last trade, USDT treated as LABUSD for this experiment",
+  "requestedSeconds": 8,
+  "running": false,
+  "observations": [
+    {
+      "symbol": "BTCUSDT",
+      "market": 1,
+      "price": "82361.70000000",
+      "sourceTime": 1792090182004,
+      "receivedAt": 1792090182652,
+      "hash": "0xe99761d0e02adc1edc9d5fc76b8085d8b8f342611afccd023bc40925fe3f549b"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "market": 2,
+      "price": "2450.99000000",
+      "sourceTime": 1792090182012,
+      "receivedAt": 1792090182652,
+      "hash": "0x19fec8ec1fd67215776501d1f86ef0c3249cf9c8651e39a65e0a9b5741aeb2b9"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "market": 1,
+      "price": "82361.71000000",
+      "sourceTime": 1792090184001,
+      "receivedAt": 1792090184809,
+      "hash": "0x1eadd497aa37ccdae6eb113732497a344467add681d27040bc68c6d9e897a8af"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "market": 2,
+      "price": "2450.99000000",
+      "sourceTime": 1792090183979,
+      "receivedAt": 1792090184809,
+      "hash": "0x13ae7dcd96c508b6e092579486f6fa284ceb08dc6f16bfc7794d4b537b4456b0"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "market": 1,
+      "price": "82361.70000000",
+      "sourceTime": 1792090185001,
+      "receivedAt": 1792090185820,
+      "hash": "0xfd177a27bdd95eb024c2c1b5a83e560f33324dcaca512afb17ca2b606f463471"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "market": 2,
+      "price": "2450.99000000",
+      "sourceTime": 1792090184922,
+      "receivedAt": 1792090185820,
+      "hash": "0x88414442a5fbe3a19ca0cd5ee6306c60020ee43ccd2570508b0460cd20c27ce9"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "market": 1,
+      "price": "82361.70000000",
+      "sourceTime": 1792090186001,
+      "receivedAt": 1792090186819,
+      "hash": "0x76889a68891a4762dd8dcd8cb79cfa1fec92e6011fadcc5c19e58fea831e281a"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "market": 2,
+      "price": "2450.99000000",
+      "sourceTime": 1792090185900,
+      "receivedAt": 1792090186819,
+      "hash": "0x58b38bfbc4f52e2060a411a203988821ac9cb8aec9b8d804e331851cd9c6f249"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "market": 1,
+      "price": "82361.70000000",
+      "sourceTime": 1792090187007,
+      "receivedAt": 1792090187824,
+      "hash": "0xcc3b92bb03830b4b89a9559bf28cf7c1df071dc982987ebfa0c87ef0013aa3ec"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "market": 2,
+      "price": "2451.00000000",
+      "sourceTime": 1792090186994,
+      "receivedAt": 1792090187824,
+      "hash": "0x388affe2dd23157170f0d38bb23fc0243fee4c25baa70aecb25f28b003c67a21"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "market": 1,
+      "price": "82361.71000000",
+      "sourceTime": 1792090188006,
+      "receivedAt": 1792090188828,
+      "hash": "0x9ffea96dd2d2fba5d1ae20f05930ddb7524c90b0a250484166412aa009cf462d"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "market": 2,
+      "price": "2451.00000000",
+      "sourceTime": 1792090188010,
+      "receivedAt": 1792090188828,
+      "hash": "0x2aeb5e92eae5356a4df69843012dd77f5ce8eef5ccdc120dc1a31a13a9809338"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "market": 1,
+      "price": "82361.71000000",
+      "sourceTime": 1792090189001,
+      "receivedAt": 1792090189829,
+      "hash": "0x14c77af6352df30d3d75261cc777cd9830c97d59097d448042b3bfa1596c6dd2"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "market": 2,
+      "price": "2451.00000000",
+      "sourceTime": 1792090189012,
+      "receivedAt": 1792090189829,
+      "hash": "0x69e289de52dc1d8126650e8d5698c551b6f22600c9d78ef1d20cbc58b604ef18"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "market": 1,
+      "price": "82361.70000000",
+      "sourceTime": 1792090190001,
+      "receivedAt": 1792090190325,
+      "hash": "0x7a246083e6366d8170b70caa7febd8b52bdff3553acdd0995acb676deab0063e"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "market": 2,
+      "price": "2451.00000000",
+      "sourceTime": 1792090190005,
+      "receivedAt": 1792090190325,
+      "hash": "0xe831e38d62777e0190f9b06424ef4b1a12221a462f6945e7c4786d16fa225d32"
+    }
+  ],
+  "trades": [
+    {
+      "actor": 6,
+      "market": 1,
+      "isLong": true,
+      "positionId": 5,
+      "entry": "82361700000000000000000",
+      "openOrder": "6",
+      "closeOrder": "8",
+      "closeReceipt": {
+        "hash": "0xa667a464744d071e317b59830f4edbdc99414f65be18b7658730bbf1d45fbbd2",
+        "block": 89432565,
+        "actor": 3,
+        "contract": "exchange",
+        "method": "execute",
+        "args": [
+          "8"
+        ],
+        "gasUsed": "113120",
+        "status": 1,
+        "at": "2026-10-15T18:49:50.786Z",
+        "events": [
+          {
+            "contract": "exchange",
+            "name": "Closed",
+            "args": [
+              "5",
+              "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+              "0",
+              false
+            ]
+          }
+        ]
+      },
+      "exit": "82361700000000000000000"
+    },
+    {
+      "actor": 7,
+      "market": 2,
+      "isLong": false,
+      "positionId": 6,
+      "entry": "2450990000000000000000",
+      "openOrder": "7",
+      "closeOrder": "9",
+      "closeReceipt": {
+        "hash": "0x206bcc2ab7edfc8724bf2701bb88e2d535a696875c668f9ac9a9223d30cf1e67",
+        "block": 89432570,
+        "actor": 3,
+        "contract": "exchange",
+        "method": "execute",
+        "args": [
+          "9"
+        ],
+        "gasUsed": "184855",
+        "status": 1,
+        "at": "2026-10-15T18:49:51.363Z",
+        "events": [
+          {
+            "contract": "token",
+            "name": "Transfer",
+            "args": [
+              "0x0000000000000000000000000000000000000000",
+              "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+              "99900000000000000"
+            ]
+          },
+          {
+            "contract": "exchange",
+            "name": "ParticipationMinted",
+            "args": [
+              "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+              "999",
+              "99900000000000000"
+            ]
+          },
+          {
+            "contract": "exchange",
+            "name": "Closed",
+            "args": [
+              "6",
+              "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+              "-1019",
+              false
+            ]
+          }
+        ]
+      },
+      "exit": "2451000000000000000000"
+    }
+  ],
+  "staking": [
+    {
+      "hash": "0xb0b0a4c88c76444c05dca03c2ba578ef093a447269fa8fd0ec27f584e7e5a8ad",
+      "events": [
+        {
+          "contract": "collateral",
+          "name": "Transfer",
+          "args": [
+            "0x74156A1F9736307b7AD34e3691f3A5B54A0B3Eb8",
+            "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+            "1000000"
+          ]
+        },
+        {
+          "contract": "staking",
+          "name": "Claimed",
+          "args": [
+            "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+            "1000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0x7836f76c3c60ff2ce96fcb214c9e54530c2ddf3080edb452e4338ad0db23b38a",
+      "events": [
+        {
+          "contract": "token",
+          "name": "Transfer",
+          "args": [
+            "0x74156A1F9736307b7AD34e3691f3A5B54A0B3Eb8",
+            "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+            "100000000000000000000"
+          ]
+        },
+        {
+          "contract": "staking",
+          "name": "Unstaked",
+          "args": [
+            "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+            "100000000000000000000"
+          ]
+        }
+      ]
+    },
+    {
+      "hash": "0xf41cf336add1a6d0aac6cef507667869c0dc6e829c6f5ebd74bd1ec19c5e6c70",
+      "events": [
+        {
+          "contract": "token",
+          "name": "Transfer",
+          "args": [
+            "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+            "0x74156A1F9736307b7AD34e3691f3A5B54A0B3Eb8",
+            "100000000000000000000"
+          ]
+        },
+        {
+          "contract": "staking",
+          "name": "Staked",
+          "args": [
+            "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+            "100000000000000000000"
+          ]
+        }
+      ]
+    }
+  ],
+  "reverted": true,
+  "passed": true,
+  "restored": true,
+  "stoppedAt": "2026-10-15T18:49:53.252Z",
+  "wallSeconds": 11.055,
+  "receiptScope": "Executed successfully on a temporary local checkpoint. The checkpoint was reverted after verification; these transaction hashes are evidence captured before revert, not queryable transactions in the restored chain."
+}
