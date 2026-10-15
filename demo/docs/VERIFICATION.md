@@ -70,3 +70,15 @@ All nine application screens were reviewed. Browser actions deposited 1 LABUSD, 
 Actual owned Redis process shutdown/restart preserved API availability and reconnected. Full-stack graceful shutdown during active automation restored the checkpoint before Anvil stopped. SQLite `PRAGMA quick_check` returned `ok`; restart preserved actor balances, positions, contracts and price history. Cache data is revalidated against the engine/head after restart. Legacy chart observations without hashes are retained, while hash-backed orphan observations and receipts are removed from current projections after a rewind.
 
 QA also fixed an oracle publish failure caused by an exact gas estimate for an unchanged timestamp slot becoming insufficient in the next mined block. Managed transactions now use a 20% + 10,000 gas headroom; stale/paused/unauthorized cases still revert normally. Private signer exports are not cached/indexed; runtime DB/cache credentials remain ignored and owner-only.
+
+## Shared LAN participant mode — 2026-10-16
+
+See [LAN setup](LAN.md) and [machine-readable evidence](../lan-verification.json).
+
+Six shared-gateway integration cases passed with actual signed transactions through `public/wallet.js` using an EIP-1193 test adapter: custody, real Binance delayed open/close, stake/unstake, EIP-712 session orders, role authorization, and governance schedule/index/cancel. Three Rust persistence tests and three Binance validation tests passed. All 42 read-only health checks passed. Normal stop/resume preserved all ten account balances, positions, orders, deployment addresses and queryable external receipts; ordinary resume remembers shared-mode guards.
+
+A real-time worker queue issue caused transient API timeouts during the initial interval-mining run. Fixed by allowing reads between individual oracle/keeper transactions and retaining an active-order set; repeated signed-trade/session checks then passed. macOS keep-awake child shutdown was also fixed and graceful stop/resume reverified.
+
+Nine routes render without horizontal overflow; desktop and 390px screenshots are under `screenshots/shared-lan-*.png`. The actor selector is read-only in shared mode, wallet export is blocked, clock jumps are removed, rollback tours are disabled, and missing-wallet guidance is visible. The in-app browser has no actual wallet extension, so MetaMask approval UI was not tested.
+
+**Outstanding network check:** actual Wi-Fi IP requests time out despite the all-interface listener. Localhost succeeds. macOS Firewall is enabled and the Mac is locked; OS network permission is suspected but not conclusively diagnosed. Another computer's connection is not yet verified. The host must unlock/allow the API and test the LAN URL. No firewall protection was disabled. Binance/keeper were stopped after bounded real-price QA, while the persistent fork remains running.

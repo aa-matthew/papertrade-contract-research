@@ -98,3 +98,11 @@ SQLite WAL is the deliberate database for this single-machine fork. Horizontal p
 ## Verified performance and handoff
 
 See [backend-verification.json](../backend-verification.json) for actual results. Warm local state API p50 was 0.73 ms / p95 1.56 ms (n=100), against a pre-change full-read p50 of 258.18 ms (n=12). Eighty concurrent requests completed in 32.15 ms; the combined warm measurement made no additional contract eth_calls and one head check. Run `npm run bench:backend --prefix demo` to reproduce on this machine; it checkpoints/restores and refuses an active showcase. These figures do not measure chain confirmation or execution delay.
+
+## Shared LAN mode
+
+`npm run up:lan --prefix demo` binds only the Rust UI/API to all interfaces; Anvil, Redis, the source proxy and the signing engine stay on loopback. `/rpc` exposes an explicit JSON-RPC allowlist including signed lab-contract broadcasts. `/api/prepare` returns ABI-encoded unsigned wallet transactions or EIP-712 session data. Shared mode blocks `/api/action`, key export and checkpointed showcase mutations globally, including requests made from localhost. Wallet-extension origins receive RPC-only CORS support. Read-only RPC requests do not invalidate the state cache. External signed receipts are indexed from canonical blocks, while consistent block-tagged state snapshots continue driving UI/SSE.
+
+The live worker publishes Binance quotes and executes orders in separate bounded serial operations, allowing snapshot reads between interval-mined transactions. Completed orders leave its active set. Shared snapshot reads allow up to five seconds for a mined operator transaction plus snapshot collection; engine metadata remains bounded to two seconds. No stale persisted snapshot is returned as fresh after a failure.
+
+See [LAN.md](../docs/LAN.md) for current reachability, wallet setup, OS permission and validation limits.

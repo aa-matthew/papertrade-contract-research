@@ -1,4 +1,6 @@
 import http from 'node:http';
+import {sharedSession} from './shared-session.mjs';
+const sharedMode=process.env.LAB_SHARED==='1';
 import {createShowcase} from './showcase.mjs';
 import {readFile,writeFile} from 'node:fs/promises';
 import path from 'node:path';
@@ -9,7 +11,7 @@ const names={exchange:'ReconstructedLabExchange',collateral:'LabCollateral',orac
 const signers=await Promise.all(wallets.map(w=>provider.getSigner(w.address)));
 for(const [key,address]of Object.entries(deployment.contracts)){if(E.keccak256(await provider.getCode(address))!==deployment.runtimeHashes[key])throw Error('Deployment code mismatch: '+key);c[key]=new E.Contract(address,build.contracts[names[key]].abi,provider);}
 let journal=await read('journal.local.json'),history=await read('prices.local.json'),operations=[];try{operations=await read('operations.local.json');}catch{}
-let chain=Promise.resolve(),heartbeat=true,revision=0,chainEpoch=0,mutating=false,lastHead,headMemo,stateFlight,cachedSnapshot,projection,reconcilePending=true;
+let chain=Promise.resolve(),heartbeat=!sharedMode,revision=0,chainEpoch=0,mutating=false,lastHead,headMemo,stateFlight,cachedSnapshot,projection,reconcilePending=true;
 const engineId=randomBytes(12).toString('hex'),engineStats={collections:0,snapshotHits:0,positionReads:0,orderReads:0};
 const engineToken=process.env.ENGINE_TOKEN;if(!engineToken)throw Error('Start through npm run up --prefix demo (private engine token required)');
 const checkpoints=new Map();
@@ -52,6 +54,7 @@ async function request(actor,a,positionId=0n){
  return {orderId:id,...r};
 }
 async function action(a){
+ if(sharedMode)throw Error('Server signing and checkpoint actions disabled in shared LAN mode');
  const actor=index(a.actor),id=String(a.id||'0'),amount=()=>units(a.amount||'0');
  switch(a.action){
  case 'presentationHistory':for(const m of deployment.markets){history[m.id]=history[m.id]?.slice(-1)||[];}await save('prices.local.json',history);return {cleared:true};
@@ -123,14 +126,39 @@ async function collectState(b,version){
  const claims=await Promise.all(Array.from({length:Math.min(50,Number(BigInt(metrics.queueTail)-BigInt(metrics.queueHead)))},async(_,i)=>{const id=BigInt(metrics.queueHead)+BigInt(i),q=await c.exchange.claims(id,opts);return {id,user:q.user,amount:q.amount};}));
  const markets=await Promise.all(deployment.markets.map(async m=>{const q=await c.oracle.quotes(m.id,opts),risk=await c.exchange.markets(m.id,opts);return{...m,price:q.value,at:q[1],history:history[m.id],longNotional:await c.exchange.longNotional(m.id,opts),shortNotional:await c.exchange.shortNotional(m.id,opts),retiredPrice:await c.exchange.retiredPrice(m.id,opts),enabled:risk.enabled,bustBufferBps:Number(risk.bustBufferBps),maxLeverage:Number(risk.maxLeverage),delay:Number(risk.delay),executionWindow:Number(risk.executionWindow),minMargin:risk.minMargin,maxMargin:risk.maxMargin,sideCap:risk.sideCap,impact:risk.impact};}));
  const session=await c.exchange.sessions(wallets[6].address,wallets[9].address,opts),governanceOps=await Promise.all(operations.map(async op=>({...op,ready:await c.governance.isOperationReady(op.id,opts),done:await c.governance.isOperationDone(op.id,opts),pending:await c.governance.isOperationPending(op.id,opts)})));
- return {engineId,chainEpoch,stateRevision:revision,stateVersion:version,blockHash:b.hash,showcase:showcase.status(),chainId:31337,rpcUrl:'http://127.0.0.1:9545',block:blockTag,timestamp:Number(BigInt(b.timestamp)),fork,contracts:deployment.contracts,actors:publicActors,accounts,metrics,markets,positions,orders,claims,journal:journal.slice(0,100),operations:governanceOps,heartbeat,testing:checkpoints.size>0,oraclePaused:await c.oracle.paused(opts),session:{owner:wallets[6].address,key:wallets[9].address,expiry:session.expiry,marginBudget:session.marginBudget},totalSupply:await c.token.totalSupply(opts),actor:6};
+ return {engineId,chainEpoch,stateRevision:revision,stateVersion:version,blockHash:b.hash,showcase:showcase.status(),chainId:31337,rpcUrl:sharedMode?'/rpc':'http://127.0.0.1:9545',shared:sharedMode?lan.status():null,block:blockTag,timestamp:Number(BigInt(b.timestamp)),fork,contracts:deployment.contracts,actors:publicActors,accounts,metrics,markets,positions,orders,claims,journal:journal.slice(0,100),operations:governanceOps,heartbeat,testing:checkpoints.size>0,oraclePaused:await c.oracle.paused(opts),session:{owner:wallets[6].address,key:wallets[9].address,expiry:session.expiry,marginBudget:session.marginBudget},totalSupply:await c.token.totalSupply(opts),actor:6};
 }
 async function state(actor=6){
  const selected=index(actor);if(!stateFlight){const next=chain.then(async()=>{const meta=await headMeta();if(cachedSnapshot?.stateVersion===meta.version){engineStats.snapshotHits++;return cachedSnapshot;}const value=await collectState(meta.head,meta.version);const canonical=await provider.send('eth_getBlockByNumber',[meta.head.number,false]);if(canonical?.hash!==meta.head.hash){projection=null;cachedSnapshot=null;throw Error('Chain changed during snapshot; retry');}cachedSnapshot=value;return value;});chain=next.catch(()=>{});stateFlight=next.finally(()=>{stateFlight=null;});}
  const value=await stateFlight;return {...value,actor:selected,showcase:showcase.status(),heartbeat,testing:checkpoints.size>0};
 }
+let scanBusy=false;
+async function scanExternal(){if(!sharedMode||scanBusy)return;scanBusy=true;try{
+ let cursor;try{cursor=await read('lan-index.local.json');}catch{cursor={block:fork.blockNumber};}
+ const head=Number(BigInt((await block()).number)),known=new Set(journal.map(j=>j.hash)),end=Math.min(head,cursor.block+100);
+ const blocks=await Promise.all(Array.from({length:Math.max(0,end-cursor.block)},(_,i)=>provider.send('eth_getBlockByNumber',['0x'+(cursor.block+i+1).toString(16),true])));
+ const records=(await Promise.all(blocks.flatMap(b=>b.transactions.map(async t=>{
+  const key=Object.keys(c).find(k=>c[k].target.toLowerCase()===t.to?.toLowerCase());if(!key||known.has(t.hash))return null;
+  const actor=wallets.findIndex(w=>w.address.toLowerCase()===t.from.toLowerCase());if(actor<0)return null;
+  const r=await provider.getTransactionReceipt(t.hash);if(!r)return null;
+  let call;try{call=c[key].interface.parseTransaction({data:t.input,value:t.value});}catch{}const events=[];
+  for(const l of r.logs)for(const[k,con]of Object.entries(c)){if(l.address.toLowerCase()!==con.target.toLowerCase())continue;try{const e=con.interface.parseLog(l);if(e)events.push({contract:k,name:e.name,args:Array.from(e.args).map(v=>typeof v==='bigint'?String(v):v)});}catch{}}
+  let operation;
+  if(key==='governance'&&call?.name==='schedule'){const [target,value,data,pre,salt,delay]=call.args;const name=Object.keys(c).find(k=>c[k].target.toLowerCase()===target.toLowerCase());let decoded;try{decoded=c[name].interface.parseTransaction({data});}catch{}operation={id:await c.governance.hashOperation(target,value,data,pre,salt),target,key:name||'unknown',fn:decoded?.name||'unknown',args:JSON.parse(json(decoded?.args||[])),data,pre,salt,at:Number(BigInt(b.timestamp))+Number(delay)};}
+  return {operation,hash:r.hash,block:r.blockNumber,blockHash:r.blockHash,actor,contract:key,method:call?.name||'external',args:[],gasUsed:String(r.gasUsed),status:r.status,at:new Date(Number(BigInt(b.timestamp))*1000).toISOString(),events,external:true};
+ })))).filter(Boolean);
+ if(!records.length){await save('lan-index.local.json',{block:end});return;}
+ await serial(async()=>{
+  for(const r of records){if(r.operation&&!operations.some(o=>o.id===r.operation.id))operations.unshift(r.operation);if(journal.some(j=>j.hash===r.hash))continue;journal.unshift(r);
+   for(const e of r.events)if(e.name==='QuotePublished'){const [m,value,at]=e.args;prices[m]=BigInt(value);history[m]??=[];if(!history[m].some(q=>q.hash===r.hash))history[m].push({hash:r.hash,block:r.block,blockHash:r.blockHash,time:Number(at)*1000,price:Number(E.formatEther(value))});history[m]=history[m].slice(-300);}
+  }
+  journal.sort((a,b)=>b.block-a.block);journal=journal.slice(0,500);await save('journal.local.json',journal);await save('prices.local.json',history);await save('operations.local.json',operations);await save('lan-index.local.json',{block:end});
+ });
+ }catch(e){console.error('Shared receipt index:',e.message);}finally{scanBusy=false;}}
+setInterval(scanExternal,2000).unref();
 let previousShowcase;try{previousShowcase=await read('showcase.local.json');}catch{}
 const showcase=createShowcase({state:async()=>JSON.parse(json(await state())),action,serial,previous:previousShowcase});
+const lan=sharedMode?sharedSession({E,provider,c,wallets,tx,setPrice,serial,read,save,getOperations:()=>operations}):null;
 const mime={'.html':'text/html','.js':'application/javascript','.css':'text/css','.svg':'image/svg+xml','.json':'application/json','.md':'text/plain'};
 function respond(res,status,data,type='application/json'){res.writeHead(status,{'Content-Type':type,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'"});res.end(type==='application/json'?json(data):data);}
 const server=http.createServer(async(req,res)=>{
@@ -143,10 +171,13 @@ const server=http.createServer(async(req,res)=>{
  if(req.method==='GET'&&url.pathname==='/internal/stats')return respond(res,200,{...engineStats,rpc:rpcMetrics,engineId,revision,chainEpoch,mutating});
  if(req.method==='GET'&&url.pathname==='/api/state')return respond(res,200,await state(url.searchParams.get('actor')||6));
  if(req.method==='GET'&&url.pathname==='/api/abi')return respond(res,200,Object.fromEntries(Object.entries(names).map(([k,n])=>[k,build.contracts[n].abi])));
+ if(sharedMode&&url.pathname==='/api/wallets')return respond(res,403,{error:'Wallet keys are distributed privately by the host'});
+ if(req.method==='POST'&&['/api/prepare','/rpc'].includes(url.pathname)){let raw='';for await(const chunk of req){raw+=chunk;if(raw.length>100000)throw Error('Request too large');}if(!lan)throw Error('Shared LAN mode required');const args=JSON.parse(raw);return respond(res,200,url.pathname==='/rpc'?await lan.rpc(args):await lan.prepare(args));}
  if(req.method==='GET'&&url.pathname==='/api/wallets'){res.setHeader('Content-Disposition','attachment; filename="LOCAL-TEST-wallets.json"');return respond(res,200,wallets);}
  if(req.method==='GET'&&url.pathname.startsWith('/api/receipt/')){const hash=url.pathname.split('/').at(-1);if(!/^0x[0-9a-fA-F]{64}$/.test(hash))throw Error('Invalid hash');return respond(res,200,await provider.getTransactionReceipt(hash));}
  if(req.method==='GET'&&url.pathname==='/api/showcase')return respond(res,200,showcase.status());
  if(req.method==='POST'&&['/api/action','/api/showcase'].includes(url.pathname)){
+ if(sharedMode)return respond(res,403,{error:'Persistent shared session: connect your wallet; server signing, checkpoints and showcase rollback disabled'});
  if(req.headers['x-lab-request']!=='1')return respond(res,403,{error:'Local UI request header required'});
  let raw='';for await(const chunk of req){raw+=chunk;if(raw.length>100000)throw Error('Request too large');}
  const args=JSON.parse(raw);
@@ -160,5 +191,5 @@ const server=http.createServer(async(req,res)=>{
  }catch(e){respond(res,400,{error:e.shortMessage||e.reason||e.message,detail:e.info?.error?.message||e.revert?.args?.[0]||null});}
 });
 server.listen(4174,'127.0.0.1',()=>console.log('Private ABI/transaction engine ready on loopback 4174'));
-setInterval(()=>{if(!heartbeat||showcase.status().running)return;serial(async()=>{for(const m of deployment.markets)await refresh(m.id);}).catch(e=>console.error('Heartbeat:',e.shortMessage||e.message));},10000).unref();
-process.on('SIGTERM',async()=>{await showcase.stop();await chain;server.close();provider.destroy();process.exit(0);});
+setInterval(()=>{if(sharedMode||!heartbeat||showcase.status().running)return;serial(async()=>{for(const m of deployment.markets)await refresh(m.id);}).catch(e=>console.error('Heartbeat:',e.shortMessage||e.message));},10000).unref();
+process.on('SIGTERM',async()=>{await lan?.stop();await showcase.stop();await chain;server.close();provider.destroy();process.exit(0);});

@@ -1,5 +1,7 @@
 # Papertrade contracts: archive, logic and reverse engineering
 
+Shared multi-computer demo: [LAN setup and wallet guide](demo/docs/LAN.md). Run `npm run up:lan --prefix demo` from the repository root. Shared mode uses external wallet signatures and persistent fork transactions, with rehearsal rollback disabled. Incoming macOS/LAN access still needs verification; see the guide before the demo.
+
 Local research copy of the deployed Papertrade protocol on HyperEVM (chain 999), captured on 15 October 2026. Start with [contract inventory](inspection/CONTRACTS.md), [interaction map](inspection/INTERACTIONS.md), and [token economics](inspection/TOKENOMICS.md).
 
 **REA reverse engineering:** [reconstruction report](reverse-engineered/REPORT.md) contains REA evidence for 19 bytecode carriers, reconstructed Solidity, corrected batch ABI, exact mint/PnL rounding, recovered storage, and differential tests. The report separates tested reconstructions from incomplete paths.

@@ -17,6 +17,10 @@
     "test:backend": "node --test --test-concurrency=1 test/backend.test.mjs",
     "build:backend": "cargo build --release --locked --manifest-path backend/Cargo.toml",
     "test:rust": "cargo test --locked --manifest-path backend/Cargo.toml",
-    "bench:backend": "node scripts/benchmark-backend.mjs"
+    "bench:backend": "node scripts/benchmark-backend.mjs",
+    "up:lan": "node scripts/lan.mjs start",
+    "lan:feed": "node scripts/lan.mjs feed",
+    "lan:status": "node scripts/lan.mjs status",
+    "test:lan": "node --test test/lan.test.mjs"
   }
 }

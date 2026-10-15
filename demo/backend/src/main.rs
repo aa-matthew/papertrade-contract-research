@@ -73,7 +73,11 @@ impl App {
             .timeout(if path.starts_with("/internal/") {
                 Duration::from_secs(2)
             } else {
-                Duration::from_secs(3)
+                Duration::from_secs(if std::env::var("LAB_SHARED").unwrap_or_default() == "1" {
+                    5
+                } else {
+                    3
+                })
             })
             .send()
             .await?;
@@ -264,22 +268,56 @@ async fn security(headers: HeaderMap, request: Request, next: Next) -> Response 
         .get("host")
         .and_then(|v| v.to_str().ok())
         .unwrap_or("");
-    if !["127.0.0.1:4173", "localhost:4173"].contains(&host) {
-        return (StatusCode::FORBIDDEN, "Loopback host required").into_response();
+    let shared = std::env::var("LAB_SHARED").unwrap_or_default() == "1";
+    let lan_host = std::env::var("LAB_LAN_HOST").unwrap_or_default();
+    let hosts = ["127.0.0.1:4173", "localhost:4173", lan_host.as_str()];
+    if !hosts.contains(&host) || host.is_empty() {
+        return (StatusCode::FORBIDDEN, "Unknown host").into_response();
     }
+    let path = request.uri().path();
     if let Some(origin) = headers.get("origin") {
-        if !["http://127.0.0.1:4173", "http://localhost:4173"]
-            .contains(&origin.to_str().unwrap_or(""))
+        let origin = origin.to_str().unwrap_or("");
+        if !(path == "/rpc"
+            && (origin.starts_with("chrome-extension://")
+                || origin.starts_with("moz-extension://")))
+            && !hosts
+                .iter()
+                .any(|h| !h.is_empty() && origin == format!("http://{h}"))
         {
             return (StatusCode::FORBIDDEN, "Cross-origin request blocked").into_response();
         }
     }
+    if shared
+        && ((path == "/api/action" || path == "/api/showcase") && request.method() != Method::GET
+            || path == "/api/wallets")
+    {
+        return (StatusCode::FORBIDDEN, Json(json!({"error":"Shared session: use your wallet. Server signers, key export and rollback are disabled."}))).into_response();
+    }
     if request.method() != Method::GET
+        && path != "/rpc"
         && headers.get("x-lab-request").and_then(|v| v.to_str().ok()) != Some("1")
     {
-        return (StatusCode::FORBIDDEN, "Local UI request header required").into_response();
+        return (StatusCode::FORBIDDEN, "UI request header required").into_response();
     }
+    let rpc_origin = if path == "/rpc" {
+        headers.get("origin").cloned()
+    } else {
+        None
+    };
     let mut response = next.run(request).await;
+    if let Some(origin) = rpc_origin {
+        let h = response.headers_mut();
+        h.insert("access-control-allow-origin", origin);
+        h.insert(
+            "access-control-allow-methods",
+            "POST, OPTIONS".parse().unwrap(),
+        );
+        h.insert(
+            "access-control-allow-headers",
+            "content-type".parse().unwrap(),
+        );
+        h.insert("vary", "Origin".parse().unwrap());
+    }
     let h = response.headers_mut();
     h.insert("cache-control", "no-store".parse().unwrap());
     h.insert("x-content-type-options", "nosniff".parse().unwrap());
@@ -342,7 +380,15 @@ async fn backend(State(app): State<App>) -> Response {
 }
 async fn proxy(State(app): State<App>, method: Method, uri: Uri, body: Bytes) -> Response {
     let path = uri.path_and_query().map(|v| v.as_str()).unwrap_or("/");
-    if !["/api/action", "/api/showcase", "/api/abi", "/api/wallets"].contains(&uri.path())
+    if ![
+        "/api/action",
+        "/api/showcase",
+        "/api/abi",
+        "/api/wallets",
+        "/api/prepare",
+        "/rpc",
+    ]
+    .contains(&uri.path())
         && !uri.path().starts_with("/api/receipt/")
     {
         return StatusCode::NOT_FOUND.into_response();
@@ -350,7 +396,16 @@ async fn proxy(State(app): State<App>, method: Method, uri: Uri, body: Bytes) ->
     if method != Method::GET && method != Method::POST {
         return StatusCode::METHOD_NOT_ALLOWED.into_response();
     }
-    let mutation = method == Method::POST;
+    let signed_send = serde_json::from_slice::<Value>(&body)
+        .ok()
+        .is_some_and(|v| {
+            v["method"] == "eth_sendRawTransaction"
+                || v.as_array().is_some_and(|rows| {
+                    rows.iter().any(|r| r["method"] == "eth_sendRawTransaction")
+                })
+        });
+    let mutation = method == Method::POST
+        && (["/api/action", "/api/showcase"].contains(&uri.path()) || signed_send);
     if mutation {
         if let Err(e) = app.engine("/internal/meta").await {
             return failure(e);
@@ -394,12 +449,13 @@ async fn assets(State(app): State<App>, uri: Uri) -> Response {
     let file = match uri.path() {
         "/" => "index.html",
         "/app.js" => "app.js",
+        "/wallet.js" => "wallet.js",
         "/style.css" => "style.css",
         "/favicon.svg" => "favicon.svg",
         _ => return StatusCode::NOT_FOUND.into_response(),
     };
     let mime = match file {
-        "app.js" => "text/javascript",
+        "app.js" | "wallet.js" => "text/javascript",
         "style.css" => "text/css",
         "favicon.svg" => "image/svg+xml",
         _ => "text/html",
@@ -471,6 +527,11 @@ async fn main() -> Result<()> {
         .route("/api/index", get(index))
         .route("/api/backend", get(backend))
         .route("/api/action", post(proxy))
+        .route("/api/prepare", post(proxy))
+        .route(
+            "/rpc",
+            post(proxy).options(|| async { StatusCode::NO_CONTENT }),
+        )
         .route("/api/showcase", get(proxy).post(proxy))
         .route("/api/abi", get(proxy))
         .route("/api/wallets", get(proxy))
@@ -479,7 +540,12 @@ async fn main() -> Result<()> {
         .layer(DefaultBodyLimit::max(100_000))
         .layer(middleware::from_fn(security))
         .with_state(app);
-    let listener = tokio::net::TcpListener::bind("127.0.0.1:4173").await?;
+    let bind = if std::env::var("LAB_SHARED").unwrap_or_default() == "1" {
+        "0.0.0.0:4173"
+    } else {
+        "127.0.0.1:4173"
+    };
+    let listener = tokio::net::TcpListener::bind(bind).await?;
     println!("Rust API + SQLite WAL + Redis ready at http://127.0.0.1:4173");
     axum::serve(listener, router)
         .with_graceful_shutdown(async {

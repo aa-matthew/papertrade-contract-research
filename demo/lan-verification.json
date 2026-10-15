@@ -1,0 +1,232 @@
+{
+  "checkedAt": "2026-10-15T19:59:39.136Z",
+  "overall": "functional gateway ready; LAN connectivity pending host OS verification",
+  "sourceFork": {
+    "chainId": 4663,
+    "block": 89432040,
+    "hash": "0xdcc60897c067f07a0b5fe7e61f2f2d9e02c3439d9f05559089c9a7b1ffae67a7"
+  },
+  "localChainId": 31337,
+  "uiUrl": "http://192.168.31.251:4173",
+  "rpcUrl": "http://192.168.31.251:4173/rpc",
+  "mode": "shared-lan",
+  "feed": "OFF",
+  "contracts": {
+    "collateral": "0x7F6f314D460C7751bF1F9784D34Bba2C2AE82CeB",
+    "exchange": "0x770ace66dd84B035F71FfC977448032EE688604d",
+    "governance": "0x980ea9f1a0C36e1E5f3B6BD451bEf8a7Fe661f97",
+    "oracle": "0x0Db32f0b116773fDD78C2e1b5E6609CC502e6784",
+    "staking": "0x74156A1F9736307b7AD34e3691f3A5B54A0B3Eb8",
+    "token": "0xB10982193B39Eda3428d6AaeBbd7986f2A2Baa1a"
+  },
+  "qa": {
+    "gatewayIntegration": {
+      "passed": 6,
+      "transport": "http://127.0.0.1:4173 (same API, not a LAN reachability test)",
+      "signing": "actual ethers wallet signatures via EIP-1193 adapter exercising public/wallet.js; raw broadcasts and canonical receipts",
+      "coverage": [
+        "blocked server signing, key export, unsafe RPC; wallet-extension RPC CORS",
+        "wallet approve/deposit/withdraw and external receipt indexing",
+        "fresh real Binance quotes -> on-chain publication -> delayed keeper open and close",
+        "Carol unstake -> approve -> restake",
+        "Alice session authorization -> relayer EIP-712 requestBySig open/close -> revoke -> prior authorization restored by a new transaction",
+        "Governor schedule -> receipt indexing -> early execution rejected -> cancel; trader privileged actions rejected"
+      ],
+      "noSnapshots": true
+    },
+    "rustStoreTests": 3,
+    "binanceValidationTests": 3,
+    "readOnlyHealth": {
+      "passed": true,
+      "count": 42
+    },
+    "restart": {
+      "checkedAt": "2026-10-15T19:59:00.614Z",
+      "passed": true,
+      "beforeBlock": 89433835,
+      "afterBlock": 89433866,
+      "hash": "0xcd50ac90d6996be156f1610c8254c8199cb225c9a1971c2070f41f2db73bbc6f",
+      "accountsPreserved": true,
+      "positionsPreserved": true,
+      "ordersPreserved": true,
+      "contractsPreserved": true,
+      "rememberedSharedMode": true,
+      "feed": "OFF"
+    },
+    "ui": {
+      "routes": 9,
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "jsErrors": [],
+      "missingExtensionGuidance": true,
+      "extensionApprovalUITested": false
+    }
+  },
+  "backend": {
+    "api": "rust-axum",
+    "redis": true,
+    "database": true
+  },
+  "externalSignedProof": [
+    {
+      "hash": "0xcd50ac90d6996be156f1610c8254c8199cb225c9a1971c2070f41f2db73bbc6f",
+      "block": 89433739,
+      "actor": 0,
+      "contract": "governance",
+      "method": "cancel",
+      "status": 1
+    },
+    {
+      "hash": "0xdc8b4ee03271d115f363dfc61786a381bf0a9101e8d3777f835d5eaec65b1739",
+      "block": 89433737,
+      "actor": 0,
+      "contract": "governance",
+      "method": "schedule",
+      "status": 1
+    },
+    {
+      "hash": "0x358e84bd4b1e2aa5b9ae5ddd593688db3533dd60975b7f33219d61f603dba56d",
+      "block": 89433562,
+      "actor": 9,
+      "contract": "exchange",
+      "method": "requestBySig",
+      "status": 1
+    },
+    {
+      "hash": "0x06d5f97af9f9e2d7be99bf01deb83f531e4ceee95a977ad8f3216b02bba85a5e",
+      "block": 89433553,
+      "actor": 9,
+      "contract": "exchange",
+      "method": "requestBySig",
+      "status": 1
+    },
+    {
+      "hash": "0x16085f7a1a7a7cdd3f03c229372b91d33ac059e428b8704eb588488a6f99dd6c",
+      "block": 89433547,
+      "actor": 8,
+      "contract": "staking",
+      "method": "stake",
+      "status": 1
+    },
+    {
+      "hash": "0x24d4f5e7d22e3a1612d7e88b5d3c56f61123523243838978e06c6f986fb0766e",
+      "block": 89433545,
+      "actor": 8,
+      "contract": "staking",
+      "method": "unstake",
+      "status": 1
+    },
+    {
+      "hash": "0x20d3e404446b9d7346378a4fe459b84ee99e77a476afcd264e9d869af25e9360",
+      "block": 89433536,
+      "actor": 7,
+      "contract": "exchange",
+      "method": "request",
+      "status": 1
+    },
+    {
+      "hash": "0x7bc5fa74d0f2fe1b201efd4b4053df86a5c76fd2f0ebeff0a36673f26008f904",
+      "block": 89433526,
+      "actor": 7,
+      "contract": "exchange",
+      "method": "request",
+      "status": 1
+    },
+    {
+      "hash": "0xe6237615f312535faf458efdcac9f699a7a3f2ece8ebb66ad985c712d6bd3038",
+      "block": 89433518,
+      "actor": 6,
+      "contract": "exchange",
+      "method": "withdraw",
+      "status": 1
+    },
+    {
+      "hash": "0x74d4092fc32c6fc0cd67674481262c6072edc231f85d97adb9e18816516d90d9",
+      "block": 89433517,
+      "actor": 6,
+      "contract": "exchange",
+      "method": "deposit",
+      "status": 1
+    },
+    {
+      "hash": "0xc1ebab8e94c28f6a84b54e2b7caa6dc2e101753e4f3c5cc97e065ee0da5dcdb8",
+      "block": 89433450,
+      "actor": 7,
+      "contract": "exchange",
+      "method": "request",
+      "status": 1
+    },
+    {
+      "hash": "0xd3a93054bd4167417d2da97fb93de888b4e0de52fb8a122127ab6040e9f80935",
+      "block": 89433441,
+      "actor": 6,
+      "contract": "exchange",
+      "method": "withdraw",
+      "status": 1
+    },
+    {
+      "hash": "0xfb34d31edf9f158e6aefea06475c4e29c5b0de2e8f9ce47ed01caae9559d1616",
+      "block": 89433440,
+      "actor": 6,
+      "contract": "exchange",
+      "method": "deposit",
+      "status": 1
+    },
+    {
+      "hash": "0x114f3e4370cafdb94ff299cc8a171d3f198e3120368c59cb93e2210ad15f95ec",
+      "block": 89433314,
+      "actor": 8,
+      "contract": "staking",
+      "method": "stake",
+      "status": 1
+    },
+    {
+      "hash": "0xc9faba423357b721504ea8d61da4666971b3ba23fddaaf27d51ede4371e0a2bc",
+      "block": 89433312,
+      "actor": 8,
+      "contract": "staking",
+      "method": "unstake",
+      "status": 1
+    },
+    {
+      "hash": "0x72f3ac977162127d5bbfcdcd01f0dce21d5d5a8c2639c90dec8ce57fb3a1c230",
+      "block": 89433306,
+      "actor": 7,
+      "contract": "exchange",
+      "method": "request",
+      "status": 1
+    },
+    {
+      "hash": "0x033de05e1e3ef1502c129ec4f2072ecb5ffebf86542e32da9457e8a9464603ad",
+      "block": 89433297,
+      "actor": 7,
+      "contract": "exchange",
+      "method": "request",
+      "status": 1
+    },
+    {
+      "hash": "0x5f1d37a8d4214669fd356d3a1d4ee479670061eec480d5caae7b09c5f25e25ad",
+      "block": 89433291,
+      "actor": 6,
+      "contract": "exchange",
+      "method": "withdraw",
+      "status": 1
+    },
+    {
+      "hash": "0x58a4d897ddbd509d8ba452dfae3db61949675e56ec55ed31d494a47248e6d48b",
+      "block": 89433289,
+      "actor": 6,
+      "contract": "exchange",
+      "method": "deposit",
+      "status": 1
+    }
+  ],
+  "limitations": [
+    "Wi-Fi IP HTTP requests timed out even though Rust listens on all interfaces. Localhost works. macOS Firewall is enabled; a locked Mac prevented inspecting OS network permission. Actual second-computer access remains unverified.",
+    "No real MetaMask extension is installed in the in-app browser; wallet-client signing was exercised with actual test-wallet signatures and an EIP-1193 adapter.",
+    "The source state is pinned; this does not reproduce production Papertrade custody/oracle infrastructure.",
+    "Private per-actor wallet files are ignored and distributed manually by the host.",
+    "Live feed is OFF after QA; host enables it for the demo."
+  ],
+  "remainingHostAction": "Unlock Mac, allow only robinpaper-api incoming LAN connections if prompted (scoped helper provided), then open the LAN URL on another computer."
+}
