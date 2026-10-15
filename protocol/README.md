@@ -35,6 +35,10 @@ node scripts/operate.mjs status deployments/REPLACE_WITH_MANIFEST.local.json
 
 The local deployment uses unrestricted mock collateral and a manually set mock oracle. Both constructors reject nonlocal chain IDs. These mocks are test fixtures, never live assets or price authorities. Local opens are enabled for exploration; token, staking and exchange ownership transfers to a one-day timelock. Use the timelock for subsequent owner changes.
 
+## Daily trader payout rule
+
+Net trader profits credited from the house are capped at **5,000,000 collateral units per UTC calendar day**, globally across users and markets. Direct profitable closes and FIFO queue harvests share one budget. Excess profit joins/remains in the queue even when house cash exists. Budget resets at 00:00 UTC with no carryover; withdrawal of principal and previously credited balances is unaffected. This assumes collateral is worth $1; it is a token-unit cap, not a live USD valuation. See [logic](docs/LOGIC.md) for scope and boundary behavior.
+
 ## Contract set
 
 | File | Responsibility |

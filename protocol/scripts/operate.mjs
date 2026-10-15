@@ -9,7 +9,7 @@ try{
   if(Number((await provider.getNetwork()).chainId)!==m.chainId)throw Error('Chain mismatch');
   if(command==='status'){
     const c=new Contract(m.contracts.exchange,artifact(build,'Exchange').abi,provider);
-    const fields=['opensPaused','owner','guardian','houseCash','totalBalances','lockedMargin','stakerFees','developerFees','totalQueued','openCount','pendingOpenCount','cashInvariant'];
+    const fields=['opensPaused','owner','guardian','houseCash','totalBalances','lockedMargin','stakerFees','developerFees','totalQueued','openCount','pendingOpenCount','DAILY_PAYOUT_LIMIT','dailyPayoutRemaining','cashInvariant'];
     const values=await Promise.all(fields.map(f=>c[f]()));console.log(json(Object.fromEntries(fields.map((f,i)=>[f,values[i]]))));
   }else{
     const [key,fn,raw='[]']=args,abi=artifact(build,names[key]).abi,params=JSON.parse(raw),iface=new Interface(abi),to=m.contracts[key];

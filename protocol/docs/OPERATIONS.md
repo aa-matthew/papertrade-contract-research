@@ -51,10 +51,18 @@ For small setups the keeper cycle is:
 2. Fetch/submit valid reports; check resulting observation, feed decimals, bounds and freshness.
 3. Execute eligible orders with gas estimates, simulate first, record outcomes and retry with bounded backoff. Report-update and execute are separate transactions; refresh as needed if another keeper advances the latest report. A revert must not cause uncontrolled nonce/fee retries.
 4. Check open position events/state and current validated prices; call `liquidate(positionId)` when linear adverse loss plus buffer reaches margin. No bounty is paid by the protocol.
-5. With house cash and queued claims, call `harvest(maxEntries)` (1..100), respecting chain gas limits. Partial head fills are normal. With an empty queue, call `pushFees()`; surplus sweep requires no live positions or pending opens.
+5. With house cash, remaining `dailyPayoutRemaining()` and queued claims, call `harvest(maxEntries)` (1..100), respecting chain gas limits. Partial head fills are normal. With an empty queue, call `pushFees()`; surplus sweep requires no live positions or pending opens.
 6. Expire/cancel abandoned orders. Index emitted events durably from deployment block, handle reorgs using canonical receipts/finality, periodically reconcile state against contract getters.
 
 Keeper ordering affects fills and liquidations. Deploy redundant operators with independent RPCs, funded gas wallets, credential rotation and clock synchronization. Sequencer inclusion/confirmation, oracle report delivery and configured delay determine practical latency; this implementation makes no subsecond guarantee.
+
+## Daily payout operations
+
+The net trader profit budget is **$5m nominal collateral per UTC day**, shared by all wallets, markets, direct profitable closes and harvests. Status prints `DAILY_PAYOUT_LIMIT` and `dailyPayoutRemaining`; query historical consumption with `exchange profitPaidByDay '["UTC_DAY_NUMBER"]'`, where day number is Unix seconds divided by 86400, rounded down. Index `ProfitPaid(user,amount,utcDay)` for reconciliation.
+
+At zero remaining allowance, stop profit-harvest retries until the next 00:00 UTC; positions can still close and new profits queue. Cash still has to exist after reset. Keepers should harvest the existing FIFO head first; the contract prevents newer winners bypassing it. Withdrawals of principal/already credited cash do not consume or restore the budget. The contract has no adjustable daily-limit parameter; changing the constant requires a new deployment.
+
+This is not rolling 24 hours; two daily allowances can be used near midnight. It does not cap accrued profit or queue debt, and staking/developer distributions are outside its scope. The separate house surplus cap does not represent the daily allowance. Monitor debt growth and unrealized winning PnL as well as cash payouts.
 
 ## PART and staking
 

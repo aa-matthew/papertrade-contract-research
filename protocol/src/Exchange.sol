@@ -59,6 +59,10 @@ contract Exchange is Ownable, ReentrancyGuard, EIP712 {
     uint256 public immutable flatThresholdWad = 2_000_000e18;
     uint256 public immutable decayScaleWad = 120_000_000e18;
     uint256 public houseCap = 5_000_000e6;
+    /// Global net trader-profit credits per fixed UTC day, in raw collateral units.
+    /// Principal refunds, deposits, withdrawals and staking rewards do not consume this budget.
+    uint256 public constant DAILY_PAYOUT_LIMIT = 5_000_000e6;
+    mapping(uint256 => uint256) public profitPaidByDay;
     mapping(address => uint256) public balances;
     mapping(address => uint256) public queued;
     mapping(uint32 => Market) public markets;
@@ -88,6 +92,7 @@ contract Exchange is Ownable, ReentrancyGuard, EIP712 {
     event MarketRetired(uint32 indexed market, uint256 price);
     event SessionSet(address indexed user, address indexed key, uint64 expiry, uint128 budget);
     event FeesPushed(uint256 stakingAmount, uint256 developerAmount);
+    event ProfitPaid(address indexed user, uint256 amount, uint256 indexed utcDay);
     event OpensPauseChanged(bool paused);
 
     constructor(address owner_, address guardian_, address developer_, IERC20 collateral_, IExecutionOracle oracle_, IProtocolToken token_, IRewardSink staking_)
@@ -241,9 +246,22 @@ contract Exchange is Ownable, ReentrancyGuard, EIP712 {
     }
     function _credit(address user, uint256 amount) private { balances[user] += amount; totalBalances += amount; }
     function _accrueFee(uint256 amount) private { uint256 s = amount / 2; stakerFees += s; developerFees += amount - s; }
+    function dailyPayoutRemaining() public view returns (uint256) {
+        return DAILY_PAYOUT_LIMIT - profitPaidByDay[block.timestamp / 1 days];
+    }
+    function _payProfit(address user, uint256 requested) private returns (uint256 paid) {
+        uint256 day = block.timestamp / 1 days;
+        paid = Math.min(requested, Math.min(houseCash, DAILY_PAYOUT_LIMIT - profitPaidByDay[day]));
+        if (paid != 0) {
+            profitPaidByDay[day] += paid;
+            houseCash -= paid;
+            _credit(user, paid);
+            emit ProfitPaid(user, paid, day);
+        }
+    }
     function _payOrQueue(address user, uint256 amount) private {
-        uint256 paid = totalQueued == 0 ? Math.min(houseCash, amount) : 0;
-        houseCash -= paid; _credit(user, paid); amount -= paid;
+        uint256 paid = totalQueued == 0 ? _payProfit(user, amount) : 0;
+        amount -= paid;
         if (amount != 0) {
             uint256 id = queueTail++; claims[id] = Claim(user, amount); queued[user] += amount; totalQueued += amount;
             emit Queued(id, user, amount);
@@ -270,7 +288,7 @@ contract Exchange is Ownable, ReentrancyGuard, EIP712 {
         } else {
             uint256 profit = uint256(result); uint256 fee = profit * 200 / 10_000; uint256 net = profit - fee;
             _credit(p.user, p.margin);
-            bool payableFee = totalQueued == 0 && houseCash >= profit;
+            bool payableFee = totalQueued == 0 && houseCash >= profit && dailyPayoutRemaining() >= net;
             if (payableFee) { houseCash -= fee; _accrueFee(fee); }
             _payOrQueue(p.user, net);
             trackedLpWad -= int256((net + (payableFee ? fee : 0)) * TO_WAD);
@@ -281,8 +299,9 @@ contract Exchange is Ownable, ReentrancyGuard, EIP712 {
         require(maxEntries > 0 && maxEntries <= 100, "bounded batch");
         uint256 walked;
         while (queueHead < queueTail && houseCash > 0 && walked < maxEntries) {
-            Claim storage c = claims[queueHead]; uint256 paid = Math.min(c.amount, houseCash);
-            c.amount -= paid; houseCash -= paid; totalQueued -= paid; queued[c.user] -= paid; _credit(c.user, paid);
+            Claim storage c = claims[queueHead]; uint256 paid = _payProfit(c.user, c.amount);
+            if (paid == 0) break; // Daily budget exhausted; leave the head unchanged.
+            c.amount -= paid; totalQueued -= paid; queued[c.user] -= paid;
             emit Harvested(queueHead, c.user, paid);
             if (c.amount == 0) { delete claims[queueHead]; queueHead++; } walked++;
         }

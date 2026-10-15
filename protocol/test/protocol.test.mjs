@@ -20,7 +20,7 @@ async function order(s,{positionId=0n,margin=100n*U,leverage=20,isLong=true,pric
 async function request(s,fields={}){const o=await order(s,fields);o.priceLimit=fields.priceLimit??((o.positionId===0n?o.isLong:!o.isLong)?1_000_000n*W:1n);const id=await p.exchange.nextOrder();await send(p.exchange.connect(s).request(o));return {id,o};}
 async function execute(id,value=80_000n*W){await tick();await quote(value);await send(p.exchange.execute(id));}
 async function open(s,fields={}){const id=await p.exchange.nextPosition();const q=await request(s,fields);await execute(q.id,fields.entry??80_000n*W);return id;}
-async function close(s,id,value){await tick();const pos=await p.exchange.positions(id);const q=await request(s,{positionId:id,isLong:pos.isLong});await execute(q.id,value);}
+async function close(s,id,value){await tick();const pos=await p.exchange.positions(id);const q=await request(s,{positionId:id,isLong:pos.isLong,market:pos.market});await execute(q.id,value);}
 async function fixture(){p=await deployProtocol(owner,config,{local:true,retainOwner:true});await quote();await fund(user);await fund(other);}
 before(async()=>{
  const port=await new Promise((resolve,reject)=>{const server=createServer();server.on('error',reject);server.listen(0,'127.0.0.1',()=>{const port=server.address().port;server.close(()=>resolve(port));});});
@@ -102,4 +102,26 @@ test('integrated emission curve crosses threshold, decays and keeps integer floo
    assert.deepEqual(Array.from(await h.mintQuote(lp,progress,basis)),model(lp,progress,basis));
  }
  assert((await h.mintQuote(threshold,scale,100n*W))[0]<(await h.mintQuote(threshold,0,100n*W))[0]);
+});
+test('global $5m UTC daily profit cap spans closes and FIFO harvest without locking principal',async()=>{
+ await fixture();
+ // Start well inside a new UTC day so ordinary order timing cannot cross a boundary.
+ await provider.send('evm_setNextBlockTimestamp',[(Math.floor(await now()/86400)+1)*86400+100]);await provider.send('evm_mine',[]);
+ const limit=5_000_000n*U,day=BigInt(Math.floor(await now()/86400));
+ assert.equal(await p.exchange.DAILY_PAYOUT_LIMIT(),limit);
+ const risk={...config.markets[0].risk,maxLeverage:100,maxMargin:String(1_000_000n*U),sideCap:String(500_000_000n*U),impact:{base:'0',rate:String(10n**26n),position:String(10n**26n),referenceUsd:'0'}};
+ await send(p.exchange.configureMarket(1,risk));await send(p.exchange.configureMarket(2,risk));await fund(user,500_000n*U);await fund(other,1_000_000n*U);
+ await send(p.collateral.mint(await owner.getAddress(),20_000_000n*U));await send(p.collateral.approve(p.exchange.target,MaxUint256));await send(p.exchange.seedLiquidity(20_000_000n*U));
+ const first=await open(user,{margin:400_000n*U,leverage:100}),second=await open(other,{margin:1_000_000n*U,leverage:100}),third=await open(user,{market:2,margin:100_000n*U,leverage:100});
+ await close(user,first,88_000n*W);const paidFirst=await p.exchange.profitPaidByDay(day);assert(paidFirst>0n&&paidFirst<limit);const feesBefore=await p.exchange.stakerFees();
+ await close(other,second,88_000n*W);assert.equal(await p.exchange.profitPaidByDay(day),limit);assert.equal(await p.exchange.dailyPayoutRemaining(),0n);assert.equal(await p.exchange.stakerFees(),feesBefore);
+ const headBefore=await p.exchange.claims(1);assert.equal(headBefore.user,await other.getAddress());assert(headBefore.amount>limit);
+ await close(user,third,88_000n*W);const newer=await p.exchange.queued(await user.getAddress());assert(newer>0n);assert.equal(await p.exchange.profitPaidByDay(day),limit);await invariant();
+ const queuedBefore=await p.exchange.totalQueued(),houseBefore=await p.exchange.houseCash();await send(p.exchange.harvest(100));assert.equal(await p.exchange.totalQueued(),queuedBefore);assert.equal(await p.exchange.houseCash(),houseBefore);
+ // Principal and already-credited profits remain withdrawable after the budget is exhausted.
+ const balance=await p.exchange.balances(await user.getAddress());await send(p.exchange.connect(user).withdraw(balance,await user.getAddress()));assert.equal(await p.exchange.dailyPayoutRemaining(),0n);await invariant();
+ const midnight=Number(day+1n)*86400;await provider.send('evm_setNextBlockTimestamp',[midnight-1]);await provider.send('evm_mine',[]);assert.equal(await p.exchange.dailyPayoutRemaining(),0n);
+ await provider.send('evm_setNextBlockTimestamp',[midnight]);await provider.send('evm_mine',[]);assert.equal(await p.exchange.dailyPayoutRemaining(),limit);
+ await send(p.exchange.harvest(100));assert.equal(await p.exchange.profitPaidByDay(day+1n),limit);assert.equal(await p.exchange.totalQueued(),queuedBefore-limit);assert.equal(await p.exchange.queued(await user.getAddress()),newer);assert.equal(await p.exchange.queueHead(),1n);await invariant();
+ await provider.send('evm_setNextBlockTimestamp',[midnight+86400]);await provider.send('evm_mine',[]);await send(p.exchange.harvest(100));assert.equal(await p.exchange.totalQueued(),0n);assert.equal(await p.exchange.queueHead(),await p.exchange.queueTail());assert((await p.exchange.profitPaidByDay(day+2n))<=limit);assert.equal(await p.exchange.profitPaidByDay(day),limit);await invariant();
 });

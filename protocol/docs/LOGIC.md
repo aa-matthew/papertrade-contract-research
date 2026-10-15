@@ -61,11 +61,21 @@ Winning paths subtract a price deadband `entry / 50000`, compute linear profit, 
 
 When the queue is empty, voluntary losses carve 2% as fees; the rest enters house cash. While queued promises exist, the entire loss enters house cash. Liquidation emission basis is full loss even when a fee is carved. Voluntary-loss basis is loss minus actual fee. Fees split 50/50 between staking and developer, with any raw-unit odd remainder to developer.
 
-Winning adjusted profit is reduced by 2%. Fee reserves accrue only if the queue is empty and house cash covers the gross profit; otherwise that 2% is a discount with no fee claim. Net profit is paid from available house cash when there are no older claims, and any remainder queued. With a queue, new profits queue in full. Margin principal returns immediately to the user's balance.
+Winning adjusted profit is reduced by 2%. Fee reserves accrue only if the queue is empty, house cash covers the gross profit, and the daily budget covers the full net profit; otherwise that 2% is a discount with no fee claim. Net profit is paid from available house cash when there are no older claims, and any remainder queued. With a queue, new profits queue in full. Margin principal returns immediately to the user's balance.
 
 PART issuance is 100 tokens per loss-dollar while tracked LP progress remains below $2m. Above the threshold, the integrated tail uses a $120m decay scale and a persistent monotonic tail-progress ratchet. `trackedLpWad` is a signed economic tracker, not current house cash: net losses increase it; net promised profit plus actual fees decrease it; surplus distribution decreases it; seed donations do not change it. A falling tracker can re-enter the flat region even though tail progress never resets. There is no hard emission cap or claim that this curve prevents farming.
 
 PART is minted only by exchange, cannot transfer wallet-to-wallet or on a DEX, and can move into/out of staking only when staking itself calls the token. Approvals do not grant arbitrary third-party transfers. Mint authorization is wired once.
+
+### Global daily profit payout cap
+
+`DAILY_PAYOUT_LIMIT = 5_000_000e6` is a fixed contract constant. `profitPaidByDay[block.timestamp / 86400]` counts **net trader profits credited to cash-backed exchange balances**, both direct closes and FIFO harvests. `_payProfit` is the common accounting path, bounding every credit by requested profit, house cash and the remaining daily allowance. Credited profits count immediately, even if the wallet withdraws later. There is no owner setter or per-user reset.
+
+Once the budget is exhausted, closing still settles margin and records unpaid net profit; harvest leaves the queue head intact. A later UTC day provides a new allowance, but payment still requires cash and a keeper call. Existing queue priority always prevents direct new winners from bypassing older claims. Fees on a close that cannot fully fit the daily budget are treated as an unpaid discount, matching other deferred closes; existing reserved fees remain unchanged.
+
+Excluded: returned margin, deposits, withdrawal of existing balances, developer fees, staking distributions/claims and surplus sweeps. Those are separately accounted flows, so this is not a global treasury-outflow cap. Staking payouts do not consume the trader budget. Amount is measured in 6-decimal collateral units assuming a $1 peg; no collateral/USD conversion exists.
+
+Days reset at 00:00 UTC, with no rollover of unused allowance. This is a fixed calendar-day cap, **not a rolling 24-hour cap**: up to $10m could be credited around a midnight boundary across two days. It throttles liquidity release, not profit accrual, debt growth or potential losses. It does not guarantee solvency, prevent oracle exploitation, or reserve house assets against unrealized trader profits. The existing $5m house surplus cap is a separate policy.
 
 `harvest(1..100)` spends house cash against oldest claims first, may partially fill the head, and credits cash-backed user balances. It charges no new fee. `pushFees` cannot run with queued promises; `sweepSurplus` additionally requires no positions or pending opens and house cash above cap. Surplus goes entirely to staking, not LP donors. Reserved earlier fees remain reserved when later queue debt appears.
 

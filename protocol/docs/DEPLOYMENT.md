@@ -14,6 +14,10 @@ ETH pays gas. Public endpoints are rate limited; select an authenticated product
 
 Install Node 20+ and Foundry separately. From `protocol/`, run `npm ci`, `npm run compile`, `npm test`. Compile runs the runtime size check; tests choose an ephemeral loopback port and use only a fresh local chain. The build targets Cancun because the pinned OpenZeppelin implementation uses MCOPY. Preflight tests MCOPY using a read-only `eth_call` code override; RPCs without override support fail closed. Select a compatible RPC rather than deleting the check.
 
+## Daily payout policy
+
+Every deployment hardcodes a global net trader-profit credit limit of 5,000,000 collateral units per fixed UTC day. There is no config field or owner setter. Direct settlements and FIFO harvests share the allowance; excess net profit queues. Principal and already-credited balance withdrawals remain available. This is separate from `houseCap`, excludes staking/developer flows, and assumes a $1 collateral peg. Rehearse midnight reset and funded-but-budget-exhausted queues before launch.
+
 ## Configuration
 
 Copy `config/robinhood-testnet.json` to an operator config. Fill these fields using verified chain-specific evidence:
