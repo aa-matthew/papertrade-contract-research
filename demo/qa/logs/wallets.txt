@@ -1,0 +1,19 @@
+
+> test:lan
+> node --test test/lan.test.mjs
+
+✔ gateway serves shared state, blocks key export, admin writes and unsafe RPC (127.918083ms)
+✔ same browser wallet client signs approve/deposit/withdraw through LAN and indexes external receipts (5487.450084ms)
+✔ real-time Binance publishes, delayed keeper fills signed open and close without rewind (22556.704041ms)
+✔ staker signs approval, stake and unstake on shared chain; stake custody remains backed (2908.734208ms)
+✔ assigned session wallet signs EIP-712 orders; owner revokes without exposing withdrawal authority (23080.016292ms)
+✔ role wallets schedule/index/cancel governance; trader cannot impersonate privileged signers (2925.461ms)
+✔ 1000 hostile RPC requests, oversized body and invalid raw transactions cannot invoke administrative RPC (499.49225ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 57725.800542

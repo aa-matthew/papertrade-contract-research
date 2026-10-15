@@ -1,0 +1,20 @@
+
+> test:backend
+> node --test --test-concurrency=1 test/backend.test.mjs
+
+✔ Rust gateway, actual Redis and SQLite projection match public chain state; engine is private (722.72875ms)
+✔ 80 concurrent reader requests share one snapshot with no repeated contract eth_calls (497.606375ms)
+✔ write-through invalidation and checkpoint revert remove phantom balances and indexed receipts (1213.671583ms)
+✔ same-height external fork revert uses block hash/epoch and reconciles oracle/history/journal (2162.11725ms)
+✔ SSE emits a real oracle publication and preserves exact integer price (1000.447708ms)
+✔ Redis outage degrades to verified engine/database and reconnects without stopping the fork (3996.493375ms)
+✔ same-price oracle publishes retain gas headroom across mined timestamps (1977.845083ms)
+✔ engine outage fails closed instead of serving a persisted snapshot as fresh (3219.36525ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14886.301625

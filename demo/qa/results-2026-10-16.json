@@ -1,0 +1,1322 @@
+{
+  "liveUpgrade": {
+    "checkedAt": "2026-10-15T20:43:25.233Z",
+    "passed": true,
+    "indexing": {
+      "ordersScanned": 14,
+      "ordersTotal": 14,
+      "pageSize": 250,
+      "positionsScanned": 8,
+      "positionsTotal": 8,
+      "ready": true
+    },
+    "accountsPositionsOrdersContractsSessionMetricsPreserved": true,
+    "priorReceiptQueryable": true,
+    "feed": "OFF",
+    "mode": "shared-lan",
+    "block": 89436530
+  },
+  "readOnlyHealth": {
+    "passed": true,
+    "count": 42
+  },
+  "generatedAt": "2026-10-15T20:44:09.985Z",
+  "scope": "Isolated Robinhood fork clone; no destructive tests on the shared live demo",
+  "sourceFork": {
+    "chainId": 4663,
+    "block": 89432040,
+    "hash": "0xdcc60897c067f07a0b5fe7e61f2f2d9e02c3439d9f05559089c9a7b1ffae67a7"
+  },
+  "localChainId": 31337,
+  "automatedSuites": [
+    {
+      "suite": "Research/archive integrity",
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "suite": "Protocol contracts + oracle + economic rules",
+      "passed": 12,
+      "failed": 0
+    },
+    {
+      "suite": "Demo custody, roles, trades, staking, queue and governance",
+      "passed": 16,
+      "failed": 0
+    },
+    {
+      "suite": "Backend consistency and failure recovery",
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "suite": "Full showcase / cancellation / live Binance tour",
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "suite": "Binance validation",
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "suite": "Rust SQLite consistency",
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "suite": "External-wallet shared mode + hostile RPC inputs",
+      "passed": 7,
+      "failed": 0
+    }
+  ],
+  "totalAutomatedPassed": 60,
+  "cases": [
+    {
+      "name": "cached reads 2000 / concurrency 50",
+      "passed": true,
+      "wallMs": 1160.8620420000002,
+      "requests": 2000,
+      "concurrency": 50,
+      "requestsPerSecond": 1722.857607226337,
+      "bytes": 154262000,
+      "statuses": {
+        "200": 2000
+      },
+      "errorCount": 0,
+      "errors": [],
+      "p50Ms": 26.462542000000212,
+      "p95Ms": 42.512750000000324,
+      "p99Ms": 58.69191599999999,
+      "maxMs": 73.33804200000009,
+      "engineCollections": 0,
+      "contractRpcCalls": 0
+    },
+    {
+      "name": "cached reads 5000 / concurrency 250",
+      "passed": true,
+      "wallMs": 3047.6327090000004,
+      "requests": 5000,
+      "concurrency": 250,
+      "requestsPerSecond": 1640.617645700691,
+      "bytes": 385655000,
+      "statuses": {
+        "200": 5000
+      },
+      "errorCount": 0,
+      "errors": [],
+      "p50Ms": 138.3157500000002,
+      "p95Ms": 236.21087499999976,
+      "p99Ms": 352.97800000000007,
+      "maxMs": 381.25083399999994,
+      "engineCollections": 0,
+      "contractRpcCalls": 0
+    },
+    {
+      "name": "cached reads 10000 / concurrency 1000",
+      "passed": true,
+      "wallMs": 5920.232917,
+      "requests": 10000,
+      "concurrency": 1000,
+      "requestsPerSecond": 1689.1227321960448,
+      "bytes": 771310000,
+      "statuses": {
+        "200": 10000
+      },
+      "errorCount": 0,
+      "errors": [],
+      "p50Ms": 592.8617080000004,
+      "p95Ms": 896.807417,
+      "p99Ms": 1023.140875,
+      "maxMs": 1026.4552080000003,
+      "engineCollections": 0,
+      "contractRpcCalls": 0
+    },
+    {
+      "name": "100 SSE clients + concurrent 3000 reads + 8 real oracle publications",
+      "passed": true,
+      "wallMs": 4584.04175,
+      "clients": 100,
+      "publications": 8,
+      "deliveredObservations": 800,
+      "latencyFromPublishRequest": {
+        "p50Ms": 443.05391600000075,
+        "p95Ms": 474.8937499999993,
+        "p99Ms": 481.62491600000067,
+        "maxMs": 484.18645800000013
+      },
+      "http": {
+        "requests": 3000,
+        "concurrency": 200,
+        "wallMs": 4472.945249999999,
+        "requestsPerSecond": 670.6990209638718,
+        "bytes": 231692624,
+        "statuses": {
+          "200": 3000
+        },
+        "errorCount": 0,
+        "errors": [],
+        "p50Ms": 168.35029099999883,
+        "p95Ms": 526.8112920000003,
+        "p99Ms": 594.7552919999998,
+        "maxMs": 826.8882090000006
+      },
+      "checks": []
+    },
+    {
+      "name": "Redis 15s pause under 2000 reads degrades and recovers",
+      "passed": true,
+      "wallMs": 1036.8636669999978,
+      "requests": 2000,
+      "concurrency": 100,
+      "requestsPerSecond": 1928.8938976776822,
+      "bytes": 155191406,
+      "statuses": {
+        "200": 2000
+      },
+      "errorCount": 0,
+      "errors": [],
+      "p50Ms": 50.08870899999965,
+      "p95Ms": 61.44879199999923,
+      "p99Ms": 65.43824999999924,
+      "maxMs": 66.15095900000233,
+      "recoveryWaitMs": 12814.052458000002
+    },
+    {
+      "name": "private engine frozen: 100 reads fail closed then recover",
+      "passed": true,
+      "wallMs": 3101.07,
+      "statuses": {
+        "503": 100
+      },
+      "p50Ms": 1069.268958,
+      "p95Ms": 1070.216208,
+      "p99Ms": 1070.3634169999998,
+      "maxMs": 1070.3634169999998,
+      "totalFreezeAndRecoveryMs": 3101.0027090000003,
+      "noStaleSuccess": true
+    },
+    {
+      "name": "fork RPC frozen: state fails closed and resumes canonically",
+      "passed": true,
+      "wallMs": 963.6244169999991,
+      "statuses": {
+        "503": 50
+      },
+      "recoveryTotalMs": 2990.6710420000018,
+      "epochUnchanged": true
+    },
+    {
+      "name": "SQLite write lock: bounded failure, integrity and recovery",
+      "passed": true,
+      "wallMs": 8111.161958999997,
+      "duringLockStatus": 503,
+      "lockAndRecoveryMs": 8047.621625,
+      "integrity": "ok"
+    },
+    {
+      "name": "200 real orders across 10 actors: fill/cancel and custody reconciliation",
+      "passed": true,
+      "wallMs": 8090.0455,
+      "indexCatchupMs": 354.9605410000004,
+      "actors": 10,
+      "requests": 200,
+      "filled": 100,
+      "cancelled": 100,
+      "requestWallMs": 2540.034208,
+      "totalWallMs": 5916.080083,
+      "requestGas": {
+        "p50Gas": 245587,
+        "p95Gas": 262687,
+        "p99Gas": 262699,
+        "maxGas": 296767
+      },
+      "indexedPositions": 102,
+      "custodyMatchesLedger": true
+    },
+    {
+      "name": "10x price shock, 10 simultaneous large winners and $5m/day global cap",
+      "passed": true,
+      "wallMs": 6942.391209000001,
+      "winners": 10,
+      "marginPerWinnerUsd": 100000,
+      "leverage": 100,
+      "entryUsd": 80000,
+      "exitUsd": 800000,
+      "dailyLimitUsd": 5000000,
+      "remaining": "0",
+      "queuedUsd": 788781528.927104,
+      "houseCashUsd": 3000097.999997,
+      "sameDayHarvestCannotBypassCap": true,
+      "custodyMatchesLedger": true,
+      "solvencyWarning": true
+    },
+    {
+      "name": "32 identical nonces, 32 executions and 32 cancels: exactly once",
+      "passed": true,
+      "wallMs": 1196.328999999998,
+      "independentRawSignedWallets": 32,
+      "replay": {
+        "attempts": 32,
+        "accepted": 1,
+        "reverted": 31
+      },
+      "execute": {
+        "attempts": 32,
+        "accepted": 1,
+        "reverted": 31
+      },
+      "expiredCancel": {
+        "attempts": 32,
+        "accepted": 1,
+        "reverted": 31
+      },
+      "exactBalanceAndPositionAccounting": true,
+      "gas": {
+        "p50Gas": 40803,
+        "p95Gas": 43388,
+        "p99Gas": 306557,
+        "maxGas": 306557
+      }
+    },
+    {
+      "name": "index lifetime boundary: 2000 completed order IDs",
+      "passed": true,
+      "wallMs": 1038882.7549589999,
+      "generatedRequestCancelPairs": 4987,
+      "nextOrder": "5002",
+      "httpStatus": 200,
+      "error": null,
+      "knownScaleLimit": false,
+      "cold": {
+        "catchupMs": 15252.23445800005,
+        "loadingResponses": [
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 250/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 500/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 750/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1000/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1250/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1500/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1750/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2000/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2250/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2500/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2750/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3000/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3250/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3500/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3750/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4000/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4250/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4250/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4500/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4500/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4750/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4750/5001"
+          },
+          {
+            "status": 503,
+            "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 5000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 5000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 5000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 5000/5001"
+          },
+          {
+            "status": 503,
+            "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 5000/5001"
+          }
+        ],
+        "indexing": {
+          "ordersScanned": 5001,
+          "ordersTotal": 5001,
+          "pageSize": 250,
+          "positionsScanned": 8,
+          "positionsTotal": 8,
+          "ready": true
+        },
+        "unclosedOrders": 0
+      }
+    },
+    {
+      "name": "cached reads 1000 / concurrency 1",
+      "passed": true,
+      "wallMs": 1109.0006669999998,
+      "requests": 1000,
+      "concurrency": 1,
+      "requestsPerSecond": 901.7127128562855,
+      "bytes": 77131000,
+      "statuses": {
+        "200": 1000
+      },
+      "errorCount": 0,
+      "errors": [],
+      "p50Ms": 1.0313750000000255,
+      "p95Ms": 1.338083000000097,
+      "p99Ms": 2.1097090000000662,
+      "maxMs": 15.68629199999998,
+      "engineCollections": 0,
+      "contractRpcCalls": 0
+    }
+  ],
+  "mixedLoad": {
+    "capturedAt": "2026-10-15T20:27:44.777Z",
+    "scope": "HTTP load during real request/cancel writes on the isolated fork; same machine client/server",
+    "results": [
+      {
+        "requests": 5000,
+        "concurrency": 100,
+        "wallMs": 7174.735667,
+        "requestsPerSecond": 696.8897855007207,
+        "bytes": 471348586,
+        "p50Ms": 69.37320900000009,
+        "p95Ms": 341.6928750000002,
+        "p99Ms": 363.99187499999994,
+        "maxMs": 398.84170800000004,
+        "errors": 0,
+        "errorSamples": [],
+        "distinctCanonicalSnapshots": 15
+      },
+      {
+        "requests": 5000,
+        "concurrency": 500,
+        "wallMs": 5335.902958,
+        "requestsPerSecond": 937.0485256864749,
+        "bytes": 471432430,
+        "p50Ms": 520.9534999999996,
+        "p95Ms": 610.359042,
+        "p99Ms": 662.89725,
+        "maxMs": 689.9718330000005,
+        "errors": 0,
+        "errorSamples": [],
+        "distinctCanonicalSnapshots": 11
+      },
+      {
+        "requests": 5000,
+        "concurrency": 1000,
+        "wallMs": 4027.389459,
+        "requestsPerSecond": 1241.4990034863674,
+        "bytes": 471232000,
+        "p50Ms": 710.7417499999992,
+        "p95Ms": 861.1398750000008,
+        "p99Ms": 915.6882910000004,
+        "maxMs": 936.162792000001,
+        "errors": 0,
+        "errorSamples": [],
+        "distinctCanonicalSnapshots": 6
+      }
+    ]
+  },
+  "livePreservation": {
+    "samples": 120,
+    "errors": 0,
+    "details": [],
+    "p50Ms": 3.1821659999986878,
+    "p95Ms": 20.246124999997846,
+    "p99Ms": 374.5995830000029,
+    "maxMs": 381.7378329999992,
+    "allAccountsPositionsContractsPreserved": true,
+    "scope": "Read-only probe of original live demo while isolated QA runs on the same host"
+  },
+  "environment": {
+    "node": "v23.7.0",
+    "platform": "darwin",
+    "processes": {
+      "anvil": 632,
+      "redis": 643,
+      "engine": 644,
+      "api": 645
+    },
+    "machine": [
+      "MacBookPro18,3",
+      "17179869184",
+      "10"
+    ],
+    "peaks": {
+      "anvil": {
+        "peakRssMiB": 250.765625,
+        "maxObservedCpuPercent": 19.8
+      },
+      "redis": {
+        "peakRssMiB": 6.46875,
+        "maxObservedCpuPercent": 0
+      },
+      "engine": {
+        "peakRssMiB": 115.703125,
+        "maxObservedCpuPercent": 22.5
+      },
+      "api": {
+        "peakRssMiB": 102.515625,
+        "maxObservedCpuPercent": 95.3
+      }
+    },
+    "afterFixPeaks": {
+      "anvil": {
+        "peakRssMiB": 444.890625,
+        "maxObservedCpuPercent": 30.7
+      },
+      "redis": {
+        "peakRssMiB": 6.953125,
+        "maxObservedCpuPercent": 0
+      },
+      "engine": {
+        "peakRssMiB": 106.78125,
+        "maxObservedCpuPercent": 20.5
+      },
+      "api": {
+        "peakRssMiB": 116.25,
+        "maxObservedCpuPercent": 85.1
+      }
+    },
+    "indexBoundaryPeaks": {
+      "anvil": {
+        "peakRssMiB": 675.078125,
+        "maxObservedCpuPercent": 48.4
+      },
+      "redis": {
+        "peakRssMiB": 7.78125,
+        "maxObservedCpuPercent": 0.1
+      },
+      "engine": {
+        "peakRssMiB": 114.296875,
+        "maxObservedCpuPercent": 29.8
+      },
+      "api": {
+        "peakRssMiB": 70.109375,
+        "maxObservedCpuPercent": 88.5
+      }
+    }
+  },
+  "capacityBugBefore": {
+    "name": "index lifetime boundary: 2000 completed order IDs",
+    "passed": true,
+    "wallMs": 436748.258041,
+    "generatedRequestCancelPairs": 1987,
+    "nextOrder": "2002",
+    "httpStatus": 503,
+    "error": "engine unavailable: contract engine unavailable (400 Bad Request)",
+    "knownScaleLimit": true,
+    "productAvailability": "failed before patch"
+  },
+  "indexFix": {
+    "name": "index lifetime boundary: 2000 completed order IDs",
+    "passed": true,
+    "wallMs": 1038882.7549589999,
+    "generatedRequestCancelPairs": 4987,
+    "nextOrder": "5002",
+    "httpStatus": 200,
+    "error": null,
+    "knownScaleLimit": false,
+    "cold": {
+      "catchupMs": 15252.23445800005,
+      "loadingResponses": [
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 250/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 500/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 750/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1000/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1250/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1500/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 1750/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2000/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2250/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2500/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 2750/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3000/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3250/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3500/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 3750/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4000/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4250/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4250/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4500/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4500/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4750/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 4750/5001"
+        },
+        {
+          "status": 503,
+          "error": "contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 5000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 5000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 5000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 5000/5001"
+        },
+        {
+          "status": 503,
+          "error": "engine unavailable: contract engine unavailable (503 Service Unavailable): Indexing canonical history: positions 8/8, orders 5000/5001"
+        }
+      ],
+      "indexing": {
+        "ordersScanned": 5001,
+        "ordersTotal": 5001,
+        "pageSize": 250,
+        "positionsScanned": 8,
+        "positionsTotal": 8,
+        "ready": true
+      },
+      "unclosedOrders": 0
+    }
+  },
+  "attemptNotes": [
+    "Initial nonce-race attempts used one unlocked signer concurrently and were inconclusive due to mempool nonce collisions.",
+    "Some fixture retries left queued transactions after EVM revert; the harness now clears the disposable mempool between checkpoints.",
+    "Synthetic QA EOAs use explicit local empty baselines in the private QA proxy to avoid archive requests for fixture addresses.",
+    "Only final qualified, passing runs enter the results table. Initial harness failures are not counted as protocol validation."
+  ],
+  "limitations": [
+    "Client and server share one MacBookPro18,3, 16 GiB RAM, 10 logical CPUs; loopback transport, not Wi-Fi or production capacity.",
+    "Warm full-state responses, JSON parsing and event fanout are measured; cached HTTP latency is not chain finality.",
+    "Actual second-computer LAN access and a real MetaMask approval UI remain unverified while the Mac is locked; Wi-Fi IP requests previously timed out.",
+    "Open exposure and payable liabilities are not made solvent by the 5m/day payout cap.",
+    "Stress receipts were captured before disposable checkpoint restores; these hashes are not retained as canonical transactions on the live demo.",
+    "The source is pinned and the lab oracle/collateral/auth are deliberate replacements; original Papertrade custody is not reproduced.",
+    "No quantitative oracle-lag arbitrage, MEV/sandwich or wash-trading-to-PART strategy backtest was performed."
+  ],
+  "readiness": {
+    "localForkFunctionality": "verified",
+    "LAN": "unverified; Wi-Fi IP HTTP timed out",
+    "production": "not validated",
+    "oracle": "role-controlled LabOracle; StreamOracle adapter tested separately"
+  },
+  "sourceHashes": {
+    "demo/scripts/server.mjs": "8ffcf04685b9b304e66612c1b903bfd59ae33d9b9f97459db2154dd014cb015f",
+    "demo/backend/src/main.rs": "d543e61d50cb4891ee9d56ac541158c09f7a00918cde0c33237e02dd4baaf6b1",
+    "demo/scripts/qa-extreme.mjs": "a98079e117ec153f91593ff0ff304e5524d33b0daacac70ec46c9cda93b98395",
+    "demo/test/lan.test.mjs": "50de62c8cc0e1325ed999345a31cd97097e00b0e1dbca358fb0a88043486d762"
+  },
+  "notes": [
+    "The boundary test artifact retained an older descriptive label mentioning 2000; its measured nextOrder=5002, scanned total=5001 and HTTP 200 are authoritative.",
+    "The 200-order measurement was repeated with an explicit wait for all 102 expected positions to reach the canonical index; catch-up was 354.96 ms.",
+    "The engine-freeze percentile measurement was corrected and rerun; final values are the directly measured percentiles."
+  ]
+}

@@ -106,3 +106,5 @@ See [backend-verification.json](../backend-verification.json) for actual results
 The live worker publishes Binance quotes and executes orders in separate bounded serial operations, allowing snapshot reads between interval-mined transactions. Completed orders leave its active set. Shared snapshot reads allow up to five seconds for a mined operator transaction plus snapshot collection; engine metadata remains bounded to two seconds. No stale persisted snapshot is returned as fresh after a failure.
 
 See [LAN.md](../docs/LAN.md) for current reachability, wallet setup, OS permission and validation limits.
+
+Historical indexing now consumes at most 250 new position IDs and 250 new order IDs per collection, keeping active entries for subsequent refresh. Until both cursors reach the canonical block's targets, the engine returns a 503 loading status with progress rather than publishing a partial fresh snapshot. Rust preserves the engine diagnostic. This removes the former lifetime 1,000-position / 2,000-order cutoff; it does not bound the cost of rereading a very large live set.

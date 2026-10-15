@@ -1,0 +1,14 @@
+
+> test:rust
+> cargo test --locked --manifest-path backend/Cargo.toml
+
+   Compiling robinpaper-api v0.1.0 (/Users/mtbhust/Documents/ChatGPT/Papertrade clone/demo/backend)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.04s
+     Running unittests src/main.rs (backend/target/debug/deps/robinpaper_api-660bcc65a9da76f6)
+
+running 3 tests
+test store::tests::remined_transaction_hash_updates_its_canonical_block ... ok
+test store::tests::atomic_projection_preserves_integer_strings_and_idempotent_events ... ok
+test store::tests::revert_epoch_hides_old_transactions_and_replaces_active_projection ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

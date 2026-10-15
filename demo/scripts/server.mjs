@@ -11,6 +11,7 @@ const names={exchange:'ReconstructedLabExchange',collateral:'LabCollateral',orac
 const signers=await Promise.all(wallets.map(w=>provider.getSigner(w.address)));
 for(const [key,address]of Object.entries(deployment.contracts)){if(E.keccak256(await provider.getCode(address))!==deployment.runtimeHashes[key])throw Error('Deployment code mismatch: '+key);c[key]=new E.Contract(address,build.contracts[names[key]].abi,provider);}
 let journal=await read('journal.local.json'),history=await read('prices.local.json'),operations=[];try{operations=await read('operations.local.json');}catch{}
+let indexing={ready:true};
 let chain=Promise.resolve(),heartbeat=!sharedMode,revision=0,chainEpoch=0,mutating=false,lastHead,headMemo,stateFlight,cachedSnapshot,projection,reconcilePending=true;
 const engineId=randomBytes(12).toString('hex'),engineStats={collections:0,snapshotHits:0,positionReads:0,orderReads:0};
 const engineToken=process.env.ENGINE_TOKEN;if(!engineToken)throw Error('Start through npm run up --prefix demo (private engine token required)');
@@ -25,7 +26,7 @@ async function headMeta(){
  if(headMemo&&Date.now()-headMemo.at<100)return headMemo.value;
  const b=await block();
  if(lastHead&&lastHead.hash!==b.hash){const previous=await provider.send('eth_getBlockByNumber',[lastHead.number,false]);if(!previous||previous.hash!==lastHead.hash){chainEpoch++;projection=null;cachedSnapshot=null;reconcilePending=true;}}
- lastHead=b;const value={version:`${engineId}:${chainEpoch}:${revision}:${b.hash}`,engineId,chainEpoch,revision,block:Number(BigInt(b.number)),blockHash:b.hash,head:b,mutating,showcase:showcase.status(),heartbeat,testing:checkpoints.size>0};headMemo={at:Date.now(),value};return value;
+ lastHead=b;const value={version:`${engineId}:${chainEpoch}:${revision}:${b.hash}`,engineId,chainEpoch,revision,block:Number(BigInt(b.number)),blockHash:b.hash,head:b,mutating,indexing,showcase:showcase.status(),heartbeat,testing:checkpoints.size>0};headMemo={at:Date.now(),value};return value;
 }
 async function timestamp(){return Number((await block()).timestamp);}
 async function tx(actor,key,fn,args=[],silent=false){
@@ -115,18 +116,21 @@ async function collectState(b,version){
  const fields=['houseCash','totalBalances','lockedMargin','stakerFees','developerFees','totalQueued','openCount','pendingOpenCount','opensPaused','queueHead','queueTail','cashInvariant','dailyPayoutRemaining','DAILY_PAYOUT_LIMIT','trackedLpWad','tailProgressWad','houseCap','owner','guardian','developer'];
  const vals=await Promise.all(fields.map(f=>c.exchange[f](opts)));const metrics=Object.fromEntries(fields.map((f,i)=>[f,vals[i]]));
  const accounts=await Promise.all(wallets.map(async w=>({index:w.index,address:w.address,name:w.name,role:w.role,native:await provider.getBalance(w.address,blockTag),wallet:await c.collateral.balanceOf(w.address,opts),available:await c.exchange.balances(w.address,opts),queued:await c.exchange.queued(w.address,opts),part:await c.token.balanceOf(w.address,opts),staked:await c.staking.staked(w.address,opts),rewards:await c.staking.pending(w.address,opts)})));
- const [np,no]=await Promise.all([c.exchange.nextPosition(opts),c.exchange.nextOrder(opts)]);if(np>1000n||no>2000n)throw Error('Lab indexing limit reached; restart a fresh lab or extend the indexer');
+ const [np,no]=await Promise.all([c.exchange.nextPosition(opts),c.exchange.nextOrder(opts)]);
  if(!projection||projection.epoch!==chainEpoch||np<projection.nextPosition||no<projection.nextOrder)projection={epoch:chainEpoch,nextPosition:1n,nextOrder:1n,positions:new Map(),orders:new Map()};
- const positionIds=new Set(projection.positions.keys());for(let n=projection.nextPosition;n<np;n++)positionIds.add(Number(n));
- const orderIds=new Set(projection.orders.keys());for(let n=projection.nextOrder;n<no;n++)orderIds.add(Number(n));
+ const positionEnd=np<projection.nextPosition+250n?np:projection.nextPosition+250n,orderEnd=no<projection.nextOrder+250n?no:projection.nextOrder+250n;
+ const positionIds=new Set(projection.positions.keys());for(let n=projection.nextPosition;n<positionEnd;n++)positionIds.add(Number(n));
+ const orderIds=new Set(projection.orders.keys());for(let n=projection.nextOrder;n<orderEnd;n++)orderIds.add(Number(n));
  engineStats.positionReads+=positionIds.size;engineStats.orderReads+=orderIds.size;
  const positions=(await Promise.all([...positionIds].map(async n=>{const v=await c.exchange.positions(n,opts);return{id:n,user:v.user,market:Number(v.market),leverage:Number(v.leverage),isLong:v.isLong,margin:v.margin,entry:v.entry,openedAt:v.openedAt,bustBufferBps:Number(v.bustBufferBps),impact:{base:v.impact.base,rate:v.impact.rate,position:v.impact.position,referenceUsd:v.impact.referenceUsd}};}))).filter(x=>x.user!==E.ZeroAddress);
  const orders=(await Promise.all([...orderIds].map(async id=>{const v=await c.exchange.pendingOrders(id,opts),o=v.order;return{id,user:o.user,market:Number(o.market),positionId:o.positionId,margin:o.margin,leverage:Number(o.leverage),isLong:o.isLong,deadline:o.deadline,priceLimit:o.priceLimit,eligibleAt:v.eligibleAt,done:v.done,signer:v.signer};}))).filter(o=>!o.done);
- projection.positions=new Map(positions.map(p=>[p.id,p]));projection.orders=new Map(orders.map(o=>[o.id,o]));projection.nextPosition=np;projection.nextOrder=no;
+ projection.positions=new Map(positions.map(p=>[p.id,p]));projection.orders=new Map(orders.map(o=>[o.id,o]));projection.nextPosition=positionEnd;projection.nextOrder=orderEnd;
+ indexing={ready:positionEnd===np&&orderEnd===no,positionsScanned:Number(positionEnd-1n),positionsTotal:Number(np-1n),ordersScanned:Number(orderEnd-1n),ordersTotal:Number(no-1n),pageSize:250};
+ if(!indexing.ready){const error=Error(`Indexing canonical history: positions ${indexing.positionsScanned}/${indexing.positionsTotal}, orders ${indexing.ordersScanned}/${indexing.ordersTotal}`);error.status=503;throw error;}
  const claims=await Promise.all(Array.from({length:Math.min(50,Number(BigInt(metrics.queueTail)-BigInt(metrics.queueHead)))},async(_,i)=>{const id=BigInt(metrics.queueHead)+BigInt(i),q=await c.exchange.claims(id,opts);return {id,user:q.user,amount:q.amount};}));
  const markets=await Promise.all(deployment.markets.map(async m=>{const q=await c.oracle.quotes(m.id,opts),risk=await c.exchange.markets(m.id,opts);return{...m,price:q.value,at:q[1],history:history[m.id],longNotional:await c.exchange.longNotional(m.id,opts),shortNotional:await c.exchange.shortNotional(m.id,opts),retiredPrice:await c.exchange.retiredPrice(m.id,opts),enabled:risk.enabled,bustBufferBps:Number(risk.bustBufferBps),maxLeverage:Number(risk.maxLeverage),delay:Number(risk.delay),executionWindow:Number(risk.executionWindow),minMargin:risk.minMargin,maxMargin:risk.maxMargin,sideCap:risk.sideCap,impact:risk.impact};}));
  const session=await c.exchange.sessions(wallets[6].address,wallets[9].address,opts),governanceOps=await Promise.all(operations.map(async op=>({...op,ready:await c.governance.isOperationReady(op.id,opts),done:await c.governance.isOperationDone(op.id,opts),pending:await c.governance.isOperationPending(op.id,opts)})));
- return {engineId,chainEpoch,stateRevision:revision,stateVersion:version,blockHash:b.hash,showcase:showcase.status(),chainId:31337,rpcUrl:sharedMode?'/rpc':'http://127.0.0.1:9545',shared:sharedMode?lan.status():null,block:blockTag,timestamp:Number(BigInt(b.timestamp)),fork,contracts:deployment.contracts,actors:publicActors,accounts,metrics,markets,positions,orders,claims,journal:journal.slice(0,100),operations:governanceOps,heartbeat,testing:checkpoints.size>0,oraclePaused:await c.oracle.paused(opts),session:{owner:wallets[6].address,key:wallets[9].address,expiry:session.expiry,marginBudget:session.marginBudget},totalSupply:await c.token.totalSupply(opts),actor:6};
+ return {indexing,engineId,chainEpoch,stateRevision:revision,stateVersion:version,blockHash:b.hash,showcase:showcase.status(),chainId:31337,rpcUrl:sharedMode?'/rpc':'http://127.0.0.1:9545',shared:sharedMode?lan.status():null,block:blockTag,timestamp:Number(BigInt(b.timestamp)),fork,contracts:deployment.contracts,actors:publicActors,accounts,metrics,markets,positions,orders,claims,journal:journal.slice(0,100),operations:governanceOps,heartbeat,testing:checkpoints.size>0,oraclePaused:await c.oracle.paused(opts),session:{owner:wallets[6].address,key:wallets[9].address,expiry:session.expiry,marginBudget:session.marginBudget},totalSupply:await c.token.totalSupply(opts),actor:6};
 }
 async function state(actor=6){
  const selected=index(actor);if(!stateFlight){const next=chain.then(async()=>{const meta=await headMeta();if(cachedSnapshot?.stateVersion===meta.version){engineStats.snapshotHits++;return cachedSnapshot;}const value=await collectState(meta.head,meta.version);const canonical=await provider.send('eth_getBlockByNumber',[meta.head.number,false]);if(canonical?.hash!==meta.head.hash){projection=null;cachedSnapshot=null;throw Error('Chain changed during snapshot; retry');}cachedSnapshot=value;return value;});chain=next.catch(()=>{});stateFlight=next.finally(()=>{stateFlight=null;});}
@@ -188,7 +192,7 @@ const server=http.createServer(async(req,res)=>{
  if(req.method!=='GET')return respond(res,405,{error:'Method not allowed'});
  const file=url.pathname==='/'||!path.extname(url.pathname)?'index.html':decodeURIComponent(url.pathname).slice(1);const full=path.resolve(dir,'public',file);if(!full.startsWith(path.join(dir,'public')+path.sep))return respond(res,403,{error:'Forbidden'});
  try{return respond(res,200,await readFile(full),mime[path.extname(full)]||'application/octet-stream');}catch{return respond(res,404,{error:'Not found'});}
- }catch(e){respond(res,400,{error:e.shortMessage||e.reason||e.message,detail:e.info?.error?.message||e.revert?.args?.[0]||null});}
+ }catch(e){respond(res,e.status||400,{error:e.shortMessage||e.reason||e.message,detail:e.info?.error?.message||e.revert?.args?.[0]||null});}
 });
 server.listen(4174,'127.0.0.1',()=>console.log('Private ABI/transaction engine ready on loopback 4174'));
 setInterval(()=>{if(sharedMode||!heartbeat||showcase.status().running)return;serial(async()=>{for(const m of deployment.markets)await refresh(m.id);}).catch(e=>console.error('Heartbeat:',e.shortMessage||e.message));},10000).unref();

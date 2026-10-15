@@ -1,5 +1,7 @@
 # Robinpaper: your local Robinhood fork lab
 
+[QA report — performance, 60 functionality tests and extreme fork scenarios](docs/QA-REPORT-2026-10-16.md) includes raw results, failure recovery, the fixed historical-index limit and current demo limitations.
+
 Shared multi-computer demo: [LAN setup and wallet guide](docs/LAN.md). Run `npm run up:lan --prefix demo` from the repository root. Shared mode uses external wallet signatures and persistent fork transactions, with rehearsal rollback disabled. Incoming macOS/LAN access still needs verification; see the guide before the demo.
 
 Open **http://127.0.0.1:4173** on this computer. The lab runs a pinned Robinhood mainnet fork with a separate local chain ID **31337**, reconstructed Solidity math, functional protocol contracts and ten funded actor wallets. All collateral is **LABUSD with no real value**.

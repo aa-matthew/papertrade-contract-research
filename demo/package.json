@@ -21,6 +21,8 @@
     "up:lan": "node scripts/lan.mjs start",
     "lan:feed": "node scripts/lan.mjs feed",
     "lan:status": "node scripts/lan.mjs status",
-    "test:lan": "node --test test/lan.test.mjs"
+    "test:lan": "node --test test/lan.test.mjs",
+    "qa:isolate": "python3 scripts/qa-isolate.py",
+    "qa:extreme": "node scripts/qa-extreme.mjs"
   }
 }

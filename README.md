@@ -1,5 +1,7 @@
 # Papertrade contracts: archive, logic and reverse engineering
 
+[QA report — performance, 60 functionality tests and extreme fork scenarios](demo/docs/QA-REPORT-2026-10-16.md) includes raw results, failure recovery, the fixed historical-index limit and current demo limitations.
+
 Shared multi-computer demo: [LAN setup and wallet guide](demo/docs/LAN.md). Run `npm run up:lan --prefix demo` from the repository root. Shared mode uses external wallet signatures and persistent fork transactions, with rehearsal rollback disabled. Incoming macOS/LAN access still needs verification; see the guide before the demo.
 
 Local research copy of the deployed Papertrade protocol on HyperEVM (chain 999), captured on 15 October 2026. Start with [contract inventory](inspection/CONTRACTS.md), [interaction map](inspection/INTERACTIONS.md), and [token economics](inspection/TOKENOMICS.md).

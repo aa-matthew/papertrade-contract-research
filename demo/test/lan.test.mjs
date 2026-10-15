@@ -1,4 +1,4 @@
-import test from 'node:test';
+import test,{before} from 'node:test';
 import assert from 'node:assert/strict';
 import os from 'node:os';
 import net from 'node:net';
@@ -9,6 +9,7 @@ assert(ip,'LAN IPv4 required');const base=process.env.LAB_TEST_BASE||`http://${i
 async function get(path='/api/state'){const r=await fetch(base+path,{signal:AbortSignal.timeout(10000)});const j=await r.json();assert(r.ok,JSON.stringify(j));return j;}
 async function rpc(method,params=[]){const r=await fetch(base+'/rpc',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params}),signal:AbortSignal.timeout(10000)});return r.json();}
 async function until(fn,ms=20000){const end=Date.now()+ms;while(Date.now()<end){const value=await fn();if(value)return value;await new Promise(r=>setTimeout(r,500));}throw Error('Timed out');}
+before(async()=>{await until(async()=>{try{return (await get()).shared?.mode==='shared-lan';}catch{return false;}},60000);});
 const wallets=await read('wallets.local.json');
 function client(actor){const signer=new E.Wallet(wallets[actor].privateKey),provider={on(){},async request({method,params=[]}){
  if(method==='eth_requestAccounts'||method==='eth_accounts')return [signer.address];if(method==='wallet_switchEthereumChain')return null;
@@ -78,4 +79,14 @@ test('role wallets schedule/index/cancel governance; trader cannot impersonate p
  assert.equal(operation.fn,'setPaused');assert.equal(operation.pending,true);assert.equal(operation.ready,false);
  await assert.rejects(()=>governor.action('governanceExecute',{id:operation.id}));
  await governor.action('governanceCancel',{id:operation.id});await until(async()=>(await get()).operations.find(o=>o.id===operation.id)?.pending===false);
+});
+test('1000 hostile RPC requests, oversized body and invalid raw transactions cannot invoke administrative RPC',async()=>{
+ const methods=['anvil_reset','evm_revert','anvil_impersonateAccount','eth_sendTransaction','eth_sign'];
+ for(let offset=0;offset<1000;offset+=100){const results=await Promise.all(Array.from({length:100},(_,i)=>rpc(methods[(offset+i)%methods.length],[])));assert(results.every(r=>r.error));}
+ const large=await fetch(base+'/rpc',{method:'POST',headers:{'Content-Type':'application/json'},body:'x'.repeat(128*1024)});assert.equal(large.status,413);await large.arrayBuffer();
+ const signer=new E.Wallet(wallets[7].privateKey),state=await get();
+ for(const fields of [{chainId:1,to:state.contracts.collateral,value:0},{chainId:31337,to:E.ZeroAddress,value:0},{chainId:31337,to:state.contracts.collateral,value:1}]){
+  const signed=await signer.signTransaction({...fields,nonce:0,gasLimit:21000,gasPrice:2000000000,type:0});assert((await rpc('eth_sendRawTransaction',[signed])).error);
+ }
+ assert.equal((await get()).metrics.cashInvariant,true);
 });

@@ -1,0 +1,28 @@
+
+> test
+> node --test test/api.test.mjs
+
+✔ Robinhood fork evidence, ten funded actors, real ownership and reconstructed runtime (2934.921583ms)
+✔ collateral approval, deposit, withdrawal and receipt are actual local transactions (1255.227417ms)
+✔ operator authorization is enforced on-chain, not by the role picker (764.457875ms)
+✔ committed open reserves cash, can cancel and supports separate keeper execution (1948.534ms)
+✔ profitable close uses recovered haircut and emits a cash payout (1152.297666ms)
+✔ losing close mints recovered PART and cannot move it wallet-to-wallet (1211.126292ms)
+✔ liquidator closes an unhealthy position and full-margin basis mints participation (946.927833ms)
+✔ Carol stake, funded rewards, wallet claim and unstake all reconcile (1318.328292ms)
+✔ session relayer signs Alice typed order; revoke blocks already pending execution (2025.290209ms)
+✔ guardian pause and delayed governor unpause cannot bypass timelock (1782.2755ms)
+✔ terminal retirement preserves exit at frozen price (1698.600292ms)
+✔ $5m daily limit caps direct profit; FIFO survives reset and needs real house cash (4282.075542ms)
+✔ loopback API rejects cross-origin writes and missing local request header (56.60125ms)
+✔ stale or paused oracle rejects fills while wallet cash withdrawals remain usable (2632.177125ms)
+✔ close-all settles only active actor positions and preserves other traders (1826.207458ms)
+✔ pinned source cache separates empty creation baseline from deployed runtime and blocks upstream writes (373.562958ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26287.245375

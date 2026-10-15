@@ -1,0 +1,15 @@
+
+> test:feed
+> node --test test/binance.test.mjs
+
+✔ accepts fresh exact eight-decimal Binance spot quotes and maps market IDs (0.822167ms)
+✔ rejects stale, future, incomplete and duplicate observations (0.247042ms)
+✔ rejects nonpositive, malformed or overly precise prices without a synthetic fallback (0.144542ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 143.120208

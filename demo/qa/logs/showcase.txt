@@ -1,0 +1,15 @@
+
+> test:showcase
+> node --test --test-concurrency=1 test/showcase.test.mjs
+
+✔ full tour executes ten protocol phases, captures successful receipts and restores balances (23690.493125ms)
+✔ continuous mode reserves checkpoint, rejects duplicate/manual writes and stops cleanly (2405.752458ms)
+✔ Binance market mode publishes live quotes and completes real long/short round trips (14893.107209ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 41037.217959

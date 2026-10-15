@@ -82,7 +82,14 @@ impl App {
             .send()
             .await?;
         if !r.status().is_success() {
-            bail!("contract engine unavailable ({})", r.status())
+            let status = r.status();
+            let detail = r
+                .json::<Value>()
+                .await
+                .ok()
+                .and_then(|v| v["error"].as_str().map(str::to_owned))
+                .unwrap_or_default();
+            bail!("contract engine unavailable ({status}): {detail}")
         }
         Ok(r.json().await?)
     }
