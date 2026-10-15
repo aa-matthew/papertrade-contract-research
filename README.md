@@ -141,3 +141,5 @@ Collection fetches official pages, explorer publication data, Sourcify records a
 The original protocol reuse license could not be established from unpublished sources. This workspace does not assign a new license to upstream artifacts or treat source publication as permission to relicense them.
 
 Presentation desk: [demo/docs/SHOWCASE.md](demo/docs/SHOWCASE.md) — one-click fork tour, live Binance desk, ten actors, product Q&A and restart guide.
+
+Data backend: [Rust API + SQLite WAL + Redis](demo/backend/README.md), with [QA and local latency measurements](demo/backend-verification.json).

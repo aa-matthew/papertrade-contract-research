@@ -1,15 +1,17 @@
 {
-  "checkedAt": "2026-10-15T18:59:20.292Z",
+  "checkedAt": "2026-10-15T19:38:23.045Z",
   "scope": "Local Robinhood fork lab; reconstructed math plus our protocol implementation, not original full-source recovery or a production audit",
   "tests": {
     "demoIntegration": 16,
     "protocol": 12,
     "archiveIntegrity": 8,
     "binanceValidation": 3,
-    "showcaseIntegration": 3
+    "showcaseIntegration": 3,
+    "rustUnit": 3,
+    "backendIntegration": 8
   },
   "health": {
-    "checkedAt": "2026-10-15T18:59:20.292Z",
+    "checkedAt": "2026-10-15T19:38:23.045Z",
     "passed": true,
     "checks": [
       {
@@ -109,6 +111,30 @@
         "pass": true
       },
       {
+        "name": "Rust API serves UI state",
+        "pass": true
+      },
+      {
+        "name": "Redis connected",
+        "pass": true
+      },
+      {
+        "name": "SQLite WAL projection healthy",
+        "pass": true
+      },
+      {
+        "name": "Indexed snapshot block is canonical",
+        "pass": true
+      },
+      {
+        "name": "Ten account rows indexed",
+        "pass": true
+      },
+      {
+        "name": "Indexed journal excludes private signer exports",
+        "pass": true
+      },
+      {
         "name": "Compiled source matches: protocol/src/Economics.sol",
         "pass": true
       },
@@ -164,7 +190,7 @@
     },
     "local": {
       "chainId": 31337,
-      "block": 89432614,
+      "block": 89433004,
       "positions": 2,
       "actors": 10,
       "houseCash": "8000098000000",
@@ -265,5 +291,6 @@
       "checkedAt": "2026-10-15T18:59:12.452Z",
       "restartPreservedBalancesAndPositions": true
     }
-  }
+  },
+  "backendVerification": "backend-verification.json"
 }

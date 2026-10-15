@@ -15,6 +15,7 @@
 | FIFO payouts / daily cap | House | Direct closes + harvest share 5m/day; no newer claim bypass |
 | Fee push / surplus | House | Queue/subordination and no-position surplus conditions |
 | OI, marked risk, liquidation map | House | OI from getters; estimates derived from actual open positions |
+| Shared data backend | Every screen; Contracts status card | Rust API, SQLite projections, Redis cache, SSE updates, epoch/hash rollback handling; managed executor remains the transaction authority |
 | Presentation automation | Showcase | One-click ten-phase tour or continuous trading desk, actor isolation, stop/restore, captured receipts and presenter insights |
 | Live Binance experiment | `npm run simulate:binance --prefix demo -- 8` | Fresh spot quotes → actual oracle publications → long/short fills and closes; bounded run, feed off and state restored |
 | Oracle publish / pause | Operations | Role-restricted local publisher; guardian pause, timelocked unpause |

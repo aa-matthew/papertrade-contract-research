@@ -13,6 +13,10 @@
     "seed:chart": "node scripts/seed-chart.mjs",
     "simulate:binance": "node scripts/binance-sim.mjs",
     "test:feed": "node --test test/binance.test.mjs",
-    "test:showcase": "node --test --test-concurrency=1 test/showcase.test.mjs"
+    "test:showcase": "node --test --test-concurrency=1 test/showcase.test.mjs",
+    "test:backend": "node --test --test-concurrency=1 test/backend.test.mjs",
+    "build:backend": "cargo build --release --locked --manifest-path backend/Cargo.toml",
+    "test:rust": "cargo test --locked --manifest-path backend/Cargo.toml",
+    "bench:backend": "node scripts/benchmark-backend.mjs"
   }
 }

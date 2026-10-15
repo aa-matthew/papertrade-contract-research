@@ -20,6 +20,9 @@ try{
  check('PART supply covers staked supply',await token.totalSupply()>=totalStaked);
  check('Staking reward reserve is cash funded',await cash.balanceOf(staking.target)>=reserve);
  check('Actor claimable rewards covered by reserve',s.accounts.reduce((sum,a)=>sum+BigInt(a.rewards),0n)<=reserve);
+ const backend=await(await fetch('http://127.0.0.1:4173/api/backend')).json(),indexed=await(await fetch('http://127.0.0.1:4173/api/index')).json();
+ check('Rust API serves UI state',s.backend?.api==='rust-axum');check('Redis connected',backend.redis?.healthy===true);check('SQLite WAL projection healthy',backend.database?.healthy===true);
+ check('Indexed snapshot block is canonical',(await p.getBlock(indexed.current.block)).hash===indexed.current.blockHash);check('Ten account rows indexed',indexed.counts.accounts===10);check('Indexed journal excludes private signer exports',!JSON.stringify(indexed).includes('privateKey'));
  const info=JSON.parse(await readFile(path.join(dir,'build-info.json'),'utf8'));for(const [name,expected]of Object.entries(info.sources)){const actual=createHash('sha256').update(await readFile(path.join(dir,'..',name))).digest('hex');check('Compiled source matches: '+name,actual===expected);}
  check('Recovered helper identity exposed',(await x.reconstruction()).includes('Recovered SettlementMath'));
  const html=await(await fetch('http://127.0.0.1:4173/')).text();check('UI document loads',html.includes('robinpaper')&&html.includes('Active wallet'));

@@ -1,5 +1,6 @@
 import {spawn} from 'node:child_process';
-import {mkdir,readFile,access,chmod} from 'node:fs/promises';
+import {randomBytes} from 'node:crypto';
+import {mkdir,readFile,writeFile,access,chmod} from 'node:fs/promises';
 import path from 'node:path';
 import {dir,runtime,E,save} from './shared.mjs';
 import {forkCache} from './fork-cache.mjs';
@@ -7,6 +8,7 @@ process.umask(0o077);await mkdir(runtime,{recursive:true,mode:0o700});await chmo
 async function exists(p){try{await access(p);return true;}catch{return false;}}
 if(!await exists(path.join(dir,'../protocol/node_modules/solc')))throw Error('Run npm ci --prefix protocol first');
 if(!await exists(runtime+'/compiled.local.json')||process.argv.includes('--rebuild'))await new Promise((resolve,reject)=>{const c=spawn(process.execPath,[dir+'/scripts/compile.mjs'],{stdio:'inherit'});c.on('exit',n=>n===0?resolve():reject(Error('Compile failed')));});
+await new Promise((resolve,reject)=>{const child=spawn('cargo',['build','--release','--locked','--manifest-path',dir+'/backend/Cargo.toml'],{stdio:'inherit'});child.on('error',reject);child.on('exit',code=>code===0?resolve():reject(Error('Rust API build failed')));});
 const endpoint=process.env.ROBINHOOD_FORK_URL||'https://robinhood.rpc.pinax.network';
 const forkClient=await forkCache(endpoint),rpc=forkClient.source;
 if(Number(BigInt(await rpc('eth_chainId')))!==4663)throw Error('Expected Robinhood mainnet source chain 4663');
@@ -23,9 +25,9 @@ const sourceProxy=await forkClient.serve(fork);
 // Never connect a transaction signer to upstream. All mutations use the loopback fork.
 const args=['--host','127.0.0.1','--port','9545','--chain-id','31337','--fork-url','http://127.0.0.1:9546','--fork-chain-id','4663','--fork-header','User-Agent: Mozilla/5.0','--fork-block-number',String(fork.blockNumber),'--hardfork','cancun','--accounts','10','--balance','10000','--state',runtime+'/anvil-state.local.json','--state-interval','15','--no-cors','--silent'];
 const anvil=spawn(process.env.ANVIL_BIN||'anvil',args,{stdio:['ignore','inherit','inherit'],env:{...process.env,RUST_LOG:'error'}});
-let server;let stopping=false;
-async function stop(){if(stopping)return;stopping=true;if(server&&server.exitCode===null){server.kill('SIGTERM');await new Promise(resolve=>{const timer=setTimeout(resolve,6000);server.once('exit',()=>{clearTimeout(timer);resolve();});});}anvil.kill('SIGTERM');sourceProxy.close();}
-process.on('SIGINT',stop);process.on('SIGTERM',stop);anvil.on('exit',code=>{if(!stopping){server?.kill();process.exit(code||1);}});
+let server,api,redisProcess;let stopping=false;const engineToken=randomBytes(32).toString('hex'),redisPassword=randomBytes(32).toString('hex');const backendEnv={...process.env,ENGINE_TOKEN:engineToken,REDIS_PASSWORD:redisPassword,LAB_RUNTIME:runtime,LAB_PUBLIC:dir+'/public'};
+async function stop(){if(stopping)return;stopping=true;if(server&&server.exitCode===null){server.kill('SIGTERM');await new Promise(resolve=>{const timer=setTimeout(resolve,6000);server.once('exit',()=>{clearTimeout(timer);resolve();});});}api?.kill('SIGTERM');redisProcess?.kill('SIGTERM');anvil.kill('SIGTERM');sourceProxy.close();}
+process.on('SIGINT',stop);process.on('SIGTERM',stop);anvil.on('exit',code=>{if(!stopping)stop().then(()=>{process.exitCode=code||1;});});
 let ready=false;for(let i=0;i<100;i++){try{const r=await fetch('http://127.0.0.1:9545',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method:'eth_chainId',params:[]})});if((await r.json()).result==='0x7a69'){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}
 if(!ready){stop();throw Error('Fork did not start');}
 try{
@@ -34,6 +36,10 @@ try{
  p.destroy();
  if(process.argv.includes('--redeploy'))valid=false;
  if(!valid)await new Promise((resolve,reject)=>{const c=spawn(process.execPath,[dir+'/scripts/deploy.mjs'],{stdio:'inherit'});c.on('exit',n=>n===0?resolve():reject(Error('Deployment failed')));});
- server=spawn(process.execPath,[dir+'/scripts/server.mjs'],{stdio:'inherit'});server.on('exit',code=>{if(!stopping){stop();process.exit(code||1);}});
+ const redisConfig=runtime+'/redis.local.conf';await writeFile(redisConfig,`bind 127.0.0.1\nport 6387\nprotected-mode yes\nrequirepass ${redisPassword}\nsave \"\"\nappendonly no\nloglevel warning\n`,{mode:0o600});
+ function launchRedis(){if(stopping)return;redisProcess=spawn(process.env.REDIS_BIN||'redis-server',[redisConfig],{stdio:'inherit'});redisProcess.on('error',e=>{console.error(e.message);stop();});redisProcess.on('exit',()=>{if(!stopping){console.error('Redis restarting; Rust keeps serving verified snapshots');setTimeout(launchRedis,1000);}});}launchRedis();
+ server=spawn(process.execPath,[dir+'/scripts/server.mjs'],{stdio:'inherit',env:backendEnv});server.on('exit',code=>{if(!stopping)stop().then(()=>{process.exitCode=code||1;});});
+ let engineReady=false;for(let i=0;i<100;i++){try{const r=await fetch('http://127.0.0.1:4174/internal/meta',{headers:{'X-Engine-Token':engineToken}});if(r.ok){engineReady=true;break;}}catch{}await new Promise(r=>setTimeout(r,100));}if(!engineReady)throw Error('Private contract engine did not start');
+ api=spawn(dir+'/backend/target/release/robinpaper-api',[],{stdio:'inherit',env:backendEnv});api.on('error',e=>{console.error(e.message);stop();});api.on('exit',code=>{if(!stopping){console.error('Rust API exited:',code);stop();}});
  console.log(`Robinhood source fork #${fork.blockNumber}; local chain 31337 at 127.0.0.1:9545. UI: http://127.0.0.1:4173`);
 }catch(e){stop();throw e;}

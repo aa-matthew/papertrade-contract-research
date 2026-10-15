@@ -19,7 +19,7 @@ Open **http://127.0.0.1:4173/#showcase** for a one-click, repeatable presentatio
 
 ## Start, stop and resume
 
-From the repository root, install the already pinned protocol dependencies once with `npm ci --prefix protocol`. Node.js 20.11+ and Foundry `anvil` must be available.
+From the repository root, install the already pinned protocol dependencies once with `npm ci --prefix protocol`. Node.js 20.11+, Rust/Cargo, Foundry `anvil`, and `redis-server` must be available. Startup builds the pinned Rust release API.
 
 ```sh
 npm run up --prefix demo      # detached local service; preserves state
@@ -27,7 +27,7 @@ npm run status --prefix demo
 npm run down --prefix demo    # graceful shutdown / state save
 ```
 
-Foreground alternative: `npm start --prefix demo`. First start compiles and deploys; later starts load the saved chain state and deployment. UI: port **4173**; JSON-RPC: port **9545**; pinned read-only source cache: port **9546**. Both bind only to 127.0.0.1. Close/reopen the page without losing chain state. The machine must be awake for services to respond. No public hosting, real-money bridge or mainnet transaction is involved.
+Foreground alternative: `npm start --prefix demo`. First start compiles and deploys; later starts load the saved chain state and deployment. UI: port **4173**; JSON-RPC: port **9545**; pinned read-only source cache: port **9546**. All services bind only to 127.0.0.1. Rust serves UI/API on 4173; the private ABI/transaction engine is on 4174, authenticated Redis on 6387, and SQLite WAL under `.runtime/app.sqlite3`. See the [backend architecture, consistency and QA guide](backend/README.md). Close/reopen the page without losing chain state. The machine must be awake for services to respond. No public hosting, real-money bridge or mainnet transaction is involved.
 
 Anvil state is saved every 15 seconds and on graceful exit. Avoid running two instances. Don't delete `.runtime/` unless you intend to discard the lab; preserve/rename that directory for a fresh deployment. After contract source edits, stop the lab, build with `npm run compile --prefix demo`, and start a fresh runtime rather than treating old addresses as upgraded.
 
@@ -76,6 +76,7 @@ This adapter is a single offchain publisher for local tests; it is not a decentr
 ## Tests and tools
 
 ```sh
+npm run test:backend --prefix demo # Rust/DB/Redis, rollback, concurrency and outages
 npm test --prefix demo       # requires running lab; snapshots and restores scenario state
 npm test --prefix protocol   # standalone core + oracle tests, separate ephemeral Anvil
 npm test                    # existing archive integrity checks

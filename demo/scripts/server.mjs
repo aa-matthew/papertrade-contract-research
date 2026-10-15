@@ -3,29 +3,37 @@ import {createShowcase} from './showcase.mjs';
 import {readFile,writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {randomBytes} from 'node:crypto';
-import {E,read,save,connected,dir,json,wait} from './shared.mjs';
+import {E,read,save,connected,dir,json,wait,rpcMetrics} from './shared.mjs';
 const provider=await connected(),deployment=await read('deployment.local.json'),fork=await read('fork.local.json'),wallets=await read('wallets.local.json'),build=await read('compiled.local.json');
 const names={exchange:'ReconstructedLabExchange',collateral:'LabCollateral',oracle:'LabOracle',token:'ProtocolToken',staking:'ProtocolStaking',governance:'ProtocolTimelock'},c={};
 const signers=await Promise.all(wallets.map(w=>provider.getSigner(w.address)));
 for(const [key,address]of Object.entries(deployment.contracts)){if(E.keccak256(await provider.getCode(address))!==deployment.runtimeHashes[key])throw Error('Deployment code mismatch: '+key);c[key]=new E.Contract(address,build.contracts[names[key]].abi,provider);}
 let journal=await read('journal.local.json'),history=await read('prices.local.json'),operations=[];try{operations=await read('operations.local.json');}catch{}
-let chain=Promise.resolve(),heartbeat=true;
+let chain=Promise.resolve(),heartbeat=true,revision=0,chainEpoch=0,mutating=false,lastHead,headMemo,stateFlight,cachedSnapshot,projection,reconcilePending=true;
+const engineId=randomBytes(12).toString('hex'),engineStats={collections:0,snapshotHits:0,positionReads:0,orderReads:0};
+const engineToken=process.env.ENGINE_TOKEN;if(!engineToken)throw Error('Start through npm run up --prefix demo (private engine token required)');
 const checkpoints=new Map();
-function serial(fn){const next=chain.then(fn,fn);chain=next.catch(()=>{});return next;}
+function serial(fn){const run=async()=>{mutating=true;revision++;headMemo=null;try{return await fn();}finally{revision++;mutating=false;headMemo=null;}};const next=chain.then(run,run);chain=next.catch(()=>{});return next;}
 const publicActors=wallets.map(({privateKey,...w})=>w);
 const prices=Object.fromEntries(deployment.markets.map(m=>[m.id,E.parseEther(String(history[m.id]?.at(-1)?.price??m.price))]));
 function index(n){const i=Number(n);if(!Number.isInteger(i)||i<0||i>=10)throw Error('Choose one of 10 actors');return i;}
 function units(x,dec=6){if(!/^\d+(\.\d+)?$/.test(String(x)))throw Error('Enter a positive decimal amount');return E.parseUnits(String(x),dec);}
 async function block(){return provider.send('eth_getBlockByNumber',['latest',false]);}
+async function headMeta(){
+ if(headMemo&&Date.now()-headMemo.at<100)return headMemo.value;
+ const b=await block();
+ if(lastHead&&lastHead.hash!==b.hash){const previous=await provider.send('eth_getBlockByNumber',[lastHead.number,false]);if(!previous||previous.hash!==lastHead.hash){chainEpoch++;projection=null;cachedSnapshot=null;reconcilePending=true;}}
+ lastHead=b;const value={version:`${engineId}:${chainEpoch}:${revision}:${b.hash}`,engineId,chainEpoch,revision,block:Number(BigInt(b.number)),blockHash:b.hash,head:b,mutating,showcase:showcase.status(),heartbeat,testing:checkpoints.size>0};headMemo={at:Date.now(),value};return value;
+}
 async function timestamp(){return Number((await block()).timestamp);}
 async function tx(actor,key,fn,args=[],silent=false){
- const contract=c[key].connect(signers[index(actor)]),r=await wait(contract[fn](...args));
+ const contract=c[key].connect(signers[index(actor)]),method=contract.getFunction(fn),estimate=await method.estimateGas(...args),r=await wait(method(...args,{gasLimit:estimate+estimate/5n+10000n}));
  const events=[];for(const log of r.logs){for(const [name,con]of Object.entries(c)){if(log.address.toLowerCase()!==con.target.toLowerCase())continue;try{const e=con.interface.parseLog(log);if(e)events.push({contract:name,name:e.name,args:Array.from(e.args).map(a=>typeof a==='bigint'?String(a):a)});}catch{}}}
  if(!silent){journal.unshift({hash:r.hash,block:r.blockNumber,actor:index(actor),contract:key,method:fn,args:JSON.parse(json(args)),gasUsed:String(r.gasUsed),status:r.status,at:new Date().toISOString(),events});journal=journal.slice(0,500);await save('journal.local.json',journal);}
- return {hash:r.hash,events};
+ return {hash:r.hash,block:r.blockNumber,blockHash:r.blockHash,events};
 }
 async function refresh(market,silent=true){return tx(2,'oracle','publish',[market,prices[market]],silent);}
-async function setPrice(actor,market,value){const v=units(value,18);const result=await tx(actor,'oracle','publish',[market,v]);prices[market]=v;history[market]??=[];history[market].push({time:(await timestamp())*1000,price:Number(E.formatEther(v))});history[market]=history[market].slice(-300);await save('prices.local.json',history);return result;}
+async function setPrice(actor,market,value){const v=units(value,18);const result=await tx(actor,'oracle','publish',[market,v]);prices[market]=v;history[market]??=[];history[market].push({hash:result.hash,block:result.block,blockHash:result.blockHash,time:(await timestamp())*1000,price:Number(E.formatEther(v))});history[market]=history[market].slice(-300);await save('prices.local.json',history);return result;}
 async function advance(seconds){if(!Number.isInteger(seconds)||seconds<1||seconds>31*86400)throw Error('Time jump must be 1 second to 31 days');await provider.send('evm_increaseTime',[seconds]);await provider.send('evm_mine',[]);}
 async function execute(actor,id){const q=await c.exchange.pendingOrders(id);const t=await timestamp();if(Number(q.eligibleAt)>t)await advance(Number(q.eligibleAt)-t);await refresh(Number(q.order.market));return tx(actor,'exchange','execute',[id]);}
 const orderTypes={Order:[['user','address'],['market','uint32'],['positionId','uint256'],['margin','uint128'],['leverage','uint32'],['isLong','bool'],['priceLimit','uint256'],['nonce','uint256'],['deadline','uint64']].map(([name,type])=>({name,type}))};
@@ -51,6 +59,7 @@ async function action(a){
  const id=await provider.send('evm_snapshot',[]);checkpoints.set(id,{journal:structuredClone(journal),history:structuredClone(history),operations:structuredClone(operations),prices:{...prices},heartbeat});return {id};}
  case 'restore':{
  const saved=checkpoints.get(a.id);if(!saved)throw Error('Unknown local checkpoint');if(!await provider.send('evm_revert',[a.id]))throw Error('Checkpoint no longer available');
+ chainEpoch++;projection=null;cachedSnapshot=null;lastHead=null;headMemo=null;reconcilePending=false;
  journal=saved.journal;history=saved.history;operations=saved.operations;Object.assign(prices,saved.prices);heartbeat=saved.heartbeat;checkpoints.delete(a.id);
  await save('journal.local.json',journal);await save('prices.local.json',history);await save('operations.local.json',operations);return {restored:a.id};}
  case 'deposit':await tx(actor,'collateral','approve',[c.exchange.target,amount()]);return tx(actor,'exchange','deposit',[amount()]);
@@ -92,18 +101,33 @@ async function action(a){
  default:throw Error('Unknown action');
  }
 }
-async function state(actor=6){
- const b=await block(),blockTag=Number(BigInt(b.number)),opts={blockTag};
+async function collectState(b,version){
+ if(reconcilePending){
+ const receipts=new Map();const hashes=new Set([...journal.map(j=>j.hash),...Object.values(history).flat().filter(q=>q.hash).map(q=>q.hash)]);await Promise.all([...hashes].map(async hash=>receipts.set(hash,await provider.send('eth_getTransactionReceipt',[hash]))));
+ journal=journal.filter(j=>{const r=receipts.get(j.hash);return r&&Number(BigInt(r.blockNumber))<=Number(BigInt(b.number))&&r.status==='0x1';});
+ for(const m of deployment.markets){const q=await c.oracle.quotes(m.id,{blockTag:Number(BigInt(b.number))});prices[m.id]=q.value;history[m.id]=(history[m.id]||[]).filter(q=>q.hash?receipts.has(q.hash)&&receipts.get(q.hash)!==null&&Number(BigInt(receipts.get(q.hash).blockNumber))<=Number(BigInt(b.number)):true);}
+ await save('journal.local.json',journal);await save('prices.local.json',history);reconcilePending=false;
+ }
+ engineStats.collections++;const blockTag=Number(BigInt(b.number)),opts={blockTag};
  const fields=['houseCash','totalBalances','lockedMargin','stakerFees','developerFees','totalQueued','openCount','pendingOpenCount','opensPaused','queueHead','queueTail','cashInvariant','dailyPayoutRemaining','DAILY_PAYOUT_LIMIT','trackedLpWad','tailProgressWad','houseCap','owner','guardian','developer'];
  const vals=await Promise.all(fields.map(f=>c.exchange[f](opts)));const metrics=Object.fromEntries(fields.map((f,i)=>[f,vals[i]]));
  const accounts=await Promise.all(wallets.map(async w=>({index:w.index,address:w.address,name:w.name,role:w.role,native:await provider.getBalance(w.address,blockTag),wallet:await c.collateral.balanceOf(w.address,opts),available:await c.exchange.balances(w.address,opts),queued:await c.exchange.queued(w.address,opts),part:await c.token.balanceOf(w.address,opts),staked:await c.staking.staked(w.address,opts),rewards:await c.staking.pending(w.address,opts)})));
  const [np,no]=await Promise.all([c.exchange.nextPosition(opts),c.exchange.nextOrder(opts)]);if(np>1000n||no>2000n)throw Error('Lab indexing limit reached; restart a fresh lab or extend the indexer');
- const positions=(await Promise.all(Array.from({length:Number(np)-1},async(_,i)=>{const n=i+1,v=await c.exchange.positions(n,opts);return{id:n,user:v.user,market:Number(v.market),leverage:Number(v.leverage),isLong:v.isLong,margin:v.margin,entry:v.entry,openedAt:v.openedAt,bustBufferBps:Number(v.bustBufferBps),impact:{base:v.impact.base,rate:v.impact.rate,position:v.impact.position,referenceUsd:v.impact.referenceUsd}};}))).filter(x=>x.user!==E.ZeroAddress);
- const orders=(await Promise.all(Array.from({length:Number(no)-1},async(_,i)=>{const id=i+1,v=await c.exchange.pendingOrders(id,opts),o=v.order;return{id,user:o.user,market:Number(o.market),positionId:o.positionId,margin:o.margin,leverage:Number(o.leverage),isLong:o.isLong,deadline:o.deadline,priceLimit:o.priceLimit,eligibleAt:v.eligibleAt,done:v.done,signer:v.signer};}))).filter(o=>!o.done);
+ if(!projection||projection.epoch!==chainEpoch||np<projection.nextPosition||no<projection.nextOrder)projection={epoch:chainEpoch,nextPosition:1n,nextOrder:1n,positions:new Map(),orders:new Map()};
+ const positionIds=new Set(projection.positions.keys());for(let n=projection.nextPosition;n<np;n++)positionIds.add(Number(n));
+ const orderIds=new Set(projection.orders.keys());for(let n=projection.nextOrder;n<no;n++)orderIds.add(Number(n));
+ engineStats.positionReads+=positionIds.size;engineStats.orderReads+=orderIds.size;
+ const positions=(await Promise.all([...positionIds].map(async n=>{const v=await c.exchange.positions(n,opts);return{id:n,user:v.user,market:Number(v.market),leverage:Number(v.leverage),isLong:v.isLong,margin:v.margin,entry:v.entry,openedAt:v.openedAt,bustBufferBps:Number(v.bustBufferBps),impact:{base:v.impact.base,rate:v.impact.rate,position:v.impact.position,referenceUsd:v.impact.referenceUsd}};}))).filter(x=>x.user!==E.ZeroAddress);
+ const orders=(await Promise.all([...orderIds].map(async id=>{const v=await c.exchange.pendingOrders(id,opts),o=v.order;return{id,user:o.user,market:Number(o.market),positionId:o.positionId,margin:o.margin,leverage:Number(o.leverage),isLong:o.isLong,deadline:o.deadline,priceLimit:o.priceLimit,eligibleAt:v.eligibleAt,done:v.done,signer:v.signer};}))).filter(o=>!o.done);
+ projection.positions=new Map(positions.map(p=>[p.id,p]));projection.orders=new Map(orders.map(o=>[o.id,o]));projection.nextPosition=np;projection.nextOrder=no;
  const claims=await Promise.all(Array.from({length:Math.min(50,Number(BigInt(metrics.queueTail)-BigInt(metrics.queueHead)))},async(_,i)=>{const id=BigInt(metrics.queueHead)+BigInt(i),q=await c.exchange.claims(id,opts);return {id,user:q.user,amount:q.amount};}));
  const markets=await Promise.all(deployment.markets.map(async m=>{const q=await c.oracle.quotes(m.id,opts),risk=await c.exchange.markets(m.id,opts);return{...m,price:q.value,at:q[1],history:history[m.id],longNotional:await c.exchange.longNotional(m.id,opts),shortNotional:await c.exchange.shortNotional(m.id,opts),retiredPrice:await c.exchange.retiredPrice(m.id,opts),enabled:risk.enabled,bustBufferBps:Number(risk.bustBufferBps),maxLeverage:Number(risk.maxLeverage),delay:Number(risk.delay),executionWindow:Number(risk.executionWindow),minMargin:risk.minMargin,maxMargin:risk.maxMargin,sideCap:risk.sideCap,impact:risk.impact};}));
  const session=await c.exchange.sessions(wallets[6].address,wallets[9].address,opts),governanceOps=await Promise.all(operations.map(async op=>({...op,ready:await c.governance.isOperationReady(op.id,opts),done:await c.governance.isOperationDone(op.id,opts),pending:await c.governance.isOperationPending(op.id,opts)})));
- return {showcase:showcase.status(),chainId:31337,rpcUrl:'http://127.0.0.1:9545',block:blockTag,timestamp:Number(BigInt(b.timestamp)),fork,contracts:deployment.contracts,actors:publicActors,accounts,metrics,markets,positions,orders,claims,journal:journal.slice(0,100),operations:governanceOps,heartbeat,testing:checkpoints.size>0,oraclePaused:await c.oracle.paused(opts),session:{owner:wallets[6].address,key:wallets[9].address,expiry:session.expiry,marginBudget:session.marginBudget},totalSupply:await c.token.totalSupply(opts),actor:index(actor)};
+ return {engineId,chainEpoch,stateRevision:revision,stateVersion:version,blockHash:b.hash,showcase:showcase.status(),chainId:31337,rpcUrl:'http://127.0.0.1:9545',block:blockTag,timestamp:Number(BigInt(b.timestamp)),fork,contracts:deployment.contracts,actors:publicActors,accounts,metrics,markets,positions,orders,claims,journal:journal.slice(0,100),operations:governanceOps,heartbeat,testing:checkpoints.size>0,oraclePaused:await c.oracle.paused(opts),session:{owner:wallets[6].address,key:wallets[9].address,expiry:session.expiry,marginBudget:session.marginBudget},totalSupply:await c.token.totalSupply(opts),actor:6};
+}
+async function state(actor=6){
+ const selected=index(actor);if(!stateFlight){const next=chain.then(async()=>{const meta=await headMeta();if(cachedSnapshot?.stateVersion===meta.version){engineStats.snapshotHits++;return cachedSnapshot;}const value=await collectState(meta.head,meta.version);const canonical=await provider.send('eth_getBlockByNumber',[meta.head.number,false]);if(canonical?.hash!==meta.head.hash){projection=null;cachedSnapshot=null;throw Error('Chain changed during snapshot; retry');}cachedSnapshot=value;return value;});chain=next.catch(()=>{});stateFlight=next.finally(()=>{stateFlight=null;});}
+ const value=await stateFlight;return {...value,actor:selected,showcase:showcase.status(),heartbeat,testing:checkpoints.size>0};
 }
 let previousShowcase;try{previousShowcase=await read('showcase.local.json');}catch{}
 const showcase=createShowcase({state:async()=>JSON.parse(json(await state())),action,serial,previous:previousShowcase});
@@ -111,9 +135,12 @@ const mime={'.html':'text/html','.js':'application/javascript','.css':'text/css'
 function respond(res,status,data,type='application/json'){res.writeHead(status,{'Content-Type':type,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'"});res.end(type==='application/json'?json(data):data);}
 const server=http.createServer(async(req,res)=>{
  try{
- const host=req.headers.host;if(!['127.0.0.1:4173','localhost:4173'].includes(host))return respond(res,403,{error:'Loopback host required'});
+ const host=req.headers.host;if(!['127.0.0.1:4174','localhost:4174'].includes(host))return respond(res,403,{error:'Loopback host required'});
+ if(req.headers['x-engine-token']!==engineToken)return respond(res,403,{error:'Private contract engine'});
  const origin=req.headers.origin;if(origin&&!['http://127.0.0.1:4173','http://localhost:4173'].includes(origin))return respond(res,403,{error:'Cross-origin request blocked'});
  const url=new URL(req.url,'http://'+host);
+ if(req.method==='GET'&&url.pathname==='/internal/meta')return respond(res,200,await headMeta());
+ if(req.method==='GET'&&url.pathname==='/internal/stats')return respond(res,200,{...engineStats,rpc:rpcMetrics,engineId,revision,chainEpoch,mutating});
  if(req.method==='GET'&&url.pathname==='/api/state')return respond(res,200,await state(url.searchParams.get('actor')||6));
  if(req.method==='GET'&&url.pathname==='/api/abi')return respond(res,200,Object.fromEntries(Object.entries(names).map(([k,n])=>[k,build.contracts[n].abi])));
  if(req.method==='GET'&&url.pathname==='/api/wallets'){res.setHeader('Content-Disposition','attachment; filename="LOCAL-TEST-wallets.json"');return respond(res,200,wallets);}
@@ -132,6 +159,6 @@ const server=http.createServer(async(req,res)=>{
  try{return respond(res,200,await readFile(full),mime[path.extname(full)]||'application/octet-stream');}catch{return respond(res,404,{error:'Not found'});}
  }catch(e){respond(res,400,{error:e.shortMessage||e.reason||e.message,detail:e.info?.error?.message||e.revert?.args?.[0]||null});}
 });
-server.listen(4173,'127.0.0.1',()=>console.log('Lab ready: http://127.0.0.1:4173 — local test funds only'));
+server.listen(4174,'127.0.0.1',()=>console.log('Private ABI/transaction engine ready on loopback 4174'));
 setInterval(()=>{if(!heartbeat||showcase.status().running)return;serial(async()=>{for(const m of deployment.markets)await refresh(m.id);}).catch(e=>console.error('Heartbeat:',e.shortMessage||e.message));},10000).unref();
 process.on('SIGTERM',async()=>{await showcase.stop();await chain;server.close();provider.destroy();process.exit(0);});

@@ -1,0 +1,371 @@
+{
+  "checkedAt": "2026-10-15T19:38:23.045Z",
+  "stack": {
+    "api": "Rust Axum/Tokio",
+    "database": "SQLite WAL",
+    "cache": "Redis",
+    "executor": "Private Node ABI/signature/transaction engine",
+    "ports": {
+      "api": 4173,
+      "privateEngine": 4174,
+      "redis": 6387,
+      "fork": 9545,
+      "sourceCache": 9546
+    }
+  },
+  "contractsUnchanged": true,
+  "tests": {
+    "rustUnit": 3,
+    "backendIntegration": 8,
+    "demoIntegration": 16,
+    "showcaseIntegration": 3,
+    "binanceValidation": 3,
+    "protocol": 12,
+    "archiveIntegrity": 8
+  },
+  "testTotal": 53,
+  "health": {
+    "checkedAt": "2026-10-15T19:38:23.045Z",
+    "passed": true,
+    "checks": [
+      {
+        "name": "UI backend responds",
+        "pass": true
+      },
+      {
+        "name": "Local chain ID isolates signatures",
+        "pass": true
+      },
+      {
+        "name": "No regression checkpoint active",
+        "pass": true
+      },
+      {
+        "name": "Source is Robinhood mainnet",
+        "pass": true
+      },
+      {
+        "name": "Ten distinct funded wallets",
+        "pass": true
+      },
+      {
+        "name": "Pinned source block hash retained",
+        "pass": true
+      },
+      {
+        "name": "Runtime hash: collateral",
+        "pass": true
+      },
+      {
+        "name": "Runtime hash: token",
+        "pass": true
+      },
+      {
+        "name": "Runtime hash: staking",
+        "pass": true
+      },
+      {
+        "name": "Runtime hash: oracle",
+        "pass": true
+      },
+      {
+        "name": "Runtime hash: exchange",
+        "pass": true
+      },
+      {
+        "name": "Runtime hash: governance",
+        "pass": true
+      },
+      {
+        "name": "Known dev accounts are plain local EOAs",
+        "pass": true
+      },
+      {
+        "name": "Exchange owner is timelock",
+        "pass": true
+      },
+      {
+        "name": "Cash invariant",
+        "pass": true
+      },
+      {
+        "name": "Actual custody covers accounted assets",
+        "pass": true
+      },
+      {
+        "name": "Hard daily cap remains 5m collateral",
+        "pass": true
+      },
+      {
+        "name": "Daily budget within bounds",
+        "pass": true
+      },
+      {
+        "name": "PART exchange/staking wiring",
+        "pass": true
+      },
+      {
+        "name": "Staking exchange wiring",
+        "pass": true
+      },
+      {
+        "name": "Staked PART custody equals stake ledger",
+        "pass": true
+      },
+      {
+        "name": "PART supply covers staked supply",
+        "pass": true
+      },
+      {
+        "name": "Staking reward reserve is cash funded",
+        "pass": true
+      },
+      {
+        "name": "Actor claimable rewards covered by reserve",
+        "pass": true
+      },
+      {
+        "name": "Rust API serves UI state",
+        "pass": true
+      },
+      {
+        "name": "Redis connected",
+        "pass": true
+      },
+      {
+        "name": "SQLite WAL projection healthy",
+        "pass": true
+      },
+      {
+        "name": "Indexed snapshot block is canonical",
+        "pass": true
+      },
+      {
+        "name": "Ten account rows indexed",
+        "pass": true
+      },
+      {
+        "name": "Indexed journal excludes private signer exports",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/Economics.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/Exchange.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/Governance.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/Interfaces.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/ProtocolStaking.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/ProtocolToken.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: protocol/src/StreamOracle.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: demo/contracts/LabContracts.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: reverse-engineered/settlement/SettlementMath.reconstructed.sol",
+        "pass": true
+      },
+      {
+        "name": "Compiled source matches: reverse-engineered/token/MintCurve.reconstructed.sol",
+        "pass": true
+      },
+      {
+        "name": "Recovered helper identity exposed",
+        "pass": true
+      },
+      {
+        "name": "UI document loads",
+        "pass": true
+      }
+    ],
+    "sourceFork": {
+      "chainId": 4663,
+      "block": 89432040,
+      "hash": "0xdcc60897c067f07a0b5fe7e61f2f2d9e02c3439d9f05559089c9a7b1ffae67a7"
+    },
+    "local": {
+      "chainId": 31337,
+      "block": 89433004,
+      "positions": 2,
+      "actors": 10,
+      "houseCash": "8000098000000",
+      "queued": "0",
+      "oraclePaused": false,
+      "heartbeat": true
+    }
+  },
+  "benchmark": {
+    "capturedAt": "2026-10-15T19:31:22.239Z",
+    "scope": "Warm local API response + JSON parsing; not transaction settlement latency or a production benchmark",
+    "baseline": {
+      "capturedAt": "2026-10-15T19:15:46.326Z",
+      "requests": 12,
+      "sequentialMs": {
+        "p50": 258.179791,
+        "p95": 266.51754200000005
+      },
+      "architecture": "Original Node full state RPC read per request"
+    },
+    "sequential": {
+      "requests": 100,
+      "p50Ms": 0.7334999999999923,
+      "p95Ms": 1.5582500000000437
+    },
+    "fanout": {
+      "requests": 80,
+      "wallMs": 32.15016700000001
+    },
+    "rpcDelta": {
+      "contractCalls": 0,
+      "allRequests": 1,
+      "collections": 0
+    },
+    "backend": "Rust Axum + Redis + SQLite WAL"
+  },
+  "resilience": {
+    "redisProcessRestart": true,
+    "apiStayedAvailable": true,
+    "redisRecovered": true,
+    "sqliteQuickCheck": "ok",
+    "gracefulShutdownDuringSimulation": true,
+    "restartPreservedBalancesPositionsContractsAndHistory": true,
+    "sourceFork": "0xdcc60897c067f07a0b5fe7e61f2f2d9e02c3439d9f05559089c9a7b1ffae67a7",
+    "checkedAt": "2026-10-15T19:34:19.660Z"
+  },
+  "ui": {
+    "routes": [
+      {
+        "heading": "A live market. A complete protocol story.",
+        "overflow": false,
+        "route": "#showcase"
+      },
+      {
+        "heading": "Alice\u2019s portfolio",
+        "overflow": false,
+        "route": "#portfolio"
+      },
+      {
+        "heading": "The house, in plain sight.",
+        "overflow": false,
+        "route": "#house"
+      },
+      {
+        "heading": "Own a share of the next distribution.",
+        "overflow": false,
+        "route": "#staking"
+      },
+      {
+        "heading": "The people on both sides.",
+        "overflow": false,
+        "route": "#leaderboard"
+      },
+      {
+        "heading": "A whole protocol. Ten perspectives.",
+        "overflow": false,
+        "route": "#actors"
+      },
+      {
+        "heading": "Change the scenario. Verify the outcome.",
+        "overflow": false,
+        "route": "#operations"
+      },
+      {
+        "heading": "Inspect what actually runs.",
+        "overflow": false,
+        "route": "#contracts"
+      },
+      {
+        "heading": "Trading desk",
+        "overflow": false,
+        "route": "#trade"
+      }
+    ],
+    "javascriptErrorsAtFinalCheck": 0,
+    "desktopWidth": 1280,
+    "mobileWidth": 390,
+    "horizontalOverflow": false,
+    "manualTradeProof": [
+      {
+        "hash": "0x04e49f7a7a5e19369e7f46080d83e001a387629f4b0e19984d01c5f82c25fa1b",
+        "block": 89432948,
+        "actor": 6,
+        "contract": "exchange",
+        "method": "withdraw",
+        "status": 1,
+        "at": "2026-10-15T19:32:28.208Z"
+      },
+      {
+        "hash": "0x6a84b9d77e9d2335731c4eaba54157c27f619db02b9accaec5496a5d145299c5",
+        "block": 89432947,
+        "actor": 3,
+        "contract": "exchange",
+        "method": "execute",
+        "status": 1,
+        "at": "2026-10-15T19:32:22.756Z"
+      },
+      {
+        "hash": "0xc2682851ea6ccdbf3c21aa8b3c529cd3dda4eaf327558c56f5d569afc695c258",
+        "block": 89432944,
+        "actor": 6,
+        "contract": "exchange",
+        "method": "request",
+        "status": 1,
+        "at": "2026-10-15T19:32:22.581Z"
+      },
+      {
+        "hash": "0x2f5740769390f7f8e3fe93da2bb8ce914f7f074b95ccef17bb6faad7e5a94222",
+        "block": 89432940,
+        "actor": 3,
+        "contract": "exchange",
+        "method": "execute",
+        "status": 1,
+        "at": "2026-10-15T19:32:15.088Z"
+      },
+      {
+        "hash": "0x03df3b86dc06e1af817144a029fb47ceef1a0ccd896ee78082ab378cbcf5413d",
+        "block": 89432937,
+        "actor": 6,
+        "contract": "exchange",
+        "method": "request",
+        "status": 1,
+        "at": "2026-10-15T19:32:14.903Z"
+      },
+      {
+        "hash": "0x86df051ca3d2f68f4be05335507f404dd5fd37a6d49451dd4ff568e00d7cb195",
+        "block": 89432934,
+        "actor": 6,
+        "contract": "exchange",
+        "method": "deposit",
+        "status": 1,
+        "at": "2026-10-15T19:32:05.709Z"
+      }
+    ]
+  },
+  "showcase": {
+    "phases": 10,
+    "successfulReceipts": 84,
+    "actors": 10,
+    "restored": true,
+    "feedRunning": false
+  },
+  "scope": "Local warm API benchmark; all trade/simulation outcomes remain real local fork transactions. Not production deployment, full source parity or a security audit."
+}
