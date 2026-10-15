@@ -1,0 +1,12 @@
+0x0b826190	                                       	view      	sessionKeyManager()
+0x0f71c8bc	address,address                        	nonpayable	
+0x251fb27d	uint256[]                              	view      	
+0x29e295c5	address                                	view      	authorizedRelayers(address)
+0x6090cf16	                                       	view      	
+0x8da5cb5b	                                       	view      	owner()
+0x9011e5f9	address,bool                           	nonpayable	setAuthorizedRelayer(address,bool)
+0x9ccae24e	address,address,address,address,address	nonpayable	
+0xc0c53b8b	address,address,address                	pure      	initialize(address,address,address)
+0xd2f7265a	                                       	view      	exchange()
+0xd5c539ce	                                       	view      	
+0xf2fde38b	address                                	nonpayable	transferOwnership(address)|_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)

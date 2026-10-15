@@ -1,0 +1,129 @@
+{
+  "warning": "Partial signatures for encoding and research only. Return types and mutability are intentionally NOT asserted. This is not an original or complete ABI.",
+  "abi": [
+    {
+      "type": "function",
+      "name": "changeProxyAdmin",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "owner",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "upgradeAndCall",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "bytes",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "upgrade",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "transferOwnership",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    }
+  ],
+  "selectors": [
+    {
+      "selector": "0x7eff275e",
+      "inferredArguments": "address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "changeProxyAdmin(address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9623609d",
+      "inferredArguments": "address,address,bytes",
+      "inferredMutability": "payable",
+      "signatureCandidates": [
+        "upgradeAndCall(address,address,bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x99a88ec4",
+      "inferredArguments": "address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "upgrade(address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ]
+}

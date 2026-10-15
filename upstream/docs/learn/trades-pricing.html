@@ -1,0 +1,22 @@
+<!-- Source: https://docs.papertrade.xyz/#/learn/trades-pricing -->
+<h1>Trades and pricing</h1>
+<p>What a trade looks like from the trader's side, and where the price comes from.</p>
+
+      <p>To open a trade, you pick a market (BTC or ETH for now), pick a direction (long or short), pick how much margin you want to commit and how much leverage you want on top, and click. The protocol opens the position immediately at Hyperliquid's order-book mid price. Closing works the same way: you click, the protocol reads the current mid, and your PnL settles against the LP.</p>
+
+      <h2 id="counterparty">Who you're trading against</h2>
+      <p>The counterparty on every trade is the LP. There is no orderbook on Papertrade, no matching engine, no other trader on the other side. Whether you win or lose flows directly to or from the LP's balance. This is what lets the protocol skip slippage and funding costs entirely.</p>
+
+      <h2 id="pricing">Where the price comes from</h2>
+      <p>The price you trade at is Hyperliquid's order-book mid for that asset, read directly by the smart contract from Hyperliquid's network. There's no separate price feed, no oracle committee, no admin signer. The price the contract sees is the same price Hyperliquid's market makers are quoting at that block.</p>
+
+      <h2 id="costs">Fees, funding, slippage</h2>
+      <p>No funding cost, no spread, and no user-paid gas. The relayer pays gas. The protocol's cut comes from profitable closes: an <a href="#/learn/wins-losses">asymmetric impact</a> haircut and a 2% win fee. Losses are not charged above the loss itself.</p>
+
+      <h2 id="margin">Margin</h2>
+      <p>Each trade lives as its own self-contained position. The margin you commit at open is the margin that position carries until it ends. You cannot top it up to push back a liquidation, and you cannot pull margin out to free up collateral elsewhere. There's no cross-margining between positions, no isolated-vs-cross toggle, no leverage adjustment after the fact.</p>
+      <p>The only way to edit a position is to close it (you decide when, full size only) or have it liquidated (the protocol decides when, by hitting your bust price). Want to scale into the same direction? Open a second position. Want to take some risk off the table? Close this one and open a smaller one.</p>
+
+      <h2 id="limits">What's available, what's the cap</h2>
+      <p>BTC and ETH today, both with up to <strong>1000× leverage</strong>. A single position's notional (margin × leverage) can be up to <strong>$10M</strong>. Markets are added by the contract owner and are limited to assets that exist on Hyperliquid's order book.</p>
+    

@@ -1,0 +1,24 @@
+0x0b4c3a82	                                                   	pure      	
+0x17a1678f	address,uint64,address                             	pure      	
+0x208e24fc	                                                   	pure      	CLOSE_TYPEHASH()
+0x2bc9ed54	                                                   	pure      	
+0x3644e515	                                                   	view      	DOMAIN_SEPARATOR()
+0x5197a0d3	address,bool                                       	nonpayable	setAuthorizedSubmitter(address,bool)
+0x5f76a1d6	address,address,uint64,address,uint256,uint64,uint8	nonpayable	
+0x6525a680	                                                   	pure      	OPEN_POSITION_TYPEHASH()
+0x747b8a1c	address,bytes,bytes,uint256,address                	nonpayable	initialize(address,string,string,uint256,address)
+0x78e890ba	                                                   	view      	domainSeparatorV4()
+0x7ecebe00	address                                            	view      	nonces(address)|_$_$$_$__$$$$$$$$__$__$$_$$$_$$$(address)|transfer_attention_tg_invmru_5811b86(uint256,address,address)
+0x7f608253	address,uint256,uint8,uint256,uint256              	view      	
+0x7f6e9d4b	address                                            	view      	authorizedSubmitters(address)
+0x84f4fc6a	address                                            	nonpayable	revokeSessionKey(address)
+0x8da5cb5b	                                                   	view      	owner()
+0x96ade1f9	address,address                                    	view      	sessionKeys(address,address)
+0x97dc97cb	                                                   	view      	authorizedCaller()
+0xb002b9fa	address,uint8,uint64                               	nonpayable	
+0xc1e6613d	address,address                                    	view      	
+0xcab7e8eb	address,uint8                                      	view      	isNonceUsed(address,uint256)
+0xcf8fbec9	address                                            	nonpayable	setAuthorizedCaller(address)
+0xd45167d0	uint256,uint8,uint256,uint256                      	view      	recoverSigner(bytes32,uint8,bytes32,bytes32)
+0xf2f59776	address,uint256                                    	view      	
+0xf2fde38b	address                                            	nonpayable	transferOwnership(address)|_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)

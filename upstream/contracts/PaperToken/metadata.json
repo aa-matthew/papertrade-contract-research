@@ -1,0 +1,36 @@
+{
+  "name": "PaperToken",
+  "address": "0xe40f17915DAa230324030003A197cdAEf2261C0e",
+  "slots": {
+    "implementation": {
+      "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+      "value": "0x000000000000000000000000433bd418ec92818a960585f4d5fae563e735bb4a",
+      "address": "0x433bd418ec92818a960585f4d5fae563e735bb4a"
+    },
+    "admin": {
+      "slot": "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103",
+      "value": "0x000000000000000000000000e79c91cc682f1bb401a9cab74c900470190f0f8f",
+      "address": "0xe79c91cc682f1bb401a9cab74c900470190f0f8f"
+    },
+    "beacon": {
+      "slot": "0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50",
+      "value": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "address": null
+    }
+  },
+  "runtimeBytes": 925,
+  "proxy": {
+    "address": "0xe40f17915DAa230324030003A197cdAEf2261C0e",
+    "explorer": "https://hyperevmscan.io/address/0xe40f17915DAa230324030003A197cdAEf2261C0e",
+    "sourceStatus": "unverified-on-explorer",
+    "sourcifyMatch": null
+  },
+  "implementation": {
+    "address": "0x433bd418ec92818a960585f4d5fae563e735bb4a",
+    "explorer": "https://hyperevmscan.io/address/0x433bd418ec92818a960585f4d5fae563e735bb4a",
+    "sourceStatus": "unverified-on-explorer",
+    "sourcifyMatch": null
+  },
+  "requestedBlock": "0x2e59f28",
+  "stateConsistency": "live reads; historical tag not honored by public RPC"
+}

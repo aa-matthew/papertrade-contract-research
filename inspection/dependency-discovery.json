@@ -1,0 +1,112 @@
+[
+  {
+    "address": "0xe79c91cc682f1bb401a9cab74c900470190f0f8f",
+    "discoveredFrom": "ProxyAdmin",
+    "runtimeBytes": 943
+  },
+  {
+    "address": "0xcd617f984158a4f5d287ddee0e8eb0fed204916d",
+    "discoveredFrom": "ExchangeLinkedLibrary",
+    "runtimeBytes": 5790
+  },
+  {
+    "address": "0x3333333333333333333333333333333333333333",
+    "discoveredFrom": "DepositProxyFactory.PUSH20",
+    "runtimeBytes": 544
+  },
+  {
+    "address": "0x918a23ef1120f3e42e722a0c0a599a66d55ab265",
+    "discoveredFrom": "BatchExecutor.PUSH20",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0x4f7261636c65207072696365206973207a65726f",
+    "discoveredFrom": "PriceOracle.PUSH20",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0x34e422f842e1fb25dc319e8a2b3d5e01674ffd72",
+    "discoveredFrom": "DepositProxyFactory.PUSH20",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0x419c3f5b55ae6d64e8b023f3bc470a64f8283203",
+    "discoveredFrom": "PaperStaking.PUSH20",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0xb4169985ab8939a698bbc5f419b35307300d8f15",
+    "discoveredFrom": "PaperStaking.PUSH20",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0xe991817199363046da0a28da6fbad0284e4aa492",
+    "discoveredFrom": "PaperTokenomics.PUSH20",
+    "runtimeBytes": 585
+  },
+  {
+    "address": "0xadede0b153c63f457c1c601a056124755086092f",
+    "discoveredFrom": "PaperTokenomics.PUSH20",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0x657420612070726f787920696d706c656d656e74",
+    "discoveredFrom": "USDC.PUSH20",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0x3721476de31190dc1af8908026abe20efe25cf99",
+    "discoveredFrom": "Exchange.marketKeeper()",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0xeef651e381e04b5ae25393b1367c19bcfd575792",
+    "discoveredFrom": "Exchange.devFeeRecipient()",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0xdf1bda875c9393a663ce69bf6a7fbaa73dfd053d",
+    "discoveredFrom": "DepositProxyFactory.authorizedDeployer()",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0x6b9e773128f453f5c2c60935ee2de2cbc5390a24",
+    "discoveredFrom": "CoreDepositWallet",
+    "runtimeBytes": 2175
+  },
+  {
+    "address": "0xe9686c8e11d80c8d78736485fcb6b6d7f4d7692e",
+    "discoveredFrom": "Multisig.signerTwo()",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0x9028f3b5b6b0d69e4e84ff555ade17114c3d1e72",
+    "discoveredFrom": "Multisig.signerThree()",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0xaa7577a7a27aa7fcf6d0ec481b87df3ad0f6a88e",
+    "discoveredFrom": "Multisig.signerOne()",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0x82dbb40d5bb09b0960e1e8bcdc635c59dd472b7b",
+    "discoveredFrom": "ProxyAdmin.PUSH20",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0x8e66c6ac847f06b9502fa2512435a62005f5fb92",
+    "discoveredFrom": "CoreDepositWallet.admin",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0x5061757361626c653a2063616c6c657220697320",
+    "discoveredFrom": "CoreDepositWallet.PUSH20",
+    "runtimeBytes": 0
+  },
+  {
+    "address": "0x75636365656454797065644d656d566965772f69",
+    "discoveredFrom": "CoreDepositWallet.PUSH20",
+    "runtimeBytes": 0
+  }
+]

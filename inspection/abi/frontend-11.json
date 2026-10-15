@@ -1,0 +1,21 @@
+[
+  {
+    "type": "function",
+    "name": "tokenURI",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "tokenId"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "string",
+        "name": ""
+      }
+    ]
+  }
+]

@@ -1,0 +1,5 @@
+0x7eff275e	address,address      	nonpayable	changeProxyAdmin(address,address)
+0x8da5cb5b	                     	view      	owner()
+0x9623609d	address,address,bytes	payable   	upgradeAndCall(address,address,bytes)
+0x99a88ec4	address,address      	nonpayable	upgrade(address,address)
+0xf2fde38b	address              	nonpayable	transferOwnership(address)|_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)

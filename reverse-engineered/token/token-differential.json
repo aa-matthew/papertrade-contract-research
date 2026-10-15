@@ -1,0 +1,1562 @@
+{
+  "ranAt": "2026-10-15T12:26:41.945Z",
+  "mutationMethodsUsed": [],
+  "compiler": "0.8.24",
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 4,
+        "contract": "PaperToken.reconstructed.sol:PaperTokenReconstructed",
+        "label": "initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 6,
+        "contract": "PaperToken.reconstructed.sol:PaperTokenReconstructed",
+        "label": "initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 8,
+        "contract": "PaperToken.reconstructed.sol:PaperTokenReconstructed",
+        "label": "name",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 10,
+        "contract": "PaperToken.reconstructed.sol:PaperTokenReconstructed",
+        "label": "symbol",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 12,
+        "contract": "PaperToken.reconstructed.sol:PaperTokenReconstructed",
+        "label": "owner",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_address"
+      },
+      {
+        "astId": 14,
+        "contract": "PaperToken.reconstructed.sol:PaperTokenReconstructed",
+        "label": "minter",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_address"
+      },
+      {
+        "astId": 16,
+        "contract": "PaperToken.reconstructed.sol:PaperTokenReconstructed",
+        "label": "privilegedSpender",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_address"
+      },
+      {
+        "astId": 18,
+        "contract": "PaperToken.reconstructed.sol:PaperTokenReconstructed",
+        "label": "totalSupply",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 22,
+        "contract": "PaperToken.reconstructed.sol:PaperTokenReconstructed",
+        "label": "balanceOf",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 28,
+        "contract": "PaperToken.reconstructed.sol:PaperTokenReconstructed",
+        "label": "approvals",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))"
+      },
+      {
+        "astId": 30,
+        "contract": "PaperToken.reconstructed.sol:PaperTokenReconstructed",
+        "label": "stakingContract",
+        "offset": 0,
+        "slot": "9",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(address => uint256))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_uint256)"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "results": [
+    {
+      "name": "name",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000055061706572000000000000000000000000000000000000000000000000000000"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000055061706572000000000000000000000000000000000000000000000000000000"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "symbol",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000055041504552000000000000000000000000000000000000000000000000000000"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000055041504552000000000000000000000000000000000000000000000000000000"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "decimals",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000012"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000012"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "owner",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x000000000000000000000000b915fa41e824d6aa31bb833ee81220c0f2c8ea0f"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x000000000000000000000000b915fa41e824d6aa31bb833ee81220c0f2c8ea0f"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "minter",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x00000000000000000000000075174549dbbd44497d31a47e2e2d7406408d63d9"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x00000000000000000000000075174549dbbd44497d31a47e2e2d7406408d63d9"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "totalSupply",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000001bc16d674ec80000"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000001bc16d674ec80000"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "stakingContract",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "unknown getter slot5",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "approve zero address",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x1f83e27d2ab6b0f14dc8ef36ad1cdf0aab1b5f65321728bd4ed4ba12f19e6b65",
+            "value": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+              "0x0000000000000000000000000000000000000000000000000000000000000123",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x1f83e27d2ab6b0f14dc8ef36ad1cdf0aab1b5f65321728bd4ed4ba12f19e6b65",
+            "value": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+              "0x0000000000000000000000000000000000000000000000000000000000000123",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "approve user",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x34de8c8f06b7ccd33bb39868ff07c9953fc20fa3ae63fd3f61b9c5e7a4e58dde",
+            "value": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+              "0x0000000000000000000000000000000000000000000000000000000000000123",
+              "0x0000000000000000000000000000000000000000000000000000000000000456"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x34de8c8f06b7ccd33bb39868ff07c9953fc20fa3ae63fd3f61b9c5e7a4e58dde",
+            "value": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+              "0x0000000000000000000000000000000000000000000000000000000000000123",
+              "0x0000000000000000000000000000000000000000000000000000000000000456"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "implicit allowance",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "ordinary allowance",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "ordinary transfer rejected",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": false,
+          "data": "0xe827105e"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": false,
+          "data": "0xe827105e"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "direct stake transfer rejected",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": false,
+          "data": "0xe827105e"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": false,
+          "data": "0xe827105e"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "staking transfer",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x1c02db7e43f0df87d0f575ff9d37c4987b926108a975515dd1064b16d94aa1e3",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "slot": "0x821d53c2ef647f17faa14c068f8d53b4e9b9aac4b1ad82a4183e794f381b98bb",
+            "value": "0x0000000000000000000000000000000000000000000000001bc16d674ec80000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016",
+              "0x0000000000000000000000000000000000000000000000000000000000000123"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x1c02db7e43f0df87d0f575ff9d37c4987b926108a975515dd1064b16d94aa1e3",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "slot": "0x821d53c2ef647f17faa14c068f8d53b4e9b9aac4b1ad82a4183e794f381b98bb",
+            "value": "0x0000000000000000000000000000000000000000000000001bc16d674ec80000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016",
+              "0x0000000000000000000000000000000000000000000000000000000000000123"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "staking transfer too large",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": false,
+          "data": "0xf4d678b8"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": false,
+          "data": "0xf4d678b8"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "staking self transfer",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x1c02db7e43f0df87d0f575ff9d37c4987b926108a975515dd1064b16d94aa1e3",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "slot": "0x1c02db7e43f0df87d0f575ff9d37c4987b926108a975515dd1064b16d94aa1e3",
+            "value": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016",
+              "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x1c02db7e43f0df87d0f575ff9d37c4987b926108a975515dd1064b16d94aa1e3",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "slot": "0x1c02db7e43f0df87d0f575ff9d37c4987b926108a975515dd1064b16d94aa1e3",
+            "value": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016",
+              "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "staking pull",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x821d53c2ef647f17faa14c068f8d53b4e9b9aac4b1ad82a4183e794f381b98bb",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "slot": "0x1c02db7e43f0df87d0f575ff9d37c4987b926108a975515dd1064b16d94aa1e3",
+            "value": "0x0000000000000000000000000000000000000000000000001bc16d674ec80000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x0000000000000000000000000000000000000000000000000000000000000123",
+              "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x821d53c2ef647f17faa14c068f8d53b4e9b9aac4b1ad82a4183e794f381b98bb",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "slot": "0x1c02db7e43f0df87d0f575ff9d37c4987b926108a975515dd1064b16d94aa1e3",
+            "value": "0x0000000000000000000000000000000000000000000000001bc16d674ec80000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x0000000000000000000000000000000000000000000000000000000000000123",
+              "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "staking arbitrary user movement rejected",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": false,
+          "data": "0xe827105e"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": false,
+          "data": "0xe827105e"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "unprivileged transferFrom allowance rejected",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": false,
+          "data": "0x13be252b"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": false,
+          "data": "0x13be252b"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "staking finite allowance",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x08d7ab48490a51c26b73d1887627b5825985589a08f329ff1e510cac72108374",
+            "value": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          },
+          {
+            "slot": "0x821d53c2ef647f17faa14c068f8d53b4e9b9aac4b1ad82a4183e794f381b98bb",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "slot": "0x1c02db7e43f0df87d0f575ff9d37c4987b926108a975515dd1064b16d94aa1e3",
+            "value": "0x0000000000000000000000000000000000000000000000001bc16d674ec80000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x0000000000000000000000000000000000000000000000000000000000000123",
+              "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x08d7ab48490a51c26b73d1887627b5825985589a08f329ff1e510cac72108374",
+            "value": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          },
+          {
+            "slot": "0x821d53c2ef647f17faa14c068f8d53b4e9b9aac4b1ad82a4183e794f381b98bb",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "slot": "0x1c02db7e43f0df87d0f575ff9d37c4987b926108a975515dd1064b16d94aa1e3",
+            "value": "0x0000000000000000000000000000000000000000000000001bc16d674ec80000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x0000000000000000000000000000000000000000000000000000000000000123",
+              "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "staking max allowance decremented",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x08d7ab48490a51c26b73d1887627b5825985589a08f329ff1e510cac72108374",
+            "value": "0xfffffffffffffffffffffffffffffffffffffffffffffffff21f494c589bffff"
+          },
+          {
+            "slot": "0x821d53c2ef647f17faa14c068f8d53b4e9b9aac4b1ad82a4183e794f381b98bb",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "slot": "0x1c02db7e43f0df87d0f575ff9d37c4987b926108a975515dd1064b16d94aa1e3",
+            "value": "0x0000000000000000000000000000000000000000000000001bc16d674ec80000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x0000000000000000000000000000000000000000000000000000000000000123",
+              "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "writes": [
+          {
+            "slot": "0x08d7ab48490a51c26b73d1887627b5825985589a08f329ff1e510cac72108374",
+            "value": "0xfffffffffffffffffffffffffffffffffffffffffffffffff21f494c589bffff"
+          },
+          {
+            "slot": "0x821d53c2ef647f17faa14c068f8d53b4e9b9aac4b1ad82a4183e794f381b98bb",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "slot": "0x1c02db7e43f0df87d0f575ff9d37c4987b926108a975515dd1064b16d94aa1e3",
+            "value": "0x0000000000000000000000000000000000000000000000001bc16d674ec80000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x0000000000000000000000000000000000000000000000000000000000000123",
+              "0x000000000000000000000000aad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "authorized mint",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000006",
+            "value": "0x00000000000000000000000000000000000000000000000029a2241af62c0000"
+          },
+          {
+            "slot": "0x821d53c2ef647f17faa14c068f8d53b4e9b9aac4b1ad82a4183e794f381b98bb",
+            "value": "0x0000000000000000000000000000000000000000000000001bc16d674ec80000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000123"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000006",
+            "value": "0x00000000000000000000000000000000000000000000000029a2241af62c0000"
+          },
+          {
+            "slot": "0x821d53c2ef647f17faa14c068f8d53b4e9b9aac4b1ad82a4183e794f381b98bb",
+            "value": "0x0000000000000000000000000000000000000000000000001bc16d674ec80000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000123"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mint to zero",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000006",
+            "value": "0x00000000000000000000000000000000000000000000000029a2241af62c0000"
+          },
+          {
+            "slot": "0x6d5257204ebe7d88fd91ae87941cb2dd9d8062b64ae5a2bd2d28ec40b9fbf6df",
+            "value": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000006",
+            "value": "0x00000000000000000000000000000000000000000000000029a2241af62c0000"
+          },
+          {
+            "slot": "0x6d5257204ebe7d88fd91ae87941cb2dd9d8062b64ae5a2bd2d28ec40b9fbf6df",
+            "value": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "unauthorized mint",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": false,
+          "data": "0xf8d2906c"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": false,
+          "data": "0xf8d2906c"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "authorized burn",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x821d53c2ef647f17faa14c068f8d53b4e9b9aac4b1ad82a4183e794f381b98bb",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000006",
+            "value": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x0000000000000000000000000000000000000000000000000000000000000123",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x821d53c2ef647f17faa14c068f8d53b4e9b9aac4b1ad82a4183e794f381b98bb",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000006",
+            "value": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+              "0x0000000000000000000000000000000000000000000000000000000000000123",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "overburn",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": false,
+          "data": "0xf4d678b8"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": false,
+          "data": "0xf4d678b8"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "unauthorized burn",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": false,
+          "data": "0xf8d2906c"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": false,
+          "data": "0xf8d2906c"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "setMinter owner",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000004",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000456"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xad0f299ec81a386c98df0ac27dae11dd020ed1b56963c53a7292e7a3a314539a",
+              "0x0000000000000000000000000000000000000000000000000000000000000456"
+            ],
+            "data": "0x"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000004",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000456"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xad0f299ec81a386c98df0ac27dae11dd020ed1b56963c53a7292e7a3a314539a",
+              "0x0000000000000000000000000000000000000000000000000000000000000456"
+            ],
+            "data": "0x"
+          }
+        ]
+      }
+    },
+    {
+      "name": "setMinter zero",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000004",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xad0f299ec81a386c98df0ac27dae11dd020ed1b56963c53a7292e7a3a314539a",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "data": "0x"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000004",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0xad0f299ec81a386c98df0ac27dae11dd020ed1b56963c53a7292e7a3a314539a",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "data": "0x"
+          }
+        ]
+      }
+    },
+    {
+      "name": "setMinter unauthorized",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": false,
+          "data": "0x30cd7471"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": false,
+          "data": "0x30cd7471"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "setStakingContract owner",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000009",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000456"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x6397f5b135542bb3f477cb346cfab5abdec1251d08dc8f8d4efb4ffe122ea0bf",
+              "0x0000000000000000000000000000000000000000000000000000000000000456"
+            ],
+            "data": "0x"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000009",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000456"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x6397f5b135542bb3f477cb346cfab5abdec1251d08dc8f8d4efb4ffe122ea0bf",
+              "0x0000000000000000000000000000000000000000000000000000000000000456"
+            ],
+            "data": "0x"
+          }
+        ]
+      }
+    },
+    {
+      "name": "setStakingContract zero",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000009",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x6397f5b135542bb3f477cb346cfab5abdec1251d08dc8f8d4efb4ffe122ea0bf",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "data": "0x"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000009",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x6397f5b135542bb3f477cb346cfab5abdec1251d08dc8f8d4efb4ffe122ea0bf",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "data": "0x"
+          }
+        ]
+      }
+    },
+    {
+      "name": "setStakingContract unauthorized",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": false,
+          "data": "0x30cd7471"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": false,
+          "data": "0x30cd7471"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "transferOwnership owner",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000003",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000456"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x4ffd725fc4a22075e9ec71c59edf9c38cdeb588a91b24fc5b61388c5be41282b",
+              "0x0000000000000000000000000000000000000000000000000000000000000456"
+            ],
+            "data": "0x"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000003",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000456"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x4ffd725fc4a22075e9ec71c59edf9c38cdeb588a91b24fc5b61388c5be41282b",
+              "0x0000000000000000000000000000000000000000000000000000000000000456"
+            ],
+            "data": "0x"
+          }
+        ]
+      }
+    },
+    {
+      "name": "transferOwnership zero",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000003",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x4ffd725fc4a22075e9ec71c59edf9c38cdeb588a91b24fc5b61388c5be41282b",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "data": "0x"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000003",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x4ffd725fc4a22075e9ec71c59edf9c38cdeb588a91b24fc5b61388c5be41282b",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "data": "0x"
+          }
+        ]
+      }
+    },
+    {
+      "name": "transferOwnership unauthorized",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": false,
+          "data": "0x30cd7471"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": false,
+          "data": "0x30cd7471"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "privilegedSpender setter",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000005",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000456"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x6e54fcdf080b1c188bfc8f26eb9386e78b6cb5428459a86cdd74357de82a33ae",
+              "0x0000000000000000000000000000000000000000000000000000000000000456"
+            ],
+            "data": "0x"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000005",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000456"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x6e54fcdf080b1c188bfc8f26eb9386e78b6cb5428459a86cdd74357de82a33ae",
+              "0x0000000000000000000000000000000000000000000000000000000000000456"
+            ],
+            "data": "0x"
+          }
+        ]
+      }
+    },
+    {
+      "name": "privilegedSpender setter unauthorized",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": false,
+          "data": "0x30cd7471"
+        },
+        "writes": [],
+        "logs": []
+      },
+      "reconstructed": {
+        "result": {
+          "success": false,
+          "data": "0x30cd7471"
+        },
+        "writes": [],
+        "logs": []
+      }
+    },
+    {
+      "name": "one-shot initializer (cleared flag fixture)",
+      "pass": true,
+      "original": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000101"
+          },
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "value": "0x5265636f76657265640000000000000000000000000000000000000000000012"
+          },
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000002",
+            "value": "0x5245430000000000000000000000000000000000000000000000000000000006"
+          },
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000003",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000123"
+          },
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000004",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000456"
+          },
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000001"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x4ffd725fc4a22075e9ec71c59edf9c38cdeb588a91b24fc5b61388c5be41282b",
+              "0x0000000000000000000000000000000000000000000000000000000000000123"
+            ],
+            "data": "0x"
+          },
+          {
+            "topics": [
+              "0xad0f299ec81a386c98df0ac27dae11dd020ed1b56963c53a7292e7a3a314539a",
+              "0x0000000000000000000000000000000000000000000000000000000000000456"
+            ],
+            "data": "0x"
+          }
+        ]
+      },
+      "reconstructed": {
+        "result": {
+          "success": true,
+          "data": "0x"
+        },
+        "writes": [
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000101"
+          },
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "value": "0x5265636f76657265640000000000000000000000000000000000000000000012"
+          },
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000002",
+            "value": "0x5245430000000000000000000000000000000000000000000000000000000006"
+          },
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000003",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000123"
+          },
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000004",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000456"
+          },
+          {
+            "slot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000001"
+          }
+        ],
+        "logs": [
+          {
+            "topics": [
+              "0x4ffd725fc4a22075e9ec71c59edf9c38cdeb588a91b24fc5b61388c5be41282b",
+              "0x0000000000000000000000000000000000000000000000000000000000000123"
+            ],
+            "data": "0x"
+          },
+          {
+            "topics": [
+              "0xad0f299ec81a386c98df0ac27dae11dd020ed1b56963c53a7292e7a3a314539a",
+              "0x0000000000000000000000000000000000000000000000000000000000000456"
+            ],
+            "data": "0x"
+          }
+        ]
+      }
+    }
+  ]
+}

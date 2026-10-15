@@ -1,0 +1,1 @@
+var e=`/assets/uwu-stars-v1-D3Ov5TkS.jpg`;export{e as t};

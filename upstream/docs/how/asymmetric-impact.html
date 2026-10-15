@@ -1,0 +1,40 @@
+<!-- Source: https://docs.papertrade.xyz/#/how/asymmetric-impact -->
+<h1>Asymmetric impact PnL</h1>
+<p>How Papertrade settles closing PnL, where the protocol takes its cut of a trade.</p>
+
+      <p>Trades enter at <a href="#/how/pricing-bbo">BBO mid</a>, and a later close uses the BBO mid at the block in which that close executes. There is no spread, no slippage, no funding, no notional trading fee, and no gas charged to the user. Losses are not charged above the loss itself; in solvent cases the LP-side loss fee is carved from the LP's gain, and in insolvent cases it is waived.</p>
+      <p>On <strong>profitable closes</strong>, the protocol applies an <em>asymmetric-impact haircut</em> to the resulting PnL. It is not a percentage fee on notional or a spread on the execution price: it multiplies the raw gain by a scale factor determined by the entry-to-exit move. The haircut can consume most of a very small gain and becomes less severe as the move grows.</p>
+      <p>A winning close goes through three steps, in order:</p>
+      <ol>
+        <li><strong>Deadband.</strong> The gain is measured as if the exit were 0.2 bps (<code>entryPrice / 50000</code>) less favourable. A win smaller than that becomes zero.</li>
+        <li><strong>Impact.</strong> The remaining gain is scaled by the formula below.</li>
+        <li><strong>Win fee.</strong> 2% of the scaled gain comes off. The trader receives the other 98%.</li>
+      </ol>
+
+      <h2 id="properties">Properties</h2>
+      <ul>
+        <li><strong>Asymmetric.</strong> Only winning closes are scaled. Losing closes pay nothing extra.</li>
+        <li><strong>Move-sized, not position-sized.</strong> The haircut percentage doesn't depend on whether you're closing $100 or $100K of notional. A reference notional set per market controls the steepness; the size of your trade does not.</li>
+        <li><strong>Bigger moves keep more of the gain.</strong> The haircut shrinks smoothly as the move grows. Tiny moves are scaled the most aggressively; larger moves keep most of the raw gain.</li>
+      </ul>
+
+      <h2 id="formula">The formula</h2>
+      <p>For a winning close, the protocol applies a scale factor to the raw PnL:</p>
+      <pre><code>adjustedPnl = rawPnl × scale
+scale       = (1 − baseRate) / (1 + term1 + term2)
+term1       = 1 / (move × rateMultiplier)
+term2       = referenceNotional / (10⁶ × move × positionMultiplier)
+move        = |exitPrice − entryPrice| / entryPrice</code></pre>
+      <p><code>baseRate</code>, <code>rateMultiplier</code>, <code>positionMultiplier</code>, and <code>referenceNotional</code> are per-instrument parameters set by the contract owner. As <code>move</code> grows, both <code>term1</code> and <code>term2</code> shrink, the denominator approaches 1, and the trader keeps a larger share of <code>rawPnl</code>, up to <code>1 − baseRate</code>. As <code>move</code> approaches zero, the terms blow up and the scaled gain collapses toward zero. The exact implementation lives in <code>QueueLib.applyMarketImpact</code>; <code>move</code> there uses the exit price after the deadband.</p>
+      <p>At launch both BTC and ETH use <code>baseRate = 10%</code>, <code>rateMultiplier = 15,000</code> and <code>referenceNotional = $100,000</code>, with <code>positionMultiplier</code> of 814.598 for BTC and 483.979 for ETH. So a winning close never keeps more than 90% of its raw gain before the win fee. On BTC, counting the deadband, a 1% move keeps about 88% of the raw gain and a 0.1% move about 74%.</p>
+
+      <h2 id="term2-fixed">Why <code>term2</code> is fixed</h2>
+      <p>In Rollbit's original formulation, <code>term2</code> scales with the actual position notional, so the haircut percentage grows with trade size. We can't carry that property at 1000× leverage: it would push traders toward many small positions (more trades, more state, more gas) without making the per-trade economics any better for anyone. Papertrade substitutes a per-instrument <code>referenceNotional</code> constant for the position size in <code>term2</code>. The curve is otherwise sound; the haircut percentage is now identical for a $100 close and a $100K close.</p>
+
+      <h2 id="why">Why this design</h2>
+      <p>At 1000× leverage, no fee on notional and no spread on price could plausibly sustain the LP: each one would either be invisible to the protocol or impossible for the user to bear. The asymmetric impact moves the cost into the only place that scales with realised outcome: the user's gain on a successful trade. Losses never pay extra.</p>
+      <p>The curve also adds economic friction to small gains, including gains that may come from briefly distorting BBO. It is not a deviation check, however, and does not guarantee that a manipulation strategy is unprofitable. Papertrade accepts that residual risk when it reads BBO without a breaker; see <a href="#/how/pricing-bbo">No deviation breaker</a>.</p>
+
+      <h2 id="rollbit">Inspiration</h2>
+      <p>The mechanism is adapted from Rollbit's market-impact model, which uses a similar PnL-side haircut to fund their LP without a traditional spread. Papertrade's variant fixes the position-size factor to a per-market reference notional, so the haircut percentage doesn't depend on how big a position you take.</p>
+    

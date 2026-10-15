@@ -1,0 +1,1 @@
+import{_ as e}from"./wire-d4-U_uLp.js";import{a as t}from"./hooks-Dgib49eE.js";import{n}from"./ring-C1jwty6I.js";function r(){let{viewedAddress:r}=t();return e({...n(r),notifyOnChangeProps:[]}),null}export{r as t};

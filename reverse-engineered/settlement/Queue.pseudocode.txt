@@ -1,0 +1,48 @@
+RECONSTRUCTED ALGORITHM; NOT ORIGINAL SOURCE. Descriptive names invented.
+
+Queue storage base Q = 15 (0x0f) in archived Exchange:
+  Q+0 mapping(uint256 => Node) nodes
+  Q+1 uint256 head              // oldest global ID not yet passed
+  Q+2 uint256 nextId            // append ID, exclusive tail
+  Q+3 uint256 totalQueued
+  Q+4 mapping(address => uint256) userQueued
+  Q+5 mapping(address => uint256) userHead
+  Q+6 mapping(address => uint256) userTail
+Node at keccak256(abi.encode(id,Q)):
+  word0 bits 0..159 user, 160..207 nextUserID, 208..255 prevUserID
+  word1 uint256 amount
+These links are per-user; the global payout walk increments IDs.
+
+append(Q,user,amount) [selector 0x18958ce2 -> 0x0b6b]:
+  if amount == 0: return
+  id = nextId++
+  reject ID beyond 48-bit link range (PC 0x0b82 onwards)
+  link id after userTail[user]; set userHead if absent
+  node[id] = {user, nextUserID:0, prevUserID:oldTail, amount}
+  userTail[user] = id
+  totalQueued += amount; userQueued[user] += amount
+
+consumeDebtCollateral(Q,user,amount) [0x3f4e3626 -> 0x0517]:
+  // Newest-first debt consumption, distinct from oldest-first cash harvesting.
+  remaining = amount; id = userTail[user]
+  while remaining != 0 && id != 0:
+    take = min(remaining,node[id].amount)
+    node[id].amount -= take
+    remaining -= take
+    if node[id].amount == 0:
+      unlinkFromUserList(id); id = previous user link
+  totalQueued -= consumed; userQueued[user] -= consumed
+  return consumed
+  // No sufficient-balance proof here; Exchange caller must enforce its constraints.
+
+harvest(Q,maxEntries,cashBudget,balancesMappingSlot,initialAccumulator)
+  [0x79810ffe -> 0x0379]:
+  walk global IDs from head while id < nextId && cashBudget>0 && visited<maxEntries
+  zero-amount entries count against visited; increment past them
+  otherwise take=min(cashBudget,node[id].amount)
+  node[id].amount-=take; credit balances[user]+=take
+  userQueued[user]-=take; totalQueued-=take
+  fully paid: unlink user list and advance ID
+  partial payment: leave head at current ID
+  return two words (aggregate paid / accumulator semantics not fully recovered)
+  // Library does not transfer USDC: credits a caller-selected balances mapping.

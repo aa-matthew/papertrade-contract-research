@@ -1,0 +1,48 @@
+{
+  "user": "0x0000000000000000000000000000000000001234",
+  "key": "0x0000000000000000000000000000000000005678",
+  "sloads": [
+    {
+      "pc": 781,
+      "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+    },
+    {
+      "pc": 1000,
+      "slot": "0xe8ddb324f08ccc6acdbb852fef26951d6cd54073b379dba21d6bda844ceb28bf"
+    }
+  ],
+  "candidates": [
+    {
+      "slot": 0,
+      "address": "0x869bf7111d0ed7fbcbff27f476d67260df9dc29827e456137bf522b739915b1a"
+    },
+    {
+      "slot": 1,
+      "address": "0xbf5af739cf1f808cbb7a63498e07ed6866b61e73c5f640ecf32a2ee2535bc5ba"
+    },
+    {
+      "slot": 2,
+      "address": "0x211b8474605a74b3193ecd1f8ceadf40df9e43094baf9610729e360c09dea80a"
+    },
+    {
+      "slot": 3,
+      "address": "0x0bd8180b0a753427f1d06dd58d14cdbb22bd79b3890aadc589175bd970f57474"
+    },
+    {
+      "slot": 4,
+      "address": "0xe8ddb324f08ccc6acdbb852fef26951d6cd54073b379dba21d6bda844ceb28bf"
+    },
+    {
+      "slot": 5,
+      "address": "0x99ac41f80345a6484d64cb3d90c558087c9334dc30824839ac8a474a8d821483"
+    },
+    {
+      "slot": 6,
+      "address": "0x76fcdafea6c233bb8ec28619b38f791cc149e82ce9e6fbadcf1ce3b3b810fe99"
+    },
+    {
+      "slot": 7,
+      "address": "0x8afd02d8fa5297bc18239238beb9f44a12642ce141914e73e0ea0ff05d9d863d"
+    }
+  ]
+}

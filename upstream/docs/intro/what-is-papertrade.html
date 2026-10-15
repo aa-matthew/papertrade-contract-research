@@ -1,0 +1,30 @@
+<!-- Source: https://docs.papertrade.xyz/#/intro/what-is-papertrade -->
+<h1>What is Papertrade?</h1>
+<p>Papertrade is a fair-launched, fully on-chain perpetuals exchange built on Hyperliquid, with several unique features:</p>
+
+      <ul>
+        <li>1000× leverage</li>
+        <li>One-click Buy/Sell, no orderbook</li>
+        <li>Zero slippage</li>
+        <li>No funding costs</li>
+        <li>Self-bootstrapping LP</li>
+        <li>No spread</li>
+      </ul>
+
+      <h2 id="how-it-runs">How it runs</h2>
+      <p>Papertrade's smart contract uses Hyperliquid's <a href="#/how/pricing-bbo">BBO mid as an oracle</a> to create synthetic swaps between the user and the LP. No perpetual contracts are traded on Hyperliquid itself. The contract lives on the HyperEVM L1 and reads HyperCore state through precompiles.</p>
+      <p><a href="https://papertrade.xyz">papertrade.xyz</a> is the first canonical frontend for the protocol, built to make the initial trading experience seamless and responsive.</p>
+
+      <h2 id="trades">How trades work</h2>
+      <p>All trades on Papertrade are synthetic swaps between the user and the LP: no orderbook, no matching engine, no other counterparty. When you open a position, the contract reads Hyperliquid's <a href="#/how/pricing-bbo">BBO mid through a precompile</a> and locks that price as your entry. When you close, the contract reads BBO mid again and settles PnL directly against the LP.</p>
+      <p>Because no actual perpetual contract changes hands on Hyperliquid, there are no funding costs. There is also no slippage: you get the BBO mid regardless of size, subject to per-instrument OI safety caps.</p>
+
+      <h2 id="lp-and-paper">The LP and PAPER</h2>
+      <p>The LP bootstraps itself from zero using the Martingaler Protocol. All trades face the LP directly, and the LP grows over time from cumulative user losses. If the LP goes insolvent, it issues debt into a queue, which pays out as soon as the LP receives funds from another user's loss.</p>
+      <p>Trading while the LP is low or insolvent is incentivised: PAPER mints fastest in that regime, and the queue pays out automatically as future losses refill the LP.</p>
+      <p><a href="#/paper/overview">PAPER</a> is the LP fee-claim token, minted from realised user losses. There is no way to deposit directly into the LP; the only path to exposure is through trade losses that mint PAPER for you. PAPER is a <strong>fair launch</strong>: supply starts at zero, with no pre-mint, no team allocation, no VC allocation, no airdrop, and no vesting. Every token in existence has to be minted through the on-chain emissions curve. At launch PAPER can't be transferred between wallets; it can only be staked and unstaked. The mint rate is flat at <strong>100 PAPER per $1 of loss mint basis</strong> while tracked LP is below <strong>$2M</strong> (including underwater), then decays asymptotically past that point.</p>
+      <p>Staked PAPER earns USDC from two sources. <strong>(1) 1% of PnL:</strong> stakers receive 1% of the realised PnL of settled trades, winning or losing, while no payouts are queued and the LP can cover it (liquidations of positions opened from queued balance excepted). <strong>(2) LP overflow:</strong> once tracked LP climbs above the <strong>$5M staker reward cap</strong>, every dollar of further LP gain past that point is fully distributable to stakers via the keeper's <code>pushStakerFees()</code> call. Below $5M, stakers only receive the 1% share.</p>
+
+      <h2 id="fees">No conventional trading fee</h2>
+      <p>Papertrade has no notional swap fee, no spread, and no funding cost. At 1000× leverage, none of those would scale sustainably. Instead, the protocol takes its cut from profitable closes, as an <a href="#/how/asymmetric-impact">asymmetric impact</a> haircut on the gain. Losses pay nothing on top of the loss itself.</p>
+    

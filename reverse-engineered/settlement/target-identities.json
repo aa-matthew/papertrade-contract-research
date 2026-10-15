@@ -1,0 +1,14 @@
+{
+  "ExchangeLinkedLibrary": {
+    "path": "upstream/contracts/ExchangeLinkedLibrary/runtime.hex",
+    "carrierSha256": "95bddf21f52471ed51670c3b402002888bdb3dde685acdbd546ed121884e217f",
+    "decodedSha256": "622ed31d6eeea7efb834d32e4f2199b718af1ece2280f4d22cdd1f8769aa4fe2",
+    "decodedBytes": 5790
+  },
+  "Exchange": {
+    "path": "upstream/contracts/Exchange/implementation-runtime.hex",
+    "carrierSha256": "d7f8f6907270f0fb096e5bd22c65190ed53aad97533a0b7e1a5253c1828c7665",
+    "decodedSha256": "2f2e20ca683b70511fe62178b8090c93df24208b13dbdfa6407f38946fcef0b1",
+    "decodedBytes": 23052
+  }
+}

@@ -1,0 +1,24 @@
+<!-- Source: https://docs.papertrade.xyz/#/learn/session-keys -->
+<h1>Session keys</h1>
+<p>Why you don't get a wallet popup on every trade, and what's actually being authorised.</p>
+
+      <h2 id="why">Why one click is enough</h2>
+      <p>When you first connect your wallet to Papertrade, the app asks you to sign a single message to register a <strong>session key</strong>. After that, your individual trades (opens and closes) don't pop a wallet signature. The session key signs them on your behalf, scoped to your account, for a window of time, and the relayer/batcher submits the signed intents onchain.</p>
+
+      <h2 id="what-it-can">What a session key can do</h2>
+      <ul>
+        <li>Open positions on your account, funded from your available balance or your queued balance.</li>
+        <li>Close positions on your account.</li>
+      </ul>
+
+      <h2 id="what-it-cant">What a session key cannot do</h2>
+      <ul>
+        <li><strong>It cannot withdraw your funds.</strong> Withdrawals always require your real wallet's signature.</li>
+        <li>It cannot stake, unstake, or claim PAPER rewards. Those are signed by your wallet too.</li>
+      </ul>
+      <p>Worst case if a session key is compromised: an attacker can open and close positions on your account, and so could lose your balance in trades, but cannot withdraw it or move it anywhere else. You can revoke a session key at any time by calling <code>revokeSessionKey</code> on the SessionKeyManager from your wallet. It is a HyperEVM transaction, so it needs a little HYPE for gas. Trades the key signed that are still queued are cancelled.</p>
+
+      <h2 id="expiry">Expiry</h2>
+      <p>Session keys last 30 days. Every trade a session key signs is valid for one hour, so the app asks you to sign a new session key once the current one has less than an hour left.</p>
+
+    

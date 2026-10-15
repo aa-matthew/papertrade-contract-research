@@ -1,0 +1,9 @@
+node_modules/
+.env
+.DS_Store
+cache/
+out/
+__pycache__/
+*.pyc
+tools/rea/
+tools/rea-runtime/node_modules/

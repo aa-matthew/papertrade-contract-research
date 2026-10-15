@@ -1,0 +1,343 @@
+{
+  "warning": "Partial signatures for encoding and research only. Return types and mutability are intentionally NOT asserted. This is not an original or complete ABI.",
+  "abi": [
+    {
+      "type": "function",
+      "name": "setMintParams",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "flatRate",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "initialize",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "trackedLpUsd",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "owner",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "paperToken",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "tailDecayScaleUsd",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "exchange",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "redeem",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "tailProgressUsd",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "setPaperToken",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "lpFlatThresholdUsd",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "transferOwnership",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "quoteRedemption",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    }
+  ],
+  "selectors": [
+    {
+      "selector": "0x0efdf838",
+      "inferredArguments": "address,uint256,bool,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x12baae3b",
+      "inferredArguments": "bool,uint256,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setMintParams(uint256,uint256,uint256,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x1c3972ba",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "flatRate()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3886cade",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x485cc955",
+      "inferredArguments": "address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initialize(address,address)",
+        "watch_tg_invmru_7bd442a(uint256,address,uint256)",
+        "watch_tg_invmru_10757d42(bool,bool)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7c7df7b4",
+      "inferredArguments": "address,uint256,uint256,uint64,uint8",
+      "inferredMutability": "pure",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8cf554a7",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "trackedLpUsd()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x98255e15",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "paperToken()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xae745703",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc16017ca",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc218c676",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcbb451da",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "tailDecayScaleUsd()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd2f7265a",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "exchange()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xdb006a75",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "redeem(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xdc5682d2",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "tailProgressUsd()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe6ee2285",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setPaperToken(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe9ed73e9",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "lpFlatThresholdUsd()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xed722c96",
+      "inferredArguments": "address,uint256,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xfe16eae8",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "quoteRedemption(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ]
+}

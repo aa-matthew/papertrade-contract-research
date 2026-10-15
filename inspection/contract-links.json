@@ -1,0 +1,254 @@
+[
+  {
+    "from": "Exchange",
+    "getter": "sessionKeyManager()",
+    "to": "SessionKeyManager",
+    "address": "0x8326eb8896e358717f10502ec73ce8d28e37b108"
+  },
+  {
+    "from": "Exchange",
+    "getter": "authorizedExecutor()",
+    "to": "BatchExecutor",
+    "address": "0x233ff29b239abc1d7748605da9b205c3e008626e"
+  },
+  {
+    "from": "Exchange",
+    "getter": "marketKeeper()",
+    "to": "0x3721476de31190dc1af8908026abe20efe25cf99",
+    "address": "0x3721476de31190dc1af8908026abe20efe25cf99"
+  },
+  {
+    "from": "Exchange",
+    "getter": "pauseGuardian()",
+    "to": "Multisig",
+    "address": "0x696292762fd5ac3677a45edbe54eaece4194d1f6"
+  },
+  {
+    "from": "Exchange",
+    "getter": "oracle()",
+    "to": "PriceOracle",
+    "address": "0xa9b4c7b7ca5835652d81e25739c870d49f39cc2e"
+  },
+  {
+    "from": "Exchange",
+    "getter": "owner()",
+    "to": "Timelock",
+    "address": "0xb915fa41e824d6aa31bb833ee81220c0f2c8ea0f"
+  },
+  {
+    "from": "Exchange",
+    "getter": "authorizedKeeper()",
+    "to": "0x0000000000000000000000000000000000000000",
+    "address": "0x0000000000000000000000000000000000000000"
+  },
+  {
+    "from": "Exchange",
+    "getter": "proxyFactory()",
+    "to": "DepositProxyFactory",
+    "address": "0x1629b7d46bef6e13ff754174fc9f32dea309b38f"
+  },
+  {
+    "from": "Exchange",
+    "getter": "devFeeRecipient()",
+    "to": "0xeef651e381e04b5ae25393b1367c19bcfd575792",
+    "address": "0xeef651e381e04b5ae25393b1367c19bcfd575792"
+  },
+  {
+    "from": "Exchange",
+    "getter": "paperTokenomics()",
+    "to": "PaperTokenomics",
+    "address": "0x75174549dbbd44497d31a47e2e2d7406408d63d9"
+  },
+  {
+    "from": "BatchExecutor",
+    "getter": "sessionKeyManager()",
+    "to": "SessionKeyManager",
+    "address": "0x8326eb8896e358717f10502ec73ce8d28e37b108"
+  },
+  {
+    "from": "BatchExecutor",
+    "getter": "owner()",
+    "to": "Timelock",
+    "address": "0xb915fa41e824d6aa31bb833ee81220c0f2c8ea0f"
+  },
+  {
+    "from": "BatchExecutor",
+    "getter": "exchange()",
+    "to": "Exchange",
+    "address": "0x6cd5661646289fb6e65ea5c032310fded797d0a2"
+  },
+  {
+    "from": "BatchExecutor",
+    "getter": "paperStaking()",
+    "to": "PaperStaking",
+    "address": "0xaad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+  },
+  {
+    "from": "PriceOracle",
+    "getter": "owner()",
+    "to": "Timelock",
+    "address": "0xb915fa41e824d6aa31bb833ee81220c0f2c8ea0f"
+  },
+  {
+    "from": "SessionKeyManager",
+    "getter": "owner()",
+    "to": "Timelock",
+    "address": "0xb915fa41e824d6aa31bb833ee81220c0f2c8ea0f"
+  },
+  {
+    "from": "SessionKeyManager",
+    "getter": "authorizedCaller()",
+    "to": "Exchange",
+    "address": "0x6cd5661646289fb6e65ea5c032310fded797d0a2"
+  },
+  {
+    "from": "DepositProxyFactory",
+    "getter": "authorizedDeployer()",
+    "to": "0xdf1bda875c9393a663ce69bf6a7fbaa73dfd053d",
+    "address": "0xdf1bda875c9393a663ce69bf6a7fbaa73dfd053d"
+  },
+  {
+    "from": "DepositProxyFactory",
+    "getter": "owner()",
+    "to": "Timelock",
+    "address": "0xb915fa41e824d6aa31bb833ee81220c0f2c8ea0f"
+  },
+  {
+    "from": "DepositProxyFactory",
+    "getter": "exchange()",
+    "to": "Exchange",
+    "address": "0x6cd5661646289fb6e65ea5c032310fded797d0a2"
+  },
+  {
+    "from": "PaperToken",
+    "getter": "minter()",
+    "to": "PaperTokenomics",
+    "address": "0x75174549dbbd44497d31a47e2e2d7406408d63d9"
+  },
+  {
+    "from": "PaperToken",
+    "getter": "owner()",
+    "to": "Timelock",
+    "address": "0xb915fa41e824d6aa31bb833ee81220c0f2c8ea0f"
+  },
+  {
+    "from": "PaperToken",
+    "getter": "stakingContract()",
+    "to": "PaperStaking",
+    "address": "0xaad6c7b0cc3014fc80ffedae0ed7ce5967b0f016"
+  },
+  {
+    "from": "PaperStaking",
+    "getter": "authorizedExecutor()",
+    "to": "BatchExecutor",
+    "address": "0x233ff29b239abc1d7748605da9b205c3e008626e"
+  },
+  {
+    "from": "PaperStaking",
+    "getter": "stakeToken()",
+    "to": "PaperToken",
+    "address": "0xe40f17915daa230324030003a197cdaef2261c0e"
+  },
+  {
+    "from": "PaperStaking",
+    "getter": "owner()",
+    "to": "Timelock",
+    "address": "0xb915fa41e824d6aa31bb833ee81220c0f2c8ea0f"
+  },
+  {
+    "from": "PaperStaking",
+    "getter": "exchange()",
+    "to": "Exchange",
+    "address": "0x6cd5661646289fb6e65ea5c032310fded797d0a2"
+  },
+  {
+    "from": "PaperStaking",
+    "getter": "rewardToken()",
+    "to": "CoreDepositWallet",
+    "address": "0x6b9e773128f453f5c2c60935ee2de2cbc5390a24"
+  },
+  {
+    "from": "PaperTokenomics",
+    "getter": "owner()",
+    "to": "Timelock",
+    "address": "0xb915fa41e824d6aa31bb833ee81220c0f2c8ea0f"
+  },
+  {
+    "from": "PaperTokenomics",
+    "getter": "paperToken()",
+    "to": "PaperToken",
+    "address": "0xe40f17915daa230324030003a197cdaef2261c0e"
+  },
+  {
+    "from": "PaperTokenomics",
+    "getter": "exchange()",
+    "to": "Exchange",
+    "address": "0x6cd5661646289fb6e65ea5c032310fded797d0a2"
+  },
+  {
+    "from": "USDC",
+    "getter": "implementation()",
+    "to": "USDCImplementation",
+    "address": "0x003f73f58ca78880da3642c5cb71d7459b3fe4f8"
+  },
+  {
+    "from": "USDC",
+    "getter": "admin()",
+    "to": "0x178d71a698e96f26dd0336a624b7c37a120b5080",
+    "address": "0x178d71a698e96f26dd0336a624b7c37a120b5080"
+  },
+  {
+    "from": "Timelock",
+    "getter": "owner()",
+    "to": "Multisig",
+    "address": "0x696292762fd5ac3677a45edbe54eaece4194d1f6"
+  },
+  {
+    "from": "Multisig",
+    "getter": "signerTwo()",
+    "to": "0xe9686c8e11d80c8d78736485fcb6b6d7f4d7692e",
+    "address": "0xe9686c8e11d80c8d78736485fcb6b6d7f4d7692e"
+  },
+  {
+    "from": "Multisig",
+    "getter": "signerThree()",
+    "to": "0x9028f3b5b6b0d69e4e84ff555ade17114c3d1e72",
+    "address": "0x9028f3b5b6b0d69e4e84ff555ade17114c3d1e72"
+  },
+  {
+    "from": "Multisig",
+    "getter": "signerOne()",
+    "to": "0xaa7577a7a27aa7fcf6d0ec481b87df3ad0f6a88e",
+    "address": "0xaa7577a7a27aa7fcf6d0ec481b87df3ad0f6a88e"
+  },
+  {
+    "from": "ProxyAdmin",
+    "getter": "owner()",
+    "to": "Timelock",
+    "address": "0xb915fa41e824d6aa31bb833ee81220c0f2c8ea0f"
+  },
+  {
+    "from": "CoreDepositWallet",
+    "getter": "owner()",
+    "to": "0x438aa6cea4d8a153c35c6bd1e4b6adcfdf869eac",
+    "address": "0x438aa6cea4d8a153c35c6bd1e4b6adcfdf869eac"
+  },
+  {
+    "from": "CoreDepositWallet",
+    "getter": "token()",
+    "to": "USDC",
+    "address": "0xb88339cb7199b77e23db6e890353e22632ba630f"
+  },
+  {
+    "from": "USDCImplementation",
+    "getter": "owner()",
+    "to": "0x0000000000000000000000000000000000000001",
+    "address": "0x0000000000000000000000000000000000000001"
+  },
+  {
+    "from": "SampleUserDepositProxy",
+    "getter": "exchange()",
+    "to": "Exchange",
+    "address": "0x6cd5661646289fb6e65ea5c032310fded797d0a2"
+  }
+]

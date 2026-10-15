@@ -1,0 +1,47 @@
+[
+  {
+    "type": "constructor",
+    "stateMutability": "undefined",
+    "payable": false,
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_signer"
+      },
+      {
+        "type": "bytes32",
+        "name": "_hash"
+      },
+      {
+        "type": "bytes",
+        "name": "_signature"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "isValidSig",
+    "constant": false,
+    "payable": false,
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_signer"
+      },
+      {
+        "type": "bytes32",
+        "name": "_hash"
+      },
+      {
+        "type": "bytes",
+        "name": "_signature"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "bool",
+        "name": ""
+      }
+    ]
+  }
+]

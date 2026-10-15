@@ -1,0 +1,12 @@
+0x03b802b6	                       	view      	authorizedDeployer()
+0x0f71c8bc	address,address        	nonpayable	
+0x29710388	address                	view      	isProxy(address)
+0x56e8d85b	address,address,address	nonpayable	
+0x8da5cb5b	                       	view      	owner()
+0xc1a9a508	address                	view      	proxyOf(address)
+0xc4d66de8	address                	pure      	initialize(address)
+0xc6f881bc	address                	nonpayable	setAuthorizedDeployer(address)
+0xcbd433f4	address                	nonpayable	deployProxy(address)
+0xd2f7265a	                       	view      	exchange()
+0xd600539a	address                	view      	computeProxyAddress(address)
+0xf2fde38b	address                	nonpayable	transferOwnership(address)|_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)

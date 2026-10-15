@@ -1,0 +1,114 @@
+{
+  "warning": "Partial signatures for encoding and research only. Return types and mutability are intentionally NOT asserted. This is not an original or complete ABI.",
+  "abi": [
+    {
+      "type": "function",
+      "name": "upgradeTo",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "upgradeToAndCall",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "bytes",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "implementation",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "changeAdmin",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "admin",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    }
+  ],
+  "selectors": [
+    {
+      "selector": "0x3659cfe6",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "upgradeTo(address)",
+        "upgradeTo_790AA3D()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x4f1ef286",
+      "inferredArguments": "address,bytes",
+      "inferredMutability": "payable",
+      "signatureCandidates": [
+        "upgradeToAndCall(address,bytes)",
+        "upgradeToAndCall_23573451()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5c60da1b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "implementation()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8f283970",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "changeAdmin(address)",
+        "changeAdmin_277BB5030()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf851a440",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "admin()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ]
+}

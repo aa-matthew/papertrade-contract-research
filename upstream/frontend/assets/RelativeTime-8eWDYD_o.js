@@ -1,0 +1,1 @@
+import{a as e}from"./rolldown-runtime-B0Z9INg1.js";import{r as t}from"./messages-DRlC8R3E.js";import{t as n}from"./useSelector-DMJTnvAj.js";import{t as r}from"./clock-BtmXBHmn.js";import{d as i}from"./format-BvrG5jPc.js";var a=e(t(),1);function o(e){return n(r,t=>i(e,t))}var s=(0,a.memo)(function({timestamp:e}){return o(e)});export{s as t};

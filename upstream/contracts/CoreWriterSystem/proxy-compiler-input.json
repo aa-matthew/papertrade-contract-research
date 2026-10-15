@@ -1,0 +1,14 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "src/CoreWriter.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport {ICoreWriter} from \"./interfaces/ICoreWriter.sol\";\n\ncontract CoreWriter is ICoreWriter {\n    function sendRawAction(bytes calldata data) external {\n        // Spends ~20k gas\n        for (uint256 i = 0; i < 400; i++) {}\n        emit RawAction(msg.sender, data);\n    }\n}\n"
+    },
+    "src/interfaces/ICoreWriter.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface ICoreWriter {\n    event RawAction(address indexed user, bytes data);\n\n    function sendRawAction(bytes calldata data) external;\n}\n"
+    },
+    "settings.json": {
+      "content": "{\"evmVersion\":\"cancun\",\"libraries\":{},\"metadata\":{\"appendCBOR\":true,\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":false},\"optimizer\":{\"enabled\":false,\"runs\":200},\"outputSelection\":{\"*\":{\"\":[\"*\"],\"*\":[\"*\"]}},\"remappings\":[\"@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/\",\"erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\"forge-std/=lib/forge-std/src/\",\"halmos-cheatcodes/=lib/openzeppelin-contracts/lib/halmos-cheatcodes/src/\",\"openzeppelin-contracts/=lib/openzeppelin-contracts/\"],\"viaIR\":false}"
+    }
+  }
+}

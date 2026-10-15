@@ -1,0 +1,747 @@
+{
+  "warning": "Partial signatures for encoding and research only. Return types and mutability are intentionally NOT asserted. This is not an original or complete ABI.",
+  "abi": [
+    {
+      "type": "function",
+      "name": "UNSTAKE_TYPEHASH",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "authorizedExecutor",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "unallocatedRewards",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "unstake",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "pendingRewards",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "DOMAIN_SEPARATOR",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "claim",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "stakeToken",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "rewardDebt",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "stakedBalance",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "CLAIM_TYPEHASH",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "domainSeparatorV4",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "nonces",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "totalStaked",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "stakeBySig",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint64",
+          "name": ""
+        },
+        {
+          "type": "uint8",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "STAKE_TYPEHASH",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "owner",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "accRewardPerShare",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "claimBySig",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint64",
+          "name": ""
+        },
+        {
+          "type": "uint8",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "stake",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "initialize",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "rewardReserve",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "isNonceUsed",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "setAuthorizedExecutor",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "exchange",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "distribute",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "distributeBySig",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint64",
+          "name": ""
+        },
+        {
+          "type": "uint8",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "transferOwnership",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "pendingReward",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "rewardToken",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "unstakeBySig",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint64",
+          "name": ""
+        },
+        {
+          "type": "uint8",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    }
+  ],
+  "selectors": [
+    {
+      "selector": "0x0700cc42",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "UNSTAKE_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x0f71c8bc",
+      "inferredArguments": "address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x13dd495b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "authorizedExecutor()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2b6fdc7e",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "unallocatedRewards()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2e17de78",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "unstake(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x31d7a262",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "pendingRewards(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3644e515",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "DOMAIN_SEPARATOR()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x4e71d92d",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "claim()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x51ed6a30",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "stakeToken()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5638b3e5",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5873eb9b",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "rewardDebt(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x60217267",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "stakedBalance(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x6090cf16",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x6b0509b1",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "CLAIM_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x78e890ba",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "domainSeparatorV4()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7ecebe00",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "nonces(address)",
+        "_$_$$_$__$$$$$$$$__$__$$_$$$_$$$(address)",
+        "transfer_attention_tg_invmru_5811b86(uint256,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x817b1cd2",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "totalStaked()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x83115825",
+      "inferredArguments": "address,uint256,uint256,uint64,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "stakeBySig(address,uint256,uint256,uint64,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x89ee09f0",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "STAKE_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x939d6237",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "accRewardPerShare()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9c96d4a1",
+      "inferredArguments": "address,uint256,uint64,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "claimBySig(address,uint256,uint64,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9ccae24e",
+      "inferredArguments": "address,address,address,address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa694fc3a",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "stake(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc0c53b8b",
+      "inferredArguments": "address,address,address",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "initialize(address,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcab64bcd",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "rewardReserve()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcab7e8eb",
+      "inferredArguments": "address,uint8",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "isNonceUsed(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd188c049",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setAuthorizedExecutor(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd2f7265a",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "exchange()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe4fc6b6d",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "distribute()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf0355460",
+      "inferredArguments": "address,uint256,uint64,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "distributeBySig(address,uint256,uint64,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2f59776",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf40f0f52",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "pendingReward(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf7c618c1",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "rewardToken()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xfa2871b5",
+      "inferredArguments": "address,uint256,uint256,uint64,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "unstakeBySig(address,uint256,uint256,uint64,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ]
+}

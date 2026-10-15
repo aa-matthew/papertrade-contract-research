@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-B74pBk57.js";import"./common-CCA3NU32.js";import"./query-api-client-DGxZQjmt.js";import"./build-WoGelbPk.js";import{Ft as t}from"./app-CL7roHsL.js";var n=e();function r({error:e,label:r}){return t({select:e=>e.href}),(0,n.jsxs)(n.Fragment,{children:[r,` `,null]})}export{r as t};

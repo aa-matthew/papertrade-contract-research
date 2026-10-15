@@ -1,0 +1,46 @@
+[
+  {
+    "type": "function",
+    "name": "depositFor",
+    "constant": false,
+    "payable": false,
+    "inputs": [
+      {
+        "type": "address",
+        "name": "recipient"
+      },
+      {
+        "type": "uint256",
+        "name": "amount"
+      },
+      {
+        "type": "uint32",
+        "name": "destinationDex"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "calculateCrossChainWithdrawalFee",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [
+      {
+        "type": "bool",
+        "name": "shouldForward"
+      },
+      {
+        "type": "uint32",
+        "name": "destinationDomain"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": ""
+      }
+    ]
+  }
+]

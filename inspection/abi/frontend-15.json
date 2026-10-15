@@ -1,0 +1,16 @@
+[
+  {
+    "type": "function",
+    "name": "token",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [],
+    "outputs": [
+      {
+        "type": "address",
+        "name": ""
+      }
+    ]
+  }
+]

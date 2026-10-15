@@ -1,0 +1,59 @@
+{
+  "original": {
+    "failed": false,
+    "returnValue": "0x",
+    "sstores": [
+      {
+        "slot": "0xec0c560a4e5ec5214418e687f81169353bab6a078f875768a70f18975fd9dcb8",
+        "value": "0x40000000000000000000000000000000000000000000000000000"
+      },
+      {
+        "slot": "0xe395167980b29b0cbf4ac503967a593eab3e84daa2fa987ce714f5c33129edba",
+        "value": "0xab54a98ceb1f0ad3"
+      },
+      {
+        "slot": "0xc88a6999c2c7f650192f5fafe4705f6a3a510d9945b06e7acf850dea768a135f",
+        "value": "0x696292762fd5ac3677a45edbe54eaece4194d1f6000000006ad207e2"
+      }
+    ],
+    "logOps": [
+      {
+        "op": "LOG3",
+        "topics": [
+          "0x3b766969ee0e273ad03be94337dfb81b7ab52882",
+          "0x331ced0875e2eee97ad88f2b85b02f4944f78fc",
+          "0x3cec0566535d67d6c92668517af0bf8a66cdc91d622dbb830fcc08e1bcf5d1df"
+        ]
+      }
+    ]
+  },
+  "reconstructed": {
+    "failed": false,
+    "returnValue": "0x",
+    "sstores": [
+      {
+        "slot": "0xec0c560a4e5ec5214418e687f81169353bab6a078f875768a70f18975fd9dcb8",
+        "value": "0x40000000000000000000000000000000000000000000000000000"
+      },
+      {
+        "slot": "0xe395167980b29b0cbf4ac503967a593eab3e84daa2fa987ce714f5c33129edba",
+        "value": "0xab54a98ceb1f0ad3"
+      },
+      {
+        "slot": "0xc88a6999c2c7f650192f5fafe4705f6a3a510d9945b06e7acf850dea768a135f",
+        "value": "0x696292762fd5ac3677a45edbe54eaece4194d1f6000000006ad207e2"
+      }
+    ],
+    "logOps": [
+      {
+        "op": "LOG3",
+        "topics": [
+          "0x3b766969ee0e273ad03be94337dfb81b7ab52882",
+          "0x331ced0875e2eee97ad88f2b85b02f4944f78fc",
+          "0x3cec0566535d67d6c92668517af0bf8a66cdc91d622dbb830fcc08e1bcf5d1df"
+        ]
+      }
+    ]
+  },
+  "matchedStores": true
+}

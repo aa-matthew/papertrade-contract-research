@@ -1,0 +1,13 @@
+0x1a5f66c3	                       	view      	signerTwo()
+0x27865bb3	uint256                	view      	
+0x64d62769	                       	view      	
+0x735631ad	uint256                	nonpayable	revokeTransaction(uint256)
+0x79301c0f	address,address,address	nonpayable	updateSigners(address,address,address)
+0x7b1106de	uint256                	nonpayable	
+0x7df73e27	address                	view      	isSigner(address)
+0x82e717f7	                       	pure      	requiredConfirmations()
+0x900cf0cf	                       	view      	epoch()
+0x9ace38c2	uint256                	view      	transactions(uint256)
+0xb77bf600	                       	view      	transactionCount()
+0xc6427474	address,uint256,string 	nonpayable	submitTransaction(address,uint256,bytes)
+0xd98f851a	                       	view      	signerOne()

@@ -1,0 +1,1 @@
+var e=`960860c008ae`,t=typeof location<`u`&&location.hostname===`feat-profile-pictures-20261012.preview.papertrade.xyz`,n=`https://exchange.papertrade.xyz`;export{e as n,n as r,t};

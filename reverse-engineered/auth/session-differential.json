@@ -1,0 +1,238 @@
+{
+  "scope": "debug_traceCall only, supplied runtime override; no deployment or chain state mutation",
+  "call": {
+    "from": "0x233Ff29b239abc1D7748605dA9b205C3e008626E",
+    "to": "0x8326Eb8896e358717f10502Ec73CE8D28E37B108",
+    "data": "0x5f76a1d60000000000000000000000000331ced0875e2eee97ad88f2b85b02f4944f78fc0000000000000000000000003b766969ee0e273ad03be94337dfb81b7ab52882000000000000000000000000000000000000000000000000000000006ad207e2000000000000000000000000696292762fd5ac3677a45edbe54eaece4194d1f6000000000000000000000000000000000000000000000000ab54a98ceb1f0ad2000000000000000000000000000000000000000000000000000000006ad0c472000000000000000000000000000000000000000000000000000000000000001c2a00f2eb5b16cf2bc7edcee765b25aae6bd82451d247638b8591cd2fe911a24a7c1e5b61bf9f1feea09bb415406ac38ab917a0de0d50f9728ef46f26438980c4"
+  },
+  "message": {
+    "user": "0x0331CEd0875e2eee97ad88F2b85B02f4944f78FC",
+    "key": "0x3b766969ee0e273ad03Be94337DFB81B7ab52882",
+    "expiry": "1792149474",
+    "feeAddress": "0x696292762fD5AC3677a45EdBe54EAECE4194d1F6",
+    "nonce": "12345678901234567890",
+    "deadline": "1792066674"
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 3,
+        "contract": "s.sol:SessionKeyManagerReconstruction",
+        "label": "initializationFlags",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint16"
+      },
+      {
+        "astId": 5,
+        "contract": "s.sol:SessionKeyManagerReconstruction",
+        "label": "DOMAIN_SEPARATOR",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_bytes32"
+      },
+      {
+        "astId": 7,
+        "contract": "s.sol:SessionKeyManagerReconstruction",
+        "label": "owner",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_address"
+      },
+      {
+        "astId": 9,
+        "contract": "s.sol:SessionKeyManagerReconstruction",
+        "label": "authorizedCaller",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_address"
+      },
+      {
+        "astId": 21,
+        "contract": "s.sol:SessionKeyManagerReconstruction",
+        "label": "sessionKeys",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_address,t_mapping(t_address,t_struct(Session)14_storage))"
+      },
+      {
+        "astId": 25,
+        "contract": "s.sol:SessionKeyManagerReconstruction",
+        "label": "nonces",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 31,
+        "contract": "s.sol:SessionKeyManagerReconstruction",
+        "label": "nonceBitmap",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_mapping(t_address,t_mapping(t_uint256,t_uint256))"
+      },
+      {
+        "astId": 35,
+        "contract": "s.sol:SessionKeyManagerReconstruction",
+        "label": "authorizedSubmitters",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_mapping(t_address,t_bool)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_address,t_mapping(t_address,t_struct(Session)14_storage))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(address => struct SessionKeyManagerReconstruction.Session))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_struct(Session)14_storage)"
+      },
+      "t_mapping(t_address,t_mapping(t_uint256,t_uint256))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(uint256 => uint256))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_uint256,t_uint256)"
+      },
+      "t_mapping(t_address,t_struct(Session)14_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct SessionKeyManagerReconstruction.Session)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Session)14_storage"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_uint256,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_struct(Session)14_storage": {
+        "encoding": "inplace",
+        "label": "struct SessionKeyManagerReconstruction.Session",
+        "members": [
+          {
+            "astId": 11,
+            "contract": "s.sol:SessionKeyManagerReconstruction",
+            "label": "expiry",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 13,
+            "contract": "s.sol:SessionKeyManagerReconstruction",
+            "label": "feeAddress",
+            "offset": 8,
+            "slot": "0",
+            "type": "t_address"
+          }
+        ],
+        "numberOfBytes": "32"
+      },
+      "t_uint16": {
+        "encoding": "inplace",
+        "label": "uint16",
+        "numberOfBytes": "2"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      }
+    }
+  },
+  "original": {
+    "failed": false,
+    "returnValue": "0x",
+    "sstores": [
+      {
+        "slot": "0xec0c560a4e5ec5214418e687f81169353bab6a078f875768a70f18975fd9dcb8",
+        "value": "0x40000000000000000000000000000000000000000000000000000"
+      },
+      {
+        "slot": "0xe395167980b29b0cbf4ac503967a593eab3e84daa2fa987ce714f5c33129edba",
+        "value": "0xab54a98ceb1f0ad3"
+      },
+      {
+        "slot": "0xc88a6999c2c7f650192f5fafe4705f6a3a510d9945b06e7acf850dea768a135f",
+        "value": "0x696292762fd5ac3677a45edbe54eaece4194d1f6000000006ad207e2"
+      }
+    ],
+    "logOps": [
+      {
+        "op": "LOG3",
+        "topics": [
+          "0x3b766969ee0e273ad03be94337dfb81b7ab52882",
+          "0x331ced0875e2eee97ad88f2b85b02f4944f78fc",
+          "0x3cec0566535d67d6c92668517af0bf8a66cdc91d622dbb830fcc08e1bcf5d1df"
+        ]
+      }
+    ]
+  },
+  "reconstructed": {
+    "failed": false,
+    "returnValue": "0x",
+    "sstores": [
+      {
+        "slot": "0xec0c560a4e5ec5214418e687f81169353bab6a078f875768a70f18975fd9dcb8",
+        "value": "0x40000000000000000000000000000000000000000000000000000"
+      },
+      {
+        "slot": "0xe395167980b29b0cbf4ac503967a593eab3e84daa2fa987ce714f5c33129edba",
+        "value": "0xab54a98ceb1f0ad3"
+      },
+      {
+        "slot": "0xc88a6999c2c7f650192f5fafe4705f6a3a510d9945b06e7acf850dea768a135f",
+        "value": "0x696292762fd5ac3677a45edbe54eaece4194d1f6000000006ad207e2"
+      }
+    ],
+    "logOps": [
+      {
+        "op": "LOG3",
+        "topics": [
+          "0x3b766969ee0e273ad03be94337dfb81b7ab52882",
+          "0x331ced0875e2eee97ad88f2b85b02f4944f78fc",
+          "0x3cec0566535d67d6c92668517af0bf8a66cdc91d622dbb830fcc08e1bcf5d1df"
+        ]
+      }
+    ]
+  },
+  "matchedStores": true
+}

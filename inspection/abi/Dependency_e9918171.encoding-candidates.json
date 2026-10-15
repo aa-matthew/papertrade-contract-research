@@ -1,0 +1,13 @@
+{
+  "warning": "Partial signatures for encoding and research only. Return types and mutability are intentionally NOT asserted. This is not an original or complete ABI.",
+  "abi": [],
+  "selectors": [
+    {
+      "selector": "0x7aac24ba",
+      "inferredArguments": "uint256,uint256,uint256,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ]
+}

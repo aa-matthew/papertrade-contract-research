@@ -1,0 +1,249 @@
+{
+  "warning": "Partial signatures for encoding and research only. Return types and mutability are intentionally NOT asserted. This is not an original or complete ABI.",
+  "abi": [
+    {
+      "type": "function",
+      "name": "signerTwo",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "signerThree",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "revokeTransaction",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "updateSigners",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "isSigner",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "requiredConfirmations",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "epoch",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "transactions",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "transactionCount",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "submitTransaction",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "bytes",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "signerOne",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    }
+  ],
+  "selectors": [
+    {
+      "selector": "0x1a5f66c3",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "signerTwo()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x27865bb3",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x64d62769",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "signerThree()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x735631ad",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "revokeTransaction(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x79301c0f",
+      "inferredArguments": "address,address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "updateSigners(address,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7b1106de",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7df73e27",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "isSigner(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x82e717f7",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "requiredConfirmations()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x900cf0cf",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "epoch()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9ace38c2",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "transactions(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb77bf600",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "transactionCount()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc6427474",
+      "inferredArguments": "address,uint256,string",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "submitTransaction(address,uint256,bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd98f851a",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "signerOne()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ]
+}

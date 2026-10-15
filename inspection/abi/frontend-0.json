@@ -1,0 +1,16 @@
+[
+  {
+    "type": "function",
+    "name": "winFeeRate",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [],
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": ""
+      }
+    ]
+  }
+]

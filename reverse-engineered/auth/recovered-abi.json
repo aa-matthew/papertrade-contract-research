@@ -1,0 +1,82 @@
+{
+  "warning": "Analyst reconstruction; parameter names are semantic labels. Output width inferred from runtime, not original source.",
+  "abi": [
+    {
+      "type": "function",
+      "name": "execute",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "tuple[]",
+          "name": "calls",
+          "components": [
+            {
+              "type": "address",
+              "name": "target"
+            },
+            {
+              "type": "bytes",
+              "name": "data"
+            },
+            {
+              "type": "bool",
+              "name": "allowFailure"
+            },
+            {
+              "type": "bytes32",
+              "name": "failureGroup"
+            },
+            {
+              "type": "bytes32",
+              "name": "itemId"
+            }
+          ]
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "getExecutionPrice",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint32",
+          "name": "asset"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "uint64",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "getBBO",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint32",
+          "name": "asset"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "uint64",
+          "name": "bid"
+        },
+        {
+          "type": "uint64",
+          "name": "ask"
+        }
+      ]
+    }
+  ]
+}

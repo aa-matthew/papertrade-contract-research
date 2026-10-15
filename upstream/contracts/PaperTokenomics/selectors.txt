@@ -1,0 +1,21 @@
+0x0efdf838	address,uint256,bool,uint256,uint256	nonpayable	
+0x12baae3b	bool,uint256,uint256,uint256        	nonpayable	setMintParams(uint256,uint256,uint256,uint256)
+0x1c3972ba	                                    	view      	flatRate()
+0x3886cade	                                    	view      	
+0x485cc955	address,address                     	nonpayable	initialize(address,address)|watch_tg_invmru_7bd442a(uint256,address,uint256)|watch_tg_invmru_10757d42(bool,bool)
+0x7c7df7b4	address,uint256,uint256,uint64,uint8	pure      	
+0x8cf554a7	                                    	view      	trackedLpUsd()
+0x8da5cb5b	                                    	view      	owner()
+0x98255e15	                                    	view      	paperToken()
+0xae745703	                                    	view      	
+0xc16017ca	                                    	view      	
+0xc218c676	uint256                             	nonpayable	
+0xcbb451da	                                    	view      	tailDecayScaleUsd()
+0xd2f7265a	                                    	view      	exchange()
+0xdb006a75	                                    	pure      	redeem(uint256)
+0xdc5682d2	                                    	view      	tailProgressUsd()
+0xe6ee2285	address                             	nonpayable	setPaperToken(address)
+0xe9ed73e9	                                    	view      	lpFlatThresholdUsd()
+0xed722c96	address,uint256,uint256,uint256     	nonpayable	
+0xf2fde38b	address                             	nonpayable	transferOwnership(address)|_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)
+0xfe16eae8	                                    	pure      	quoteRedemption(uint256)

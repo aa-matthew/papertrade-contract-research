@@ -1,0 +1,56 @@
+<!-- Source: https://docs.papertrade.xyz/#/learn/paper-emissions -->
+<h1>Paper Emissions</h1>
+<p>Why PAPER exists, how you earn it, and why the rate is biggest at the start.</p>
+
+      <h2 id="fair-launch">A fair launch by construction</h2>
+      <p>PAPER starts at <strong>zero supply</strong>. No pre-mint, no team allocation, no VC allocation, no airdrop, no vesting. Every token that will ever exist has to be minted through the emissions curve described below, and the only people who can trigger a mint are the traders who close at a loss or get liquidated. The supply is purely community-owned by definition. At launch PAPER can't be transferred between wallets, only staked and unstaked.</p>
+
+      <h2 id="why">Why PAPER exists</h2>
+      <p>PAPER is the LP's fee-claim token. Staking it gives you a pro-rata share of the protocol's future revenue. There is no other path to LP exposure: minting PAPER is how the protocol bootstraps an LP without any upfront capital, by routing a token reward to the people who put money in (which, in this design, means the people who lose trades).</p>
+
+      <h2 id="how-earn">How you earn it</h2>
+      <p>PAPER mints to your account whenever you close a trade at a loss or get liquidated. Nothing else mints PAPER. The amount minted scales with your eligible realised loss basis: bigger losses mint more PAPER.</p>
+
+      <h2 id="when-most">When the rate is highest</h2>
+      <p>The mint rate isn't fixed. It depends on where the LP is sitting:</p>
+      <ul>
+        <li>While tracked LP is below <strong>$2M</strong> (including any time it's underwater), the rate is a flat <strong>100 PAPER per $1 of eligible loss basis</strong>.</li>
+        <li>Above $2M, the rate decays smoothly as the LP grows. The further the LP gets, the less PAPER each new dollar of loss mints.</li>
+      </ul>
+      <p>Early traders earn materially more PAPER per dollar lost than late traders. By design: early activity carries the most variance risk and is rewarded the most.</p>
+
+      <figure style="margin:22px 0">
+        <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mint rate vs LP balance, simplified" style="width:100%;height:auto;display:block;background:#FAF6ED;border:1px solid #D4CBBA;border-radius:6px">
+          <rect x="80" y="50" width="50" height="170" fill="rgba(139,32,32,0.06)"/>
+          <rect x="130" y="50" width="70" height="170" fill="rgba(45,95,58,0.06)"/>
+          <rect x="200" y="50" width="460" height="170" fill="rgba(122,98,53,0.04)"/>
+
+          <line x1="80" y1="220" x2="660" y2="220" stroke="#7A7060" stroke-width="1"/>
+          <line x1="80" y1="50" x2="80" y2="220" stroke="#7A7060" stroke-width="1"/>
+
+          <line x1="130" y1="50" x2="130" y2="220" stroke="#8B2020" stroke-width="1" stroke-dasharray="3 3"/>
+          <text x="130" y="42" font-family="Inter,sans-serif" font-size="9" fill="#8B2020" text-anchor="middle">LP = $0</text>
+
+          <line x1="200" y1="50" x2="200" y2="220" stroke="#7A6235" stroke-width="1" stroke-dasharray="3 3"/>
+          <text x="200" y="42" font-family="Inter,sans-serif" font-size="9" fill="#7A6235" text-anchor="middle">$2M</text>
+
+          <path d="M 80 70 L 200 70 C 260 70, 360 165, 660 198" stroke="#2D5F3A" stroke-width="2.5" fill="none"/>
+
+          <text x="165" y="92" font-family="Inter,sans-serif" font-size="10" fill="#2D5F3A" text-anchor="middle" font-weight="600">100 / $</text>
+          <text x="430" y="125" font-family="Inter,sans-serif" font-size="10" fill="#7A6235" font-style="italic" text-anchor="middle">decays as LP grows</text>
+
+          <text x="105" y="244" font-family="Inter,sans-serif" font-size="10" fill="#8B2020" text-anchor="middle">underwater</text>
+          <text x="165" y="244" font-family="Inter,sans-serif" font-size="10" fill="#2D5F3A" text-anchor="middle">flat</text>
+          <text x="430" y="244" font-family="Inter,sans-serif" font-size="10" fill="#7A6235" text-anchor="middle">tail (LP growing →)</text>
+
+          <text x="74" y="74" font-family="Inter,sans-serif" font-size="10" fill="#5F564B" text-anchor="end">highest</text>
+          <text x="74" y="202" font-family="Inter,sans-serif" font-size="10" fill="#5F564B" text-anchor="end">lower</text>
+
+          <text transform="rotate(-90 26 135)" x="26" y="135" font-family="Inter,sans-serif" font-size="10" fill="#5F564B" font-weight="600" text-anchor="middle">mint rate (PAPER per $1 loss basis)</text>
+
+          <text x="370" y="282" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="middle">Mint rate is highest while the LP is small or underwater, then decays smoothly as it grows.</text>
+        </svg>
+      </figure>
+
+      <p>For the technical curve and exact formula see <a href="#/how/mint-curve">Mint curve</a>.</p>
+    

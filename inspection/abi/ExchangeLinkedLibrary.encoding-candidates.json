@@ -1,0 +1,76 @@
+{
+  "warning": "Partial signatures for encoding and research only. Return types and mutability are intentionally NOT asserted. This is not an original or complete ABI.",
+  "abi": [],
+  "selectors": [
+    {
+      "selector": "0x18958ce2",
+      "inferredArguments": "uint256,address,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2448a553",
+      "inferredArguments": "uint256,address,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x32db40c9",
+      "inferredArguments": "uint256,address,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3cf4208d",
+      "inferredArguments": "uint256,address,uint256,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3f4e3626",
+      "inferredArguments": "uint256,address,bool",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x79810ffe",
+      "inferredArguments": "uint256,uint256,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x82296364",
+      "inferredArguments": "uint64,uint64,int256,uint32,bool",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb67f3dd7",
+      "inferredArguments": "uint256,uint64,uint64,uint256,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xca02ff91",
+      "inferredArguments": "uint256,address,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xef1a27a9",
+      "inferredArguments": "uint256,address,uint128,uint256,bool,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ]
+}

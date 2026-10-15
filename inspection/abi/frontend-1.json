@@ -1,0 +1,78 @@
+[
+  {
+    "type": "function",
+    "name": "aggregate3",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [
+      {
+        "type": "tuple[]",
+        "name": "calls",
+        "components": [
+          {
+            "type": "address",
+            "name": "target"
+          },
+          {
+            "type": "bool",
+            "name": "allowFailure"
+          },
+          {
+            "type": "bytes",
+            "name": "callData"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "type": "tuple[]",
+        "name": "returnData",
+        "components": [
+          {
+            "type": "bool",
+            "name": "success"
+          },
+          {
+            "type": "bytes",
+            "name": "returnData"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "getEthBalance",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [
+      {
+        "type": "address",
+        "name": "addr"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "balance"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "getCurrentBlockTimestamp",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [],
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "timestamp"
+      }
+    ]
+  }
+]

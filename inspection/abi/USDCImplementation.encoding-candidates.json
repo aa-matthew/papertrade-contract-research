@@ -1,0 +1,1386 @@
+{
+  "warning": "Partial signatures for encoding and research only. Return types and mutability are intentionally NOT asserted. This is not an original or complete ABI.",
+  "abi": [
+    {
+      "type": "function",
+      "name": "name",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "approve",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "totalSupply",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "unBlacklist",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "transferFrom",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "updateRescuer",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "initializeV2_1",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "removeMinter",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "PERMIT_TYPEHASH",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "decimals",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "initialize",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "string",
+          "name": ""
+        },
+        {
+          "type": "string",
+          "name": ""
+        },
+        {
+          "type": "string",
+          "name": ""
+        },
+        {
+          "type": "uint8",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "masterMinter",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "DOMAIN_SEPARATOR",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "rescuer",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "increaseAllowance",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "unpause",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "mint",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "burn",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "initializeV2_2",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address[]",
+          "name": ""
+        },
+        {
+          "type": "string",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "configureMinter",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "version",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "updatePauser",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "cancelAuthorization",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "uint8",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "paused",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "balanceOf",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "nonces",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "RECEIVE_WITH_AUTHORIZATION_TYPEHASH",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "pause",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "receiveWithAuthorization",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "bytes",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "minterAllowance",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "owner",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "symbol",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "pauser",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "permit",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "bytes",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "TRANSFER_WITH_AUTHORIZATION_TYPEHASH",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "decreaseAllowance",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "transfer",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "updateMasterMinter",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "isMinter",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "updateBlacklister",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "rescueERC20",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "cancelAuthorization",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "bytes",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "blacklister",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "transferWithAuthorization",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "bytes",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "permit",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint8",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "initializeV2",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "string",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "CANCEL_AUTHORIZATION_TYPEHASH",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "allowance",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "transferWithAuthorization",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "uint8",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "currency",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "authorizationState",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "receiveWithAuthorization",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "address",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "uint256",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "uint8",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        },
+        {
+          "type": "bytes32",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "transferOwnership",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "blacklist",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "isBlacklisted",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    }
+  ],
+  "selectors": [
+    {
+      "selector": "0x06fdde03",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "name()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x095ea7b3",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "approve(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x18160ddd",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "totalSupply()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x1a895266",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "unBlacklist(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x23b872dd",
+      "inferredArguments": "address,address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferFrom(address,address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2ab60045",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "updateRescuer(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2fc81e09",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initializeV2_1(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3092afd5",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "removeMinter(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x30adf81f",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "PERMIT_TYPEHASH()",
+        "transfer_attention_tg_invmru_6c0d2a(uint256,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x313ce567",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "decimals()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3357162b",
+      "inferredArguments": "bytes,bytes,bytes,uint8,address,address,address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initialize(string,string,string,uint8,address,address,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x35d99f35",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "masterMinter()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3644e515",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "DOMAIN_SEPARATOR()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x38a63183",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "rescuer()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x39509351",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "increaseAllowance(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3f4ba83a",
+      "inferredArguments": "",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "unpause()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x40c10f19",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "mint(address,uint256)",
+        "cat642998653(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x42966c68",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "burn(uint256)",
+        "collate_propagate_storage(bytes16)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x430239b4",
+      "inferredArguments": "uint256[],bytes",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initializeV2_2(address[],string)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x4e44d956",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "configureMinter(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x54fd4d50",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "version()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x554bab3c",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "updatePauser(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5a049a70",
+      "inferredArguments": "address,uint256,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "cancelAuthorization(address,bytes32,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5c975abb",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "paused()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x70a08231",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "balanceOf(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7ecebe00",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "nonces(address)",
+        "_$_$$_$__$$$$$$$$__$__$$_$$$_$$$(address)",
+        "transfer_attention_tg_invmru_5811b86(uint256,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7f2eecc3",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "RECEIVE_WITH_AUTHORIZATION_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8456cb59",
+      "inferredArguments": "",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "pause()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x88b7ab63",
+      "inferredArguments": "address,address,uint256,uint256,uint256,uint256,bytes",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "receiveWithAuthorization(address,address,uint256,uint256,uint256,bytes32,bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8a6db9c3",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "minterAllowance(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x95d89b41",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "symbol()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9fd0506d",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "pauser()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9fd5a6cf",
+      "inferredArguments": "address,address,uint256,uint256,bytes",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "permit(address,address,uint256,uint256,bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa0cc6a68",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "TRANSFER_WITH_AUTHORIZATION_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa457c2d7",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "decreaseAllowance(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa9059cbb",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transfer(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xaa20e1e4",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "updateMasterMinter(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xaa271e1a",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "isMinter(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xad38bf22",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "updateBlacklister(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb2118a8d",
+      "inferredArguments": "address,address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "rescueERC20(address,address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb7b72899",
+      "inferredArguments": "address,uint256,bytes",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "cancelAuthorization(address,bytes32,bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xbd102430",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "blacklister()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcf092995",
+      "inferredArguments": "address,address,uint256,uint256,uint256,uint256,bytes",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferWithAuthorization(address,address,uint256,uint256,uint256,bytes32,bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd505accf",
+      "inferredArguments": "address,address,uint256,uint256,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)",
+        "$____$$_$$___$$$_$$$$__$$$__$$$$$$$$$(address,address,uint256,uint256,uint8,bytes32,bytes32)",
+        "watch_tg_invmru_168a06(bool,address,bool)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd608ea64",
+      "inferredArguments": "bytes",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initializeV2(string)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd9169487",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "CANCEL_AUTHORIZATION_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xdd62ed3e",
+      "inferredArguments": "address,address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "allowance(address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe3ee160e",
+      "inferredArguments": "address,address,uint256,uint256,uint256,uint256,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferWithAuthorization(address,address,uint256,uint256,uint256,bytes32,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe5a6b10f",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "currency()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe94a0102",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "authorizationState(address,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xef55bec6",
+      "inferredArguments": "address,address,uint256,uint256,uint256,uint256,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "receiveWithAuthorization(address,address,uint256,uint256,uint256,bytes32,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf9f92be4",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "blacklist(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xfe575a87",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "isBlacklisted(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ]
+}

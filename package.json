@@ -1,0 +1,28 @@
+{
+  "name": "papertrade-local-inspection",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "collect": "python3 scripts/collect.py",
+    "extract": "node scripts/extract.mjs",
+    "inspect": "node scripts/inspect.mjs",
+    "fork": "node scripts/local-fork.mjs",
+    "test:fork": "node scripts/local-smoke.mjs",
+    "extract:sources": "node scripts/extract_sources.mjs",
+    "report": "node scripts/build-report.mjs",
+    "rea:inspect": "node scripts/run-rea.mjs",
+    "rea:summarize": "node scripts/summarize-rea.mjs",
+    "reconstruct:compile": "node scripts/compile-reconstructions.mjs",
+    "reconstruct:verify-math": "node scripts/verify-reconstructed-math.mjs",
+    "reconstruct:verify-proxy": "node reverse-engineered/admin/verify-proxy.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "acorn": "^8.15.0",
+    "ethers": "^6.15.0",
+    "prettier": "^3.6.2"
+  },
+  "devDependencies": {
+    "solc": "0.8.24"
+  }
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "contract": "BatchExecutor",
+    "selector": "0x251fb27d",
+    "validatedEncoding": "execute((address,bytes,bool,bytes32,bytes32)[])",
+    "correction": "REA inferred uint256[] / view; tuple validators and runtime call traces establish a nonpayable batch entry",
+    "evidence": "reverse-engineered/auth/FINDINGS.md"
+  },
+  {
+    "contract": "ExchangeLinkedLibrary",
+    "selector": "0x82296364",
+    "validatedArgumentTypes": [
+      "uint64",
+      "uint64",
+      "uint128",
+      "uint32",
+      "bool",
+      "uint256",
+      "uint256",
+      "uint256",
+      "uint256"
+    ],
+    "correction": "Nine calldata words; automated interface inference returned five",
+    "evidence": "reverse-engineered/settlement/FINDINGS.md"
+  },
+  {
+    "contract": "ExchangeLinkedLibrary",
+    "selector": "0x3f4e3626",
+    "validatedArgumentTypes": [
+      "uint256",
+      "address",
+      "uint256"
+    ],
+    "correction": "Third word is an amount, not bool",
+    "evidence": "reverse-engineered/settlement/Queue.pseudocode.txt"
+  }
+]

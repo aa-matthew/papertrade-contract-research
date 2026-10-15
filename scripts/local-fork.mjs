@@ -1,0 +1,16 @@
+import { spawn } from 'node:child_process';
+import { writeFile, mkdir } from 'node:fs/promises';
+import path from 'node:path';
+const root=path.resolve(import.meta.dirname,'..');
+const port=process.env.LOCAL_FORK_PORT??'8545';
+if(!/^\d+$/.test(port))throw Error('Invalid port');
+await mkdir(path.join(root,'local'),{recursive:true});
+const args=['--host','127.0.0.1','--port',port,'--chain-id','31337','--fork-url',process.env.PAPERTRADE_RPC_URL??'https://rpc.hyperliquid.xyz/evm'];
+if(process.env.ARCHIVE_FORK_BLOCK)args.push('--fork-block-number',process.env.ARCHIVE_FORK_BLOCK);
+console.log('Local fork at http://127.0.0.1:'+port+'. Lazy upstream reads require network access.');
+console.log('HyperCore native precompiles are not reproduced; prices need explicit local mocks.');
+console.log('Use an archive-capable RPC plus ARCHIVE_FORK_BLOCK for coherent historical replay.');
+const child=spawn('anvil',args,{stdio:'inherit'});
+process.on('SIGINT',()=>child.kill('SIGINT'));
+process.on('SIGTERM',()=>child.kill('SIGTERM'));
+child.on('exit',code=>process.exit(code??1));

@@ -1,0 +1,98 @@
+0x01681a62	address                                                                     	nonpayable	sweep(address)
+0x01ad056f	                                                                            	view      	totalLockedMargin()
+0x060447aa	address                                                                     	nonpayable	
+0x0b826190	                                                                            	view      	sessionKeyManager()
+0x0cdd5fc4	                                                                            	view      	lpBankrollAvailable()
+0x138e9de2	                                                                            	view      	
+0x13dd495b	                                                                            	view      	authorizedExecutor()
+0x18715c9a	                                                                            	view      	
+0x1afd17e9	uint32,bool,uint128,uint32                                                  	pure      	
+0x1b7c1009	                                                                            	view      	
+0x21f55a6c	                                                                            	view      	marketKeeper()
+0x24a3d622	                                                                            	view      	pauseGuardian()
+0x2792e706	address,uint256[],uint256,uint64,uint8,uint256,uint256                      	nonpayable	
+0x27e235e3	address                                                                     	view      	balances(address)
+0x2d2451d1	uint32                                                                      	nonpayable	pauseMarket(uint32)
+0x2dcc7fce	uint256                                                                     	view      	
+0x31a39849	                                                                            	view      	
+0x31a4956c	address                                                                     	view      	
+0x32faa570	address                                                                     	view      	
+0x3a21be03	address                                                                     	view      	
+0x415f1240	uint256                                                                     	nonpayable	liquidate(uint256)
+0x48bde20c	address                                                                     	nonpayable	setPauseGuardian(address)
+0x48ee5e08	                                                                            	view      	
+0x4a4d9eea	address,uint256,uint256                                                     	nonpayable	
+0x50c23fab	uint256                                                                     	view      	
+0x53ac4b66	                                                                            	view      	totalQueued()
+0x53e23e2e	                                                                            	view      	tradingPaused()
+0x551306f3	address                                                                     	view      	
+0x58d3ec6a	uint256[]                                                                   	pure      	close(uint256[])
+0x599dc539	uint256[]                                                                   	nonpayable	liquidateBatch(uint256[])
+0x5ca4c0ea	uint32,uint128,uint96,uint96,uint64                                         	nonpayable	
+0x5fb3b1b5	                                                                            	view      	liquidationFeeRate()
+0x61d027b3	                                                                            	view      	treasury()
+0x628a9fd6	uint32,uint128,uint128                                                      	nonpayable	
+0x63ca348f	uint32,bool,uint128,uint32,bool                                             	pure      	
+0x6a3214c9	address,uint256                                                             	nonpayable	
+0x6d142da1	address                                                                     	nonpayable	
+0x6d60ae8e	                                                                            	pure      	
+0x70f75ff5	uint256                                                                     	view      	
+0x753a369c	address,uint256,uint256,uint256                                             	nonpayable	
+0x7b9f5264	                                                                            	nonpayable	pushStakerFees()
+0x7d004aeb	                                                                            	view      	devFeeAccumulator()
+0x7dc0d1d0	                                                                            	view      	oracle()
+0x7e4174fc	address                                                                     	view      	
+0x7f99545a	                                                                            	nonpayable	
+0x827ad94c	address,uint256,uint256,uint256                                             	nonpayable	
+0x82f47a3f	uint128,uint128                                                             	nonpayable	
+0x837fa3fd	address                                                                     	nonpayable	setSessionKeyManager(address)
+0x86d506db	address                                                                     	nonpayable	changeDevFeeAddress(address)
+0x88f2aea5	                                                                            	nonpayable	claimDevFees()
+0x899346c7	                                                                            	view      	nextPositionId()
+0x8d09f23f	address,uint256,uint256,uint64,uint8                                        	nonpayable	
+0x8da5cb5b	                                                                            	view      	owner()
+0x9274682e	                                                                            	view      	sideBucket()
+0x96523644	                                                                            	view      	queueHead()
+0x99fbab88	uint256                                                                     	view      	positions(uint256)
+0x9d47d4d3	                                                                            	view      	authorizedKeeper()
+0xa0bf0f75	address                                                                     	nonpayable	setPaperTokenomics(address)
+0xa25dc87f	address                                                                     	view      	getUserOpenPositionIds(address)
+0xa69a2ad1	                                                                            	view      	totalBalances()
+0xae4daf4e	address,uint256,uint256                                                     	nonpayable	
+0xae69b95b	bool                                                                        	nonpayable	setTradingPaused(bool)
+0xaf210ecc	                                                                            	pure      	
+0xafdf6702	                                                                            	view      	stakerFeeAccumulator()
+0xb3060d36	uint256                                                                     	view      	positionOwner(uint256)
+0xbacd9ea0	uint256                                                                     	view      	
+0xc0c53b8b	address,address,address                                                     	nonpayable	initialize(address,address,address)
+0xc10f1a75	                                                                            	view      	proxyFactory()
+0xc43fbc8c	                                                                            	view      	
+0xc8372577	uint32                                                                      	view      	
+0xc88bbcf3	uint256,uint256,uint256,uint32,uint256,uint256,uint256,uint256,uint64       	nonpayable	
+0xcb163b03	uint32                                                                      	view      	
+0xcbeb5f3d	                                                                            	view      	devFeeRecipient()
+0xcd2d3811	address                                                                     	nonpayable	
+0xd188c049	address                                                                     	nonpayable	setAuthorizedExecutor(address)
+0xd7c7e5fb	uint32,uint32,uint256                                                       	nonpayable	
+0xdc8a47ef	uint32                                                                      	view      	
+0xdcab7f6a	address                                                                     	view      	userQueueHead(address)
+0xddc63262	uint256                                                                     	nonpayable	harvest(uint256)
+0xe0189108	address                                                                     	nonpayable	requestSweep(address)
+0xe1f9209b	                                                                            	view      	
+0xe538b280	uint256,uint256,uint256                                                     	nonpayable	setFeeRates(uint256,uint256,uint256)
+0xe53e3de6	address,uint256                                                             	nonpayable	creditStakingReward(address,uint256)
+0xe634384f	uint256                                                                     	view      	queueNode(uint256)
+0xec0bdcfc	                                                                            	view      	collateralScale()
+0xec6783f0	address,uint32,bool,uint128,uint32,bool,uint256,uint64,uint8,uint256,uint256	nonpayable	
+0xed410ee1	                                                                            	view      	paperTokenomics()
+0xefc1bd46	address                                                                     	nonpayable	setAuthorizedKeeper(address)
+0xf1a8786c	                                                                            	view      	
+0xf28bbdb2	                                                                            	view      	instrumentCount()
+0xf2fde38b	address                                                                     	nonpayable	transferOwnership(address)|_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)
+0xf37d3c4f	uint32                                                                      	view      	
+0xf728fc98	uint256                                                                     	view      	
+0xf84a74d3	address                                                                     	view      	
+0xfb9f1009	uint32                                                                      	pure      	unpauseMarket(uint32)
+0xfbddd751	address                                                                     	nonpayable	setProxyFactory(address)
+0xfdfd905d	                                                                            	pure      	
+0xff3bc415	                                                                            	pure      	

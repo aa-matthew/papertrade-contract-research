@@ -1,0 +1,19 @@
+<!-- Source: https://docs.papertrade.xyz/#/learn/liquidations -->
+<h1>Liquidations</h1>
+<p>How the displayed bust trigger differs from a voluntary close, and what a hard liquidation means.</p>
+
+      <p>Every position has a displayed <strong>bust price</strong>. It is the hard-liquidation trigger, not a promise that the voluntary close path has already reduced the position's remaining equity to zero. Liquidation is a hard bust: crossing the displayed bust price forfeits the full isolated margin, even if a voluntary close immediately beforehand could return some equity.</p>
+
+      <h2 id="buffer">The buffer</h2>
+      <p>The trigger is a touch closer to your entry than the zero-equity price used as its reference point. The gap is a small fixed buffer baked into the contract, currently about <strong>5 basis points</strong> (0.05% of price). Because crossing the trigger invokes the separate full-margin liquidation rule, that apparently small price gap can represent meaningful remaining close-path equity at high leverage.</p>
+      <p>A worked example: a $100 long opened at 100× leverage. A 1% drop — to $99 — would consume your full margin exactly. The protocol trips liquidation a little earlier, at roughly <strong>$99.05</strong>. That last 0.05% is the buffer.</p>
+      <p>The shape is the same at lower leverage. At 10×, the threshold moves from 10% to about 9.95%. At 2×, from 50% to about 49.95%. The absolute offset stays around 5 basis points regardless of leverage.</p>
+      <p>Because the offset is fixed in price, its share of your margin grows with leverage. At 100× the buffer is about 5% of your margin; at 1000×, where your full margin covers a 0.1% move, liquidation fires after a move of about 0.052%, while a voluntary close would still return nearly half your margin.</p>
+
+      <h2 id="trigger">When liquidation fires</h2>
+      <p>If the BBO mid crosses your bust price, the protocol's liquidation keeper liquidates your position. Liquidation does not settle the position as a voluntary close at the trigger price: it removes the position under the hard-bust path and forfeits the full isolated margin.</p>
+      <p>You lose the full isolated margin; that's what hard bust means. For a position opened from your available balance, when the payout queue is empty a 2% liquidation fee is carved from that margin for stakers and the dev fee recipient; when the queue is active, the fee is waived and the margin is held in <code>sideBucket</code> for queued payouts. For a position opened from your queued balance, the queued balance you put up as its margin is forfeited and no liquidation fee is charged. In every case you receive PAPER on the full lost margin.</p>
+
+      <h2 id="who-runs">Who runs the keepers</h2>
+      <p>Papertrade runs the liquidation keeper. It watches open positions against the live price and submits liquidations as soon as positions cross their bust prices, paying a higher priority fee than any other protocol transaction so liquidations land first.</p>
+    

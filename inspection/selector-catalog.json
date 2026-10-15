@@ -1,0 +1,3288 @@
+{
+  "Exchange": [
+    {
+      "selector": "0x01681a62",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "sweep(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x01ad056f",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "totalLockedMargin()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x060447aa",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x0b826190",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "sessionKeyManager()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x0cdd5fc4",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "lpBankrollAvailable()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x138e9de2",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x13dd495b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "authorizedExecutor()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x18715c9a",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x1afd17e9",
+      "inferredArguments": "uint32,bool,uint128,uint32",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "openPosition(uint32,bool,uint128,uint32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x1b7c1009",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x21f55a6c",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "marketKeeper()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x24a3d622",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "pauseGuardian()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2792e706",
+      "inferredArguments": "address,uint256[],uint256,uint64,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "closeBySig(address,uint256[],uint256,uint64,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x27e235e3",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "balances(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2d2451d1",
+      "inferredArguments": "uint32",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "pauseMarket(uint32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2dcc7fce",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x31a39849",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x31a4956c",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x32faa570",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3a21be03",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x415f1240",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "liquidate(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x48bde20c",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setPauseGuardian(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x48ee5e08",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x4a4d9eea",
+      "inferredArguments": "address,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x50c23fab",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x53ac4b66",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "totalQueued()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x53e23e2e",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "tradingPaused()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x551306f3",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x58d3ec6a",
+      "inferredArguments": "uint256[]",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "close(uint256[])"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x599dc539",
+      "inferredArguments": "uint256[]",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "liquidateBatch(uint256[])"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5ca4c0ea",
+      "inferredArguments": "uint32,uint128,uint96,uint96,uint64",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5fb3b1b5",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "liquidationFeeRate()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x61d027b3",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "treasury()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x628a9fd6",
+      "inferredArguments": "uint32,uint128,uint128",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x63ca348f",
+      "inferredArguments": "uint32,bool,uint128,uint32,bool",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "openPosition(uint32,bool,uint128,uint32,bool)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x6a3214c9",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x6d142da1",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x6d60ae8e",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x70f75ff5",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x753a369c",
+      "inferredArguments": "address,uint256,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7b9f5264",
+      "inferredArguments": "",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "pushStakerFees()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7d004aeb",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "devFeeAccumulator()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7dc0d1d0",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "oracle()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7e4174fc",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7f99545a",
+      "inferredArguments": "",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "withdrawToCore(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x827ad94c",
+      "inferredArguments": "address,uint256,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x82f47a3f",
+      "inferredArguments": "uint128,uint128",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x837fa3fd",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setSessionKeyManager(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x86d506db",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "changeDevFeeAddress(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x88f2aea5",
+      "inferredArguments": "",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "claimDevFees()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x899346c7",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "nextPositionId()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8d09f23f",
+      "inferredArguments": "address,uint256,uint256,uint64,uint8",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "withdrawToCoreBySig(address,uint256,uint256,uint64,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9274682e",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "sideBucket()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x96523644",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "queueHead()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x99fbab88",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "positions(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9d47d4d3",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "authorizedKeeper()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa0bf0f75",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setPaperTokenomics(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa25dc87f",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "getUserOpenPositionIds(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa69a2ad1",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "totalBalances()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xae4daf4e",
+      "inferredArguments": "address,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xae69b95b",
+      "inferredArguments": "bool",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setTradingPaused(bool)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xaf210ecc",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xafdf6702",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "stakerFeeAccumulator()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb3060d36",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "positionOwner(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xbacd9ea0",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc0c53b8b",
+      "inferredArguments": "address,address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initialize(address,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc10f1a75",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "proxyFactory()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc43fbc8c",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc8372577",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc88bbcf3",
+      "inferredArguments": "uint256,uint256,uint256,uint32,uint256,uint256,uint256,uint256,uint64",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcb163b03",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcbeb5f3d",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "devFeeRecipient()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcd2d3811",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd188c049",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setAuthorizedExecutor(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd7c7e5fb",
+      "inferredArguments": "uint32,uint32,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xdc8a47ef",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xdcab7f6a",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "userQueueHead(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xddc63262",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "harvest(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe0189108",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "requestSweep(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe1f9209b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe538b280",
+      "inferredArguments": "uint256,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setFeeRates(uint256,uint256,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe53e3de6",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "creditStakingReward(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe634384f",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "queueNode(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xec0bdcfc",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "collateralScale()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xec6783f0",
+      "inferredArguments": "address,uint32,bool,uint128,uint32,bool,uint256,uint64,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "openPositionBySig(address,uint32,bool,uint128,uint32,bool,uint256,uint64,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xed410ee1",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "paperTokenomics()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xefc1bd46",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setAuthorizedKeeper(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf1a8786c",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf28bbdb2",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "instrumentCount()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf37d3c4f",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf728fc98",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf84a74d3",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xfb9f1009",
+      "inferredArguments": "uint32",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "unpauseMarket(uint32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xfbddd751",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setProxyFactory(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xfdfd905d",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xff3bc415",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "BatchExecutor": [
+    {
+      "selector": "0x0b826190",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "sessionKeyManager()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x0f71c8bc",
+      "inferredArguments": "address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x251fb27d",
+      "inferredArguments": "uint256[]",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "execute((address,bytes,bool,bytes32,bytes32)[])"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible",
+      "reconstructionEvidence": "reverse-engineered/auth/FINDINGS.md"
+    },
+    {
+      "selector": "0x29e295c5",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "authorizedRelayers(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x6090cf16",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9011e5f9",
+      "inferredArguments": "address,bool",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setAuthorizedRelayer(address,bool)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9ccae24e",
+      "inferredArguments": "address,address,address,address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc0c53b8b",
+      "inferredArguments": "address,address,address",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "initialize(address,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd2f7265a",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "exchange()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd5c539ce",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "paperStaking()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "PriceOracle": [
+    {
+      "selector": "0x2af78bd1",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "getOraclePrice(uint32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x766cd255",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa066fae9",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "getMarkPrice(uint32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa7f06462",
+      "inferredArguments": "uint32[]",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc0182669",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "getExecutionPrice(uint32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible",
+      "reconstructionEvidence": "reverse-engineered/auth/FINDINGS.md"
+    },
+    {
+      "selector": "0xc4d66de8",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initialize(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xfb466481",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "getBBO(uint32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible",
+      "reconstructionEvidence": "reverse-engineered/auth/FINDINGS.md"
+    }
+  ],
+  "SessionKeyManager": [
+    {
+      "selector": "0x0b4c3a82",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x17a1678f",
+      "inferredArguments": "address,uint64,address",
+      "inferredMutability": "pure",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x208e24fc",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "CLOSE_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2bc9ed54",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3644e515",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "DOMAIN_SEPARATOR()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5197a0d3",
+      "inferredArguments": "address,bool",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setAuthorizedSubmitter(address,bool)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5f76a1d6",
+      "inferredArguments": "address,address,uint64,address,uint256,uint64,uint8",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "registerSessionKeyBySig(address,address,uint64,address,uint256,uint64,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x6525a680",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "OPEN_POSITION_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x747b8a1c",
+      "inferredArguments": "address,bytes,bytes,uint256,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initialize(address,string,string,uint256,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x78e890ba",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "domainSeparatorV4()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7ecebe00",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "nonces(address)",
+        "_$_$$_$__$$$$$$$$__$__$$_$$$_$$$(address)",
+        "transfer_attention_tg_invmru_5811b86(uint256,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7f608253",
+      "inferredArguments": "address,uint256,uint8,uint256,uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7f6e9d4b",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "authorizedSubmitters(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x84f4fc6a",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "revokeSessionKey(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x96ade1f9",
+      "inferredArguments": "address,address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "sessionKeys(address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x97dc97cb",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "authorizedCaller()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb002b9fa",
+      "inferredArguments": "address,uint8,uint64",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc1e6613d",
+      "inferredArguments": "address,address",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcab7e8eb",
+      "inferredArguments": "address,uint8",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "isNonceUsed(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcf8fbec9",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setAuthorizedCaller(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd45167d0",
+      "inferredArguments": "uint256,uint8,uint256,uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "recoverSigner(bytes32,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2f59776",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "DepositProxyFactory": [
+    {
+      "selector": "0x03b802b6",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "authorizedDeployer()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x0f71c8bc",
+      "inferredArguments": "address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x29710388",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "isProxy(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x56e8d85b",
+      "inferredArguments": "address,address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc1a9a508",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "proxyOf(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc4d66de8",
+      "inferredArguments": "address",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "initialize(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc6f881bc",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setAuthorizedDeployer(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcbd433f4",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "deployProxy(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd2f7265a",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "exchange()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd600539a",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "computeProxyAddress(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "PaperToken": [
+    {
+      "selector": "0x06fdde03",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "name()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x07546172",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "minter()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x095ea7b3",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "approve(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x12bbf044",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x18160ddd",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "totalSupply()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x23b872dd",
+      "inferredArguments": "address,address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferFrom(address,address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x313ce567",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "decimals()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x40c10f19",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "mint(address,uint256)",
+        "cat642998653(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x70a08231",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "balanceOf(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8f15b414",
+      "inferredArguments": "string,string,address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initialize(string,string,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x95d89b41",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "symbol()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9dc29fac",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "burn(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9dd373b9",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setStakingContract(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa9059cbb",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transfer(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd311b1a9",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xdd62ed3e",
+      "inferredArguments": "address,address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "allowance(address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xee99205c",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "stakingContract()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xfca3b5aa",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setMinter(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "PaperStaking": [
+    {
+      "selector": "0x0700cc42",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "UNSTAKE_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x0f71c8bc",
+      "inferredArguments": "address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x13dd495b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "authorizedExecutor()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2b6fdc7e",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "unallocatedRewards()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2e17de78",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "unstake(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x31d7a262",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "pendingRewards(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3644e515",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "DOMAIN_SEPARATOR()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x4e71d92d",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "claim()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x51ed6a30",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "stakeToken()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5638b3e5",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5873eb9b",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "rewardDebt(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x60217267",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "stakedBalance(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x6090cf16",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x6b0509b1",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "CLAIM_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x78e890ba",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "domainSeparatorV4()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7ecebe00",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "nonces(address)",
+        "_$_$$_$__$$$$$$$$__$__$$_$$$_$$$(address)",
+        "transfer_attention_tg_invmru_5811b86(uint256,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x817b1cd2",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "totalStaked()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x83115825",
+      "inferredArguments": "address,uint256,uint256,uint64,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "stakeBySig(address,uint256,uint256,uint64,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x89ee09f0",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "STAKE_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x939d6237",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "accRewardPerShare()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9c96d4a1",
+      "inferredArguments": "address,uint256,uint64,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "claimBySig(address,uint256,uint64,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9ccae24e",
+      "inferredArguments": "address,address,address,address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa694fc3a",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "stake(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc0c53b8b",
+      "inferredArguments": "address,address,address",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "initialize(address,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcab64bcd",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "rewardReserve()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcab7e8eb",
+      "inferredArguments": "address,uint8",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "isNonceUsed(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd188c049",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setAuthorizedExecutor(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd2f7265a",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "exchange()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe4fc6b6d",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "distribute()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf0355460",
+      "inferredArguments": "address,uint256,uint64,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "distributeBySig(address,uint256,uint64,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2f59776",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf40f0f52",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "pendingReward(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf7c618c1",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "rewardToken()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xfa2871b5",
+      "inferredArguments": "address,uint256,uint256,uint64,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "unstakeBySig(address,uint256,uint256,uint64,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "PaperTokenomics": [
+    {
+      "selector": "0x0efdf838",
+      "inferredArguments": "address,uint256,bool,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x12baae3b",
+      "inferredArguments": "bool,uint256,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setMintParams(uint256,uint256,uint256,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x1c3972ba",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "flatRate()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3886cade",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x485cc955",
+      "inferredArguments": "address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initialize(address,address)",
+        "watch_tg_invmru_7bd442a(uint256,address,uint256)",
+        "watch_tg_invmru_10757d42(bool,bool)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7c7df7b4",
+      "inferredArguments": "address,uint256,uint256,uint64,uint8",
+      "inferredMutability": "pure",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8cf554a7",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "trackedLpUsd()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x98255e15",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "paperToken()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xae745703",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc16017ca",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc218c676",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcbb451da",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "tailDecayScaleUsd()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd2f7265a",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "exchange()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xdb006a75",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "redeem(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xdc5682d2",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "tailProgressUsd()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe6ee2285",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "setPaperToken(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe9ed73e9",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "lpFlatThresholdUsd()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xed722c96",
+      "inferredArguments": "address,uint256,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xfe16eae8",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "quoteRedemption(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "USDC": [
+    {
+      "selector": "0x3659cfe6",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "upgradeTo(address)",
+        "upgradeTo_790AA3D()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x4f1ef286",
+      "inferredArguments": "address,bytes",
+      "inferredMutability": "payable",
+      "signatureCandidates": [
+        "upgradeToAndCall(address,bytes)",
+        "upgradeToAndCall_23573451()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5c60da1b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "implementation()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8f283970",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "changeAdmin(address)",
+        "changeAdmin_277BB5030()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf851a440",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "admin()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "Timelock": [
+    {
+      "selector": "0x04d2cd0e",
+      "inferredArguments": "address[],uint256[],bytes[],uint256",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "hashOperationBatch(address[],uint256[],bytes[],bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x13bc9f20",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "isOperationReady(bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2ab0f529",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "isOperationDone(bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x584b153e",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "isOperationPending(bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x6cb6a1f7",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "operationTimestamps(bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x88aa4c12",
+      "inferredArguments": "address,uint256,bytes,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [
+        "execute(address,uint256,bytes,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8a99d586",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "updateMinDelay(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8b07f62b",
+      "inferredArguments": "address[],uint256[],bytes[],uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "scheduleBatch(address[],uint256[],bytes[],bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa6cc2c8c",
+      "inferredArguments": "address[],uint256[],bytes[],uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [
+        "executeBatch(address[],uint256[],bytes[],bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb0e58bc9",
+      "inferredArguments": "address,uint256,bytes,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "schedule(address,uint256,bytes,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc4d252f5",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "cancel(bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc63c4e9b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "minDelay()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xec2a5b45",
+      "inferredArguments": "address,uint256,bytes,uint256",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "hashOperation(address,uint256,bytes,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "Multisig": [
+    {
+      "selector": "0x1a5f66c3",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "signerTwo()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x27865bb3",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x64d62769",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "signerThree()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x735631ad",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "revokeTransaction(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x79301c0f",
+      "inferredArguments": "address,address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "updateSigners(address,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7b1106de",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7df73e27",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "isSigner(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x82e717f7",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "requiredConfirmations()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x900cf0cf",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "epoch()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9ace38c2",
+      "inferredArguments": "uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "transactions(uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb77bf600",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "transactionCount()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc6427474",
+      "inferredArguments": "address,uint256,string",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "submitTransaction(address,uint256,bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd98f851a",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "signerOne()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "ProxyAdmin": [
+    {
+      "selector": "0x7eff275e",
+      "inferredArguments": "address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "changeProxyAdmin(address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9623609d",
+      "inferredArguments": "address,address,bytes",
+      "inferredMutability": "payable",
+      "signatureCandidates": [
+        "upgradeAndCall(address,address,bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x99a88ec4",
+      "inferredArguments": "address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "upgrade(address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "ExchangeLinkedLibrary": [
+    {
+      "selector": "0x18958ce2",
+      "inferredArguments": "uint256,address,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2448a553",
+      "inferredArguments": "uint256,address,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x32db40c9",
+      "inferredArguments": "uint256,address,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3cf4208d",
+      "inferredArguments": "uint256,address,uint256,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3f4e3626",
+      "inferredArguments": "uint256,address,bool",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x79810ffe",
+      "inferredArguments": "uint256,uint256,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x82296364",
+      "inferredArguments": "uint64,uint64,int256,uint32,bool",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb67f3dd7",
+      "inferredArguments": "uint256,uint64,uint64,uint256,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xca02ff91",
+      "inferredArguments": "uint256,address,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xef1a27a9",
+      "inferredArguments": "uint256,address,uint128,uint256,bool,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "Dependency_e9918171": [
+    {
+      "selector": "0x7aac24ba",
+      "inferredArguments": "uint256,uint256,uint256,uint256,uint256,uint256",
+      "inferredMutability": "payable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "CoreDepositWallet": [
+    {
+      "selector": "0x0d39c3fc",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x0e721e6e",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x108438e0",
+      "inferredArguments": "",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x11f2b0dc",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2ab60045",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "updateRescuer(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2b2dfd2c",
+      "inferredArguments": "uint256,uint32",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "deposit(uint256,uint32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x38a63183",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "rescuer()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3c1072d0",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3f4ba83a",
+      "inferredArguments": "",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "unpause()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x46117830",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "tokenMessenger()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x4c5bd546",
+      "inferredArguments": "",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x554bab3c",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "updatePauser(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5c975abb",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "paused()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x6ddde35e",
+      "inferredArguments": "address,uint256,uint32,uint256,uint64,bytes",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "coreReceiveWithData(address,bytes32,uint32,uint256,uint64,bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x79ba5097",
+      "inferredArguments": "",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "acceptOwnership()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7b5c63cf",
+      "inferredArguments": "uint32",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x820b3e1e",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8456cb59",
+      "inferredArguments": "",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "pause()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9fd0506d",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "pauser()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa7917af3",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa9059cbb",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transfer(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb2118a8d",
+      "inferredArguments": "address,address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "rescueERC20(address,address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb49595b7",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb7a42b92",
+      "inferredArguments": "uint64",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb8e2e3d4",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc0cfc00d",
+      "inferredArguments": "uint32",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc23c545a",
+      "inferredArguments": "address,uint256,uint32",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "depositFor(address,uint256,uint32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd004283e",
+      "inferredArguments": "uint32",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd26b3e26",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initialize((address,address,address))"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xda6d4994",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe26f7d23",
+      "inferredArguments": "bool,uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe30c3978",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "pendingOwner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xea031649",
+      "inferredArguments": "uint256,uint256,uint256,uint256,uint8,uint256,uint256,uint32",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xeb42696a",
+      "inferredArguments": "uint32,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xeeb97d18",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "cctpMaxFee()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf8f1b507",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xfc0c546a",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "token()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "USDCImplementation": [
+    {
+      "selector": "0x06fdde03",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "name()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x095ea7b3",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "approve(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x18160ddd",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "totalSupply()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x1a895266",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "unBlacklist(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x23b872dd",
+      "inferredArguments": "address,address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferFrom(address,address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2ab60045",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "updateRescuer(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x2fc81e09",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initializeV2_1(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3092afd5",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "removeMinter(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x30adf81f",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "PERMIT_TYPEHASH()",
+        "transfer_attention_tg_invmru_6c0d2a(uint256,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x313ce567",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "decimals()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3357162b",
+      "inferredArguments": "bytes,bytes,bytes,uint8,address,address,address,address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initialize(string,string,string,uint8,address,address,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x35d99f35",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "masterMinter()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3644e515",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "DOMAIN_SEPARATOR()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x38a63183",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "rescuer()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x39509351",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "increaseAllowance(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x3f4ba83a",
+      "inferredArguments": "",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "unpause()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x40c10f19",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "mint(address,uint256)",
+        "cat642998653(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x42966c68",
+      "inferredArguments": "uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "burn(uint256)",
+        "collate_propagate_storage(bytes16)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x430239b4",
+      "inferredArguments": "uint256[],bytes",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initializeV2_2(address[],string)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x4e44d956",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "configureMinter(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x54fd4d50",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "version()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x554bab3c",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "updatePauser(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5a049a70",
+      "inferredArguments": "address,uint256,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "cancelAuthorization(address,bytes32,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x5c975abb",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "paused()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x70a08231",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "balanceOf(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7ecebe00",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "nonces(address)",
+        "_$_$$_$__$$$$$$$$__$__$$_$$$_$$$(address)",
+        "transfer_attention_tg_invmru_5811b86(uint256,address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x7f2eecc3",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "RECEIVE_WITH_AUTHORIZATION_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8456cb59",
+      "inferredArguments": "",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "pause()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x88b7ab63",
+      "inferredArguments": "address,address,uint256,uint256,uint256,uint256,bytes",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "receiveWithAuthorization(address,address,uint256,uint256,uint256,bytes32,bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8a6db9c3",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "minterAllowance(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x95d89b41",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "symbol()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9fd0506d",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "pauser()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x9fd5a6cf",
+      "inferredArguments": "address,address,uint256,uint256,bytes",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "permit(address,address,uint256,uint256,bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa0cc6a68",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "TRANSFER_WITH_AUTHORIZATION_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa457c2d7",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "decreaseAllowance(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa9059cbb",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transfer(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xaa20e1e4",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "updateMasterMinter(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xaa271e1a",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "isMinter(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xad38bf22",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "updateBlacklister(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb2118a8d",
+      "inferredArguments": "address,address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "rescueERC20(address,address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xb7b72899",
+      "inferredArguments": "address,uint256,bytes",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "cancelAuthorization(address,bytes32,bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xbd102430",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "blacklister()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xcf092995",
+      "inferredArguments": "address,address,uint256,uint256,uint256,uint256,bytes",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferWithAuthorization(address,address,uint256,uint256,uint256,bytes32,bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd505accf",
+      "inferredArguments": "address,address,uint256,uint256,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)",
+        "$____$$_$$___$$$_$$$$__$$$__$$$$$$$$$(address,address,uint256,uint256,uint8,bytes32,bytes32)",
+        "watch_tg_invmru_168a06(bool,address,bool)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd608ea64",
+      "inferredArguments": "bytes",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initializeV2(string)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd9169487",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "CANCEL_AUTHORIZATION_TYPEHASH()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xdd62ed3e",
+      "inferredArguments": "address,address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "allowance(address,address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe3ee160e",
+      "inferredArguments": "address,address,uint256,uint256,uint256,uint256,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferWithAuthorization(address,address,uint256,uint256,uint256,bytes32,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe5a6b10f",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "currency()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xe94a0102",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "authorizationState(address,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xef55bec6",
+      "inferredArguments": "address,address,uint256,uint256,uint256,uint256,uint8,uint256,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "receiveWithAuthorization(address,address,uint256,uint256,uint256,bytes32,uint8,bytes32,bytes32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf9f92be4",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "blacklist(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xfe575a87",
+      "inferredArguments": "address",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "isBlacklisted(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "CoreWriterSystem": [
+    {
+      "selector": "0x17938e13",
+      "inferredArguments": "bytes",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "sendRawAction(bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ],
+  "SampleUserDepositProxy": [
+    {
+      "selector": "0x0c506e96",
+      "inferredArguments": "address,uint256",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "withdrawStuckToken(address,uint256)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x4f8632ba",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "user()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x925b3aad",
+      "inferredArguments": "uint64,uint64,uint64",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xd2f7265a",
+      "inferredArguments": "",
+      "inferredMutability": "pure",
+      "signatureCandidates": [
+        "exchange()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ]
+}

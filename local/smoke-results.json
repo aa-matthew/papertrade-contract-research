@@ -1,0 +1,148 @@
+{
+  "endpoint": "http://127.0.0.1:8545",
+  "chainId": 31337,
+  "ranAt": "2026-10-15T11:24:51.228Z",
+  "stateReverted": true,
+  "tests": [
+    {
+      "name": "Archived PAPER runtime matches local fork",
+      "pass": true,
+      "evidence": {
+        "address": "0xe40f17915DAa230324030003A197cdAEf2261C0e"
+      }
+    },
+    {
+      "name": "PAPER metadata reads from deployed proxy",
+      "pass": true,
+      "evidence": {
+        "name": "Paper",
+        "decimals": "18"
+      }
+    },
+    {
+      "name": "Unauthorized PAPER mint reverts",
+      "pass": true,
+      "evidence": {
+        "rejected": true
+      }
+    },
+    {
+      "name": "Authorized minter can mint PAPER on local fork",
+      "pass": true,
+      "evidence": {
+        "hash": "0x86642ba1b4e2715f65c3840a3ab3b67a392fdae969e05654de128835e12514e7",
+        "minter": "0x75174549dbBD44497D31a47E2E2D7406408d63D9",
+        "balance": "100000000000000000000"
+      }
+    },
+    {
+      "name": "Launch transfer restriction blocks ordinary wallet transfer",
+      "pass": true,
+      "evidence": {
+        "rejected": true
+      }
+    },
+    {
+      "name": "User approves PAPER staking locally",
+      "pass": true,
+      "evidence": {
+        "hash": "0x19c4c81f5a68eea6417b47b931c420949cd78dfa830c29d35e833836c823efa0"
+      }
+    },
+    {
+      "name": "Wallet-signed Stake intent executes through authorized executor",
+      "pass": true,
+      "evidence": {
+        "hash": "0x796870f7618cf3c02882fe29710d9c8ea8fd2e3f4c48d127486bc0b2491baf7d",
+        "stakedBalance": "100000000000000000000"
+      }
+    },
+    {
+      "name": "Wallet-signed Unstake intent returns PAPER",
+      "pass": true,
+      "evidence": {
+        "hash": "0xde3181ea2c63bc2922e17e1a6e09e50286153b121a43739f134216878f38b883",
+        "balance": "100000000000000000000"
+      }
+    },
+    {
+      "name": "Governance owner and timelock delay are readable",
+      "pass": true,
+      "evidence": {
+        "owner": "0xB915Fa41e824D6aA31BB833Ee81220C0F2c8EA0F",
+        "delaySeconds": "604800"
+      }
+    },
+    {
+      "name": "Explicit local BBO fixture reproduces archived BTC and ETH reads",
+      "pass": true,
+      "evidence": {
+        "fixture": true,
+        "source": "inspection/hypercore-precompile-reads.json"
+      }
+    },
+    {
+      "name": "Wallet registers scoped session key through authorized executor",
+      "pass": true,
+      "evidence": {
+        "hash": "0x598c8c83b2cedbd5a9fa36fce675d24187f82c44c1997775e8076f8ef690847f",
+        "key": "0x9874B053D3cCAcba5b0Ec69B3313Fa13D044D7a4"
+      }
+    },
+    {
+      "name": "Local staking authority credits synthetic test collateral",
+      "pass": true,
+      "evidence": {
+        "hash": "0x373c5804d225bafb070f100971a54dffc13e3aa4aba06ec0c0ddf9e3eedb9872",
+        "syntheticFixture": true,
+        "balance": "300000000000000000000",
+        "note": "Exercises accounting only; bypasses real HyperCore deposit and USDC backing"
+      }
+    },
+    {
+      "name": "Session-signed leveraged open executes against deployed Exchange bytecode",
+      "pass": true,
+      "evidence": {
+        "hash": "0xe0d643328366f2857712d194f5095d75804b0020ad0310fd76ae04429124ddd7",
+        "positionId": "767725",
+        "margin": "100000000000000000000",
+        "leverage": 100
+      }
+    },
+    {
+      "name": "Replaying the signed open is rejected",
+      "pass": true,
+      "evidence": {
+        "rejected": true
+      }
+    },
+    {
+      "name": "Session-signed profitable close settles and returns margin",
+      "pass": true,
+      "evidence": {
+        "hash": "0x9a6e02657d53423e307d1f9075f6789d45e2f96f8d8368691c253ae1b0ea0bab",
+        "marginReturned": "100000000000000000000",
+        "netProfit": "86379027488055155322",
+        "priceFixtureMove": "approximately +1%"
+      }
+    },
+    {
+      "name": "Hard liquidation forfeits isolated margin and mints loss-based PAPER",
+      "pass": true,
+      "evidence": {
+        "hash": "0x18ff2bec5db33009531af2920006f34ded4d6cfceccf2263394d2b728aef4cee",
+        "positionId": "767726",
+        "isolatedMarginForfeited": "100000000000000000000",
+        "paperMinted": "1697491676241898799900",
+        "fixture": true
+      }
+    },
+    {
+      "name": "Wallet can directly revoke its session key",
+      "pass": true,
+      "evidence": {
+        "hash": "0x8836da2009494230b2ed6462da49518f0b60918b173ee9c75662a8bd64e56d63"
+      }
+    }
+  ]
+}

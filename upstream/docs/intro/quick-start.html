@@ -1,0 +1,26 @@
+<!-- Source: https://docs.papertrade.xyz/#/intro/quick-start -->
+<h1>Quick start</h1>
+<p></p>
+
+      <h2 id="what-you-need">What you need</h2>
+      <ul>
+        <li>An EVM wallet: MetaMask, Rabby, Frame, Rainbow, or anything that speaks WalletConnect.</li>
+        <li>At least 10 USDC to fund your trading balance, on Hyperliquid, HyperEVM, Ethereum, Arbitrum or Solana, or USDG on Robinhood Chain.</li>
+      </ul>
+
+      <h2 id="connect">1. Connect</h2>
+      <p>Go to <a href="https://papertrade.xyz">papertrade.xyz</a> and click <em>Connect</em>. Your wallet pops once for a signature that registers a <a href="#/learn/session-keys">session key</a>: a scoped keypair that signs your trades on your behalf for a window of time. After that single signature you won't see another wallet popup for normal trading.</p>
+
+      <h2 id="deposit">2. Deposit</h2>
+      <p>Click <em>Deposit</em> and pick where your funds are. The app sends them from your wallet to your unique deposit address: yours alone, deterministic, no one else's USDC will ever land there. A transfer from Hyperliquid is credited to your Papertrade trading balance within seconds; a deposit from another chain also waits for its bridge. At least 10 USDC has to arrive after fees; the app shows the least each route needs to send. See <a href="#/learn/deposits-withdrawals">Deposits and withdrawals</a> for more.</p>
+
+      <h2 id="trade">3. Trade</h2>
+      <p>Pick a market, a direction (long or short), how much margin to commit, and a leverage up to 1000×. Click <em>Buy</em> or <em>Sell</em>. The protocol enters you immediately at Hyperliquid's BBO mid. Close any time; the protocol reads the current mid and settles your PnL against the LP. There is no gas fee on the user side and no popup per trade; the relayer covers gas and the session key signs.</p>
+
+      <h2 id="next">Next</h2>
+      <ul>
+        <li><a href="#/learn/wins-losses">Wins and losses</a>: what you keep, what the protocol takes.</li>
+        <li><a href="#/learn/lp-queue">The LP and the payout queue</a>: what you're trading against.</li>
+        <li><a href="#/learn/paper-emissions">Paper Emissions</a>: why you receive PAPER on losses.</li>
+      </ul>
+    

@@ -1,0 +1,29 @@
+{
+  "warning": "Partial signatures for encoding and research only. Return types and mutability are intentionally NOT asserted. This is not an original or complete ABI.",
+  "abi": [
+    {
+      "type": "function",
+      "name": "sendRawAction",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "bytes",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    }
+  ],
+  "selectors": [
+    {
+      "selector": "0x17938e13",
+      "inferredArguments": "bytes",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "sendRawAction(bytes)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    }
+  ]
+}

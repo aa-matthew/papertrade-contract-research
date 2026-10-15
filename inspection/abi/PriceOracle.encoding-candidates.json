@@ -1,0 +1,173 @@
+{
+  "warning": "Partial signatures for encoding and research only. Return types and mutability are intentionally NOT asserted. This is not an original or complete ABI.",
+  "abi": [
+    {
+      "type": "function",
+      "name": "getOraclePrice",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint32",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "owner",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "getMarkPrice",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint32",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "getExecutionPrice",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint32",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "initialize",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "transferOwnership",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "getBBO",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint32",
+          "name": ""
+        }
+      ],
+      "outputs": []
+    }
+  ],
+  "selectors": [
+    {
+      "selector": "0x2af78bd1",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "getOraclePrice(uint32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x766cd255",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0x8da5cb5b",
+      "inferredArguments": "",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "owner()"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa066fae9",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "getMarkPrice(uint32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xa7f06462",
+      "inferredArguments": "uint32[]",
+      "inferredMutability": "view",
+      "signatureCandidates": [],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xc0182669",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "getExecutionPrice(uint32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible",
+      "reconstructionEvidence": "reverse-engineered/auth/FINDINGS.md"
+    },
+    {
+      "selector": "0xc4d66de8",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "initialize(address)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xf2fde38b",
+      "inferredArguments": "address",
+      "inferredMutability": "nonpayable",
+      "signatureCandidates": [
+        "transferOwnership(address)",
+        "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible"
+    },
+    {
+      "selector": "0xfb466481",
+      "inferredArguments": "uint32",
+      "inferredMutability": "view",
+      "signatureCandidates": [
+        "getBBO(uint32)"
+      ],
+      "provenance": "bytecode analysis; signature names from public database or documented-name hash match; collision possible",
+      "reconstructionEvidence": "reverse-engineered/auth/FINDINGS.md"
+    }
+  ]
+}

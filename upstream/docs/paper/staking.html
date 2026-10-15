@@ -1,0 +1,26 @@
+<!-- Source: https://docs.papertrade.xyz/#/paper/staking -->
+<h1>Staking & claims</h1>
+<p>Stake PAPER, earn a pro-rata share of protocol revenue in USDC. Stake and unstake are both instant: no cooldown, no lockup.</p>
+
+      <h2 id="stake">Stake</h2>
+      <p>In the normal app flow, stake from the app with a wallet signature. Your stake shares in every distribution from then on. No vesting, no lockup.</p>
+      <p>The app submits your signed stake as <code>stakeBySig</code> through the relayer; direct <code>stake</code> calls are disabled. The PAPER token auto-approves the staking contract, so the user does not need a separate approval transaction.</p>
+
+      <h2 id="unstake">Unstake</h2>
+      <p>Unstake through the same staking flow, again with a wallet signature. Your PAPER returns to your wallet balance immediately, your stake stops earning fees, and any USDC rewards already accrued remain claimable. There is <strong>no cooldown</strong>. The app submits it as <code>unstakeBySig</code> through the relayer.</p>
+
+      <h2 id="claims">Claims</h2>
+      <p>Trading-fee revenue accrues as a per-stake claimable USDC balance via the global <code>accRewardPerShare</code> accumulator. Claim any time through the app; the claim credits your USDC balance on the Exchange contract, and from there you can withdraw to HyperCore. The app submits it as <code>claimBySig</code> through the relayer.</p>
+      <p>Want to know your unclaimed balance without spending gas? Read <code>PaperStaking.pendingReward(addr)</code>. It includes only rewards that have already been distributed.</p>
+
+      <h2 id="distribute">How rewards arrive</h2>
+      <p>Fee revenue lives in two places until distributed:</p>
+      <ol>
+        <li>The <strong>Exchange's <code>stakerFeeAccumulator</code></strong> collects the staker share of every trade fee. Anyone can call <code>Exchange.pushStakerFees()</code> to forward the accumulated balance, plus any LP excess above the staker reward cap, to PaperStaking.</li>
+        <li>Once received by PaperStaking, distribution updates the global <code>accRewardPerShare</code> so all stakers' pending rewards advance pro-rata. Direct public <code>distribute()</code> is disabled; distribution runs as a keeper-signed <code>distributeBySig</code> submitted through the relayer, which pushes fees first.</li>
+      </ol>
+      <p>The protocol's fee-push keeper does both, so users don't have to think about it.</p>
+
+      <h2 id="math">The math</h2>
+      <p>Each distribution splits the USDC that PaperStaking has newly received across stakers in proportion to their staked balance at that moment. There are no boosts, no lockups, no tiers: every staked PAPER earns the same from a given distribution.</p>
+    

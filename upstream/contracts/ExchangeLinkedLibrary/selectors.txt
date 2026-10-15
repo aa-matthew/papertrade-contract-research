@@ -1,0 +1,10 @@
+0x18958ce2	uint256,address,uint256                                     	payable	
+0x2448a553	uint256,address,uint256,uint256,uint256                     	payable	
+0x32db40c9	uint256,address,uint256,uint256,uint256                     	payable	
+0x3cf4208d	uint256,address,uint256,uint256,uint256,uint256             	payable	
+0x3f4e3626	uint256,address,bool                                        	payable	
+0x79810ffe	uint256,uint256,uint256,uint256,uint256                     	payable	
+0x82296364	uint64,uint64,int256,uint32,bool                            	payable	
+0xb67f3dd7	uint256,uint64,uint64,uint256,uint256,uint256,uint256       	payable	
+0xca02ff91	uint256,address,uint256,uint256                             	payable	
+0xef1a27a9	uint256,address,uint128,uint256,bool,uint256,uint256,uint256	payable	

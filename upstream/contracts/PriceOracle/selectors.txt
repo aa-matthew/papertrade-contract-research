@@ -1,0 +1,9 @@
+0x2af78bd1	uint32  	view      	getOraclePrice(uint32)
+0x766cd255	uint32  	view      	
+0x8da5cb5b	        	view      	owner()
+0xa066fae9	uint32  	view      	getMarkPrice(uint32)
+0xa7f06462	uint32[]	view      	
+0xc0182669	uint32  	view      	
+0xc4d66de8	address 	nonpayable	initialize(address)
+0xf2fde38b	address 	nonpayable	transferOwnership(address)|_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)
+0xfb466481	uint32  	view      	

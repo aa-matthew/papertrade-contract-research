@@ -1,0 +1,31 @@
+// Read-only differential trace. Runtime override lives only inside debug_traceCall.
+import {readFile,writeFile} from 'node:fs/promises';
+import {Wallet,Signature,Interface} from 'ethers';
+import solc from 'solc';
+import assert from 'node:assert/strict';
+const a=JSON.parse(await readFile('inspection/official-addresses.json'));
+const source=await readFile('reverse-engineered/auth/SessionKeyManager.reconstructed.sol','utf8');
+const output=JSON.parse(solc.compile(JSON.stringify({language:'Solidity',sources:{'s.sol':{content:source}},settings:{optimizer:{enabled:true,runs:200},outputSelection:{'*':{'*':['evm.deployedBytecode.object','storageLayout']}}}})));
+const contract=output.contracts['s.sol'].SessionKeyManagerReconstruction;
+const code='0x'+contract.evm.deployedBytecode.object;
+const user=new Wallet('0x'+'34'.repeat(32));const key=new Wallet('0x'+'56'.repeat(32));
+const endpoint='http://127.0.0.1:8545';
+async function rpc(method,params){let r=await fetch(endpoint,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params})});return r.json();}
+const b=(await rpc('eth_getBlockByNumber',['latest',false])).result;
+assert.equal((await rpc('eth_chainId',[])).result,'0x7a69','Local fork required');
+const message={user:user.address,key:key.address,expiry:BigInt(b.timestamp)+86400n,feeAddress:a.Multisig,nonce:12345678901234567890n,deadline:BigInt(b.timestamp)+3600n};
+const types={RegisterSessionKey:[{name:'user',type:'address'},{name:'key',type:'address'},{name:'expiry',type:'uint64'},{name:'feeAddress',type:'address'},{name:'nonce',type:'uint256'},{name:'deadline',type:'uint64'}]};
+const sig=Signature.from(await user.signTypedData({name:'String',version:'1',chainId:31337,verifyingContract:a.Exchange},types,message));
+const iface=new Interface(['function registerSessionKeyBySig(address,address,uint64,address,uint256,uint64,uint8,bytes32,bytes32)']);
+const call={from:a.BatchExecutor,to:a.SessionKeyManager,data:iface.encodeFunctionData('registerSessionKeyBySig',[message.user,message.key,message.expiry,message.feeAddress,message.nonce,message.deadline,sig.v,sig.r,sig.s])};
+const original=await rpc('debug_traceCall',[call,'latest',{disableStorage:true,disableMemory:true}]);
+const reconstructed=await rpc('debug_traceCall',[call,'latest',{disableStorage:true,disableMemory:true,stateOverrides:{[a.SessionKeyManager]:{code}}}]);
+const summarize=x=>x.result?{failed:x.result.failed,returnValue:x.result.returnValue,sstores:x.result.structLogs.filter(s=>s.op==='SSTORE').map(s=>({slot:s.stack.at(-1),value:s.stack.at(-2)})),logOps:x.result.structLogs.filter(s=>s.op.startsWith('LOG')).map(s=>({op:s.op,topics:s.stack.slice(-5,-2)}))}:x;
+const x=summarize(original),y=summarize(reconstructed);const result={scope:'debug_traceCall only, supplied runtime override; no deployment or chain state mutation',call,message,storageLayout:contract.storageLayout,original:x,reconstructed:y,matchedStores:JSON.stringify(x.sstores)===JSON.stringify(y.sstores)};
+assert.equal(x.failed,false,'Original registration must succeed');
+assert.equal(y.failed,false,'Reconstructed registration must succeed');
+assert.deepEqual(y.sstores,x.sstores,'Registration storage writes must match');
+assert.deepEqual(y.logOps,x.logOps,'Registration event topics must match');
+assert.equal(y.returnValue,x.returnValue,'Registration return bytes must match');
+await writeFile('reverse-engineered/auth/session-differential.json',JSON.stringify(result,(_,v)=>typeof v==='bigint'?String(v):v,2)+'\n');
+console.log(JSON.stringify({original:x,reconstructed:y,matchedStores:result.matchedStores},null,2));

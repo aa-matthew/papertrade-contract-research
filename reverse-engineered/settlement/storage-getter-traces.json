@@ -1,0 +1,586 @@
+{
+  "address": "0x6cd5661646289FB6E65EA5C032310fDEd797D0a2",
+  "readOnly": true,
+  "out": [
+    {
+      "name": "totalLockedMargin",
+      "selector": "0x01ad056f",
+      "returnValue": "0x0000000000000000000000000000000000000000000e8ac52c9ed94ef5e5cbf7",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 16005,
+          "slot": "0x16"
+        }
+      ]
+    },
+    {
+      "name": "sessionKeyManager",
+      "selector": "0x0b826190",
+      "returnValue": "0x0000000000000000000000008326eb8896e358717f10502ec73ce8d28e37b108",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 15857,
+          "slot": "0x1d"
+        }
+      ]
+    },
+    {
+      "name": "lpBankrollAvailable",
+      "selector": "0x0cdd5fc4",
+      "returnValue": "0x0000000000000000000000000000000000000000000423843cd8c030aa3c1acc",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 16463,
+          "slot": "0x12"
+        },
+        {
+          "depth": 2,
+          "pc": 16521,
+          "slot": "0x16"
+        },
+        {
+          "depth": 2,
+          "pc": 16550,
+          "slot": "0x1a"
+        },
+        {
+          "depth": 2,
+          "pc": 16572,
+          "slot": "0xe"
+        }
+      ]
+    },
+    {
+      "name": "authorizedExecutor",
+      "selector": "0x13dd495b",
+      "returnValue": "0x000000000000000000000000233ff29b239abc1d7748605da9b205c3e008626e",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 15765,
+          "slot": "0x58"
+        }
+      ]
+    },
+    {
+      "name": "marketKeeper",
+      "selector": "0x21f55a6c",
+      "returnValue": "0x0000000000000000000000003721476de31190dc1af8908026abe20efe25cf99",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 15578,
+          "slot": "0x25"
+        }
+      ]
+    },
+    {
+      "name": "pauseGuardian",
+      "selector": "0x24a3d622",
+      "returnValue": "0x000000000000000000000000696292762fd5ac3677a45edbe54eaece4194d1f6",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 15538,
+          "slot": "0x1"
+        }
+      ]
+    },
+    {
+      "name": "totalQueued",
+      "selector": "0x53ac4b66",
+      "returnValue": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 10392,
+          "slot": "0x12"
+        }
+      ]
+    },
+    {
+      "name": "tradingPaused",
+      "selector": "0x53e23e2e",
+      "returnValue": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 10359,
+          "slot": "0x1d"
+        }
+      ]
+    },
+    {
+      "name": "liquidationFeeRate",
+      "selector": "0x5fb3b1b5",
+      "returnValue": "0x00000000000000000000000000000000000000000000000000470de4df820000",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 9682,
+          "slot": "0x19"
+        }
+      ]
+    },
+    {
+      "name": "treasury",
+      "selector": "0x61d027b3",
+      "returnValue": "0x00000000000000000000000000000000000000000036750e81b14ea7bf0aa800",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 9652,
+          "slot": "0xe"
+        }
+      ]
+    },
+    {
+      "name": "pushStakerFees",
+      "selector": "0x7b9f5264",
+      "returnValue": "0x",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 17269,
+          "slot": "0x1f"
+        },
+        {
+          "depth": 2,
+          "pc": 20414,
+          "slot": "0x1a"
+        },
+        {
+          "depth": 2,
+          "pc": 16463,
+          "slot": "0x12"
+        },
+        {
+          "depth": 2,
+          "pc": 16521,
+          "slot": "0x16"
+        },
+        {
+          "depth": 2,
+          "pc": 16550,
+          "slot": "0x1a"
+        },
+        {
+          "depth": 2,
+          "pc": 16572,
+          "slot": "0xe"
+        },
+        {
+          "depth": 2,
+          "pc": 20357,
+          "slot": "0xd58dad47cd91e985195a3bd4bbd13ee356f80af8ef858a190ba13c1c642d4cd6"
+        },
+        {
+          "depth": 2,
+          "pc": 20367,
+          "slot": "0x16"
+        },
+        {
+          "depth": 2,
+          "pc": 16728,
+          "slot": "0x6"
+        },
+        {
+          "depth": 3,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 4,
+          "pc": 2484,
+          "slot": "0x3"
+        },
+        {
+          "depth": 4,
+          "pc": 2487,
+          "slot": "0x6"
+        },
+        {
+          "depth": 2,
+          "pc": 17316,
+          "slot": "0x6"
+        },
+        {
+          "depth": 3,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 4,
+          "pc": 794,
+          "slot": "0x1"
+        },
+        {
+          "depth": 4,
+          "pc": 2484,
+          "slot": "0x3"
+        },
+        {
+          "depth": 4,
+          "pc": 2487,
+          "slot": "0x6"
+        },
+        {
+          "depth": 4,
+          "pc": 2576,
+          "slot": "0x3"
+        },
+        {
+          "depth": 4,
+          "pc": 2588,
+          "slot": "0x4"
+        },
+        {
+          "depth": 2,
+          "pc": 16463,
+          "slot": "0x12"
+        },
+        {
+          "depth": 2,
+          "pc": 16521,
+          "slot": "0x16"
+        },
+        {
+          "depth": 2,
+          "pc": 16550,
+          "slot": "0x1a"
+        },
+        {
+          "depth": 2,
+          "pc": 16572,
+          "slot": "0xe"
+        },
+        {
+          "depth": 2,
+          "pc": 20357,
+          "slot": "0xd58dad47cd91e985195a3bd4bbd13ee356f80af8ef858a190ba13c1c642d4cd6"
+        },
+        {
+          "depth": 2,
+          "pc": 20367,
+          "slot": "0x16"
+        },
+        {
+          "depth": 2,
+          "pc": 17384,
+          "slot": "0x6"
+        },
+        {
+          "depth": 3,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 4,
+          "pc": 2484,
+          "slot": "0x3"
+        },
+        {
+          "depth": 4,
+          "pc": 2487,
+          "slot": "0x6"
+        }
+      ]
+    },
+    {
+      "name": "devFeeAccumulator",
+      "selector": "0x7d004aeb",
+      "returnValue": "0x00000000000000000000000000000000000000000000034594cdacbdc5ed9b0d",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 9018,
+          "slot": "0x1a"
+        }
+      ]
+    },
+    {
+      "name": "oracle",
+      "selector": "0x7dc0d1d0",
+      "returnValue": "0x000000000000000000000000a9b4c7b7ca5835652d81e25739c870d49f39cc2e",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 8975,
+          "slot": "0x2"
+        }
+      ]
+    },
+    {
+      "name": "nextPositionId",
+      "selector": "0x899346c7",
+      "returnValue": "0x00000000000000000000000000000000000000000000000000000000000bd2b0",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 8262,
+          "slot": "0xb"
+        }
+      ]
+    },
+    {
+      "name": "owner",
+      "selector": "0x8da5cb5b",
+      "returnValue": "0x000000000000000000000000b915fa41e824d6aa31bb833ee81220c0f2c8ea0f",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 7766,
+          "slot": "0x0"
+        }
+      ]
+    },
+    {
+      "name": "sideBucket",
+      "selector": "0x9274682e",
+      "returnValue": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 7727,
+          "slot": "0x1b"
+        }
+      ]
+    },
+    {
+      "name": "queueHead",
+      "selector": "0x96523644",
+      "returnValue": "0x0000000000000000000000000000000000000000000000000000000000000004",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 7699,
+          "slot": "0x10"
+        }
+      ]
+    },
+    {
+      "name": "authorizedKeeper",
+      "selector": "0x9d47d4d3",
+      "returnValue": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 7490,
+          "slot": "0x59"
+        }
+      ]
+    },
+    {
+      "name": "totalBalances",
+      "selector": "0xa69a2ad1",
+      "returnValue": "0x00000000000000000000000000000000000000000023c37cb74d243e9d150c7c",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 7171,
+          "slot": "0x16"
+        }
+      ]
+    },
+    {
+      "name": "stakerFeeAccumulator",
+      "selector": "0xafdf6702",
+      "returnValue": "0x000000000000000000000000000000000000000000000002cc1ee42bbbe619b4",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 6731,
+          "slot": "0x1a"
+        }
+      ]
+    },
+    {
+      "name": "proxyFactory",
+      "selector": "0xc10f1a75",
+      "returnValue": "0x0000000000000000000000001629b7d46bef6e13ff754174fc9f32dea309b38f",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 6084,
+          "slot": "0x1e"
+        }
+      ]
+    },
+    {
+      "name": "devFeeRecipient",
+      "selector": "0xcbeb5f3d",
+      "returnValue": "0x000000000000000000000000eef651e381e04b5ae25393b1367c19bcfd575792",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 5228,
+          "slot": "0x26"
+        }
+      ]
+    },
+    {
+      "name": "collateralScale",
+      "selector": "0xec0bdcfc",
+      "returnValue": "0x000000000000000000000000000000000000000000000000000000e8d4a51000",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 4087,
+          "slot": "0x3"
+        }
+      ]
+    },
+    {
+      "name": "paperTokenomics",
+      "selector": "0xed410ee1",
+      "returnValue": "0x00000000000000000000000075174549dbbd44497d31a47e2e2d7406408d63d9",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 1812,
+          "slot": "0x6"
+        }
+      ]
+    },
+    {
+      "name": "instrumentCount",
+      "selector": "0xf28bbdb2",
+      "returnValue": "0x0000000000000000000000000000000000000000000000000000000000000002",
+      "sloads": [
+        {
+          "depth": 1,
+          "pc": 781,
+          "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
+        },
+        {
+          "depth": 2,
+          "pc": 1649,
+          "slot": "0x8"
+        }
+      ]
+    }
+  ]
+}

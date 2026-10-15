@@ -1,0 +1,76 @@
+<!-- Source: https://docs.papertrade.xyz/#/learn/lp-queue -->
+<h1>The LP and the payout queue</h1>
+<p>What you're trading against, where its money comes from, and what happens when it can't pay out a winner immediately.</p>
+
+      <h2 id="lp">The LP</h2>
+      <p>The LP is the protocol's balance of USDC held to settle trades. It starts at <strong>$0</strong>. There is no seed capital, no founders' deposit, no upfront LP raise. The LP grows over time from cumulative user losses.</p>
+      <p>There is also no way for anyone to deposit <em>directly</em> into the LP. The only way to get exposure to LP economics is to hold or stake <a href="#/learn/paper-emissions">PAPER</a>, the protocol's native token, which is minted to traders against losing closes and liquidations. At launch PAPER can't be transferred between wallets; staking and unstaking are supported.</p>
+
+      <h2 id="queue">The payout queue</h2>
+      <p>Sometimes the LP doesn't have enough USDC to immediately pay a winning close in full. When that happens, the unpaid portion of the win goes into a FIFO queue. The contract keeps a running list of unpaid wins and pays them out from the front as future losses refill the LP.</p>
+
+      <p><strong>Your USDC margin is never queued.</strong> When you close a position opened from your available balance, the contract returns your original collateral to your balance instantly — only the <em>profit</em> portion of a winning close can land in the queue if the LP is short. On a losing close the loss comes out of your margin and the remainder is yours immediately. Even when the queue has wait time, your principal is always under your own control. A position opened with your queued balance as margin is different: its margin was itself a queue claim, so on close the whole surviving claim can be queued again.</p>
+
+      <figure style="margin:22px 0">
+        <svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LP healthy vs LP low scenarios" style="width:100%;height:auto;display:block;background:#FAF6ED;border:1px solid #D4CBBA;border-radius:6px">
+          <defs>
+            <marker id="arLQg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5F564B"/></marker>
+          </defs>
+
+          <rect x="20" y="20" width="370" height="220" rx="8" fill="rgba(45,95,58,0.04)" stroke="#2D5F3A" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="205" y="48" font-family="Inter,sans-serif" font-weight="700" fill="#2D5F3A" text-anchor="middle" letter-spacing=".05em" font-size="12">LP HEALTHY</text>
+
+          <rect x="40" y="100" width="80" height="50" rx="5" fill="#FAF6ED" stroke="#2A2520" stroke-width="1.2"/>
+          <text x="80" y="124" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">Your win</text>
+          <text x="80" y="140" font-family="Inter,sans-serif" font-size="9" fill="#7A7060" text-anchor="middle">at close</text>
+
+          <line x1="124" y1="125" x2="148" y2="125" stroke="#5F564B" stroke-width="1.5" marker-end="url(#arLQg)"/>
+
+          <rect x="150" y="100" width="100" height="50" rx="5" fill="rgba(45,95,58,0.15)" stroke="#2D5F3A" stroke-width="1.5"/>
+          <text x="200" y="124" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">LP</text>
+          <text x="200" y="140" font-family="Inter,sans-serif" font-size="9" fill="#5F564B" text-anchor="middle" font-style="italic">has funds</text>
+
+          <line x1="254" y1="125" x2="278" y2="125" stroke="#5F564B" stroke-width="1.5" marker-end="url(#arLQg)"/>
+
+          <rect x="280" y="100" width="90" height="50" rx="5" fill="#FAF6ED" stroke="#2A2520" stroke-width="1.2"/>
+          <text x="325" y="124" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">Paid</text>
+          <text x="325" y="140" font-family="Inter,sans-serif" font-size="9" fill="#2D5F3A" text-anchor="middle">immediately</text>
+
+          <text x="205" y="200" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="middle">The LP can pay your win in full at close.</text>
+
+          <rect x="410" y="20" width="370" height="220" rx="8" fill="rgba(139,32,32,0.04)" stroke="#8B2020" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="595" y="48" font-family="Inter,sans-serif" font-weight="700" fill="#8B2020" text-anchor="middle" letter-spacing=".05em" font-size="12">LP LOW (or underwater)</text>
+
+          <rect x="430" y="80" width="80" height="46" rx="5" fill="#FAF6ED" stroke="#2A2520" stroke-width="1.2"/>
+          <text x="470" y="102" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">Your win</text>
+          <text x="470" y="116" font-family="Inter,sans-serif" font-size="9" fill="#7A7060" text-anchor="middle">at close</text>
+
+          <line x1="514" y1="103" x2="538" y2="103" stroke="#5F564B" stroke-width="1.5" marker-end="url(#arLQg)"/>
+
+          <rect x="540" y="80" width="100" height="46" rx="5" fill="rgba(139,32,32,0.15)" stroke="#8B2020" stroke-width="1.5"/>
+          <text x="590" y="102" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">Queue</text>
+          <text x="590" y="116" font-family="Inter,sans-serif" font-size="9" fill="#5F564B" text-anchor="middle" font-style="italic">FIFO</text>
+
+          <line x1="590" y1="132" x2="590" y2="158" stroke="#7A7060" stroke-width="1" stroke-dasharray="3 3"/>
+          <text x="608" y="148" font-family="Inter,sans-serif" font-size="9" fill="#7A7060" font-style="italic">later</text>
+
+          <rect x="430" y="160" width="100" height="46" rx="5" fill="#FAF6ED" stroke="#7A6235" stroke-width="1.2"/>
+          <text x="480" y="182" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#7A6235" text-anchor="middle">Future loss</text>
+          <text x="480" y="196" font-family="Inter,sans-serif" font-size="9" fill="#5F564B" text-anchor="middle">refills LP</text>
+
+          <line x1="534" y1="183" x2="558" y2="183" stroke="#5F564B" stroke-width="1.5" marker-end="url(#arLQg)"/>
+
+          <rect x="560" y="160" width="100" height="46" rx="5" fill="#FAF6ED" stroke="#2A2520" stroke-width="1.2"/>
+          <text x="610" y="182" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">Paid</text>
+          <text x="610" y="196" font-family="Inter,sans-serif" font-size="9" fill="#2D5F3A" text-anchor="middle">queue front</text>
+
+          <text x="595" y="226" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="middle">Win is queued and paid as the LP refills.</text>
+        </svg>
+      </figure>
+
+      <h2 id="what-this-means">What this means for you</h2>
+      <p>If you close a winning trade and the LP can pay you immediately, you're paid immediately. If the LP can't, the queue absorbs the difference and pays you out as solvency returns. Your queued payout is real on-chain debt: not a refund, not a haircut, just a delay.</p>
+      <p>Trading while the LP is low or underwater is incentivised by the <a href="#/learn/paper-emissions">PAPER emissions curve</a>: that's exactly when PAPER mints fastest, and while a queue exists, losses go toward paying it down.</p>
+
+      <p>For the academic background on this mechanism see the <a href="#/martingaler/overview">Martingaler LP overview</a>. For the on-chain implementation see <a href="#/how/solvency-queue">Solvency model: three-bucket queue</a>.</p>
+    

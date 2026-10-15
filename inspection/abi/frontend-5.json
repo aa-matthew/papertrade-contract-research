@@ -1,0 +1,44 @@
+[
+  {
+    "type": "function",
+    "name": "addr",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [
+      {
+        "type": "bytes32",
+        "name": "name"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "address",
+        "name": ""
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "addr",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [
+      {
+        "type": "bytes32",
+        "name": "name"
+      },
+      {
+        "type": "uint256",
+        "name": "coinType"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "bytes",
+        "name": ""
+      }
+    ]
+  }
+]

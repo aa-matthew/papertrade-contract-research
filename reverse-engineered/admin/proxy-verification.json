@@ -1,0 +1,294 @@
+{
+  "method": "read-only eth_call and debug_traceCall with ephemeral stateOverrides",
+  "scope": "Selected runtime branches only; no constructor, malformed-calldata, gas or bytecode equivalence claim",
+  "tests": [
+    {
+      "name": "implementation by admin",
+      "pass": true,
+      "original": {
+        "success": true,
+        "output": "0x000000000000000000000000000000000000000000000000000000000000a444",
+        "writes": []
+      },
+      "reconstructed": {
+        "success": true,
+        "output": "0x000000000000000000000000000000000000000000000000000000000000a444",
+        "writes": []
+      }
+    },
+    {
+      "name": "implementation by nonadmin",
+      "pass": true,
+      "original": {
+        "success": false,
+        "output": "0x7bfa4b9f",
+        "writes": []
+      },
+      "reconstructed": {
+        "success": false,
+        "output": "0x7bfa4b9f",
+        "writes": []
+      }
+    },
+    {
+      "name": "admin by admin",
+      "pass": true,
+      "original": {
+        "success": true,
+        "output": "0x000000000000000000000000000000000000000000000000000000000000a222",
+        "writes": []
+      },
+      "reconstructed": {
+        "success": true,
+        "output": "0x000000000000000000000000000000000000000000000000000000000000a222",
+        "writes": []
+      }
+    },
+    {
+      "name": "admin by nonadmin",
+      "pass": true,
+      "original": {
+        "success": false,
+        "output": "0x7bfa4b9f",
+        "writes": []
+      },
+      "reconstructed": {
+        "success": false,
+        "output": "0x7bfa4b9f",
+        "writes": []
+      }
+    },
+    {
+      "name": "change admin",
+      "pass": true,
+      "original": {
+        "success": true,
+        "output": "0x",
+        "writes": [
+          {
+            "slot": "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103",
+            "value": "0xa333"
+          }
+        ]
+      },
+      "reconstructed": {
+        "success": true,
+        "output": "0x",
+        "writes": [
+          {
+            "slot": "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103",
+            "value": "0xa333"
+          }
+        ]
+      }
+    },
+    {
+      "name": "change admin to zero",
+      "pass": true,
+      "original": {
+        "success": false,
+        "output": "0xe6c4247b",
+        "writes": []
+      },
+      "reconstructed": {
+        "success": false,
+        "output": "0xe6c4247b",
+        "writes": []
+      }
+    },
+    {
+      "name": "unauthorized change admin",
+      "pass": true,
+      "original": {
+        "success": false,
+        "output": "0x7bfa4b9f",
+        "writes": []
+      },
+      "reconstructed": {
+        "success": false,
+        "output": "0x7bfa4b9f",
+        "writes": []
+      }
+    },
+    {
+      "name": "upgrade to EOA without code",
+      "pass": true,
+      "original": {
+        "success": true,
+        "output": "0x",
+        "writes": [
+          {
+            "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+            "value": "0xa333"
+          }
+        ]
+      },
+      "reconstructed": {
+        "success": true,
+        "output": "0x",
+        "writes": [
+          {
+            "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+            "value": "0xa333"
+          }
+        ]
+      }
+    },
+    {
+      "name": "upgrade to zero",
+      "pass": true,
+      "original": {
+        "success": false,
+        "output": "0xe6c4247b",
+        "writes": []
+      },
+      "reconstructed": {
+        "success": false,
+        "output": "0xe6c4247b",
+        "writes": []
+      }
+    },
+    {
+      "name": "upgrade with successful delegatecall",
+      "pass": true,
+      "original": {
+        "success": true,
+        "output": "0x",
+        "writes": [
+          {
+            "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+            "value": "0xa444"
+          }
+        ]
+      },
+      "reconstructed": {
+        "success": true,
+        "output": "0x",
+        "writes": [
+          {
+            "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+            "value": "0xa444"
+          }
+        ]
+      }
+    },
+    {
+      "name": "upgrade with reverting delegatecall",
+      "pass": true,
+      "original": {
+        "success": false,
+        "output": "0x2361517100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000004deadbeef00000000000000000000000000000000000000000000000000000000",
+        "writes": [
+          {
+            "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+            "value": "0xa555"
+          }
+        ]
+      },
+      "reconstructed": {
+        "success": false,
+        "output": "0x2361517100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000004deadbeef00000000000000000000000000000000000000000000000000000000",
+        "writes": [
+          {
+            "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+            "value": "0xa555"
+          }
+        ]
+      }
+    },
+    {
+      "name": "unauthorized upgrade",
+      "pass": true,
+      "original": {
+        "success": false,
+        "output": "0x7bfa4b9f",
+        "writes": []
+      },
+      "reconstructed": {
+        "success": false,
+        "output": "0x7bfa4b9f",
+        "writes": []
+      }
+    },
+    {
+      "name": "ordinary user fallback",
+      "pass": true,
+      "original": {
+        "success": true,
+        "output": "0x000000000000000000000000000000000000000000000000000000000000002a",
+        "writes": []
+      },
+      "reconstructed": {
+        "success": true,
+        "output": "0x000000000000000000000000000000000000000000000000000000000000002a",
+        "writes": []
+      }
+    },
+    {
+      "name": "admin fallback also delegates",
+      "pass": true,
+      "original": {
+        "success": true,
+        "output": "0x000000000000000000000000000000000000000000000000000000000000002a",
+        "writes": []
+      },
+      "reconstructed": {
+        "success": true,
+        "output": "0x000000000000000000000000000000000000000000000000000000000000002a",
+        "writes": []
+      }
+    },
+    {
+      "name": "empty calldata delegates",
+      "pass": true,
+      "original": {
+        "success": true,
+        "output": "0x000000000000000000000000000000000000000000000000000000000000002a",
+        "writes": []
+      },
+      "reconstructed": {
+        "success": true,
+        "output": "0x000000000000000000000000000000000000000000000000000000000000002a",
+        "writes": []
+      }
+    },
+    {
+      "name": "nonpayable getter rejects value",
+      "pass": true,
+      "original": {
+        "success": false,
+        "output": "0x",
+        "writes": []
+      },
+      "reconstructed": {
+        "success": false,
+        "output": "0x",
+        "writes": []
+      }
+    },
+    {
+      "name": "payable upgrade accepts value",
+      "pass": true,
+      "original": {
+        "success": true,
+        "output": "0x",
+        "writes": [
+          {
+            "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+            "value": "0xa444"
+          }
+        ]
+      },
+      "reconstructed": {
+        "success": true,
+        "output": "0x",
+        "writes": [
+          {
+            "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+            "value": "0xa444"
+          }
+        ]
+      }
+    }
+  ]
+}

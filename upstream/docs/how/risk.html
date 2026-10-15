@@ -1,0 +1,36 @@
+<!-- Source: https://docs.papertrade.xyz/#/how/risk -->
+<h1>Risk</h1>
+<p>The main protocol-level risk surface is BBO price manipulation on Hyperliquid's order book. This page covers that unresolved vector, the contract's economic frictions and exposure controls, the operational guards on top, and the gated/public/admin surfaces.</p>
+
+      <h2 id="bbo-jitter">BBO jitter risk</h2>
+      <p>Papertrade reads its execution price directly from Hyperliquid's BBO. The natural BBO spread on BTC and ETH is tight but non-zero, and within that spread an attacker can place a small limit order on HL's book that does not need to fill: simply sitting on the inside changes the best bid or best ask, which moves the BBO mid by a tick or two.</p>
+      <p>An attacker who shifts BBO this way may be able to open or close a Papertrade position at a distorted midpoint and profit when the quote returns toward the natural market. This is a real residual risk: the pricing pipeline has no independent reference price against which to reject the quote.</p>
+
+      <h2 id="defences">Economic frictions and exposure controls</h2>
+      <p>The protocol has three relevant controls, but none is proof that BBO manipulation is impossible or unprofitable:</p>
+      <ol>
+        <li><strong>0.2 bps jitter-protection deadband.</strong> On a winning close, raw profit smaller than <code>entryPrice / 50000</code> (≈0.2 bps of price) is zeroed before the impact curve runs; larger wins have that amount removed before scaling.</li>
+        <li><strong>Asymmetric impact curve.</strong> The <a href="#/how/asymmetric-impact">haircut</a> on profitable closes is steepest on the smallest moves, reducing the payout from some small BBO distortions without comparing BBO to an independent price.</li>
+        <li><strong>Configurable directional OI caps.</strong> Every instrument has independent long and short caps, and an open that would exceed the selected side's cap reverts. For launch, the keeper will be configured to target each side's current OI plus asset quantity worth $1 billion at the current BBO. The keeper leaves the cap alone while that headroom remains within a 10% hysteresis band ($900M–$1.1B) and rebuilds it toward $1 billion outside the band. These are limits on new per-side exposure, not a $1 billion total-OI ceiling, a loss ceiling, or a guarantee against manipulation profit.</li>
+      </ol>
+      <p>Together these controls can reduce payoff and limit how much new directional exposure fits under the configured caps. A manipulated but non-zero, uncrossed BBO can still pass the oracle, so residual manipulation and LP-loss risk remain.</p>
+
+      <h2 id="operational-guards">Operational guards</h2>
+      <ul>
+        <li><strong>Rigorous watching keeper set.</strong> The protocol team operates an active keeper set that monitors BBO, open interest, and live position health, and runs harvests and liquidations.</li>
+        <li><strong>Terminal market retirement and global opens gate.</strong> The pause guardian can retire a market ID if something looks anomalous; that ID can never accept another open, and existing positions remain closeable only against the BBO frozen at retirement. Retirement can't be undone, which blocks obscure attack vectors around reopening a market; the product may later be listed again under a fresh instrument ID. The separate global trading pause is the reversible way to halt opens without retiring markets.</li>
+        <li><strong>Trailing OI cap operator.</strong> The market keeper applies the configured policy independently to each side. For launch, it will be configured to target current OI plus $1 billion of BBO-valued headroom and update only after that headroom leaves the 10% hysteresis band.</li>
+      </ul>
+
+      <h2 id="permissionless">Permissionless and gated surfaces</h2>
+      <p>Trading goes through Papertrade's relayer: opens, closes, session-key registration, proxy deployment, and staking actions are submitted by configured relayer keys through the batch executor. Every intent is still signed by the user's wallet or session key and checked onchain, so the relayer can't act on an account without its signature.</p>
+      <p>Withdrawals remain user-controlled: direct <code>withdrawToCore</code> is callable by the wallet, and <code>withdrawToCoreBySig</code> can be submitted by anyone but requires the user's real wallet signature. Liquidations, queue harvest, sweep/finalize maintenance, and pushing Exchange-held staker fees remain public maintenance paths. The contract has no admin kill-switch on user balances; user value can be in available balance, open-position margin, or queued debt collateral.</p>
+
+      <h2 id="admin-keys">Admin keys</h2>
+      <p>Three roles, each scoped to a narrow surface:</p>
+      <ul>
+        <li><strong>Pause guardian.</strong> Can retire an instrument ID or engage the global opens gate. Market retirement <em>freezes the oracle</em>: the BBO snapshot captured at retirement becomes the permanent close price for that ID. The retired ID cannot be unpaused or reopened; a later relist uses a fresh instrument ID. Existing positions remain closeable against the frozen BBO. The global gate blocks opens on every market without freezing prices; the guardian can engage it, but only the owner can lift it.</li>
+        <li><strong>Owner.</strong> Can tune impact-curve and fee-rate parameters, set the dev fee recipient (only it can claim accumulated dev fees), swap configured relayers/keepers, list new markets, reconcile deposits whose normal sweep failed, and upgrade the contract implementations. The contracts are proxied, so in principle the owner can do anything the implementation can be rewritten to do.</li>
+        <li><strong>Market keeper.</strong> Moves the configurable per-asset, per-side OI caps and holds the minimum margin and minimum position value (margin × leverage) for opens. Can effectively pause new opens on a side by setting its cap to zero, but unlike the pause guardian this does not freeze the oracle: the BBO still floats and closes still settle at live BBO mid. Cannot move user collateral, cannot freeze the oracle, and cannot touch the impact curve.</li>
+      </ul>
+    

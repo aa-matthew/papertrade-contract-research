@@ -1,0 +1,101 @@
+<!-- Source: https://docs.papertrade.xyz/#/how/solvency-queue -->
+<h1>Solvency & queue</h1>
+<p>Papertrade's LP can be temporarily insolvent. A FIFO payout queue and a parked-funds side bucket guarantee winners eventually get paid, in order, while keeping the protocol from blocking new trades.</p>
+
+      <h2 id="model">The model</h2>
+      <p>Conceptually, Papertrade has three separate accounting buckets:</p>
+      <ul>
+        <li><strong>LP cash</strong>: the part of the Exchange's <code>treasury</code> that isn't owed to anyone else. <code>treasury</code> is all the USDC the Exchange holds; subtract users' available balances, margin locked in open positions, and accrued fees, and what remains is free LP cash. Cannot go negative.</li>
+        <li><strong><code>sideBucket</code></strong>: loss proceeds parked while the queue is non-empty, earmarked inside that cash. Drained first by harvest into queue payouts.</li>
+        <li><strong>Payout queue</strong>: a FIFO of unpaid winning closes. Each entry: <code>(user, amount)</code>.</li>
+      </ul>
+      <p>This is the <a href="#/martingaler/overview">Martingaler mechanism</a>: instead of holding pre-funded LP that pays winners on demand, the protocol queues winners when reserves are short, and clears them as future losses replenish the LP.</p>
+
+      <p><strong>What enters the queue and what doesn't.</strong> The queue holds <em>only what the LP owes on a close but cannot pay from its available budget at close time</em>: profit after the win fee on a USD-funded close, or the surviving claim on a debt-funded close. Several things explicitly stay out:</p>
+      <ul>
+        <li><strong>Margin / collateral</strong> on a USD-funded close — returned to <code>balances[user]</code> immediately via <code>marginCredit</code> (see <code>QueueLib.settle</code>: <code>marginOut = size256</code>). The user can withdraw or reuse it without waiting on the queue.</li>
+        <li><strong>Fees ahead of queued winners</strong> — never paid. Every winner pays the 2% win fee, but it reaches stakers and the dev only when the queue is empty and the LP can fund it as well; otherwise it isn't paid out, and the winner's queued claim is that much smaller. Loss and liquidation fees are waived while the queue is non-empty.</li>
+        <li><strong>USD-funded losses while queue non-empty</strong> — earmarked in <code>sideBucket</code> instead of becoming free LP cash. They still credit tracked LP in full when they settle; harvest uses available queue-backing cash and debits <code>sideBucket</code> first.</li>
+      </ul>
+
+      <figure style="margin:22px 0">
+        <svg viewBox="0 0 760 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three-bucket model diagram" style="width:100%;height:auto;display:block;background:#FAF6ED;border:1px solid #D4CBBA;border-radius:6px">
+          <defs>
+            <marker id="arSQg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5F564B"/></marker>
+            <marker id="arSQbr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7A6235"/></marker>
+          </defs>
+          <text x="180" y="34" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#5F564B" text-anchor="middle" letter-spacing=".04em">USD-FUNDED LOSS / LIQUIDATION</text>
+          <text x="580" y="34" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#5F564B" text-anchor="middle" letter-spacing=".04em">WINNING CLOSE</text>
+          <line x1="180" y1="44" x2="180" y2="74" stroke="#5F564B" stroke-width="1.5" marker-end="url(#arSQg)"/>
+          <line x1="580" y1="44" x2="580" y2="74" stroke="#5F564B" stroke-width="1.5" marker-end="url(#arSQg)"/>
+          <text x="180" y="100" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="middle">if queue empty</text>
+          <text x="580" y="100" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="middle">if queue empty AND solvent</text>
+          <path d="M 180 110 Q 180 130 100 165" stroke="#5F564B" stroke-width="1.5" fill="none" marker-end="url(#arSQg)"/>
+          <path d="M 180 110 Q 180 130 320 165" stroke="#5F564B" stroke-width="1.5" fill="none" marker-end="url(#arSQg)"/>
+          <path d="M 580 110 Q 580 130 460 165" stroke="#5F564B" stroke-width="1.5" fill="none" marker-end="url(#arSQg)"/>
+          <path d="M 580 110 Q 580 130 660 165" stroke="#5F564B" stroke-width="1.5" fill="none" marker-end="url(#arSQg)"/>
+          <text x="115" y="140" font-family="Inter,sans-serif" font-size="10" fill="#7A7060" text-anchor="middle">yes</text>
+          <text x="245" y="140" font-family="Inter,sans-serif" font-size="10" fill="#7A7060" text-anchor="middle">no</text>
+          <text x="500" y="140" font-family="Inter,sans-serif" font-size="10" fill="#7A7060" text-anchor="middle">yes</text>
+          <text x="640" y="140" font-family="Inter,sans-serif" font-size="10" fill="#7A7060" text-anchor="middle">no</text>
+          <rect x="20"  y="170" width="160" height="100" rx="6" fill="rgba(45,95,58,0.08)"  stroke="#2D5F3A" stroke-width="1.5"/>
+          <text x="100" y="200" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#2D5F3A" text-anchor="middle">LP cash</text>
+          <text x="100" y="222" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="middle">free treasury</text>
+          <text x="100" y="248" font-family="Inter,sans-serif" font-size="10" fill="#7A7060" text-anchor="middle" font-style="italic">cannot go negative</text>
+          <rect x="240" y="170" width="160" height="100" rx="6" fill="rgba(122,98,53,0.08)" stroke="#7A6235" stroke-width="1.5"/>
+          <text x="320" y="200" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#7A6235" text-anchor="middle">sideBucket</text>
+          <text x="320" y="222" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="middle">parked loss proceeds</text>
+          <text x="320" y="248" font-family="Inter,sans-serif" font-size="10" fill="#7A7060" text-anchor="middle" font-style="italic">drained by harvest</text>
+          <rect x="400" y="170" width="160" height="100" rx="6" fill="none" stroke="#7A7060" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="480" y="205" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#5F564B" text-anchor="middle">pay user direct</text>
+          <text x="480" y="226" font-family="Inter,sans-serif" font-size="10" fill="#7A7060" text-anchor="middle" font-style="italic">debits LP cash</text>
+          <rect x="580" y="170" width="160" height="100" rx="6" fill="rgba(139,32,32,0.08)" stroke="#8B2020" stroke-width="1.5"/>
+          <text x="660" y="200" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#8B2020" text-anchor="middle">payout queue</text>
+          <text x="660" y="222" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="middle">FIFO of unpaid wins</text>
+          <text x="660" y="248" font-family="Inter,sans-serif" font-size="10" fill="#7A7060" text-anchor="middle" font-style="italic">user owed but unpaid</text>
+          <path d="M 320 272 C 320 320, 660 320, 660 272" stroke="#7A6235" stroke-width="1.5" fill="none" marker-end="url(#arSQbr)"/>
+          <text x="490" y="338" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#7A6235" text-anchor="middle">harvest</text>
+          <text x="490" y="353" font-family="Inter,sans-serif" font-size="10" fill="#7A7060" text-anchor="middle" font-style="italic">drains sideBucket into queue payouts (anyone can call)</text>
+          <line x1="60" y1="376" x2="700" y2="376" stroke="#D4CBBA" stroke-width="1"/>
+          <text x="380" y="400" font-family="ui-monospace,Menlo,monospace" font-size="12" fill="#2A2520" text-anchor="middle">net LP equity = LP cash (incl. sideBucket) − queueTotal</text>
+          <text x="380" y="420" font-family="Inter,sans-serif" font-size="10" font-style="italic" fill="#8B2020" text-anchor="middle">CAN go negative: that's the Martingaler "temporary insolvency" by design</text>
+        </svg>
+        <figcaption style="margin-top:8px;font:12px/1.45 Inter,sans-serif;color:#7A7060;text-align:center">USD-funded loss/liq proceeds become LP cash (queue empty) or park in <code>sideBucket</code> (queue active); debt-funded losses bring in no cash and only shrink the user's queue claim (a liquidation wipes it). Wins pay direct from LP cash when solvent, else queue. Harvest pays queued claims from available backing cash and debits <code>sideBucket</code> first.</figcaption>
+      </figure>
+
+      <h2 id="winner-flow">Winning closes</h2>
+      <p>When a user closes at a profit, the 2% win fee comes off the profit whatever the LP's state. Then:</p>
+      <ol>
+        <li>If the queue is empty: pay the user immediately from the LP's free cash, up to the payout. The fee goes to stakers and the dev only if free cash covers it as well; otherwise it isn't paid out.</li>
+        <li>Append whatever the LP couldn't pay (the whole payout if the queue is non-empty) to the back of the queue as <code>(user, payout)</code>. LP cash is unchanged for the queued part.</li>
+      </ol>
+      <p>A debt-funded position settles the same way, except the LP owes its whole surviving claim: margin plus profit after the win fee, or margin minus the loss. The queue claim it consumed at open was contingent collateral, not money the user held.</p>
+
+      <h2 id="loser-flow">Losing closes &amp; liquidations</h2>
+      <p>When a USD-funded position closes at a loss (or is liquidated):</p>
+      <ol>
+        <li>If the queue is empty: the LP-retained slice (loss minus 2% fee) becomes LP cash directly.</li>
+        <li>If the queue is non-empty: the loss proceeds stay in <code>treasury</code> but are earmarked in <code>sideBucket</code> for queued payouts instead of becoming free LP cash, and the loss or liquidation fee is waived. They still count toward tracked LP when they settle. PAPER mint still fires for realised losses, including insolvent close losses and liquidations; the cash routing to <code>sideBucket</code> does not suppress PAPER emission.</li>
+      </ol>
+      <p>A debt-funded loss or liquidation brings in no cash: the destroyed part of the user's queue claim simply stops being owed, so nothing becomes LP cash or goes to <code>sideBucket</code>. On a losing close, the surviving claim is paid or queued like a win, and the 2% LP-side loss fee is paid from free LP cash only when the queue is empty and that cash covers the surviving claim plus the fee; otherwise it is waived. A liquidation destroys the whole claim and charges no fee.</p>
+
+      <h2 id="harvest">Harvest</h2>
+      <p>A keeper periodically calls <code>harvest(maxEntries)</code>:</p>
+      <ol>
+        <li>Walk the queue head forward, paying out each entry <code>(user, amount)</code> from available queue-backing cash.</li>
+        <li>Debit <code>sideBucket</code> first for the amount paid. If available backing cash runs out before the queue is clear, stop. Future losses or freed cash can fund later harvests.</li>
+        <li>If the queue empties with <code>sideBucket &gt; 0</code>, the residual is released back into ordinary LP cash. Neither harvest nor this release changes tracked LP; the loss already counted when it settled.</li>
+      </ol>
+      <p>Harvest is permissionless; anyone can run it, though the caller isn't paid. The protocol's queue-harvest keeper calls <code>harvest(32)</code> on new blocks whenever there is cash to pay out, so users don't have to.</p>
+
+      <h2 id="invariants">Invariants</h2>
+      <ul>
+        <li><code>treasury</code> and <code>sideBucket</code> are unsigned, so neither can go negative.</li>
+        <li>Free LP cash for new payouts (<code>lpBankrollAvailable()</code>) is zero whenever anything is queued, so a new winner can never be paid ahead of earlier queued ones.</li>
+        <li>Net LP equity = LP cash (including <code>sideBucket</code>) − <code>totalQueued</code>. <strong>This can go negative</strong>; that's the Martingaler "temporary insolvency" by design.</li>
+      </ul>
+
+      <h2 id="user-side">What the user sees</h2>
+      <p>Opening a position is unaffected by queue state except for normal OI caps and debt-queue gas limits. Closing at a profit may either pay you directly or queue you, depending on solvency. The UI shows both an "available" balance (paid out) and a "queued" balance (waiting on harvest); both are spendable for new opens, because queued balance can be consumed as position collateral.</p>
+      <p>Source: <code>contracts/src/QueueLib.sol</code> and the close/liquidate flows in <code>contracts/src/Exchange.sol</code>.</p>
+    

@@ -1,0 +1,140 @@
+[
+  {
+    "slug": "intro/what-is-papertrade",
+    "title": "What is Papertrade?",
+    "eyebrow": "Introduction",
+    "lead": "Papertrade is a fair-launched, fully on-chain perpetuals exchange built on Hyperliquid, with several unique features:"
+  },
+  {
+    "slug": "martingaler/overview",
+    "title": "Martingaler LP",
+    "eyebrow": "Martingaler LP",
+    "lead": "How Papertrade's LP bootstraps from zero with no upfront capital. A summary of the relevant parts of the Martin Galer whitepaper."
+  },
+  {
+    "slug": "intro/faq",
+    "title": "FAQ",
+    "eyebrow": "Introduction",
+    "lead": "Common questions about how Papertrade works, what it costs, and what's actually onchain."
+  },
+  {
+    "slug": "intro/quick-start",
+    "title": "Quick start",
+    "eyebrow": "Introduction",
+    "lead": ""
+  },
+  {
+    "slug": "learn/trades-pricing",
+    "title": "Trades and pricing",
+    "eyebrow": "How it works",
+    "lead": "What a trade looks like from the trader's side, and where the price comes from."
+  },
+  {
+    "slug": "learn/wins-losses",
+    "title": "Wins and losses",
+    "eyebrow": "How it works",
+    "lead": "What happens at close: what you keep, what the protocol takes, and what you receive on losses."
+  },
+  {
+    "slug": "learn/liquidations",
+    "title": "Liquidations",
+    "eyebrow": "How it works",
+    "lead": "How the displayed bust trigger differs from a voluntary close, and what a hard liquidation means."
+  },
+  {
+    "slug": "learn/lp-queue",
+    "title": "The LP and the payout queue",
+    "eyebrow": "How it works",
+    "lead": "What you're trading against, where its money comes from, and what happens when it can't pay out a winner immediately."
+  },
+  {
+    "slug": "learn/paper-emissions",
+    "title": "Paper Emissions",
+    "eyebrow": "How it works",
+    "lead": "Why PAPER exists, how you earn it, and why the rate is biggest at the start."
+  },
+  {
+    "slug": "learn/staking-dividends",
+    "title": "Staking Dividends",
+    "eyebrow": "How it works",
+    "lead": "What you can do with PAPER once you have it: stake to earn USDC, with no lockup."
+  },
+  {
+    "slug": "learn/deposits-withdrawals",
+    "title": "Deposits and withdrawals",
+    "eyebrow": "How it works",
+    "lead": "How money gets into and out of your Papertrade balance."
+  },
+  {
+    "slug": "learn/session-keys",
+    "title": "Session keys",
+    "eyebrow": "How it works",
+    "lead": "Why you don't get a wallet popup on every trade, and what's actually being authorised."
+  },
+  {
+    "slug": "how/architecture",
+    "title": "Architecture overview",
+    "eyebrow": "How it actually works",
+    "lead": "The protocol is a set of contracts on the HyperEVM L1 that uses Hyperliquid's HyperCore precompiles for pricing and bridging. This page maps the contracts and how they fit together."
+  },
+  {
+    "slug": "how/pricing-bbo",
+    "title": "Pricing: BBO precompile",
+    "eyebrow": "How it actually works",
+    "lead": "Papertrade reads prices directly from Hyperliquid's native order book via an EVM precompile. No off-chain oracle, no pricing bot, no price signer."
+  },
+  {
+    "slug": "how/deposits",
+    "title": "Deposits: CREATE2 proxies",
+    "eyebrow": "How it actually works",
+    "lead": "Deposits work by sending USDC to a personal, per-user address. Whatever arrives there is credited to you: there is no deposit call to the Exchange and nothing to approve on it. It's the same model as a CEX deposit address, built on top of entirely on-chain mechanics."
+  },
+  {
+    "slug": "how/solvency-queue",
+    "title": "Solvency & queue",
+    "eyebrow": "How it actually works",
+    "lead": "Papertrade's LP can be temporarily insolvent. A FIFO payout queue and a parked-funds side bucket guarantee winners eventually get paid, in order, while keeping the protocol from blocking new trades."
+  },
+  {
+    "slug": "how/asymmetric-impact",
+    "title": "Asymmetric impact PnL",
+    "eyebrow": "How it actually works",
+    "lead": "How Papertrade settles closing PnL, where the protocol takes its cut of a trade."
+  },
+  {
+    "slug": "how/builder-codes",
+    "title": "Builder codes",
+    "eyebrow": "How it actually works",
+    "lead": "A planned 1% revenue share for frontends that originate trades. Not yet live."
+  },
+  {
+    "slug": "how/risk",
+    "title": "Risk",
+    "eyebrow": "How it actually works",
+    "lead": "The main protocol-level risk surface is BBO price manipulation on Hyperliquid's order book. This page covers that unresolved vector, the contract's economic frictions and exposure controls, the operational guards on top, and the gated/public/admin surfaces."
+  },
+  {
+    "slug": "paper/overview",
+    "title": "$PAPER overview",
+    "eyebrow": "$PAPER",
+    "lead": "$PAPER is Papertrade's native token. It captures a share of protocol revenue when staked and is minted to traders against losing closes and liquidations."
+  },
+  {
+    "slug": "how/mint-curve",
+    "title": "PAPER mint curve",
+    "eyebrow": "How it actually works",
+    "lead": "The flat-then-ratchet curve that turns realised loss basis into PAPER supply. Early activity mints at a constant rate while tracked LP is underwater or small; later activity mints asymptotically less."
+  },
+  {
+    "slug": "paper/staking",
+    "title": "Staking & claims",
+    "eyebrow": "$PAPER",
+    "lead": "Stake PAPER, earn a pro-rata share of protocol revenue in USDC. Stake and unstake are both instant: no cooldown, no lockup."
+  },
+  {
+    "slug": "dev/contract-addresses",
+    "title": "Contract addresses",
+    "eyebrow": "Developer reference",
+    "lead": "Papertrade's contracts on HyperEVM mainnet (chain 999)."
+  }
+]

@@ -1,0 +1,3659 @@
+[
+  {
+    "contract": "BatchExecutor",
+    "address": "0xe0bc9cc7b067060aafccbaa3e250700c9cdd7262",
+    "evidenceId": "ev_611fd9fc8577dd59d5cca7cfacb2a2faa39fa9656631cf68919d5f8446c624e5",
+    "path": "upstream/contracts/BatchExecutor/implementation-runtime.hex",
+    "carrierSha256": "163bfd45b41a94113138290088af8e9aeb6792548aae73e342772c4b89eccfbb",
+    "decodedSha256": "480375f798fccf20fd79fd4fedefdd3377dd44af4dd559a3310a87c5bc048ae8",
+    "bytecodeBytes": 3451,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 3398,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "12204fd7329a9e937e79433cb847c51de3d886d3defe1da2da2a5711ad1057cc9bfa"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x0b826190",
+        "bytecode_offset": 2372,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x0f71c8bc",
+        "bytecode_offset": 2106,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x251fb27d",
+        "bytecode_offset": 1043,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256[]",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x29e295c5",
+        "bytecode_offset": 982,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x6090cf16",
+        "bytecode_offset": 948,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x8da5cb5b",
+        "bytecode_offset": 908,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x9011e5f9",
+        "bytecode_offset": 795,
+        "dispatch": "abi",
+        "inferred_arguments": "address,bool",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x9ccae24e",
+        "bytecode_offset": 412,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,address,address,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xc0c53b8b",
+        "bytecode_offset": 350,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xd2f7265a",
+        "bytecode_offset": 307,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xd5c539ce",
+        "bytecode_offset": 267,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf2fde38b",
+        "bytecode_offset": 160,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "Exchange",
+    "address": "0x0f3febfc94876b0c895f7acecdc8f5c863b549ee",
+    "evidenceId": "ev_d388f7a57a762059742be2d20ae0760e6cb2cda713cc0de06169fc06e19a4f97",
+    "path": "upstream/contracts/Exchange/implementation-runtime.hex",
+    "carrierSha256": "d7f8f6907270f0fb096e5bd22c65190ed53aad97533a0b7e1a5253c1828c7665",
+    "decodedSha256": "2f2e20ca683b70511fe62178b8090c93df24208b13dbdfa6407f38946fcef0b1",
+    "bytecodeBytes": 23052,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 22999,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "1220817b91b6770c85191a1df35debf9950cda728d8ad8d86fdff655327f66db2091"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x01681a62",
+        "bytecode_offset": 16016,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x01ad056f",
+        "bytecode_offset": 15984,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x060447aa",
+        "bytecode_offset": 15882,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x0b826190",
+        "bytecode_offset": 15838,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x0cdd5fc4",
+        "bytecode_offset": 15812,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x138e9de2",
+        "bytecode_offset": 15786,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x13dd495b",
+        "bytecode_offset": 15746,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x18715c9a",
+        "bytecode_offset": 15720,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x1afd17e9",
+        "bytecode_offset": 15649,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32,bool,uint128,uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x1b7c1009",
+        "bytecode_offset": 15599,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x21f55a6c",
+        "bytecode_offset": 15559,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x24a3d622",
+        "bytecode_offset": 15519,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x2792e706",
+        "bytecode_offset": 12606,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256[],uint256,uint64,uint8,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x27e235e3",
+        "bytecode_offset": 12549,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x2d2451d1",
+        "bytecode_offset": 12113,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x2dcc7fce",
+        "bytecode_offset": 12067,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x31a39849",
+        "bytecode_offset": 12037,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x31a4956c",
+        "bytecode_offset": 11930,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x32faa570",
+        "bytecode_offset": 11873,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x3a21be03",
+        "bytecode_offset": 11816,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x415f1240",
+        "bytecode_offset": 10772,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x48bde20c",
+        "bytecode_offset": 10668,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x48ee5e08",
+        "bytecode_offset": 10638,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x4a4d9eea",
+        "bytecode_offset": 10514,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x50c23fab",
+        "bytecode_offset": 10400,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x53ac4b66",
+        "bytecode_offset": 10370,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x53e23e2e",
+        "bytecode_offset": 10335,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x551306f3",
+        "bytecode_offset": 10278,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x58d3ec6a",
+        "bytecode_offset": 10209,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256[]",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x599dc539",
+        "bytecode_offset": 9990,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256[]",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x5ca4c0ea",
+        "bytecode_offset": 9690,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32,uint128,uint96,uint96,uint64",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x5fb3b1b5",
+        "bytecode_offset": 9660,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x61d027b3",
+        "bytecode_offset": 9630,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x628a9fd6",
+        "bytecode_offset": 9425,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32,uint128,uint128",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x63ca348f",
+        "bytecode_offset": 9342,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32,bool,uint128,uint32,bool",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x6a3214c9",
+        "bytecode_offset": 9296,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x6d142da1",
+        "bytecode_offset": 9262,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x6d60ae8e",
+        "bytecode_offset": 9231,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x70f75ff5",
+        "bytecode_offset": 9197,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x753a369c",
+        "bytecode_offset": 9054,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x7b9f5264",
+        "bytecode_offset": 9029,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x7d004aeb",
+        "bytecode_offset": 8996,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x7dc0d1d0",
+        "bytecode_offset": 8955,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x7e4174fc",
+        "bytecode_offset": 8898,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x7f99545a",
+        "bytecode_offset": 8859,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x827ad94c",
+        "bytecode_offset": 8730,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x82f47a3f",
+        "bytecode_offset": 8514,
+        "dispatch": "abi",
+        "inferred_arguments": "uint128,uint128",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x837fa3fd",
+        "bytecode_offset": 8399,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x86d506db",
+        "bytecode_offset": 8295,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x88f2aea5",
+        "bytecode_offset": 8270,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x899346c7",
+        "bytecode_offset": 8240,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x8d09f23f",
+        "bytecode_offset": 7791,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint256,uint64,uint8",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x8da5cb5b",
+        "bytecode_offset": 7748,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x9274682e",
+        "bytecode_offset": 7707,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x96523644",
+        "bytecode_offset": 7677,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x99fbab88",
+        "bytecode_offset": 7511,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x9d47d4d3",
+        "bytecode_offset": 7470,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xa0bf0f75",
+        "bytecode_offset": 7366,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xa25dc87f",
+        "bytecode_offset": 7192,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xa69a2ad1",
+        "bytecode_offset": 7151,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xae4daf4e",
+        "bytecode_offset": 6953,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xae69b95b",
+        "bytecode_offset": 6780,
+        "dispatch": "abi",
+        "inferred_arguments": "bool",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xaf210ecc",
+        "bytecode_offset": 6752,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xafdf6702",
+        "bytecode_offset": 6711,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xb3060d36",
+        "bytecode_offset": 6660,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xbacd9ea0",
+        "bytecode_offset": 6626,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc0c53b8b",
+        "bytecode_offset": 6105,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xc10f1a75",
+        "bytecode_offset": 6064,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc43fbc8c",
+        "bytecode_offset": 6031,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc8372577",
+        "bytecode_offset": 5933,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc88bbcf3",
+        "bytecode_offset": 5358,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,uint256,uint256,uint32,uint256,uint256,uint256,uint256,uint64",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xcb163b03",
+        "bytecode_offset": 5249,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xcbeb5f3d",
+        "bytecode_offset": 5208,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xcd2d3811",
+        "bytecode_offset": 5054,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xd188c049",
+        "bytecode_offset": 4950,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xd7c7e5fb",
+        "bytecode_offset": 4733,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32,uint32,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xdc8a47ef",
+        "bytecode_offset": 4567,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xdcab7f6a",
+        "bytecode_offset": 4510,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xddc63262",
+        "bytecode_offset": 4471,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xe0189108",
+        "bytecode_offset": 4437,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xe1f9209b",
+        "bytecode_offset": 4396,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xe538b280",
+        "bytecode_offset": 4224,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xe53e3de6",
+        "bytecode_offset": 4183,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xe634384f",
+        "bytecode_offset": 4095,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xec0bdcfc",
+        "bytecode_offset": 4065,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xec6783f0",
+        "bytecode_offset": 1833,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint32,bool,uint128,uint32,bool,uint256,uint64,uint8,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xed410ee1",
+        "bytecode_offset": 1792,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xefc1bd46",
+        "bytecode_offset": 1688,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xf1a8786c",
+        "bytecode_offset": 1658,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf28bbdb2",
+        "bytecode_offset": 1622,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf2fde38b",
+        "bytecode_offset": 1526,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xf37d3c4f",
+        "bytecode_offset": 1416,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf728fc98",
+        "bytecode_offset": 1374,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf84a74d3",
+        "bytecode_offset": 1318,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xfb9f1009",
+        "bytecode_offset": 1273,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xfbddd751",
+        "bytecode_offset": 1169,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xfdfd905d",
+        "bytecode_offset": 1134,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xff3bc415",
+        "bytecode_offset": 1104,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "SessionKeyManager",
+    "address": "0x8a5069fe303e8f81e91825436e956d595032e558",
+    "evidenceId": "ev_cc2b4bbb21daa3103e0c9ed93c1736557780e473fca607845452e01935ef9063",
+    "path": "upstream/contracts/SessionKeyManager/implementation-runtime.hex",
+    "carrierSha256": "976c87be0f4c2cd2dce7a3ec6a65f14b4bd4f2a3ba2cdb4a3c38992782ff66b4",
+    "decodedSha256": "630c02b0c693c47760554a3f0fed68b72db5df601f887d2edaaa3106e6308e63",
+    "bytecodeBytes": 3764,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 3711,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "1220bdbc5cbee899d671bf2e0391cc69a08a0d82fc6c9ce21992e0d05e5ec73cc537"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x0b4c3a82",
+        "bytecode_offset": 2787,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x17a1678f",
+        "bytecode_offset": 2711,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint64,address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x208e24fc",
+        "bytecode_offset": 2653,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x2bc9ed54",
+        "bytecode_offset": 2614,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x3644e515",
+        "bytecode_offset": 2584,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x5197a0d3",
+        "bytecode_offset": 2437,
+        "dispatch": "abi",
+        "inferred_arguments": "address,bool",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x5f76a1d6",
+        "bytecode_offset": 1912,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,uint64,address,uint256,uint64,uint8",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x6525a680",
+        "bytecode_offset": 1854,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x747b8a1c",
+        "bytecode_offset": 1487,
+        "dispatch": "abi",
+        "inferred_arguments": "address,bytes,bytes,uint256,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x78e890ba",
+        "bytecode_offset": 1437,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x7ecebe00",
+        "bytecode_offset": 1382,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x7f608253",
+        "bytecode_offset": 1222,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint8,uint256,uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x7f6e9d4b",
+        "bytecode_offset": 1162,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x84f4fc6a",
+        "bytecode_offset": 1066,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x8da5cb5b",
+        "bytecode_offset": 1026,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x96ade1f9",
+        "bytecode_offset": 930,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x97dc97cb",
+        "bytecode_offset": 890,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xb002b9fa",
+        "bytecode_offset": 777,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint8,uint64",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xc1e6613d",
+        "bytecode_offset": 699,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xcab7e8eb",
+        "bytecode_offset": 623,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint8",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xcf8fbec9",
+        "bytecode_offset": 533,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xd45167d0",
+        "bytecode_offset": 463,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,uint8,uint256,uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf2f59776",
+        "bytecode_offset": 399,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf2fde38b",
+        "bytecode_offset": 295,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "PriceOracle",
+    "address": "0x3997ffc8cbd281d4fc8d0548e505ae2fbbbd985a",
+    "evidenceId": "ev_fdbc1a97399e9b1e71d02321da7a3e8cc90eea6300623e262ef703df6d31b71b",
+    "path": "upstream/contracts/PriceOracle/implementation-runtime.hex",
+    "carrierSha256": "c02f53c6cd9f2c8128560f79f3155a7fe90544b638312edace1d576745b4679d",
+    "decodedSha256": "8e452a76ac1b28c05d220451d837c3758bd41180526940752f89047bc0dd22ed",
+    "bytecodeBytes": 2475,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 2422,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "1220198a11b6b74dc8bca259f1d1873c9a570e5636d4cbc5aaf1847d9fd730e4a272"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x2af78bd1",
+        "bytecode_offset": 1180,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x766cd255",
+        "bytecode_offset": 1113,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x8da5cb5b",
+        "bytecode_offset": 1070,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xa066fae9",
+        "bytecode_offset": 1009,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xa7f06462",
+        "bytecode_offset": 712,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32[]",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc0182669",
+        "bytecode_offset": 412,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc4d66de8",
+        "bytecode_offset": 271,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xf2fde38b",
+        "bytecode_offset": 194,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xfb466481",
+        "bytecode_offset": 126,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "view"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "PaperToken",
+    "address": "0x433bd418ec92818a960585f4d5fae563e735bb4a",
+    "evidenceId": "ev_b11d999aac9e634e90e396902bcd4857c1484ba3540b8be7eea077a4d9d3019a",
+    "path": "upstream/contracts/PaperToken/implementation-runtime.hex",
+    "carrierSha256": "4b2d197f923b5ac35ccf7240961bb8b25a1f9fb6170a01f51d2a13ca1b2c03c2",
+    "decodedSha256": "f77b91537421a0092f1c068f85af316caf7fd8d8461e8b0305022ee6f5f0faae",
+    "bytecodeBytes": 3528,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 3475,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "1220b496178580ee43455e50d58f84fffc4dace3993d8fc59343dabee723a44479b9"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x06fdde03",
+        "bytecode_offset": 2607,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x07546172",
+        "bytecode_offset": 2568,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x095ea7b3",
+        "bytecode_offset": 2458,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x12bbf044",
+        "bytecode_offset": 2418,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x18160ddd",
+        "bytecode_offset": 2388,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x23b872dd",
+        "bytecode_offset": 2221,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x313ce567",
+        "bytecode_offset": 2194,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x40c10f19",
+        "bytecode_offset": 2062,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x70a08231",
+        "bytecode_offset": 2007,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x8da5cb5b",
+        "bytecode_offset": 1967,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x8f15b414",
+        "bytecode_offset": 1165,
+        "dispatch": "abi",
+        "inferred_arguments": "string,string,address,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x95d89b41",
+        "bytecode_offset": 979,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x9dc29fac",
+        "bytecode_offset": 815,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x9dd373b9",
+        "bytecode_offset": 706,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xa9059cbb",
+        "bytecode_offset": 658,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xd311b1a9",
+        "bytecode_offset": 549,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xdd62ed3e",
+        "bytecode_offset": 497,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xee99205c",
+        "bytecode_offset": 457,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf2fde38b",
+        "bytecode_offset": 356,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xfca3b5aa",
+        "bytecode_offset": 251,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "DepositProxyFactory",
+    "address": "0x8f22a73a23a2de0dbfdf6729f4d8c07dbdc69cf0",
+    "evidenceId": "ev_858c40a739e5bf59697209a976e5c4c655da27ae3741939d6888d58756b02c16",
+    "path": "upstream/contracts/DepositProxyFactory/implementation-runtime.hex",
+    "carrierSha256": "376af9adf8207feed2d81a7599b17a84ca4105cf7a28f0d1b9b2122b47e91cfb",
+    "decodedSha256": "808c1f14f7d7811b32fedb672fcfa0b5095f96faa20ec8413556875b4ace9efd",
+    "bytecodeBytes": 3917,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 3864,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "12208f8098464e2f7d5f42d2072169e44106ac84abb416b562e73ec55ab085566163"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x03b802b6",
+        "bytecode_offset": 1327,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x0f71c8bc",
+        "bytecode_offset": 1183,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x29710388",
+        "bytecode_offset": 1123,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x56e8d85b",
+        "bytecode_offset": 960,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x8da5cb5b",
+        "bytecode_offset": 920,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc1a9a508",
+        "bytecode_offset": 863,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc4d66de8",
+        "bytecode_offset": 823,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc6f881bc",
+        "bytecode_offset": 721,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xcbd433f4",
+        "bytecode_offset": 619,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xd2f7265a",
+        "bytecode_offset": 576,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xd600539a",
+        "bytecode_offset": 288,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf2fde38b",
+        "bytecode_offset": 163,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "PaperStaking",
+    "address": "0xe6e3519455170913c5c3bfe541dd918a2d0cbb15",
+    "evidenceId": "ev_b350da28a994aa92d3898ea285983687fb98a4ecf17f8eebb9bd976239f9db0e",
+    "path": "upstream/contracts/PaperStaking/implementation-runtime.hex",
+    "carrierSha256": "ee82f336b36b47409f891d0d0ce253ec69d83c593ff07e9c4eab8eb4c202246a",
+    "decodedSha256": "3e006d0daee1fcbaa71c160a72291374783da5f720a33db0a51c8f84bde3aa04",
+    "bytecodeBytes": 6054,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 6001,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "1220fd9e03c6e2b6cf73b4169985ab8939a698bbc5f419b35307300d8f157ba8ecf2"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x0700cc42",
+        "bytecode_offset": 3610,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x0f71c8bc",
+        "bytecode_offset": 3369,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x13dd495b",
+        "bytecode_offset": 3329,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x2b6fdc7e",
+        "bytecode_offset": 3299,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x2e17de78",
+        "bytecode_offset": 1768,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x31d7a262",
+        "bytecode_offset": 3244,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x3644e515",
+        "bytecode_offset": 3214,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x4e71d92d",
+        "bytecode_offset": 1469,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x51ed6a30",
+        "bytecode_offset": 3174,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x5638b3e5",
+        "bytecode_offset": 3135,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x5873eb9b",
+        "bytecode_offset": 3080,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x60217267",
+        "bytecode_offset": 3025,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x6090cf16",
+        "bytecode_offset": 2987,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x6b0509b1",
+        "bytecode_offset": 2948,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x78e890ba",
+        "bytecode_offset": 2911,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x7ecebe00",
+        "bytecode_offset": 2856,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x817b1cd2",
+        "bytecode_offset": 2826,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x83115825",
+        "bytecode_offset": 2363,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint256,uint64,uint8,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x89ee09f0",
+        "bytecode_offset": 2324,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x8da5cb5b",
+        "bytecode_offset": 2284,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x939d6237",
+        "bytecode_offset": 2254,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x9c96d4a1",
+        "bytecode_offset": 2102,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint64,uint8,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x9ccae24e",
+        "bytecode_offset": 1773,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,address,address,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xa694fc3a",
+        "bytecode_offset": 1768,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc0c53b8b",
+        "bytecode_offset": 1710,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xcab64bcd",
+        "bytecode_offset": 1680,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xcab7e8eb",
+        "bytecode_offset": 1604,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint8",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xd188c049",
+        "bytecode_offset": 1514,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xd2f7265a",
+        "bytecode_offset": 1474,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xe4fc6b6d",
+        "bytecode_offset": 1469,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf0355460",
+        "bytecode_offset": 1278,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint64,uint8,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xf2f59776",
+        "bytecode_offset": 1214,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf2fde38b",
+        "bytecode_offset": 1113,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xf40f0f52",
+        "bytecode_offset": 972,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf7c618c1",
+        "bytecode_offset": 933,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xfa2871b5",
+        "bytecode_offset": 427,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint256,uint64,uint8,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "PaperTokenomics",
+    "address": "0x600d1b9653fd47fc1543d1cc87f33ba2d2fdf48f",
+    "evidenceId": "ev_cb05b96a9a3eb6229d9e2ebedba473a1341a201a3b4a87f8d99413dd126f7997",
+    "path": "upstream/contracts/PaperTokenomics/implementation-runtime.hex",
+    "carrierSha256": "e6aee0d425a3bd2c6940f156422c8bce63c5ae155ed89c861a75b7dd9bc8be47",
+    "decodedSha256": "ed9d18151a9365c347ac7a9da7e83b53ecedac235d9e67c4b2699503a6bd4a97",
+    "bytecodeBytes": 3324,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 3271,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "122053e71228c2e67466c7256f4ce685d42c66cfc78940bd782abad1e33643744e36"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x0efdf838",
+        "bytecode_offset": 1639,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,bool,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x12baae3b",
+        "bytecode_offset": 1431,
+        "dispatch": "abi",
+        "inferred_arguments": "bool,uint256,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x1c3972ba",
+        "bytecode_offset": 1401,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x3886cade",
+        "bytecode_offset": 503,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x485cc955",
+        "bytecode_offset": 1080,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x7c7df7b4",
+        "bytecode_offset": 1010,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint256,uint64,uint8",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x8cf554a7",
+        "bytecode_offset": 980,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x8da5cb5b",
+        "bytecode_offset": 937,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x98255e15",
+        "bytecode_offset": 897,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xae745703",
+        "bytecode_offset": 862,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc16017ca",
+        "bytecode_offset": 832,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc218c676",
+        "bytecode_offset": 773,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xcbb451da",
+        "bytecode_offset": 743,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xd2f7265a",
+        "bytecode_offset": 703,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xdb006a75",
+        "bytecode_offset": 672,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xdc5682d2",
+        "bytecode_offset": 644,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xe6ee2285",
+        "bytecode_offset": 533,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xe9ed73e9",
+        "bytecode_offset": 503,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xed722c96",
+        "bytecode_offset": 421,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xf2fde38b",
+        "bytecode_offset": 296,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xfe16eae8",
+        "bytecode_offset": 262,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "USDC",
+    "address": "0xb88339CB7199b77E23DB6E890353E22632Ba630f",
+    "evidenceId": "ev_9d715b7ce20996b616821257716edf1504c2e9e1e6f3fd43b0a6ac6aa02dd4c2",
+    "path": "upstream/contracts/USDC/runtime.hex",
+    "carrierSha256": "d838a5b179819a1ffb5193c1002bc7d3bd03e351e56a3303c229747bf4dc7f60",
+    "decodedSha256": "a076bfa80c643b27558babf0a2b87e2b939a7004ad33952da352d6f81945c40b",
+    "bytecodeBytes": 1798,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 1745,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "12206912698afeb8292e0377ff7ebcb7d711a6825aecdf904df29338deebe26b2828"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "00060c"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.6.12"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x3659cfe6",
+        "bytecode_offset": 100,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x4f1ef286",
+        "bytecode_offset": 164,
+        "dispatch": "abi",
+        "inferred_arguments": "address,bytes",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0x5c60da1b",
+        "bytecode_offset": 305,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x8f283970",
+        "bytecode_offset": 367,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xf851a440",
+        "bytecode_offset": 431,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "Timelock",
+    "address": "0xB915Fa41e824D6aA31BB833Ee81220C0F2c8EA0F",
+    "evidenceId": "ev_d0d2da0d20e8b04ebdf9d12fc0f2e140eac9a6aaab0644877db98de751431fd7",
+    "path": "upstream/contracts/Timelock/runtime.hex",
+    "carrierSha256": "96b68faa1ac98b813ca049c3e48db5ebbab4bb393589229cd63207494139b224",
+    "decodedSha256": "f391dcb36b34b4b2fb1ffd42015cd4832a56ed8b40545eb3df41b58d7b38443e",
+    "bytecodeBytes": 3207,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 3154,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "12201dd1e3f7bbd0d41275e947c0343241a33be38bc9b74a88df3ff73b04c8fa37cd"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x04d2cd0e",
+        "bytecode_offset": 1749,
+        "dispatch": "abi",
+        "inferred_arguments": "address[],uint256[],bytes[],uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x13bc9f20",
+        "bytecode_offset": 1685,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x2ab0f529",
+        "bytecode_offset": 1642,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x584b153e",
+        "bytecode_offset": 1578,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x6cb6a1f7",
+        "bytecode_offset": 1538,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x88aa4c12",
+        "bytecode_offset": 1382,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,bytes,uint256",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0x8a99d586",
+        "bytecode_offset": 1291,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x8b07f62b",
+        "bytecode_offset": 1083,
+        "dispatch": "abi",
+        "inferred_arguments": "address[],uint256[],bytes[],uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x8da5cb5b",
+        "bytecode_offset": 1044,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xa6cc2c8c",
+        "bytecode_offset": 742,
+        "dispatch": "abi",
+        "inferred_arguments": "address[],uint256[],bytes[],uint256",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0xb0e58bc9",
+        "bytecode_offset": 563,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,bytes,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xc4d252f5",
+        "bytecode_offset": 404,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xc63c4e9b",
+        "bytecode_offset": 374,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xec2a5b45",
+        "bytecode_offset": 337,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,bytes,uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf2fde38b",
+        "bytecode_offset": 200,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "ProxyAdmin",
+    "address": "0xe79c91cc682f1bb401a9cab74c900470190f0f8f",
+    "evidenceId": "ev_c7576d0b039298e7ea8d3585057bf8c52879639a3e6457af9bc8219ac211f07b",
+    "path": "upstream/contracts/ProxyAdmin/runtime.hex",
+    "carrierSha256": "822032bea42cf76196103aef1c1509f6e8c85ae1b2d9bc3bbe13ac2fb5f6f5ec",
+    "decodedSha256": "238bb08777bab344b1e4090bd3a64fd26e48ef9ebaaf075234274e1c06129066",
+    "bytecodeBytes": 943,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 890,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "1220597382dbb40d5bb09b0960e1e8bcdc635c59dd472b7b10115a2618d1f1d57108"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x7eff275e",
+        "bytecode_offset": 651,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x8da5cb5b",
+        "bytecode_offset": 611,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x9623609d",
+        "bytecode_offset": 404,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,bytes",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0x99a88ec4",
+        "bytecode_offset": 230,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xf2fde38b",
+        "bytecode_offset": 87,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "Multisig",
+    "address": "0x696292762fD5AC3677a45EdBe54EAECE4194d1F6",
+    "evidenceId": "ev_831c2e0bfd93d918372b0aefabb0e211973ffb4668e9efe37352cd2cd3d1c529",
+    "path": "upstream/contracts/Multisig/runtime.hex",
+    "carrierSha256": "7a940779dde453d08f28ececb34b9183405a82bdaa78bcbefbecb0a995858c53",
+    "decodedSha256": "25c3204acbd096d8407b2253cc2d59b920e89be24be8fd897ad299db09f8f513",
+    "bytecodeBytes": 3134,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 3081,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "12200c56f321ea06aa9037929c07b439cdf9b52fc006a3e2dbf133c412708ec2ac15"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x1a5f66c3",
+        "bytecode_offset": 2475,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x27865bb3",
+        "bytecode_offset": 2375,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x64d62769",
+        "bytecode_offset": 2335,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x735631ad",
+        "bytecode_offset": 2173,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x79301c0f",
+        "bytecode_offset": 1836,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x7b1106de",
+        "bytecode_offset": 1376,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x7df73e27",
+        "bytecode_offset": 1331,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x82e717f7",
+        "bytecode_offset": 1304,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x900cf0cf",
+        "bytecode_offset": 1275,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x9ace38c2",
+        "bytecode_offset": 1129,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xb77bf600",
+        "bytecode_offset": 1100,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc6427474",
+        "bytecode_offset": 226,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,string",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xd98f851a",
+        "bytecode_offset": 183,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "Dependency_e9918171",
+    "address": "0xe991817199363046da0a28da6fbad0284e4aa492",
+    "evidenceId": "ev_9fd2e3833794f958ca1aee34db2d45201cf128835c853bb97ea1de890ff6d1d9",
+    "path": "upstream/contracts/Dependency_e9918171/runtime.hex",
+    "carrierSha256": "982e85d053347832349352ba9b7bc79cc939cf6f2bf8a7254531d662ed9a4bff",
+    "decodedSha256": "8f1de6ca76cfd6f0186e9f4472dd53fab6dfa1a53a7c3a2a3700d641fec7c5da",
+    "bytecodeBytes": 585,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 532,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "12207ab76f973f734280a51974b095ab2c8e283b2e1e59e81163de53908b57905ebb"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x7aac24ba",
+        "bytecode_offset": 36,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,uint256,uint256,uint256,uint256,uint256",
+        "inferred_state_mutability": "payable"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "ExchangeLinkedLibrary",
+    "address": "0xcd617f984158a4f5d287ddee0e8eb0fed204916d",
+    "evidenceId": "ev_b68c5eaefdb516378fbff8bc62a4741e52f386b5bfbcc947fdd25abbb171b712",
+    "path": "upstream/contracts/ExchangeLinkedLibrary/runtime.hex",
+    "carrierSha256": "95bddf21f52471ed51670c3b402002888bdb3dde685acdbd546ed121884e217f",
+    "decodedSha256": "622ed31d6eeea7efb834d32e4f2199b718af1ece2280f4d22cdd1f8769aa4fe2",
+    "bytecodeBytes": 5790,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 5737,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "1220d18e07f4ff455fb2061dcdef6066e1a831478761f1570892ea45d974836a67fd"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x18958ce2",
+        "bytecode_offset": 2616,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,address,uint256",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0x2448a553",
+        "bytecode_offset": 2587,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,address,uint256,uint256,uint256",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0x32db40c9",
+        "bytecode_offset": 2146,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,address,uint256,uint256,uint256",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0x3cf4208d",
+        "bytecode_offset": 1579,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,address,uint256,uint256,uint256,uint256",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0x3f4e3626",
+        "bytecode_offset": 1303,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,address,bool",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0x79810ffe",
+        "bytecode_offset": 889,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,uint256,uint256,uint256,uint256",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0x82296364",
+        "bytecode_offset": 428,
+        "dispatch": "abi",
+        "inferred_arguments": "uint64,uint64,int256,uint32,bool",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0xb67f3dd7",
+        "bytecode_offset": 349,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,uint64,uint64,uint256,uint256,uint256,uint256",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0xca02ff91",
+        "bytecode_offset": 283,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,address,uint256,uint256",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0xef1a27a9",
+        "bytecode_offset": 170,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,address,uint128,uint256,bool,uint256,uint256,uint256",
+        "inferred_state_mutability": "payable"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "CoreDepositWallet",
+    "address": "0x7537af00779cc053a696e47ebd451b5bc4790da3",
+    "evidenceId": "ev_ff5362fa0aa7dc18050119b154c5546ce7f35b5ca5b869c104e564a040b94136",
+    "path": "upstream/contracts/CoreDepositWallet/implementation-runtime.hex",
+    "carrierSha256": "6433a285e1e44cd3bdd42c60108bd2f991eb1ca85ab6dd247d7766710a26c02e",
+    "decodedSha256": "bcf040c23787ba3841b251a94a14563a86c6186db930427064e14698c4e27531",
+    "bytecodeBytes": 17936,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 17883,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "1220b08e70a9262791a76ad4a64b77a05897c28453f758d34b55f98112edf7f1ebab"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000706"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.7.6"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x0d39c3fc",
+        "bytecode_offset": 690,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "pure"
+      },
+      {
+        "selector": "0x0e721e6e",
+        "bytecode_offset": 720,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x108438e0",
+        "bytecode_offset": 752,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x11f2b0dc",
+        "bytecode_offset": 762,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "pure"
+      },
+      {
+        "selector": "0x2ab60045",
+        "bytecode_offset": 783,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x2b2dfd2c",
+        "bytecode_offset": 802,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,uint32",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x38a63183",
+        "bytecode_offset": 821,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x3c1072d0",
+        "bytecode_offset": 829,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x3f4ba83a",
+        "bytecode_offset": 848,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x46117830",
+        "bytecode_offset": 856,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "pure"
+      },
+      {
+        "selector": "0x4c5bd546",
+        "bytecode_offset": 864,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x554bab3c",
+        "bytecode_offset": 872,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x5c975abb",
+        "bytecode_offset": 891,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x6ddde35e",
+        "bytecode_offset": 899,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint32,uint256,uint64,bytes",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x79ba5097",
+        "bytecode_offset": 918,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x7b5c63cf",
+        "bytecode_offset": 926,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x820b3e1e",
+        "bytecode_offset": 945,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x8456cb59",
+        "bytecode_offset": 966,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x8da5cb5b",
+        "bytecode_offset": 974,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x9fd0506d",
+        "bytecode_offset": 982,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xa7917af3",
+        "bytecode_offset": 990,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xa9059cbb",
+        "bytecode_offset": 998,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xb2118a8d",
+        "bytecode_offset": 1017,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xb49595b7",
+        "bytecode_offset": 1036,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xb7a42b92",
+        "bytecode_offset": 1068,
+        "dispatch": "abi",
+        "inferred_arguments": "uint64",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xb8e2e3d4",
+        "bytecode_offset": 1087,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xc0cfc00d",
+        "bytecode_offset": 1095,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xc23c545a",
+        "bytecode_offset": 1114,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint32",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xd004283e",
+        "bytecode_offset": 1133,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xd26b3e26",
+        "bytecode_offset": 1152,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xda6d4994",
+        "bytecode_offset": 1171,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xe26f7d23",
+        "bytecode_offset": 1190,
+        "dispatch": "abi",
+        "inferred_arguments": "bool,uint32",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xe30c3978",
+        "bytecode_offset": 1209,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xea031649",
+        "bytecode_offset": 1217,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256,uint256,uint256,uint256,uint8,uint256,uint256,uint32",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xeb42696a",
+        "bytecode_offset": 1236,
+        "dispatch": "abi",
+        "inferred_arguments": "uint32,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xeeb97d18",
+        "bytecode_offset": 1255,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xf2fde38b",
+        "bytecode_offset": 1263,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xf8f1b507",
+        "bytecode_offset": 1282,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xfc0c546a",
+        "bytecode_offset": 1301,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "pure"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "USDCImplementation",
+    "address": "0x003f73f58ca78880da3642c5cb71d7459b3fe4f8",
+    "evidenceId": "ev_d2180a789f56a8a0a7051f12467a27f68615400f30c42aefbc4a4b4f30fa0747",
+    "path": "upstream/contracts/USDCImplementation/runtime.hex",
+    "carrierSha256": "49b1710dd0021e877c8ee048728166bf5be5928a270db6183ffbb5d6c0acb16f",
+    "decodedSha256": "133524b48946c10ff431a50c4c0e0a8012c321671f3715a20866897ca9d14118",
+    "bytecodeBytes": 23464,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 23411,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "1220bd452e466388682a4d54e268ec4b8bb8f947ef867fe3c44adbe7a6916ef02c68"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "00060c"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.6.12"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x06fdde03",
+        "bytecode_offset": 882,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x095ea7b3",
+        "bytecode_offset": 1007,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x18160ddd",
+        "bytecode_offset": 1084,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x1a895266",
+        "bytecode_offset": 1110,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x23b872dd",
+        "bytecode_offset": 1163,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x2ab60045",
+        "bytecode_offset": 1230,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x2fc81e09",
+        "bytecode_offset": 1281,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x3092afd5",
+        "bytecode_offset": 1332,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x30adf81f",
+        "bytecode_offset": 1383,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "pure"
+      },
+      {
+        "selector": "0x313ce567",
+        "bytecode_offset": 1391,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x3357162b",
+        "bytecode_offset": 1421,
+        "dispatch": "abi",
+        "inferred_arguments": "bytes,bytes,bytes,uint8,address,address,address,address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x35d99f35",
+        "bytecode_offset": 1913,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x3644e515",
+        "bytecode_offset": 1962,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x38a63183",
+        "bytecode_offset": 1970,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x39509351",
+        "bytecode_offset": 1978,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x3f4ba83a",
+        "bytecode_offset": 2035,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x40c10f19",
+        "bytecode_offset": 2043,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x42966c68",
+        "bytecode_offset": 2100,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x430239b4",
+        "bytecode_offset": 2129,
+        "dispatch": "abi",
+        "inferred_arguments": "uint256[],bytes",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x4e44d956",
+        "bytecode_offset": 2323,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x54fd4d50",
+        "bytecode_offset": 2380,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "pure"
+      },
+      {
+        "selector": "0x554bab3c",
+        "bytecode_offset": 2388,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x5a049a70",
+        "bytecode_offset": 2439,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,uint8,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x5c975abb",
+        "bytecode_offset": 2517,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x70a08231",
+        "bytecode_offset": 2525,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x7ecebe00",
+        "bytecode_offset": 2576,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x7f2eecc3",
+        "bytecode_offset": 2627,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "pure"
+      },
+      {
+        "selector": "0x8456cb59",
+        "bytecode_offset": 2635,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x88b7ab63",
+        "bytecode_offset": 2643,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,uint256,uint256,uint256,uint256,bytes",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x8a6db9c3",
+        "bytecode_offset": 2871,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x8da5cb5b",
+        "bytecode_offset": 2922,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x95d89b41",
+        "bytecode_offset": 2930,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x9fd0506d",
+        "bytecode_offset": 2938,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x9fd5a6cf",
+        "bytecode_offset": 2946,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,uint256,uint256,bytes",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xa0cc6a68",
+        "bytecode_offset": 3162,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "pure"
+      },
+      {
+        "selector": "0xa457c2d7",
+        "bytecode_offset": 3170,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xa9059cbb",
+        "bytecode_offset": 3227,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xaa20e1e4",
+        "bytecode_offset": 3284,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xaa271e1a",
+        "bytecode_offset": 3335,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xad38bf22",
+        "bytecode_offset": 3386,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xb2118a8d",
+        "bytecode_offset": 3437,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xb7b72899",
+        "bytecode_offset": 3504,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256,bytes",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xbd102430",
+        "bytecode_offset": 3704,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xcf092995",
+        "bytecode_offset": 3712,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,uint256,uint256,uint256,uint256,bytes",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xd505accf",
+        "bytecode_offset": 3940,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,uint256,uint256,uint8,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xd608ea64",
+        "bytecode_offset": 4034,
+        "dispatch": "abi",
+        "inferred_arguments": "bytes",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xd9169487",
+        "bytecode_offset": 4146,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "pure"
+      },
+      {
+        "selector": "0xdd62ed3e",
+        "bytecode_offset": 4154,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xe3ee160e",
+        "bytecode_offset": 4213,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,uint256,uint256,uint256,uint256,uint8,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xe5a6b10f",
+        "bytecode_offset": 4321,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xe94a0102",
+        "bytecode_offset": 4329,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0xef55bec6",
+        "bytecode_offset": 4386,
+        "dispatch": "abi",
+        "inferred_arguments": "address,address,uint256,uint256,uint256,uint256,uint8,uint256,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xf2fde38b",
+        "bytecode_offset": 4494,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xf9f92be4",
+        "bytecode_offset": 4545,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xfe575a87",
+        "bytecode_offset": 4596,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "view"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "CoreWriterSystem",
+    "address": "0x3333333333333333333333333333333333333333",
+    "evidenceId": "ev_ae2b62d4075a71557e0958f77a38a4e090967cf10603c8d5009a789a077e6ea2",
+    "path": "upstream/contracts/CoreWriterSystem/runtime.hex",
+    "carrierSha256": "d3fd16827a4c6c5779f184c0f9d1eac331ec99efe16c169bd0856e2fbf8c1b6d",
+    "decodedSha256": "fd053fae53aa5ff797c8de9d38f5180d3c280228ae2d669ef9a83ab7834dac83",
+    "bytecodeBytes": 544,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 491,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "1220f01517e1fbaff8af4bd72cb063cccecbacbb00b07354eea7dd52265d355474fb"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "00081c"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.28"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x17938e13",
+        "bytecode_offset": 45,
+        "dispatch": "abi",
+        "inferred_arguments": "bytes",
+        "inferred_state_mutability": "nonpayable"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "SampleUserDepositProxy",
+    "address": "0xf77d749a8916c615ca30370b7394525efb55dcc0",
+    "evidenceId": "ev_482ca90022640fe5fcc35d23903b4fe236831bda406ba7a659795b1452a1ecec",
+    "path": "upstream/contracts/SampleUserDepositProxy/runtime.hex",
+    "carrierSha256": "b4f02c40d59e977576af84f47b0d4f50f3f8a96b23f160bffa64ea42c00d6b1b",
+    "decodedSha256": "3ac15ebad04d8682b6100ef39e36b4b712cc1ad80e866244530ff33892e494b5",
+    "bytecodeBytes": 1646,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 1593,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "1220bebcee6112b90ff7ae57e528ab0fbf52857e276c1ee729fc6447ffc1f66ffd1c"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x0c506e96",
+        "bytecode_offset": 938,
+        "dispatch": "abi",
+        "inferred_arguments": "address,uint256",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0x4f8632ba",
+        "bytecode_offset": 871,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x925b3aad",
+        "bytecode_offset": 148,
+        "dispatch": "abi",
+        "inferred_arguments": "uint64,uint64,uint64",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xd2f7265a",
+        "bytecode_offset": 78,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  },
+  {
+    "contract": "ProtocolProxy",
+    "address": "0x6cd5661646289FB6E65EA5C032310fDEd797D0a2",
+    "evidenceId": "ev_62d288cb76f486c7e0e0d284d9e99db63fa585e099723fa61ec43eb15aec4c9d",
+    "path": "upstream/contracts/Exchange/runtime.hex",
+    "carrierSha256": "12a7ec8e8fb397aebc562e8e1bc3154a8479dcb304c7ae7b86ce9d726d5adb2b",
+    "decodedSha256": "ee856dd4cb5ef8e82c77c3bd05afc71600cc41b7ed41bb609c148dc75714c17f",
+    "bytecodeBytes": 925,
+    "provider": {
+      "id": "evmole-interface",
+      "name": "REA EVM interface adapter",
+      "version": "evmole@0.9.3"
+    },
+    "metadata": {
+      "profile": "terminal-cbor-scalars-v1",
+      "status": "decoded",
+      "bytecode_offset": 872,
+      "cbor_bytes": 51,
+      "entries": [
+        {
+          "key": {
+            "kind": "text",
+            "value": "ipfs"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "12203af6602325b7cca4d7cb807c1e44c129fb1ef1623493a643c2db789724b7284d"
+          }
+        },
+        {
+          "key": {
+            "kind": "text",
+            "value": "solc"
+          },
+          "value": {
+            "kind": "bytes",
+            "value": "000818"
+          }
+        }
+      ],
+      "compiler_version": {
+        "representation": "release-bytes",
+        "value": "0.8.24"
+      },
+      "diagnostic": null
+    },
+    "functions": [
+      {
+        "selector": "0x4f1ef286",
+        "bytecode_offset": 97,
+        "dispatch": "abi",
+        "inferred_arguments": "address,bytes",
+        "inferred_state_mutability": "payable"
+      },
+      {
+        "selector": "0x5c60da1b",
+        "bytecode_offset": 92,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      },
+      {
+        "selector": "0x8f283970",
+        "bytecode_offset": 87,
+        "dispatch": "abi",
+        "inferred_arguments": "address",
+        "inferred_state_mutability": "nonpayable"
+      },
+      {
+        "selector": "0xf851a440",
+        "bytecode_offset": 82,
+        "dispatch": "abi",
+        "inferred_arguments": "",
+        "inferred_state_mutability": "view"
+      }
+    ],
+    "discoveryCompleteness": "unknown",
+    "runtimeExecution": "not-performed"
+  }
+]

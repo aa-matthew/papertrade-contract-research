@@ -1,0 +1,218 @@
+{
+  "reaVersion": "6.5.0",
+  "nodeVersion": "v24.22.0",
+  "platform": "linux",
+  "arch": "x64",
+  "network": "disabled for analysis",
+  "artifacts": [
+    {
+      "contract": "BatchExecutor",
+      "address": "0xe0bc9cc7b067060aafccbaa3e250700c9cdd7262",
+      "path": "upstream/contracts/BatchExecutor/implementation-runtime.hex",
+      "carrierSha256": "163bfd45b41a94113138290088af8e9aeb6792548aae73e342772c4b89eccfbb",
+      "elapsedMs": 17101,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_611fd9fc8577dd59d5cca7cfacb2a2faa39fa9656631cf68919d5f8446c624e5"
+    },
+    {
+      "contract": "Exchange",
+      "address": "0x0f3febfc94876b0c895f7acecdc8f5c863b549ee",
+      "path": "upstream/contracts/Exchange/implementation-runtime.hex",
+      "carrierSha256": "d7f8f6907270f0fb096e5bd22c65190ed53aad97533a0b7e1a5253c1828c7665",
+      "elapsedMs": 17159,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_d388f7a57a762059742be2d20ae0760e6cb2cda713cc0de06169fc06e19a4f97"
+    },
+    {
+      "contract": "SessionKeyManager",
+      "address": "0x8a5069fe303e8f81e91825436e956d595032e558",
+      "path": "upstream/contracts/SessionKeyManager/implementation-runtime.hex",
+      "carrierSha256": "976c87be0f4c2cd2dce7a3ec6a65f14b4bd4f2a3ba2cdb4a3c38992782ff66b4",
+      "elapsedMs": 13441,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_cc2b4bbb21daa3103e0c9ed93c1736557780e473fca607845452e01935ef9063"
+    },
+    {
+      "contract": "PriceOracle",
+      "address": "0x3997ffc8cbd281d4fc8d0548e505ae2fbbbd985a",
+      "path": "upstream/contracts/PriceOracle/implementation-runtime.hex",
+      "carrierSha256": "c02f53c6cd9f2c8128560f79f3155a7fe90544b638312edace1d576745b4679d",
+      "elapsedMs": 13871,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_fdbc1a97399e9b1e71d02321da7a3e8cc90eea6300623e262ef703df6d31b71b"
+    },
+    {
+      "contract": "PaperToken",
+      "address": "0x433bd418ec92818a960585f4d5fae563e735bb4a",
+      "path": "upstream/contracts/PaperToken/implementation-runtime.hex",
+      "carrierSha256": "4b2d197f923b5ac35ccf7240961bb8b25a1f9fb6170a01f51d2a13ca1b2c03c2",
+      "elapsedMs": 13158,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_b11d999aac9e634e90e396902bcd4857c1484ba3540b8be7eea077a4d9d3019a"
+    },
+    {
+      "contract": "DepositProxyFactory",
+      "address": "0x8f22a73a23a2de0dbfdf6729f4d8c07dbdc69cf0",
+      "path": "upstream/contracts/DepositProxyFactory/implementation-runtime.hex",
+      "carrierSha256": "376af9adf8207feed2d81a7599b17a84ca4105cf7a28f0d1b9b2122b47e91cfb",
+      "elapsedMs": 13625,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_858c40a739e5bf59697209a976e5c4c655da27ae3741939d6888d58756b02c16"
+    },
+    {
+      "contract": "PaperStaking",
+      "address": "0xe6e3519455170913c5c3bfe541dd918a2d0cbb15",
+      "path": "upstream/contracts/PaperStaking/implementation-runtime.hex",
+      "carrierSha256": "ee82f336b36b47409f891d0d0ce253ec69d83c593ff07e9c4eab8eb4c202246a",
+      "elapsedMs": 12208,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_b350da28a994aa92d3898ea285983687fb98a4ecf17f8eebb9bd976239f9db0e"
+    },
+    {
+      "contract": "PaperTokenomics",
+      "address": "0x600d1b9653fd47fc1543d1cc87f33ba2d2fdf48f",
+      "path": "upstream/contracts/PaperTokenomics/implementation-runtime.hex",
+      "carrierSha256": "e6aee0d425a3bd2c6940f156422c8bce63c5ae155ed89c861a75b7dd9bc8be47",
+      "elapsedMs": 12282,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_cb05b96a9a3eb6229d9e2ebedba473a1341a201a3b4a87f8d99413dd126f7997"
+    },
+    {
+      "contract": "USDC",
+      "address": "0xb88339CB7199b77E23DB6E890353E22632Ba630f",
+      "path": "upstream/contracts/USDC/runtime.hex",
+      "carrierSha256": "d838a5b179819a1ffb5193c1002bc7d3bd03e351e56a3303c229747bf4dc7f60",
+      "elapsedMs": 14197,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_9d715b7ce20996b616821257716edf1504c2e9e1e6f3fd43b0a6ac6aa02dd4c2"
+    },
+    {
+      "contract": "Timelock",
+      "address": "0xB915Fa41e824D6aA31BB833Ee81220C0F2c8EA0F",
+      "path": "upstream/contracts/Timelock/runtime.hex",
+      "carrierSha256": "96b68faa1ac98b813ca049c3e48db5ebbab4bb393589229cd63207494139b224",
+      "elapsedMs": 14132,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_d0d2da0d20e8b04ebdf9d12fc0f2e140eac9a6aaab0644877db98de751431fd7"
+    },
+    {
+      "contract": "ProxyAdmin",
+      "address": "0xe79c91cc682f1bb401a9cab74c900470190f0f8f",
+      "path": "upstream/contracts/ProxyAdmin/runtime.hex",
+      "carrierSha256": "822032bea42cf76196103aef1c1509f6e8c85ae1b2d9bc3bbe13ac2fb5f6f5ec",
+      "elapsedMs": 13254,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_c7576d0b039298e7ea8d3585057bf8c52879639a3e6457af9bc8219ac211f07b"
+    },
+    {
+      "contract": "Multisig",
+      "address": "0x696292762fD5AC3677a45EdBe54EAECE4194d1F6",
+      "path": "upstream/contracts/Multisig/runtime.hex",
+      "carrierSha256": "7a940779dde453d08f28ececb34b9183405a82bdaa78bcbefbecb0a995858c53",
+      "elapsedMs": 13502,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_831c2e0bfd93d918372b0aefabb0e211973ffb4668e9efe37352cd2cd3d1c529"
+    },
+    {
+      "contract": "Dependency_e9918171",
+      "address": "0xe991817199363046da0a28da6fbad0284e4aa492",
+      "path": "upstream/contracts/Dependency_e9918171/runtime.hex",
+      "carrierSha256": "982e85d053347832349352ba9b7bc79cc939cf6f2bf8a7254531d662ed9a4bff",
+      "elapsedMs": 12709,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_9fd2e3833794f958ca1aee34db2d45201cf128835c853bb97ea1de890ff6d1d9"
+    },
+    {
+      "contract": "ExchangeLinkedLibrary",
+      "address": "0xcd617f984158a4f5d287ddee0e8eb0fed204916d",
+      "path": "upstream/contracts/ExchangeLinkedLibrary/runtime.hex",
+      "carrierSha256": "95bddf21f52471ed51670c3b402002888bdb3dde685acdbd546ed121884e217f",
+      "elapsedMs": 13083,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_b68c5eaefdb516378fbff8bc62a4741e52f386b5bfbcc947fdd25abbb171b712"
+    },
+    {
+      "contract": "CoreDepositWallet",
+      "address": "0x7537af00779cc053a696e47ebd451b5bc4790da3",
+      "path": "upstream/contracts/CoreDepositWallet/implementation-runtime.hex",
+      "carrierSha256": "6433a285e1e44cd3bdd42c60108bd2f991eb1ca85ab6dd247d7766710a26c02e",
+      "elapsedMs": 14107,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_ff5362fa0aa7dc18050119b154c5546ce7f35b5ca5b869c104e564a040b94136"
+    },
+    {
+      "contract": "USDCImplementation",
+      "address": "0x003f73f58ca78880da3642c5cb71d7459b3fe4f8",
+      "path": "upstream/contracts/USDCImplementation/runtime.hex",
+      "carrierSha256": "49b1710dd0021e877c8ee048728166bf5be5928a270db6183ffbb5d6c0acb16f",
+      "elapsedMs": 14287,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_d2180a789f56a8a0a7051f12467a27f68615400f30c42aefbc4a4b4f30fa0747"
+    },
+    {
+      "contract": "CoreWriterSystem",
+      "address": "0x3333333333333333333333333333333333333333",
+      "path": "upstream/contracts/CoreWriterSystem/runtime.hex",
+      "carrierSha256": "d3fd16827a4c6c5779f184c0f9d1eac331ec99efe16c169bd0856e2fbf8c1b6d",
+      "elapsedMs": 15793,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_ae2b62d4075a71557e0958f77a38a4e090967cf10603c8d5009a789a077e6ea2"
+    },
+    {
+      "contract": "SampleUserDepositProxy",
+      "address": "0xf77d749a8916c615ca30370b7394525efb55dcc0",
+      "path": "upstream/contracts/SampleUserDepositProxy/runtime.hex",
+      "carrierSha256": "b4f02c40d59e977576af84f47b0d4f50f3f8a96b23f160bffa64ea42c00d6b1b",
+      "elapsedMs": 15946,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_482ca90022640fe5fcc35d23903b4fe236831bda406ba7a659795b1452a1ecec"
+    },
+    {
+      "contract": "ProtocolProxy",
+      "address": "0x6cd5661646289FB6E65EA5C032310fDEd797D0a2",
+      "path": "upstream/contracts/Exchange/runtime.hex",
+      "carrierSha256": "12a7ec8e8fb397aebc562e8e1bc3154a8479dcb304c7ae7b86ce9d726d5adb2b",
+      "elapsedMs": 12116,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "evidenceId": "ev_62d288cb76f486c7e0e0d284d9e99db63fa585e099723fa61ec43eb15aec4c9d"
+    }
+  ]
+}

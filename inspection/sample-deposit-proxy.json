@@ -1,0 +1,6 @@
+{
+  "user": "0x90de7d222491aaac438f28d5bcb84dbd9bef1599",
+  "address": "0xf77d749a8916c615ca30370b7394525efb55dcc0",
+  "sourceTransaction": "0xf7aa3aec49fdaf82020656ca711deb82a5e095dab9e49aa6df6741a412f2f80c",
+  "scope": "One representative deployed per-user proxy; not an enumeration of all user instances."
+}

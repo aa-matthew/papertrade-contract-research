@@ -1,0 +1,57 @@
+<!-- Source: https://docs.papertrade.xyz/#/how/deposits -->
+<h1>Deposits: CREATE2 proxies</h1>
+<p>Deposits work by sending USDC to a personal, per-user address. Whatever arrives there is credited to you: there is no deposit call to the Exchange and nothing to approve on it. It's the same model as a CEX deposit address, built on top of entirely on-chain mechanics.</p>
+
+      <figure style="margin:22px 0">
+        <svg viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Deposit flow: wallet to Papertrade balance" style="width:100%;height:auto;display:block;background:#FAF6ED;border:1px solid #D4CBBA;border-radius:6px">
+          <defs><marker id="arDP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5F564B"/></marker></defs>
+          <rect x="80" y="20" width="280" height="60" rx="6" fill="#FAF6ED" stroke="#D4CBBA" stroke-width="1.5"/>
+          <text x="220" y="46" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#2A2520" text-anchor="middle">User wallet</text>
+          <text x="220" y="64" font-family="Inter,sans-serif" font-size="10" fill="#7A7060" text-anchor="middle" font-style="italic">MetaMask, Rabby, Frame, Rainbow…</text>
+          <line x1="220" y1="80" x2="220" y2="115" stroke="#5F564B" stroke-width="1.5" marker-end="url(#arDP)"/>
+          <text x="378" y="102" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="start">Core spot/perp USDC</text>
+          <rect x="80" y="120" width="280" height="60" rx="6" fill="rgba(45,95,58,0.06)" stroke="#2D5F3A" stroke-width="1.5"/>
+          <text x="220" y="146" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#2D5F3A" text-anchor="middle">CREATE2 proxy</text>
+          <text x="220" y="164" font-family="Inter,sans-serif" font-size="10" fill="#5F564B" text-anchor="middle" font-style="italic">your unique deterministic address</text>
+          <line x1="220" y1="180" x2="220" y2="215" stroke="#5F564B" stroke-width="1.5" marker-end="url(#arDP)"/>
+          <text x="378" y="202" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="start">sweeper detects balance</text>
+          <rect x="80" y="220" width="280" height="60" rx="6" fill="rgba(45,95,58,0.06)" stroke="#2D5F3A" stroke-width="1.5"/>
+          <text x="220" y="246" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#2D5F3A" text-anchor="middle">CoreWriter precompile</text>
+          <text x="220" y="264" font-family="ui-monospace,Menlo,monospace" font-size="10" fill="#5F564B" text-anchor="middle">sweepAllToExchange</text>
+          <line x1="220" y1="280" x2="220" y2="315" stroke="#5F564B" stroke-width="1.5" marker-end="url(#arDP)"/>
+          <text x="378" y="294" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="start">moves Core USDC</text>
+          <text x="378" y="308" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="start">→ Exchange</text>
+          <rect x="80" y="320" width="280" height="60" rx="6" fill="rgba(45,95,58,0.06)" stroke="#2D5F3A" stroke-width="1.5"/>
+          <text x="220" y="346" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#2D5F3A" text-anchor="middle">HyperCore spot</text>
+          <text x="220" y="364" font-family="Inter,sans-serif" font-size="10" fill="#5F564B" text-anchor="middle" font-style="italic">USDC lands here, swept to Exchange</text>
+          <line x1="220" y1="380" x2="220" y2="415" stroke="#5F564B" stroke-width="1.5" marker-end="url(#arDP)"/>
+          <text x="378" y="402" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="start">credit user account</text>
+          <rect x="80" y="420" width="280" height="60" rx="6" fill="rgba(139,32,32,0.06)" stroke="#8B2020" stroke-width="1.5"/>
+          <text x="220" y="446" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#8B2020" text-anchor="middle">Papertrade balance</text>
+          <text x="220" y="464" font-family="Inter,sans-serif" font-size="10" fill="#5F564B" text-anchor="middle" font-style="italic">trade-ready: ~1–3 HL blocks total</text>
+        </svg>
+      </figure>
+
+      <h2 id="per-user-address">Your own deposit address</h2>
+      <p>Every user has a unique deposit address, computed deterministically from their wallet address using CREATE2. The address can be predicted before deployment, so it can receive funds first: the relayer deploys the proxy contract once at least 10 USDC has arrived there.</p>
+      <p>The app registers this address with the relayer before it sends a deposit. Hyperliquid transfers, Circle CCTP bridge routes and Across fills from Robinhood Chain all land on the HyperCore side of that address. The guided HL EVM route first moves canonical native USDC through CoreDepositWallet; a raw ERC-20 transfer to the proxy is not monitored.</p>
+
+      <h2 id="sweeper">The sweeper picks it up</h2>
+      <p>The relayer's deposit process (the "sweeper") reacts to evidence that funds have arrived: indexed CCTP and HyperEVM deposits, HyperCore transfers into registered addresses, and address checks from the app. When a proxy holds at least 10 USDC across spot and withdrawable perp balances, it drives the Exchange sweep flow:</p>
+      <ul>
+        <li><code>requestSweep(user)</code>: records the proxy's Core balances and calls the proxy to move spot/perp USDC into the Exchange's Core account.</li>
+        <li><code>finalizeSweep(user)</code>: after the Core transfer clears, credits the user's internal Exchange balance.</li>
+      </ul>
+      <p>The proxy calls HL's <code>CoreWriter</code> precompile under the hood. Funds usually land in your Papertrade balance within a few HL blocks of arriving at your address; a first deposit also waits for its proxy to be deployed.</p>
+      <p>A sweep moves at least 10 USDC; a smaller balance waits at your address until more arrives.</p>
+      <p>Finalize credits a sweep only if the proxy's balance went down. If it didn't, because the transfer failed or another deposit arrived in the same window and hid it, finalize drops the old snapshot uncredited and requests a fresh sweep of what is there. Any funds from the dropped sweep that did reach the Exchange are then credited manually by the contract owner through <code>reconcileSweepCredit</code>. That is why the app sends one deposit at a time and waits for it to be credited before allowing another.</p>
+      <p>The sweep/finalize Exchange calls are public maintenance paths, but only the relayer can deploy proxies, to avoid public gas griefing. The protocol team operates the sweeper for normal UX latency.</p>
+
+      <h2 id="why-proxies">Why proxies, not direct deposits</h2>
+      <p>Two reasons. First: UX. A direct deposit would require you to sign two transactions (the approval and the deposit) each with gas. Proxies turn the deposit into a plain transfer to an address, which works the same whether it comes from Hyperliquid, a Circle bridge or Across.</p>
+      <p>Second: per-user isolation. Each user's proxy is a distinct address. Nobody else's balance can collide with yours, and the sweeper can reason about each user independently without global accounting. If the sweeper misbehaves for one user, the others are unaffected.</p>
+
+      <h2 id="safety">What you're trusting</h2>
+      <p>The proxy contracts are deployed from a single <code>DepositProxyFactory</code> using CREATE2 with a fixed bytecode. Anyone can derive the expected proxy address for any wallet off-chain and verify the on-chain proxy matches: the factory, the salt, and the init code hash are all public. If the bytecode ever changes, the derived address changes; your old deposit address would become an empty slot and would not silently map to different code.</p>
+      <p>The proxy's sweep function, <code>sweepAllToExchange</code>, can only be called by the Exchange contract, so nothing else can trigger Core transfers out of the proxy. ERC-20 tokens accidentally sent to the HyperEVM proxy can be recovered by the proxy owner with <code>withdrawStuckToken</code>; they are not counted as Papertrade deposits.</p>
+    

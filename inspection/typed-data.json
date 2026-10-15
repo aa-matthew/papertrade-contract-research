@@ -1,0 +1,200 @@
+[
+  {
+    "file": "typed-data-B0hqt2-N.js",
+    "start": 6,
+    "value": {
+      "RegisterSessionKey": [
+        {
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "name": "key",
+          "type": "address"
+        },
+        {
+          "name": "expiry",
+          "type": "uint64"
+        },
+        {
+          "name": "feeAddress",
+          "type": "address"
+        },
+        {
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "name": "deadline",
+          "type": "uint64"
+        }
+      ],
+      "OpenPosition": [
+        {
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "name": "instrumentId",
+          "type": "uint32"
+        },
+        {
+          "name": "isLong",
+          "type": "bool"
+        },
+        {
+          "name": "size",
+          "type": "uint128"
+        },
+        {
+          "name": "leverage",
+          "type": "uint32"
+        },
+        {
+          "name": "useDebt",
+          "type": "bool"
+        },
+        {
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "name": "deadline",
+          "type": "uint64"
+        }
+      ],
+      "Close": [
+        {
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "name": "positionIds",
+          "type": "uint256[]"
+        },
+        {
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "name": "deadline",
+          "type": "uint64"
+        }
+      ],
+      "WithdrawToCore": [
+        {
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "name": "deadline",
+          "type": "uint64"
+        }
+      ],
+      "Stake": [
+        {
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "name": "deadline",
+          "type": "uint64"
+        }
+      ],
+      "Unstake": [
+        {
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "name": "deadline",
+          "type": "uint64"
+        }
+      ],
+      "Claim": [
+        {
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "name": "deadline",
+          "type": "uint64"
+        }
+      ],
+      "Distribute": [
+        {
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "name": "deadline",
+          "type": "uint64"
+        }
+      ],
+      "CancelIntent": [
+        {
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "name": "intentId",
+          "type": "bytes32"
+        },
+        {
+          "name": "deadline",
+          "type": "uint256"
+        }
+      ]
+    }
+  },
+  {
+    "file": "typed-data-B0hqt2-N.js",
+    "start": 1326,
+    "domains": {
+      "exchange": {
+        "name": "String",
+        "version": "1"
+      },
+      "paperStaking": {
+        "name": "PaperStaking",
+        "version": "1"
+      },
+      "cancellation": {
+        "name": "PaperTrade Intent Cancel",
+        "version": "2"
+      }
+    }
+  }
+]

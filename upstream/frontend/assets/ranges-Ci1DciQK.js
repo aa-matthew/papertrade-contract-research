@@ -1,0 +1,1 @@
+import{l as e}from"./chart-history-a9lWE-hW.js";var t=[`1h`,`1d`,`1w`,`all`],n=(n,r)=>r<n?`all`:t.find(t=>t===`all`||r-n<=e[t].spanMs),r=(e,n)=>t[Math.min(t.indexOf(e),t.indexOf(n))];export{r as n,n as r,t};

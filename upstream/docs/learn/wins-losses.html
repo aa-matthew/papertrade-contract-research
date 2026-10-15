@@ -1,0 +1,49 @@
+<!-- Source: https://docs.papertrade.xyz/#/learn/wins-losses -->
+<h1>Wins and losses</h1>
+<p>What happens at close: what you keep, what the protocol takes, and what you receive on losses.</p>
+
+      <h2 id="winning">Winning closes</h2>
+      <p>Your raw gain is the price move multiplied by your position notional. Before the protocol credits the gain to your account, it applies an <strong>asymmetric impact</strong>: a smooth haircut that scales with how far price moved between entry and exit. Bigger moves keep more of the raw gain. Tiny moves are scaled the most. A <strong>2% win fee</strong> then comes off the gain that remains.</p>
+      <p>That is everything the protocol takes from your trade. Neither is a percentage fee on notional or a spread on the price you see: both scale the realised gain, and they only ever apply to gains.</p>
+
+      <figure style="margin:22px 0">
+        <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wins and losses comparison" style="width:100%;height:auto;display:block;background:#FAF6ED;border:1px solid #D4CBBA;border-radius:6px">
+          <rect x="20" y="20" width="350" height="240" rx="8" fill="rgba(45,95,58,0.04)" stroke="#2D5F3A" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="195" y="50" font-family="Inter,sans-serif" font-weight="700" fill="#2D5F3A" text-anchor="middle" letter-spacing=".05em" font-size="12">WINNING CLOSE</text>
+
+          <text x="40" y="90" font-family="Inter,sans-serif" font-size="10" fill="#7A7060">Raw gain</text>
+          <rect x="40" y="96" width="310" height="28" fill="rgba(45,95,58,0.25)" stroke="#2D5F3A" stroke-width="1.2"/>
+
+          <text x="40" y="152" font-family="Inter,sans-serif" font-size="10" fill="#7A7060">You receive</text>
+          <rect x="40" y="158" width="280" height="28" fill="rgba(45,95,58,0.25)" stroke="#2D5F3A" stroke-width="1.2"/>
+          <rect x="320" y="158" width="30" height="28" fill="rgba(122,98,53,0.45)" stroke="#7A6235" stroke-width="1.2"/>
+
+          <path d="M 320 192 L 320 198 L 350 198 L 350 192" stroke="#7A6235" stroke-width="1" fill="none"/>
+          <text x="335" y="214" font-family="Inter,sans-serif" font-size="10" fill="#7A6235" text-anchor="middle" font-style="italic">impact + fee</text>
+
+          <text x="195" y="244" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="middle">Bigger price moves keep more of the gain.</text>
+
+          <rect x="390" y="20" width="350" height="240" rx="8" fill="rgba(139,32,32,0.04)" stroke="#8B2020" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="565" y="50" font-family="Inter,sans-serif" font-weight="700" fill="#8B2020" text-anchor="middle" letter-spacing=".05em" font-size="12">LOSING CLOSE</text>
+
+          <text x="410" y="90" font-family="Inter,sans-serif" font-size="10" fill="#7A7060">Raw loss</text>
+          <rect x="410" y="96" width="310" height="28" fill="rgba(139,32,32,0.25)" stroke="#8B2020" stroke-width="1.2"/>
+
+          <text x="410" y="152" font-family="Inter,sans-serif" font-size="10" fill="#7A7060">Paid to LP</text>
+          <rect x="410" y="158" width="310" height="28" fill="rgba(139,32,32,0.25)" stroke="#8B2020" stroke-width="1.2"/>
+
+          <text x="565" y="214" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#2D5F3A" text-anchor="middle">+ you receive PAPER for the loss</text>
+
+          <text x="565" y="244" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="middle">No haircut, no extra fee.</text>
+        </svg>
+      </figure>
+
+      <h2 id="losing">Losing closes</h2>
+      <p>Your raw loss is the price move multiplied by your position notional. Nothing extra is taken from you on top of that loss. For a position opened from your available balance, when the payout queue is empty a 2% LP-side fee is carved from the LP's gain on the loss; when the queue is active, the fee is waived and the lost margin is held in <code>sideBucket</code> for queued payouts. For a position opened from your queued balance, the lost part of that queued balance is cancelled, and the 2% LP-side fee is paid from free LP cash only when the queue is empty and that cash covers both what you're owed back and the fee.</p>
+      <p>You also receive PAPER tokens for the realised loss. The amount depends on where tracked LP is on its <a href="#/learn/paper-emissions">emissions curve</a>: the lower the LP, the more PAPER you mint per dollar of eligible loss basis. Every loss counts toward tracked LP when it settles, including while the queue is active.</p>
+
+      <h2 id="asymmetric">Why it's called asymmetric</h2>
+      <p>Wins are scaled (a haircut). Losses pay the full PnL but face no scaling on top. The cost of trading lives entirely on the win side, scaled by how much you actually won.</p>
+
+      <p>For the exact mechanics see <a href="#/how/asymmetric-impact">Asymmetric impact PnL</a>.</p>
+    

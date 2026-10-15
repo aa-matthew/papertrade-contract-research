@@ -1,0 +1,79 @@
+<!-- Source: https://docs.papertrade.xyz/#/martingaler/overview -->
+<h1>Martingaler LP</h1>
+<p>How Papertrade's LP bootstraps from zero with no upfront capital. A summary of the relevant parts of the Martin Galer whitepaper.</p>
+
+      <h2 id="why">Why this mechanism</h2>
+      <p>Papertrade's LP is built on the Martingaler mechanism, designed to launch an asynchronous speculation game with no upfront LP capital and no constraints on bet size. The full whitepaper walks through the theory; this page captures the parts directly relevant to Papertrade.</p>
+      <p>Traditional onchain speculation games (SatoshiDice, Bustabit, Etheroll, EtherCrash) all needed an LP pool seeded upfront. That meant either centralised capital (with all the trust and incentive design that entails) or token rewards that complicated the protocol's economics. EtherCrash famously had its LP drained by a bad actor; Rollbit-style platforms still face the same solvency anxiety from users.</p>
+      <p>The Martingaler mechanism removes both constraints (no initial LP, no bet-size cap) by replacing instant-payout LP economics with a payout queue.</p>
+
+      <h2 id="payout-queue">The payout queue</h2>
+      <p>Instead of holding an LP that pays winners on demand, the protocol routes every winning wager through a FIFO queue. The protocol can be temporarily insolvent on aggregate, but every winner gets paid in order as soon as solvency permits.</p>
+      <p>Per-wager logic:</p>
+      <ol>
+        <li>A new wager is placed and wins.</li>
+        <li>If a queue already exists:
+          <ul>
+            <li>Add the wager to the back of the queue.</li>
+            <li>Evaluate whether the <em>front</em> of the queue can now be paid out (per the solvency ratio).</li>
+            <li>If yes, pay it out.</li>
+          </ul>
+        </li>
+        <li>If no queue exists:
+          <ul>
+            <li>Evaluate whether this wager can be paid out directly.</li>
+            <li>If yes, pay it. Otherwise, start a queue of length one with this wager.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <figure style="margin:22px 0">
+        <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Payout queue FIFO diagram" style="width:100%;height:auto;display:block;background:#FAF6ED;border:1px solid #D4CBBA;border-radius:6px">
+          <defs>
+            <marker id="arMGg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5F564B"/></marker>
+            <marker id="arMGgr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2D5F3A"/></marker>
+          </defs>
+          <text x="360" y="28" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#8B2020" text-anchor="middle" letter-spacing=".04em">PAYOUT QUEUE (FIFO)</text>
+
+          <text x="140" y="60" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#2D5F3A" text-anchor="middle">paid first</text>
+          <line x1="140" y1="68" x2="140" y2="113" stroke="#2D5F3A" stroke-width="1.5" marker-end="url(#arMGgr)"/>
+
+          <text x="620" y="60" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#5F564B" text-anchor="middle">new wagers append here</text>
+          <line x1="620" y1="68" x2="620" y2="113" stroke="#5F564B" stroke-width="1.5" marker-end="url(#arMGg)"/>
+
+          <rect x="60" y="120" width="600" height="80" rx="6" fill="rgba(139,32,32,0.06)" stroke="#8B2020" stroke-width="1.5"/>
+          <text x="78" y="138" font-family="Inter,sans-serif" font-size="9" fill="#998C76" text-anchor="start">← FRONT</text>
+          <text x="642" y="138" font-family="Inter,sans-serif" font-size="9" fill="#998C76" text-anchor="end">BACK →</text>
+          <g font-family="ui-monospace,Menlo,monospace">
+            <rect x="100" y="146" width="80" height="44" rx="4" fill="#FAF6ED" stroke="#8B2020" stroke-width="1.5"/>
+            <text x="140" y="167" font-size="12" fill="#2A2520" text-anchor="middle">w₁</text>
+            <text x="140" y="182" font-size="9" fill="#7A7060" text-anchor="middle">user A</text>
+            <rect x="195" y="146" width="80" height="44" rx="4" fill="#FAF6ED" stroke="#D4CBBA" stroke-width="1.5"/>
+            <text x="235" y="167" font-size="12" fill="#2A2520" text-anchor="middle">w₂</text>
+            <text x="235" y="182" font-size="9" fill="#7A7060" text-anchor="middle">user B</text>
+            <rect x="290" y="146" width="80" height="44" rx="4" fill="#FAF6ED" stroke="#D4CBBA" stroke-width="1.5"/>
+            <text x="330" y="167" font-size="12" fill="#2A2520" text-anchor="middle">w₃</text>
+            <text x="330" y="182" font-size="9" fill="#7A7060" text-anchor="middle">user C</text>
+            <rect x="385" y="146" width="80" height="44" rx="4" fill="#FAF6ED" stroke="#D4CBBA" stroke-width="1.5"/>
+            <text x="425" y="167" font-size="12" fill="#2A2520" text-anchor="middle">w₄</text>
+            <text x="425" y="182" font-size="9" fill="#7A7060" text-anchor="middle">user D</text>
+            <rect x="480" y="146" width="80" height="44" rx="4" fill="#FAF6ED" stroke="#D4CBBA" stroke-width="1.5"/>
+            <text x="520" y="167" font-size="12" fill="#2A2520" text-anchor="middle">w₅</text>
+            <text x="520" y="182" font-size="9" fill="#7A7060" text-anchor="middle">user E</text>
+            <text x="585" y="172" font-size="14" fill="#7A7060" text-anchor="middle">…</text>
+          </g>
+          <text x="360" y="226" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="middle">Each box is one unpaid winning wager.</text>
+          <text x="360" y="246" font-family="Inter,sans-serif" font-size="11" fill="#5F564B" text-anchor="middle">Harvest fires whenever the protocol can pay the front, draining payouts in order.</text>
+        </svg>
+      </figure>
+
+      <p>The queue absorbs variance that an LP couldn't have absorbed on its own. Multiple front-of-queue payouts can fire per new wager when solvency allows. In Papertrade's deployed accounting, margin lost on positions opened from available balance becomes free LP cash (net of the 2% fee) while the queue is empty; while the queue is active it is earmarked in <code>sideBucket</code> and harvested into queued payouts instead of freeing LP cash ahead of them.</p>
+
+      <h2 id="emissions">Why token emissions help</h2>
+      <p>Token emissions let a positive-house-edge game present as <strong>+EV</strong> for the player by remunerating realised losses with a claim on future protocol value. Early participants, who carry the most variance risk, are rewarded most.</p>
+      <p>For Papertrade, this is implemented as the <a href="#/how/mint-curve">PAPER mint curve</a>: 100 tokens per dollar of loss mint basis while tracked LP is below $2M (the flat region, including underwater), then decaying asymptotically past that point. The flat-region rate is what makes early trading attractive even before the LP becomes solvent.</p>
+
+      <h2 id="whitepaper">Whitepaper</h2>
+      <p>Full text: <a href="/martingaler-whitepaper.pdf" target="_blank" rel="noopener noreferrer">A Bootstrapping Mechanism for Sustainable Asynchronous Speculation Games of Chance</a> (Galer).</p>
+      <p>The whitepaper also covers worked examples (a fair coin flip; a 3/4-chance-to-win-4/3 game with positive house edge), a yield-bearing-collateral variant, and a queue-redemption escape valve for stuck participants. Those are out of scope for Papertrade as deployed; this page summarises only the parts that map to the live system.</p>
+    

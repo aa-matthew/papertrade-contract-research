@@ -1,0 +1,17 @@
+[
+  {
+    "type": "constructor",
+    "stateMutability": "undefined",
+    "payable": false,
+    "inputs": [
+      {
+        "type": "bytes",
+        "name": ""
+      },
+      {
+        "type": "bytes",
+        "name": ""
+      }
+    ]
+  }
+]

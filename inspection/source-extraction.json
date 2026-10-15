@@ -1,0 +1,32 @@
+[
+  {
+    "contract": "CoreDepositWallet",
+    "role": "proxy",
+    "files": 5,
+    "address": "0x6b9e773128f453f5c2c60935ee2de2cbc5390a24"
+  },
+  {
+    "contract": "CoreDepositWallet",
+    "role": "implementation",
+    "files": 34,
+    "address": "0x7537af00779cc053a696e47ebd451b5bc4790da3"
+  },
+  {
+    "contract": "CoreWriterSystem",
+    "role": "proxy",
+    "files": 3,
+    "address": "0x3333333333333333333333333333333333333333"
+  },
+  {
+    "contract": "USDC",
+    "role": "proxy",
+    "files": 6,
+    "address": "0xb88339CB7199b77E23DB6E890353E22632Ba630f"
+  },
+  {
+    "contract": "USDCImplementation",
+    "role": "proxy",
+    "files": 24,
+    "address": "0x003f73f58ca78880da3642c5cb71d7459b3fe4f8"
+  }
+]

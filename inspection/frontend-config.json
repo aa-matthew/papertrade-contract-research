@@ -1,0 +1,56 @@
+[
+  {
+    "file": "wire-d4-U_uLp.js",
+    "start": 20313,
+    "value": {
+      "environmentId": "production",
+      "chainId": 999,
+      "genesisMs": 1791326520000,
+      "network": {
+        "chainName": "HyperEVM Mainnet",
+        "rpcUrl": "https://rpc.hyperliquid.xyz/evm",
+        "explorerUrl": "https://hyperevmscan.io",
+        "infoApiUrl": "https://api.hyperliquid.xyz/info",
+        "wsApiUrl": "wss://api.hyperliquid.xyz/ws",
+        "signingEnvironment": "Mainnet"
+      },
+      "governance": {
+        "multisig": "0x696292762fd5ac3677a45edbe54eaece4194d1f6",
+        "timelock": "0xb915fa41e824d6aa31bb833ee81220c0f2c8ea0f"
+      },
+      "contracts": {
+        "exchange": "0x6cd5661646289fb6e65ea5c032310fded797d0a2",
+        "profitThresholdDivisor": "50000",
+        "paper": "0xe40f17915daa230324030003a197cdaef2261c0e",
+        "paperStaking": "0xaad6c7b0cc3014fc80ffedae0ed7ce5967b0f016",
+        "depositProxyFactory": "0x1629b7d46bef6e13ff754174fc9f32dea309b38f"
+      },
+      "funding": {
+        "ethereumRpcUrl": "https://ethereum-rpc.publicnode.com",
+        "arbitrumRpcUrl": "https://arb1.arbitrum.io/rpc",
+        "solanaRpcUrl": "https://solana-rpc.publicnode.com",
+        "robinhoodRpcUrl": "https://rpc.mainnet.chain.robinhood.com",
+        "irisApiUrl": "https://iris-api.circle.com",
+        "acrossApiUrl": "https://app.across.to/api"
+      },
+      "collateral": {
+        "address": "0x6b9e773128f453f5c2c60935ee2de2cbc5390a24",
+        "evmDecimals": 6
+      },
+      "instruments": [
+        {
+          "id": 0,
+          "name": "BTC",
+          "assetIndex": 0,
+          "priceScale": 10
+        },
+        {
+          "id": 1,
+          "name": "ETH",
+          "assetIndex": 1,
+          "priceScale": 100
+        }
+      ]
+    }
+  }
+]

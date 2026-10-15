@@ -1,0 +1,43 @@
+<!-- Source: https://docs.papertrade.xyz/#/intro/faq -->
+<h1>FAQ</h1>
+<p>Common questions about how Papertrade works, what it costs, and what's actually onchain.</p>
+
+      <h2 id="onchain">How is it onchain?</h2>
+      <p>All of Papertrade's trading logic lives entirely on the HyperEVM L1 (Hyperliquid's smart-contract layer), while USDC balances are held entirely on HyperCore (Hyperliquid's native spot ledger). The two are kept separate: the Exchange contract on HyperEVM tracks all trading state (positions, queue, per-user balances) and moves USDC through HyperCore via CoreWriter precompile actions.</p>
+      <p>For the gated trading surface, public maintenance paths, and admin-key model see <a href="#/how/risk">Risk</a>.</p>
+
+      <h2 id="how-trades-work">How do trades work?</h2>
+      <p>Trades are synthetic swaps between the user and the LP. No perpetual contracts are traded on Hyperliquid. Each trade executes at Hyperliquid's order-book mid. No funding costs and no slippage: you get the BBO mid regardless of size, subject to the per-instrument OI cap.</p>
+      <p>When you first connect, the app creates a <a href="#/learn/session-keys">session key</a> for you, which eliminates the need to confirm future trades with a wallet signature.</p>
+
+      <h2 id="oracle">How does the oracle work?</h2>
+      <p>Papertrade reads prices through <a href="#/how/pricing-bbo">Hyperliquid precompiles</a>: a free, instant, reliable oracle that any HyperEVM contract can read directly from within the L1. No off-chain feed and no price signer.</p>
+
+      <h2 id="markets">What markets are available, and what's the max leverage?</h2>
+      <p>Currently <strong>BTC</strong> and <strong>ETH</strong>, both with up to <strong>1000× leverage</strong>. A single position's notional (margin × leverage) can be up to <strong>$10M</strong>. The protocol can list any perpetual contract on Hyperliquid, including <strong>HIP-3</strong> markets. New markets are added by the contract owner.</p>
+
+      <h2 id="fees">What does it cost to trade?</h2>
+      <p>In order to maintain solvency given the trader-favoured nature of offering no slippage at BBO, everything the protocol takes from a trader comes out of a winning close:</p>
+      <ol>
+        <li>A <strong>0.2 bps jitter-protection deadband</strong>: the gain is measured as if the exit were 0.2 bps less favourable, so a win smaller than that pays nothing (see <a href="#/how/risk">Risk</a> for details).</li>
+        <li><strong><a href="#/how/asymmetric-impact">Asymmetric impact</a></strong>: a smooth haircut on the remaining gain that shrinks as the price move between entry and exit grows.</li>
+        <li>A <strong>2% win fee</strong> on the gain after impact.</li>
+      </ol>
+      <p>Losses pay nothing on top of the loss itself. Losing closes and liquidations carry a 2% fee too, but it is carved from the LP's gain, not added to your loss, and it is charged only while the payout queue is empty and the LP can cover it. Liquidating a position opened from your queued balance never carries the fee. Fees are split between stakers and the dev fee recipient (see <a href="#/paper/staking">Staking &amp; claims</a>).</p>
+
+      <h2 id="add-margin">Can I add margin to my position?</h2>
+      <p>No. Every position is a discrete slug that cannot be modified once opened. If you want more headroom on a position, close it and reopen with more margin.</p>
+
+      <h2 id="liquidations">What happens during a liquidation?</h2>
+      <p>Each position has a displayed <strong>bust price</strong>, which is deliberately set a small distance before the voluntary close path would exhaust the position's equity. Liquidation is a hard bust: crossing the displayed bust price forfeits the full isolated margin, even if a voluntary close immediately beforehand could return some equity. Once the BBO crosses that trigger, the position can be liquidated; the contract removes it and applies the full-margin liquidation accounting.</p>
+      <p>The protocol's liquidation keeper submits liquidations as soon as a position crosses its bust price.</p>
+
+      <h2 id="fair-launch">Is PAPER fairly launched?</h2>
+      <p>Yes. PAPER starts from a supply of <strong>zero</strong>. There is no pre-mint, no team allocation, no VC allocation, no airdrop, and no vesting schedule. Every token in existence has been minted to a trader who closed at a loss or got liquidated. The supply is purely community-owned by definition: the only mint path is through trading. At launch PAPER can't be transferred between wallets; staking and unstaking still work.</p>
+
+      <h2 id="lp-deposit">How can I deposit to the LP?</h2>
+      <p>You can't. The LP is made of cumulative user losses, and the PAPER token owns the future LP revenue. The only way to earn <a href="#/paper/overview">PAPER</a> is to close a losing trade, which directly adds to the LP and mints PAPER for you. If you already hold PAPER, you can stake it to start earning the staker share of protocol fees and LP surplus, paid in USDC.</p>
+
+      <h2 id="own-frontend">Can I build my own frontend?</h2>
+      <p>Yes, but trading goes through Papertrade's relayer. A third-party frontend produces the same signed intents and submits them through the relayer, which batches them onchain; the contracts don't accept opens, closes, session-key registration, proxy deployment, or staking actions from anyone else. Withdrawals still require the user's real wallet signature.</p>
+    

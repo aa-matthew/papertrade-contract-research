@@ -1,0 +1,23 @@
+<!-- Source: https://docs.papertrade.xyz/#/dev/contract-addresses -->
+<h1>Contract addresses</h1>
+<p>Papertrade's contracts on HyperEVM mainnet (chain 999).</p>
+
+      <p>Each address links to HyperEVMScan. The Papertrade contracts are proxies; the addresses below are the ones to call.</p>
+      <ul>
+        <li><strong>Exchange</strong>: balances, positions, settlement and the payout queue.<br><a href="https://hyperevmscan.io/address/0x6cd5661646289FB6E65EA5C032310fDEd797D0a2"><code>0x6cd5661646289FB6E65EA5C032310fDEd797D0a2</code></a></li>
+        <li><strong>BatchExecutor</strong>: submits batches of signed user intents to the Exchange.<br><a href="https://hyperevmscan.io/address/0x233Ff29b239abc1D7748605dA9b205C3e008626E"><code>0x233Ff29b239abc1D7748605dA9b205C3e008626E</code></a></li>
+        <li><strong>PriceOracle</strong>: reads Hyperliquid's BBO for execution prices.<br><a href="https://hyperevmscan.io/address/0xa9B4c7b7Ca5835652d81E25739c870D49F39cC2e"><code>0xa9B4c7b7Ca5835652d81E25739c870D49F39cC2e</code></a></li>
+        <li><strong>SessionKeyManager</strong>: registers, checks and revokes session keys.<br><a href="https://hyperevmscan.io/address/0x8326Eb8896e358717f10502Ec73CE8D28E37B108"><code>0x8326Eb8896e358717f10502Ec73CE8D28E37B108</code></a></li>
+        <li><strong>DepositProxyFactory</strong>: derives and deploys each user's deposit address.<br><a href="https://hyperevmscan.io/address/0x1629b7D46bef6E13FF754174FC9F32dEa309b38F"><code>0x1629b7D46bef6E13FF754174FC9F32dEa309b38F</code></a></li>
+        <li><strong>PaperToken</strong>: the PAPER token.<br><a href="https://hyperevmscan.io/address/0xe40f17915DAa230324030003A197cdAEf2261C0e"><code>0xe40f17915DAa230324030003A197cdAEf2261C0e</code></a></li>
+        <li><strong>PaperStaking</strong>: PAPER staking and USDC rewards.<br><a href="https://hyperevmscan.io/address/0xAAd6c7b0CC3014FC80FfEDAe0Ed7Ce5967b0F016"><code>0xAAd6c7b0CC3014FC80FfEDAe0Ed7Ce5967b0F016</code></a></li>
+        <li><strong>PaperTokenomics</strong>: the PAPER mint curve and staker LP excess.<br><a href="https://hyperevmscan.io/address/0x75174549dbBD44497D31a47E2E2D7406408d63D9"><code>0x75174549dbBD44497D31a47E2E2D7406408d63D9</code></a></li>
+      </ul>
+
+      <h2 id="governance">Collateral and governance</h2>
+      <ul>
+        <li><strong>USDC</strong>: the collateral token, native Circle USDC on HyperEVM.<br><a href="https://hyperevmscan.io/address/0xb88339CB7199b77E23DB6E890353E22632Ba630f"><code>0xb88339CB7199b77E23DB6E890353E22632Ba630f</code></a></li>
+        <li><strong>Timelock</strong>: owns the contracts; every owner action waits 7 days here before it can run.<br><a href="https://hyperevmscan.io/address/0xB915Fa41e824D6aA31BB833Ee81220C0F2c8EA0F"><code>0xB915Fa41e824D6aA31BB833Ee81220C0F2c8EA0F</code></a></li>
+        <li><strong>Multisig</strong>: a 2-of-3 multisig that owns the Timelock; only it can schedule, execute or cancel an owner action.<br><a href="https://hyperevmscan.io/address/0x696292762fD5AC3677a45EdBe54EAECE4194d1F6"><code>0x696292762fD5AC3677a45EdBe54EAECE4194d1F6</code></a></li>
+      </ul>
+    

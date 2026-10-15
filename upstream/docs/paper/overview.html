@@ -1,0 +1,28 @@
+<!-- Source: https://docs.papertrade.xyz/#/paper/overview -->
+<h1>$PAPER overview</h1>
+<p>$PAPER is Papertrade's native token. It captures a share of protocol revenue when staked and is minted to traders against losing closes and liquidations.</p>
+
+      <h2 id="what">What $PAPER is</h2>
+      <p>$PAPER is an ERC-20-style token with two roles. At launch it can't be transferred between wallets, but minting, staking, unstaking, and claims all work.</p>
+      <ul>
+        <li><strong>Revenue share.</strong> Staked $PAPER earns a pro-rata share of half the protocol's trading fees, plus LP surplus above the staker reward cap, paid in USDC.</li>
+        <li><strong>Loss-backed supply.</strong> $PAPER is minted to a trader when they realise an eligible loss (closing at a loss or being liquidated) as a consolation claim on future protocol value.</li>
+      </ul>
+
+      <h2 id="fair-launch">Fair launch</h2>
+      <p>$PAPER is a fair launch in the strictest sense. Supply starts at <strong>zero</strong>. No pre-mint, no team allocation, no VC allocation, no airdrop, no vesting schedule. Every token that will ever exist must be minted through the on-chain emissions curve, and the only people who can trigger a mint are traders who close at a loss or get liquidated. The supply is purely community-owned by definition: anyone who wants exposure has to participate.</p>
+
+      <h2 id="flow">How supply grows</h2>
+      <p>Supply expands purely from trading activity. The <a href="#/how/mint-curve">mint curve</a> is front-loaded: while tracked LP is below the <strong>$2M flat threshold</strong> (including underwater), every $1 of eligible loss mint basis mints <strong>100 PAPER</strong>. Above that threshold, the rate decays asymptotically as cumulative LP gain grows.</p>
+
+      <h2 id="staker-share">What stakers earn</h2>
+      <p>Two revenue streams route to staked PAPER.</p>
+      <ul>
+        <li><strong>Fee share.</strong> Half of every 2% fee: the win fee out of a winning close's gain, and the LP-side fee carved from the LP's gain on losing closes and on liquidations of positions opened from available balance. The other half goes to the dev fee recipient. Fees are paid out only while the payout queue is empty and the LP can cover them.</li>
+        <li><strong>LP excess sweep.</strong> Once tracked LP climbs above the <strong>$5M staker reward cap</strong>, every dollar of further LP gain past that point is fully distributable to stakers via the public <code>pushStakerFees()</code> call.</li>
+      </ul>
+      <p>Both streams pay out as USDC, claimable through the staking flow with a wallet signature.</p>
+
+      <h2 id="links">Contracts</h2>
+      <p>See <a href="#/dev/contract-addresses">Contract addresses</a> for the on-chain addresses of <code>PaperToken</code>, <code>PaperStaking</code>, and <code>PaperTokenomics</code>.</p>
+    

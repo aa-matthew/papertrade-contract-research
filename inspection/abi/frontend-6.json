@@ -1,0 +1,25 @@
+[
+  {
+    "type": "function",
+    "name": "isValidSignature",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [
+      {
+        "type": "bytes32",
+        "name": "hash"
+      },
+      {
+        "type": "bytes",
+        "name": "signature"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "bytes4",
+        "name": ""
+      }
+    ]
+  }
+]

@@ -1,0 +1,409 @@
+[
+  {
+    "hash": "0x6f6c80fd5052bbf85e0e55b3bbe1102a1dbf764396fe4c2d4447e150b16579ce",
+    "blockNumber": "0x2da347f",
+    "success": true,
+    "contract": null,
+    "address": null,
+    "selector": "0x60806040",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0x9a0d116efe2359aaddf686fa05d8b36f8fe502e785f20e472ff315d9713dc0fa",
+    "blockNumber": "0x2e59f20",
+    "success": true,
+    "contract": "Exchange",
+    "address": "0x6cd5661646289fb6e65ea5c032310fded797d0a2",
+    "selector": "0x6d142da1",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0xa1cce64c11078d19a9bd7df04fc9300b19bd4be5f01e72f64e635c59909b71ae",
+    "blockNumber": "0x2da3624",
+    "success": true,
+    "contract": null,
+    "address": null,
+    "selector": "0x60806040",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0xb733b1abf4f2aaaff974b46ae97563f5e66996967e9080c53023427478d63ba5",
+    "blockNumber": "0x2e59f2a",
+    "success": true,
+    "contract": "BatchExecutor",
+    "address": "0x233ff29b239abc1d7748605da9b205c3e008626e",
+    "selector": "0x251fb27d",
+    "signatureCandidate": "execute((address,bytes,bool,bytes32,bytes32)[])",
+    "arguments": [
+      [
+        [
+          "0xAAd6c7b0CC3014FC80FfEDAe0Ed7Ce5967b0F016",
+          "0x83115825000000000000000000000000a781fb0204d9c9df1868a78e0324fc283f0f719f00000000000000000000000000000000000000000000004f6acafe6d50acedc6000000000000000000000000000000000000000000000000d1e9886ddce1eb1f000000000000000000000000000000000000000000000000000000006ad0b8ec000000000000000000000000000000000000000000000000000000000000001b3a113e3ddaeddba34013d68e86ac473c91de933d516e63bd58cd22e1bfc643632e1f52d0115b66d7ab729ffa4a9e751639c2ae2b35eaf5ae94535a84c4c34851",
+          true,
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x454002348d800c6a6b8329b4ce04d273031525c9082ccbb53dd879d3c7a7e4d5"
+        ]
+      ]
+    ],
+    "batchShape": "execute((address,bytes,bool,bytes32,bytes32)[]); field names are semantic labels corroborated by bytecode and local probes",
+    "calls": [
+      {
+        "contract": "PaperStaking",
+        "address": "0xAAd6c7b0CC3014FC80FfEDAe0Ed7Ce5967b0F016",
+        "selector": "0x83115825",
+        "signatureCandidate": "stakeBySig(address,uint256,uint256,uint64,uint8,bytes32,bytes32)",
+        "arguments": [
+          "0xa781fb0204d9C9DF1868a78E0324fc283F0f719F",
+          "1464988024481828892102",
+          "15125770828939127583",
+          "1792063724",
+          "27",
+          "0x3a113e3ddaeddba34013d68e86ac473c91de933d516e63bd58cd22e1bfc64363",
+          "0x2e1f52d0115b66d7ab729ffa4a9e751639c2ae2b35eaf5ae94535a84c4c34851"
+        ],
+        "allowFailure": true,
+        "failureGroup": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "itemId": "0x454002348d800c6a6b8329b4ce04d273031525c9082ccbb53dd879d3c7a7e4d5",
+        "rawData": "0x83115825000000000000000000000000a781fb0204d9c9df1868a78e0324fc283f0f719f00000000000000000000000000000000000000000000004f6acafe6d50acedc6000000000000000000000000000000000000000000000000d1e9886ddce1eb1f000000000000000000000000000000000000000000000000000000006ad0b8ec000000000000000000000000000000000000000000000000000000000000001b3a113e3ddaeddba34013d68e86ac473c91de933d516e63bd58cd22e1bfc643632e1f52d0115b66d7ab729ffa4a9e751639c2ae2b35eaf5ae94535a84c4c34851"
+      }
+    ]
+  },
+  {
+    "hash": "0x9b66014c5dfeb4d4fe9bd45bbc681f8628edbbbd8a3a2dbe19d155ed5de63f9d",
+    "blockNumber": "0x2da3405",
+    "success": true,
+    "contract": null,
+    "address": null,
+    "selector": "0x60806040",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0xac56a54f03ee74fcdefca55f69a680f39856c5f5730fc1045fd591aa68e8a290",
+    "blockNumber": "0x2da378c",
+    "success": true,
+    "contract": "PriceOracle",
+    "address": "0xa9b4c7b7ca5835652d81e25739c870d49f39cc2e",
+    "selector": "0xf2fde38b",
+    "signatureCandidate": "transferOwnership(address)",
+    "arguments": [
+      "0xB915Fa41e824D6aA31BB833Ee81220C0F2c8EA0F"
+    ]
+  },
+  {
+    "hash": "0xe055509195f0ea1b9e30c366c3350d10470d8c1d145bfa51686b49134d36ffbe",
+    "blockNumber": "0x2da35da",
+    "success": true,
+    "contract": null,
+    "address": null,
+    "selector": "0x60806040",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0xde611d2d210694402d0270aa0c706cc221a3e18c05ce642488855822cd4266a4",
+    "blockNumber": "0x2e59920",
+    "success": true,
+    "contract": "SessionKeyManager",
+    "address": "0x8326eb8896e358717f10502ec73ce8d28e37b108",
+    "selector": "0x84f4fc6a",
+    "signatureCandidate": "revokeSessionKey(address)",
+    "arguments": [
+      "0xf6cB1C88A168CA129B916bb74b162906fef6Daa9"
+    ]
+  },
+  {
+    "hash": "0xdf3909a903c5e15a5ac770bdcb6cccef77399094b4b99f759ecd4521ed86ae7d",
+    "blockNumber": "0x2da35df",
+    "success": true,
+    "contract": null,
+    "address": null,
+    "selector": "0x60806040",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0xf7aa3aec49fdaf82020656ca711deb82a5e095dab9e49aa6df6741a412f2f80c",
+    "blockNumber": "0x2e59f06",
+    "success": true,
+    "contract": "DepositProxyFactory",
+    "address": "0x1629b7d46bef6e13ff754174fc9f32dea309b38f",
+    "selector": "0xcbd433f4",
+    "signatureCandidate": "deployProxy(address)",
+    "arguments": [
+      "0x90de7D222491AaAc438f28D5BcB84DbD9Bef1599"
+    ]
+  },
+  {
+    "hash": "0x5e75d563d789f1007d03b187dd2f646b1912aeaf2ff43ac69f9bd2a77cabed74",
+    "blockNumber": "0x2da361a",
+    "success": true,
+    "contract": null,
+    "address": null,
+    "selector": "0x60806040",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0x004b771902fe6d73a525a76330e61caed10d082731b21f283ba53a9d2b3ec7b6",
+    "blockNumber": "0x2e59945",
+    "success": false,
+    "contract": "PaperToken",
+    "address": "0xe40f17915daa230324030003a197cdaef2261c0e",
+    "selector": "0xa9059cbb",
+    "signatureCandidate": "transfer(address,uint256)",
+    "arguments": [
+      "0xf702bcFCC25E226A50d4fC7fb7d7B4bAeCFCde7F",
+      "308000000000000000000"
+    ]
+  },
+  {
+    "hash": "0xcd107566d243dc4984e0e157b5384018532e8f1b2b2495ebbc720c8e8aca955d",
+    "blockNumber": "0x2da361f",
+    "success": true,
+    "contract": null,
+    "address": null,
+    "selector": "0x60806040",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0x4391f966aa09e883317bc3970e4160e9e6971d7c6f6760c40c3635a1d1298645",
+    "blockNumber": "0x2da37d1",
+    "success": true,
+    "contract": "PaperStaking",
+    "address": "0xaad6c7b0cc3014fc80ffedae0ed7ce5967b0f016",
+    "selector": "0xf2fde38b",
+    "signatureCandidate": "transferOwnership(address)",
+    "arguments": [
+      "0xB915Fa41e824D6aA31BB833Ee81220C0F2c8EA0F"
+    ]
+  },
+  {
+    "hash": "0x8f0fcad98f87bd8a42fde8d399f470f239975b55eb26025932caf08a357c5747",
+    "blockNumber": "0x2da35e3",
+    "success": true,
+    "contract": null,
+    "address": null,
+    "selector": "0x60806040",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0x507fde69627d8ac0a1eabbb5024c226076406bf2866d4d4f9a9f474eb6403f7f",
+    "blockNumber": "0x2da3793",
+    "success": true,
+    "contract": "PaperTokenomics",
+    "address": "0x75174549dbbd44497d31a47e2e2d7406408d63d9",
+    "selector": "0xf2fde38b",
+    "signatureCandidate": "transferOwnership(address)",
+    "arguments": [
+      "0xB915Fa41e824D6aA31BB833Ee81220C0F2c8EA0F"
+    ]
+  },
+  {
+    "hash": "0x034417421c94eb64ef5fdf31815464576f16ceb06c38828f761d86187bbcf9f4",
+    "blockNumber": "0xa6d767",
+    "success": true,
+    "contract": null,
+    "address": "0xe7b84d8846c96bb83155da5537625c75e42d6e42",
+    "selector": "0xab050ff7",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0xc6fd85ec337d08e9e6caffee4b26d74b60406883661c18673b1427f4934d2e0b",
+    "blockNumber": "0x2da3788",
+    "success": true,
+    "contract": null,
+    "address": null,
+    "selector": "0x60803461",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0x7f02102d7c251058f4b0d9b440f53e28e79920807ebd7c2f16727a201c384e02",
+    "blockNumber": "0x2da3785",
+    "success": true,
+    "contract": null,
+    "address": null,
+    "selector": "0x60803462",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0xaf249b3026095cf88596606c20939e02f20d75c3d160b4353422d0d3cd5d2d61",
+    "blockNumber": "0x2e2e544",
+    "success": true,
+    "contract": "Multisig",
+    "address": "0x696292762fd5ac3677a45edbe54eaece4194d1f6",
+    "selector": "0x7b1106de",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0xe766e65a3f827ec843ac62a66c1f1b3665ccedf6ec480ac21fa39711d4a97682",
+    "blockNumber": "0x2da338b",
+    "success": true,
+    "contract": null,
+    "address": null,
+    "selector": "0x60803461",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0xd0e33b23f464c5ae6089ad86d9c2bb1cd8f627dc5eef5f756ae598225f93e145",
+    "blockNumber": "0x2da37d7",
+    "success": true,
+    "contract": "ProxyAdmin",
+    "address": "0xe79c91cc682f1bb401a9cab74c900470190f0f8f",
+    "selector": "0xf2fde38b",
+    "signatureCandidate": "transferOwnership(address)",
+    "arguments": [
+      "0xB915Fa41e824D6aA31BB833Ee81220C0F2c8EA0F"
+    ]
+  },
+  {
+    "hash": "0xc8096e690ea9b05bf9cfebdd4da09cceeee435a9590cab981da5f33adefa262e",
+    "blockNumber": "0x2da334e",
+    "success": true,
+    "contract": null,
+    "address": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
+    "selector": "0x367bd2a6",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0x8781509cdd2ba99009cd45ccded409092a066100eddd12a6dbd513d378f574ff",
+    "blockNumber": "0x2da35d5",
+    "success": true,
+    "contract": null,
+    "address": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
+    "selector": "0x367bd2a6",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0x920aa47c6b5f9939fbe7f791b96283e063b4256f6994356a2ad03bc6eac26518",
+    "blockNumber": "0x12a4fb0",
+    "success": true,
+    "contract": null,
+    "address": "0xe7b84d8846c96bb83155da5537625c75e42d6e42",
+    "selector": "0xab050ff7",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0xda0d6cdbbc31a6fd16a0f7395c69d6f6ada3ab1462734dd66845c8053ddcbd25",
+    "blockNumber": "0xa6d72a",
+    "success": true,
+    "contract": null,
+    "address": "0xe7b84d8846c96bb83155da5537625c75e42d6e42",
+    "selector": "0xab050ff7",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0x588a3fa467cb7acda1c7eb65e8147d97b645e096744669668b6fc10e3634716f",
+    "blockNumber": "0x2737d1f",
+    "success": true,
+    "contract": "USDCImplementation",
+    "address": "0x003f73f58ca78880da3642c5cb71d7459b3fe4f8",
+    "selector": "0x095ea7b3",
+    "signatureCandidate": "approve(address,uint256)",
+    "arguments": [
+      "0x69EAB63384C37D44a18401fD765E4c54DF2b4185",
+      "0"
+    ]
+  },
+  {
+    "hash": "0x687021083111ef64c865800a0d82d586d4c318db56221661689b688df490840b",
+    "blockNumber": "0x2e58800",
+    "success": true,
+    "contract": "CoreWriterSystem",
+    "address": "0x3333333333333333333333333333333333333333",
+    "selector": "0x17938e13",
+    "signatureCandidate": "sendRawAction(bytes)",
+    "arguments": [
+      "0x0100000d0000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff00000000000000000000000000000000000000000000000000000000ffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000056abe910a7c"
+    ]
+  },
+  {
+    "hash": "0xf80f9cb487d233991971c482ebae44b77daf20f8621869e6eed37b89dbfc53c4",
+    "blockNumber": "0x2e523e0",
+    "success": true,
+    "contract": "CoreWriterSystem",
+    "address": "0x3333333333333333333333333333333333333333",
+    "selector": "0x17938e13",
+    "signatureCandidate": "sendRawAction(bytes)",
+    "arguments": [
+      "0x0100000d0000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff00000000000000000000000000000000000000000000000000000000ffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002049aaf6c34"
+    ]
+  },
+  {
+    "hash": "0x55545edeba0ffeda569467ecf71ad086614b0178b61ee81704fa1cd5a0d558b0",
+    "blockNumber": "0x2e59ef7",
+    "success": true,
+    "contract": null,
+    "address": "0x00a89d7a5a02160f20150ebea7a2b5e4879a1a8b",
+    "selector": "0x573ade81",
+    "signatureCandidate": null
+  },
+  {
+    "hash": "0x99491b339d1d85d0d5bb61714db472b2aec537c0f4adb682272a9feb540703f0",
+    "blockNumber": "0x2e59ef7",
+    "success": true,
+    "contract": "BatchExecutor",
+    "address": "0x233ff29b239abc1d7748605da9b205c3e008626e",
+    "selector": "0x251fb27d",
+    "signatureCandidate": "execute((address,bytes,bool,bytes32,bytes32)[])",
+    "arguments": [
+      [
+        [
+          "0x6cd5661646289FB6E65EA5C032310fDEd797D0a2",
+          "0x2792e706000000000000000000000000e1f90fea2f9b0dbc5ee31ec98d176a7354c82f3600000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000b37f63d6000000000000000000000000000000000000000000000000000000006ad0b65b000000000000000000000000000000000000000000000000000000000000001c659f481e5aee18922b94417c9c8dffb378482918495529620bd2c265552a67d91f9bfab2cb219ac0881e79dae5cba6f55c4a8060529bca74774274fde0274c59000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000bb0d4",
+          true,
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x3334638c957b0fd44b31eabddfde9cae652649dc763d394c569fc230d54a0db4"
+        ],
+        [
+          "0x6cd5661646289FB6E65EA5C032310fDEd797D0a2",
+          "0x2792e7060000000000000000000000004dce7c58b1fbfa0ff6563ca1e95ab82eb2e470bd00000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000008561307d000000000000000000000000000000000000000000000000000000006ad0c340000000000000000000000000000000000000000000000000000000000000001b1ba9997e92daa62e5819d9b16b2424b7c0fc335fabc2f032520e2a5104df7f76788fd5e9c5c3ce07d3a4e55bd9683556c8b00d298ac5c6b5fff71a61b3043777000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000bb07e",
+          true,
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x9535507d3bacae0e44d6cc662117113d6db88960bf972deece286c2d4fdd54c5"
+        ]
+      ]
+    ],
+    "batchShape": "execute((address,bytes,bool,bytes32,bytes32)[]); field names are semantic labels corroborated by bytecode and local probes",
+    "calls": [
+      {
+        "contract": "Exchange",
+        "address": "0x6cd5661646289FB6E65EA5C032310fDEd797D0a2",
+        "selector": "0x2792e706",
+        "signatureCandidate": "closeBySig(address,uint256[],uint256,uint64,uint8,bytes32,bytes32)",
+        "arguments": [
+          "0xE1f90fea2f9b0dBc5Ee31Ec98D176A7354c82F36",
+          [
+            "766164"
+          ],
+          "3011470294",
+          "1792063067",
+          "28",
+          "0x659f481e5aee18922b94417c9c8dffb378482918495529620bd2c265552a67d9",
+          "0x1f9bfab2cb219ac0881e79dae5cba6f55c4a8060529bca74774274fde0274c59"
+        ],
+        "allowFailure": true,
+        "failureGroup": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "itemId": "0x3334638c957b0fd44b31eabddfde9cae652649dc763d394c569fc230d54a0db4",
+        "rawData": "0x2792e706000000000000000000000000e1f90fea2f9b0dbc5ee31ec98d176a7354c82f3600000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000b37f63d6000000000000000000000000000000000000000000000000000000006ad0b65b000000000000000000000000000000000000000000000000000000000000001c659f481e5aee18922b94417c9c8dffb378482918495529620bd2c265552a67d91f9bfab2cb219ac0881e79dae5cba6f55c4a8060529bca74774274fde0274c59000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000bb0d4"
+      },
+      {
+        "contract": "Exchange",
+        "address": "0x6cd5661646289FB6E65EA5C032310fDEd797D0a2",
+        "selector": "0x2792e706",
+        "signatureCandidate": "closeBySig(address,uint256[],uint256,uint64,uint8,bytes32,bytes32)",
+        "arguments": [
+          "0x4dce7C58B1FbfA0fF6563Ca1e95ab82EB2e470bd",
+          [
+            "766078"
+          ],
+          "2237739133",
+          "1792066368",
+          "27",
+          "0x1ba9997e92daa62e5819d9b16b2424b7c0fc335fabc2f032520e2a5104df7f76",
+          "0x788fd5e9c5c3ce07d3a4e55bd9683556c8b00d298ac5c6b5fff71a61b3043777"
+        ],
+        "allowFailure": true,
+        "failureGroup": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "itemId": "0x9535507d3bacae0e44d6cc662117113d6db88960bf972deece286c2d4fdd54c5",
+        "rawData": "0x2792e7060000000000000000000000004dce7c58b1fbfa0ff6563ca1e95ab82eb2e470bd00000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000008561307d000000000000000000000000000000000000000000000000000000006ad0c340000000000000000000000000000000000000000000000000000000000000001b1ba9997e92daa62e5819d9b16b2424b7c0fc335fabc2f032520e2a5104df7f76788fd5e9c5c3ce07d3a4e55bd9683556c8b00d298ac5c6b5fff71a61b3043777000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000bb07e"
+      }
+    ]
+  }
+]

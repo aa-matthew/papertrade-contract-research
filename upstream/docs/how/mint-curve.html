@@ -1,0 +1,80 @@
+<!-- Source: https://docs.papertrade.xyz/#/how/mint-curve -->
+<h1>PAPER mint curve</h1>
+<p>The flat-then-ratchet curve that turns realised loss basis into PAPER supply. Early activity mints at a constant rate while tracked LP is underwater or small; later activity mints asymptotically less.</p>
+
+      <h2 id="shape">The shape</h2>
+      <p>The curve has two regions, parametrised by four constants in <code>PaperTokenomics</code>:</p>
+      <ul>
+        <li><strong>Flat region</strong> (when <code>trackedLpUsd &lt; lpFlatThresholdUsd</code>, including negative): mint rate is the constant <code>flatRate = 100 PAPER per $1 of mint basis</code>. The mint basis is the user's eligible realised loss, not necessarily the amount credited to <code>trackedLpUsd</code>.</li>
+        <li><strong>Ratchet region</strong> (when <code>trackedLpUsd ≥ lpFlatThresholdUsd</code>): rate decays as the high-water-mark of cumulative LP gain past the threshold (<code>tailProgressUsd</code>) grows. The closed-form rate at HWM <code>H</code> is <code>flatRate · (S / (S + H))²</code> where <code>S = tailDecayScaleUsd</code>.</li>
+      </ul>
+      <p>Live defaults: <code>lpFlatThresholdUsd = $2M</code>, <code>flatRate = 100</code>, <code>tailDecayScaleUsd = $120M</code>.</p>
+
+      <figure style="margin:22px 0">
+        <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mint rate vs LP balance" style="width:100%;height:auto;display:block;background:#FAF6ED;border:1px solid #D4CBBA;border-radius:6px">
+          <rect x="50"   y="30" width="29.5" height="280" fill="rgba(139,32,32,0.06)"/>
+          <rect x="79.5" y="30" width="11.8" height="280" fill="rgba(122,98,53,0.08)"/>
+          <g stroke="rgba(42,37,32,0.10)" stroke-width="1">
+            <line x1="50" y1="55.5"  x2="670" y2="55.5"/>
+            <line x1="50" y1="119.1" x2="670" y2="119.1"/>
+            <line x1="50" y1="182.7" x2="670" y2="182.7"/>
+            <line x1="50" y1="246.4" x2="670" y2="246.4"/>
+          </g>
+          <g stroke="rgba(42,37,32,0.06)" stroke-width="1">
+            <line x1="138.6" y1="30" x2="138.6" y2="310"/>
+            <line x1="227.1" y1="30" x2="227.1" y2="310"/>
+            <line x1="374.8" y1="30" x2="374.8" y2="310"/>
+            <line x1="522.4" y1="30" x2="522.4" y2="310"/>
+            <line x1="670"   y1="30" x2="670"   y2="310"/>
+          </g>
+          <g font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#7A7060" text-anchor="end">
+            <text x="44" y="59">100</text>
+            <text x="44" y="123">75</text>
+            <text x="44" y="186">50</text>
+            <text x="44" y="250">25</text>
+            <text x="44" y="313">0</text>
+          </g>
+          <g font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#7A7060" text-anchor="middle">
+            <text x="50"    y="328">−$5M</text>
+            <text x="79.5"  y="328">$0</text>
+            <text x="138.6" y="328">$10M</text>
+            <text x="227.1" y="328">$25M</text>
+            <text x="374.8" y="328">$50M</text>
+            <text x="522.4" y="328">$75M</text>
+            <text x="670"   y="328">$100M</text>
+          </g>
+          <line x1="79.5" y1="30" x2="79.5" y2="310" stroke="#8B2020" stroke-width="1.5" stroke-dasharray="4,4"/>
+          <text x="76" y="26" font-family="Inter,sans-serif" font-size="10" fill="#8B2020" text-anchor="end">LP=$0</text>
+          <line x1="91.3" y1="30" x2="91.3" y2="310" stroke="#7A6235" stroke-width="1.5" stroke-dasharray="4,4"/>
+          <text x="95" y="26" font-family="Inter,sans-serif" font-size="10" fill="#7A6235">flat → tail ($2M)</text>
+          <text x="380" y="50" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#998C76" text-anchor="middle" letter-spacing=".05em">TAIL (asymptotic decay)</text>
+          <path d="M 50 55.5 L 91.3 55.5 L 97.2 59.7 L 109.1 67.7 L 138.6 86.3 L 168.1 102.8 L 197.6 117.6 L 256.7 142.7 L 315.7 163.2 L 374.8 180.1 L 492.9 206.2 L 670 232.9"
+                stroke="#2D5F3A" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+          <g fill="#2D5F3A">
+            <circle cx="91.3" cy="55.5" r="3.5"/>
+            <circle cx="138.6" cy="86.3" r="3.5"/>
+            <circle cx="374.8" cy="180.1" r="3.5"/>
+            <circle cx="670" cy="232.9" r="3.5"/>
+          </g>
+          <g font-family="ui-monospace,Menlo,monospace" font-size="10" fill="#2D5F3A">
+            <text x="146" y="80">88 /$</text>
+            <text x="382" y="174">51 /$</text>
+            <text x="664" y="226" text-anchor="end">30 /$</text>
+            <text x="98"  y="50">100 /$</text>
+          </g>
+          <text font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#5F564B" text-anchor="middle" transform="rotate(-90 18 170)" x="18" y="170">PAPER per $1 mint basis</text>
+          <text x="360" y="352" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#5F564B" text-anchor="middle">trackedLpUsd</text>
+        </svg>
+        <figcaption style="margin-top:8px;font:12px/1.45 Inter,sans-serif;color:#7A7060;text-align:center">
+          Marginal mint rate vs tracked LP, with defaults <code>flatRate=100</code>, <code>threshold=$2M</code>, <code>S=$120M</code>.
+          Insolvent region (tracked LP &lt; 0) and flat region both mint at the full <strong>100 PAPER/$</strong> of eligible loss basis; the tail decays as <code>100 · (S/(S+H))²</code> where <code>H = tailProgressUsd</code>.
+        </figcaption>
+      </figure>
+
+      <h2 id="ratchet">One-way ratchet (v2)</h2>
+      <p><code>tailProgressUsd</code> is a high-water-mark that never decreases: staker drains debit <code>trackedLpUsd</code> but <strong>do not</strong> reduce <code>tailProgressUsd</code>. Once the cumulative tail-region gain has advanced, the rate is permanently decayed by that amount. Concrete consequence: cumulative tail-region losses of $100M ⇒ HWM stays at $100M ⇒ the rate is now <code>100 · (120/220)² ≈ 30 PAPER/$</code> regardless of how often the LP got drained to stakers in between.</p>
+      <p><strong>Early traders mint at materially higher rates than late traders.</strong> By design.</p>
+
+      <h2 id="basis">What counts as "loss"</h2>
+      <p>For a close, the mint basis is the user's eligible realised loss after any LP-side loss-fee carve; a liquidation always mints on the full lost margin. On a USD-funded losing close while the queue is empty, the 2% loss-branch fee is carved from LP's side, so PAPER mints on <code>rawLoss − fee</code> and tracked LP advances by that same amount. On a USD-funded losing close while the queue is active, no fee is taken and the loss is earmarked in <code>sideBucket</code>; PAPER mints on the full loss and <code>trackedLpUsd</code> advances by the same amount. <code>sideBucket</code> only decides that this cash funds queued payouts first; neither harvest nor the release of any residual changes <code>trackedLpUsd</code>. Liquidations mint on the lost margin in full, regardless of queue state; tracked LP advances by that margin net of the 2% fee when one is charged. Debt-funded losing closes mint on the destroyed portion of the user's queue claim, net of the loss fee when one is charged, and tracked LP advances by the same amount. A debt-funded liquidation destroys the whole claim, charges no fee, and mints on all of it.</p>
+    

@@ -1,0 +1,104 @@
+[
+  {
+    "type": "error",
+    "name": "DNSDecodingFailed",
+    "inputs": [
+      {
+        "type": "bytes",
+        "name": "dns"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "DNSEncodingFailed",
+    "inputs": [
+      {
+        "type": "string",
+        "name": "ens"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "EmptyAddress",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "HttpError",
+    "inputs": [
+      {
+        "type": "uint16",
+        "name": "status"
+      },
+      {
+        "type": "string",
+        "name": "message"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "InvalidBatchGatewayResponse",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ResolverError",
+    "inputs": [
+      {
+        "type": "bytes",
+        "name": "errorData"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ResolverNotContract",
+    "inputs": [
+      {
+        "type": "bytes",
+        "name": "name"
+      },
+      {
+        "type": "address",
+        "name": "resolver"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ResolverNotFound",
+    "inputs": [
+      {
+        "type": "bytes",
+        "name": "name"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ReverseAddressMismatch",
+    "inputs": [
+      {
+        "type": "string",
+        "name": "primary"
+      },
+      {
+        "type": "bytes",
+        "name": "primaryAddress"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "UnsupportedResolverProfile",
+    "inputs": [
+      {
+        "type": "bytes4",
+        "name": "selector"
+      }
+    ]
+  }
+]

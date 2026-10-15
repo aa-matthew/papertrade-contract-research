@@ -1,0 +1,19 @@
+<!-- Source: https://docs.papertrade.xyz/#/learn/staking-dividends -->
+<h1>Staking Dividends</h1>
+<p>What you can do with PAPER once you have it: stake to earn USDC, with no lockup.</p>
+
+      <h2 id="stake">Staking PAPER</h2>
+      <p>Stake any amount of PAPER, any time, with a wallet signature. Stake and unstake are both <strong>instant</strong>: there is no cooldown, no lockup, no vesting. Once your PAPER is staked, every distribution pays you a pro-rata share of the protocol's USDC dividends.</p>
+
+      <h2 id="sources">Where the dividends come from</h2>
+      <p>Two sources, both paid to stakers in USDC.</p>
+      <ol>
+        <li><strong>Half of every trading fee.</strong> Winning closes pay a 2% fee out of the trader's gain; losing closes and liquidations carry a 2% fee carved from the LP's gain, not added to the trader's loss (liquidations of positions opened from queued balance carry none). Half of each fee goes to stakers and half to the dev fee recipient. Fees are paid out only while the payout queue is empty and the LP can cover them; queued winners always come first.</li>
+        <li><strong>An LP excess sweep.</strong> Once tracked LP (the protocol's running tally of LP profit and loss) grows past its <strong>$5M cap</strong>, every dollar past that point is sweepable to stakers. Below $5M, only the fee share routes to stakers; above, the surplus routes too.</li>
+      </ol>
+
+      <h2 id="claim">Claiming</h2>
+      <p>Your accrued dividends sit in the staking contract until you claim. The frontend shows your accumulated balance live; you can claim at any time with a wallet signature and the USDC moves to your trading balance.</p>
+
+      <p>For the on-chain mechanics see <a href="#/paper/staking">Staking & claims</a>.</p>
+    

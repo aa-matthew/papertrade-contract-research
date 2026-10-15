@@ -1,0 +1,32 @@
+<!-- Source: https://docs.papertrade.xyz/#/how/pricing-bbo -->
+<h1>Pricing: BBO precompile</h1>
+<p>Papertrade reads prices directly from Hyperliquid's native order book via an EVM precompile. No off-chain oracle, no pricing bot, no price signer.</p>
+
+      <h2 id="why-precompile">BBO precompile technical implementation</h2>
+      <p>A perps exchange needs a price feed for two things: executing new trades and marking open positions to compute PnL and liquidations. On most L1s this is a hard problem: you either trust a centralised oracle, run a decentralised one that's slow and expensive, or accept that a single operator can freeze the market by withholding updates.</p>
+      <p>Hyperliquid ships a way out. HyperCore (the consensus layer that runs HL's native spot and perp order books) is observable from the HyperEVM via <em>L1 read precompiles</em>: fixed-address system contracts that any EVM contract can <code>staticcall</code> to read live HyperCore state. Prices included.</p>
+      <p>We use one of them, the <strong>BBO precompile</strong> at <code>0x000000000000000000000000000000000000080e</code>. Given a HyperCore asset index (on the current chain-999 deployment, BTC = <code>0</code> and ETH = <code>1</code>), it returns the current best bid and best ask on HL's native book:</p>
+      <pre><code>(bool ok, bytes memory result) = PRECOMPILE_BBO.staticcall(abi.encode(asset));
+(uint64 bid, uint64 ask) = abi.decode(result, (uint64, uint64));</code></pre>
+      <p>Papertrade's execution price is simply the midpoint:</p>
+      <pre><code>price = (bid + ask) / 2;</code></pre>
+      <p>That's the whole pricing stack.</p>
+
+      <h2 id="trade-offs">What this gives up, and what it gives us</h2>
+      <p>The trade-off is honest: we can only list markets that already exist on HL's order book. You won't be able to trade something HL doesn't trade: no long-tail DeFi tokens or hypothetical RWAs, unless HL lists them first.</p>
+      <p>In return, we get a pricing pipeline with no off-chain component at all. The BBO precompile is consensus-verified HyperCore state, same as the balances on HL's L1 bridge. No price signer and no oracle committee. The price the exchange sees is the price HL's market makers are quoting at that block, readable by any contract, provable on-chain.</p>
+
+      <h2 id="no-breaker">No deviation breaker</h2>
+      <p>Someone can try to manipulate the HL order book for a block by widening the spread or moving the inside quote, then trade Papertrade against the distorted midpoint. That is a real protocol risk of using BBO directly.</p>
+      <p><code>PriceOracle</code> reverts if the precompile returns zero or a crossed book (<code>ask &lt; bid</code>), but it has no maximum-deviation, time-weighted-price, or lookback breaker. A non-zero, uncrossed but manipulated BBO can therefore be accepted for execution. The deadband and <a href="#/how/asymmetric-impact">asymmetric-impact curve</a> reduce some small-move payoffs, while configurable per-side OI caps limit additional exposure. They do not prove manipulation unprofitable or place a hard bound on protocol loss; see <a href="#/how/risk">Risk</a>.</p>
+
+      <h2 id="pause-opens">The one real-time lever: retiring a market</h2>
+      <p>There's exactly one admin action over pricing that runs in real time: <strong>retiring a market</strong>. The pause guardian calls <code>Exchange.pauseMarket(instrumentId)</code>, which captures the current BBO into a frozen bid/ask pair and flips the pause flag. From then on:</p>
+      <ul>
+        <li>New opens on that market revert with <code>MarketIsPaused</code>.</li>
+        <li>Closes and liquidations still succeed, but they read the frozen BBO instead of the live precompile.</li>
+      </ul>
+      <p>Retirement is permanent: nobody, including the contract owner, can unpause that instrument ID. That is deliberate, to block obscure attack vectors around reopening. If a market could come back, anyone holding a position through the pause could pick between the frozen price and the later live one, and the moment of reopening would itself become something to game. If the market does come back, it is listed again under a fresh instrument ID. The frozen price is what lets us stop a market without stranding open positions: a trader who opened before the retirement can still get out at a price that made sense at the moment the operator intervened, even if HL's book has moved wildly since. Retirement is scoped per-market, so a problem with one asset doesn't take the whole exchange down.</p>
+      <p>The same guardian can also call <code>setTradingPaused(true)</code>, which blocks new opens on every market until the contract owner lifts it, without freezing prices: closes and liquidations keep using the live BBO.</p>
+      <p>Apart from the market keeper's OI caps and trade minimums (see <a href="#/how/risk">Risk</a>), everything else admin can do (tuning fee/impact params, adding markets, swapping keepers, upgrading contracts) is owner-only.</p>
+    

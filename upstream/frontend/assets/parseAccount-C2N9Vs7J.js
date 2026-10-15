@@ -1,0 +1,1 @@
+function e(e){return typeof e==`string`?{address:e,type:`json-rpc`}:e}export{e as t};

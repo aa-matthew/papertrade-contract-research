@@ -1,0 +1,1 @@
+import{t as e}from"./useMatch-DLMNo7Rv.js";function t(t){return e({...t,select:e=>t.select?t.select(e.context):e.context})}export{t};

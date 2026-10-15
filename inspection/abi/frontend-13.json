@@ -1,0 +1,29 @@
+[
+  {
+    "type": "function",
+    "name": "findResolver",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [
+      {
+        "type": "bytes",
+        "name": ""
+      }
+    ],
+    "outputs": [
+      {
+        "type": "address",
+        "name": ""
+      },
+      {
+        "type": "bytes32",
+        "name": ""
+      },
+      {
+        "type": "uint256",
+        "name": ""
+      }
+    ]
+  }
+]
