@@ -1,4 +1,4 @@
-# Papertrade contracts: archive, logic and reverse engineering
+# Robinpaper — trading frontend, Rust backend and contract research
 
 [QA report — performance, 60 functionality tests and extreme fork scenarios](demo/docs/QA-REPORT-2026-10-16.md) includes raw results, failure recovery, the fixed historical-index limit and current demo limitations.
 
@@ -11,6 +11,32 @@ Local research copy of the deployed Papertrade protocol on HyperEVM (chain 999),
 **Our Robinhood implementation:** [standalone protocol folder](protocol/README.md) contains original Solidity contracts, local integration tests, Robinhood deployment configurations, and deployment/operations guides. It is separate from the archived Papertrade contracts and partial reconstructions.
 
 **Interactive lab:** [Robinpaper demo](demo/README.md) runs a pinned Robinhood fork, the recovered math helpers inside a functional local exchange, ten actor wallets, and a Papertrade-inspired trading UI. Start with `npm run up --prefix demo`, then open http://127.0.0.1:4173.
+
+
+## Application source and quick start
+
+| Layer | Source | Guide |
+| --- | --- | --- |
+| Frontend | `demo/public/` — HTML, JavaScript, wallet client and CSS | [Frontend README](demo/public/README.md) |
+| Public backend | `demo/backend/` — Rust Axum, SQLite WAL, Redis and SSE | [Backend README](demo/backend/README.md) |
+| Contract integration | `demo/scripts/` — private Node ABI engine, fork lifecycle, oracle and keeper | [Full-stack setup](demo/README.md) |
+| Protocol contracts | `protocol/src/` and `demo/contracts/` | [Deploy and operate](protocol/README.md) |
+| Recovered helpers / original artifacts | `reverse-engineered/`, `upstream/`, `inspection/` | [Evidence and limits](reverse-engineered/REPORT.md) |
+
+Requirements: Node.js 22+, Rust with edition 2024 support, Foundry Anvil and Redis. From repository root:
+
+```sh
+npm ci --prefix protocol
+npm run up:lan --prefix demo
+# Wait for startup/build, then inspect status and perform read-only checks.
+npm run lan:status --prefix demo
+npm run check --prefix demo
+npm run lan:feed --prefix demo -- on
+```
+
+Host UI: **http://127.0.0.1:4173/#trade**. Other computers use the printed LAN URL and its `/rpc` wallet endpoint, chain **31337**. The [demo README](demo/README.md) explains fresh-checkout archive-provider requirements, persistent state, ten wallet actors, continuous Binance prices and safe shutdown. A fresh clone does not include the host's saved ledger, private wallet exports, database or provider credentials.
+
+The code is organized by layer without a generated frontend bundle: Rust serves `demo/public/`, and a private Node engine connects it to the fork. Shared mode requires wallet signatures and blocks rehearsal rollback. Do not run mutation/benchmark suites against a participant session; use the [recorded QA report](demo/docs/QA-REPORT-2026-10-16.md) and read-only health command there.
 
 ## Reading order
 
@@ -144,6 +170,6 @@ Collection fetches official pages, explorer publication data, Sourcify records a
 
 The original protocol reuse license could not be established from unpublished sources. This workspace does not assign a new license to upstream artifacts or treat source publication as permission to relicense them.
 
-Presentation desk: [demo/docs/SHOWCASE.md](demo/docs/SHOWCASE.md) — one-click fork tour, live Binance desk, ten actors, product Q&A and restart guide.
+Presentation desk: [shared LAN guide](demo/docs/LAN.md) for persistent participant sessions; [checkpointed rehearsal tour](demo/docs/SHOWCASE.md) for a separate isolated environment.
 
 Data backend: [Rust API + SQLite WAL + Redis](demo/backend/README.md), with [QA and local latency measurements](demo/backend-verification.json).

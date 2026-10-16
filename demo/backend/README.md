@@ -1,20 +1,22 @@
 # Rust API, SQLite WAL and Redis
 
-The public UI/API on **127.0.0.1:4173** is now an Axum/Tokio service. SQLite stores durable projections and indexed managed receipts/events; Redis caches verified state snapshots. The existing Node ABI/signature/transaction engine remains private on **127.0.0.1:4174**. Every write still executes on the saved Robinhood fork through real actors. Solidity contracts, deployed addresses and runtime bytecode are unchanged by this integration.
+The public UI/API on port **4173** is an Axum/Tokio service. It binds to **0.0.0.0** in shared LAN mode and **127.0.0.1** in local rehearsal mode. SQLite stores durable projections and indexed managed receipts/events; Redis caches verified state snapshots. The existing Node ABI/signature/transaction engine remains private on **127.0.0.1:4174**. Shared participant writes are signed in their own browser wallets; host oracle/keeper operations use their assigned actors. Every write executes on the saved Robinhood fork. Solidity contracts, deployed addresses and runtime bytecode are unchanged by this integration.
 
 ## Run
 
-Requires Node.js 20.11+, Rust/Cargo, Foundry Anvil, and `redis-server` in PATH. QA uses `redis-cli` from the same Redis installation. Rust dependencies are pinned by Cargo.lock. From repository root:
+Requires Node.js 22+, Rust/Cargo supporting edition 2024, Foundry Anvil, and `redis-server` in PATH. QA uses `redis-cli` from the same Redis installation. Rust dependencies are pinned by Cargo.lock. From repository root:
 
 ```sh
 npm ci --prefix protocol
-npm run up --prefix demo
+npm run up:lan --prefix demo
+# Wait for the detached startup/build to finish.
+npm run lan:status --prefix demo
 npm run check --prefix demo
 ```
 
-Startup builds the Rust release binary with `cargo build --release --locked`, resumes Anvil state, starts owned Redis + private contract engine, then starts Rust. A warm Rust rebuild is incremental. Do not run a second Redis or another copy on these ports. `npm run down --prefix demo` stops the owned services; it waits for the showcase checkpoint to restore before stopping the fork. `REDIS_BIN` and `ANVIL_BIN` can select explicit binaries.
+Startup builds the Rust release binary with `cargo build --release --locked`, resumes Anvil state, starts owned Redis + private contract engine, then starts Rust. A warm Rust rebuild is incremental. Do not run a second Redis or another copy on these ports. `npm run down --prefix demo` stops the owned services; it saves participant state; only isolated rehearsal mode has a showcase checkpoint to restore. `REDIS_BIN` and `ANVIL_BIN` can select explicit binaries.
 
-| Component | Loopback address / file | Responsibility |
+| Component | Port / file | Responsibility |
 | --- | --- | --- |
 | Rust public API + static UI | 4173 | HTTP origin/host guards, shared state cache, writes proxy, SSE, diagnostics |
 | Private Node engine | 4174 | ABI decoding, contract reads, real transactions, signatures, showcase, checkpoint/restore |
@@ -35,7 +37,7 @@ flowchart LR
   Fork --> Source[Pinned source cache :9546]
 ```
 
-A single shared worker checks lightweight engine/head metadata every 500ms. Contract snapshots are gathered once for a new engine revision/head, not once per browser. Simultaneous readers share the same refresh. Active position/order IDs are retained and updated alongside newly created IDs; settled historical IDs are not rescanned on every block. Initial reconstruction still has bounded lab limits of 1,000 positions and 2,000 orders.
+A single shared worker checks lightweight engine/head metadata every 500ms. Contract snapshots are gathered once for a new engine revision/head, not once per browser. Simultaneous readers share the same refresh. Active position/order IDs are retained and updated alongside newly created IDs; settled historical IDs are not rescanned on every block. Cold reconstruction scans at most 250 new position IDs and 250 new order IDs per collection, and reports 503 loading with progress until catch-up completes. The former lifetime 1,000-position / 2,000-order cutoff has been removed; very large active sets still increase refresh cost.
 
 The UI receives whole consistent snapshots through SSE. An HTTP check every 5 seconds provides recovery/freshness verification; writes force an immediate HTTP reload. Form drafts and selected actors remain local to the browser. A sync failure is visible and the client rechecks verified state before a new manual transaction. HTTP state responses expose the sampled block/hash and cache diagnostics. A cache hit is not a claim that a new block was just fetched for that individual reader.
 
@@ -56,9 +58,9 @@ Managed writes use estimated gas plus **20% + 10,000 gas**. QA found that repeat
 
 ## Database schema
 
-See [schema.sql](schema.sql). `current_state` holds one verified snapshot and identity. `projection` contains current accounts, markets, active positions, pending orders and first-page claims. `transactions`/`events` hold the bounded managed executor journal with canonical status. `observations` holds the current chart window. Numeric protocol amounts are exact decimal JSON strings; chart prices are display observations.
+See [schema.sql](schema.sql). Rust HTTP/cache logic lives in [src/main.rs](src/main.rs), database projection logic in [src/store.rs](src/store.rs), and contract execution in [../scripts/server.mjs](../scripts/server.mjs). The [frontend](../public/README.md) is served directly from `demo/public/`. `current_state` holds one verified snapshot and identity. `projection` contains current accounts, markets, active positions, pending orders and first-page claims. `transactions`/`events` hold indexed managed and supported external transactions with canonical status. `observations` holds the current chart window. Numeric protocol amounts are exact decimal JSON strings; chart prices are display observations.
 
-This is a getter-based state projection plus the managed transaction journal, not a complete arbitrary-chain log backfiller. Direct external contract state changes are detected through the changed head; full external transaction history indexing is not claimed. The UI retains its first-50-claims and last-100-journal display limits. Captured showcase proofs are explicitly reverted evidence and are not inserted into canonical history after restore.
+This is a getter-based state projection plus managed and supported external receipts, not a complete arbitrary-chain log backfiller. Canonical blocks are inspected for external signed transactions involving the ten assigned actors and six lab contracts. Direct contract state changes are detected through the changed head. General arbitrary-wallet/contract history indexing is not claimed. The UI retains its first-50-claims and last-100-journal display limits. Captured showcase proofs are explicitly reverted evidence and are not inserted into canonical history after restore.
 
 Useful local queries:
 
@@ -74,11 +76,16 @@ sqlite3 demo/.runtime/app.sqlite3 'SELECT canonical,count(*) FROM transactions G
 - `GET /api/events`: SSE `state` events and keepalives.
 - `GET /api/backend`: Rust/Redis/database health, cache counters and actual engine RPC method counters.
 - `GET /api/index`: current projection counts and recent canonical managed receipts.
-- Existing ABI, wallet export, receipt, action and showcase routes remain compatible.
+- `GET /api/abi` and `GET /api/receipt/{hash}`: contract interfaces and mined receipts.
+- `POST /api/prepare`: unsigned calldata / EIP-712 payload for a connected assigned wallet.
+- `POST /rpc`: allowlisted JSON-RPC reads and signed local lab-contract broadcasts.
+- `/api/action`, wallet-key export and checkpointed showcase writes: blocked in shared mode, even on localhost.
 
-Wallet exports are proxied only; never cached in Redis or SQL. The private engine requires a per-start random bearer header. Redis has its own per-start random password in ignored owner-only `redis.local.conf`; neither credential is printed or committed. Ports bind only to 127.0.0.1. The browser retains host/origin/request-header guards and CSP. This remains an intentionally unlocked ten-wallet local lab, not a public trading service or production authentication system.
+Wallet exports are blocked in shared mode. In isolated rehearsal mode they are proxied only, never cached in Redis or SQL. The private engine requires a per-start random bearer header. Redis has its own per-start random password in ignored owner-only `redis.local.conf`; neither credential is printed or committed. Only the public Rust listener binds to all interfaces in shared mode; all private services remain on 127.0.0.1. The browser retains host/origin/request-header guards and CSP. This remains a ten-wallet development lab. The unlocked Anvil RPC is private; external participants use wallet signatures through the guarded gateway. It is not an Internet-hosted production trading service.
 
 ## QA
+
+Run `npm run check --prefix demo` for read-only health checks during a shared session. The mutation suites below belong only in a separate isolated rehearsal environment: they can interrupt services or snapshot/revert chain state. Never run them against participant activity.
 
 ```sh
 cargo test --locked --manifest-path demo/backend/Cargo.toml
@@ -91,13 +98,13 @@ npm test
 npm run check --prefix demo
 ```
 
-Run mutation suites sequentially with no active manual user/showcase. Backend tests cover actual SQLite/Redis integration, 80 concurrent readers with no additional contract calls, per-actor isolation, write visibility, controlled rollback, same-height external rollback with history reconciliation, SSE real oracle transactions, Redis interruption/reconnection, repeated quote gas, and engine outage with stale-cache rejection. Every mutation test restores its checkpoint. The protocol suite uses a separate ephemeral Anvil.
+Run mutation suites sequentially on the isolated environment with no active manual user/showcase. Backend tests cover actual SQLite/Redis integration, 80 concurrent readers with no additional contract calls, per-actor isolation, write visibility, controlled rollback, same-height external rollback with history reconciliation, SSE real oracle transactions, Redis interruption/reconnection, repeated quote gas, and engine outage with stale-cache rejection. Every mutation test restores its checkpoint. The protocol suite uses a separate ephemeral Anvil.
 
 SQLite WAL is the deliberate database for this single-machine fork. Horizontal production deployment would require additional database/indexer coordination, durable chain indexing, production wallet authorization and operational work; no PostgreSQL or distributed indexer is claimed here.
 
 ## Verified performance and handoff
 
-See [backend-verification.json](../backend-verification.json) for actual results. Warm local state API p50 was 0.73 ms / p95 1.56 ms (n=100), against a pre-change full-read p50 of 258.18 ms (n=12). Eighty concurrent requests completed in 32.15 ms; the combined warm measurement made no additional contract eth_calls and one head check. Run `npm run bench:backend --prefix demo` to reproduce on this machine; it checkpoints/restores and refuses an active showcase. These figures do not measure chain confirmation or execution delay.
+See [backend-verification.json](../backend-verification.json) for actual results. Warm local state API p50 was 0.73 ms / p95 1.56 ms (n=100), against a pre-change full-read p50 of 258.18 ms (n=12). Eighty concurrent requests completed in 32.15 ms; the combined warm measurement made no additional contract eth_calls and one head check. Run `npm run bench:backend --prefix demo` only on an isolated rehearsal fork to reproduce; it checkpoints/restores and refuses an active showcase. See the newer [extreme QA report](../docs/QA-REPORT-2026-10-16.md) for larger loads and historical-index catch-up measurements. These figures do not measure chain confirmation or execution delay.
 
 ## Shared LAN mode
 
